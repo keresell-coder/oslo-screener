@@ -1,4 +1,5 @@
 yfinance
 pandas
 numpy
-pandas_ta
+ta
+setuptools
