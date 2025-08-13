@@ -1,0 +1,2 @@
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
+KOG.OL,2025-08-13,295.55,32.94,-2.34,0.6027,343.194,-13.88,34.53,41.91,33.32,BUY-watch,2,5.0,3.0,HIGH
