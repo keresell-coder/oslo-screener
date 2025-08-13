@@ -29,10 +29,20 @@ jobs:
 
       - name: Run screener
         env:
-          YF_PAUSE: "0.40"   # litt forsiktigere i skyen
+          YF_PAUSE: "0.40"
         run: |
           python -c "import os; print('YF_PAUSE=', os.getenv('YF_PAUSE'))"
           python screener.py
+          # Skriv en kompakt oppsummering til GitHub Step Summary:
+          echo "### Daily Screener Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`latest.csv\` og ev. \`signals_only.csv\` er lastet opp som artifacts." >> $GITHUB_STEP_SUMMARY
+          if test -f signals_only.csv; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**BUY/SELL i dag (signaler, ikke watch):**" >> $GITHUB_STEP_SUMMARY
+            # Vis de første linjene for rask lesing
+            head -n 10 signals_only.csv >> $GITHUB_STEP_SUMMARY
+          fi
 
       - name: Upload results
         uses: actions/upload-artifact@v4
@@ -41,3 +51,4 @@ jobs:
           path: |
             latest.csv
             report_*.csv
+            signals_only.csv

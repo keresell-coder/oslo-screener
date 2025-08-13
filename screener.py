@@ -210,6 +210,13 @@ def run():
     sell_df       = out[out["signal"] == "SELL"]
     buy_watch_df  = out[out["signal"] == "BUY-watch"]
     sell_watch_df = out[out["signal"] == "SELL-watch"]
+    
+    # --- Signals-only (kun endelige BUY/SELL, ikke watch/neutral) ---
+    signals_only = pd.concat([buy_df, sell_df], axis=0) if not buy_df.empty or not sell_df.empty else pd.DataFrame(columns=out.columns)
+    if not signals_only.empty:
+        # Velg de viktigste kolonnene for hurtiglesing
+        cols = [c for c in ["ticker","date","close","rsi14","rsi_dir","macd_hist","sma50","pct_above_sma50","adx14","mfi14","rsi6","signal","primary_count","stop_loss_pct","position_pct","risk"] if c in signals_only.columns]
+        signals_only[cols].to_csv("signals_only.csv", index=False)
 
     if not buy_df.empty:        buy_df.to_csv("buy.csv", index=False)
     if not sell_df.empty:       sell_df.to_csv("sell.csv", index=False)
