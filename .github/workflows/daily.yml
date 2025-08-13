@@ -28,7 +28,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run screener
-        run: python screener.py
+        env:
+          YF_PAUSE: "0.40"   # litt forsiktigere i skyen
+        run: |
+          python -c "import os; print('YF_PAUSE=', os.getenv('YF_PAUSE'))"
+          python screener.py
 
       - name: Upload results
         uses: actions/upload-artifact@v4
