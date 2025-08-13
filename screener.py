@@ -1,4 +1,5 @@
 ## screener.py — versjon med 'ta' (ikke pandas_ta)
+import time, os
 import pandas as pd
 import numpy as np
 import yfinance as yf
@@ -10,10 +11,40 @@ from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
 
 TICKERS_FILE = "tickers.txt"
+# Pause mellom forespørsler til yfinance (sekunder). Juster ved behov.
+YF_PAUSE = float(os.getenv("YF_PAUSE", "0.35"))
 
 def load_tickers(path=TICKERS_FILE):
     with open(path) as f:
         return [t.strip() for t in f if t.strip()]
+def fetch_ohlc_single(ticker: str, tries: int = 3) -> pd.DataFrame | None:
+    """
+    Hent OHLCV for én ticker med noen forsøk. Returnerer None hvis mislykket.
+    """
+    last_exc = None
+    for attempt in range(1, tries + 1):
+        try:
+            df = yf.download(
+                ticker, period="9mo", interval="1d",
+                auto_adjust=True, progress=False, threads=False
+            )
+            # Flatten MultiIndex hvis nødvendig
+            if isinstance(df.columns, pd.MultiIndex):
+                lvl0 = list(df.columns.get_level_values(0))
+                lvl1 = list(df.columns.get_level_values(1))
+                if "Close" in lvl0 and len(set(lvl1)) == 1:
+                    df.columns = lvl0
+                elif "Close" in lvl1 and len(set(lvl0)) == 1:
+                    df.columns = lvl1
+            # Godta kun «brukbar» historikk
+            if df is not None and not df.empty and len(df) >= 60:
+                return df
+        except Exception as e:
+            last_exc = e
+        # Backoff-pause (litt lenger per forsøk)
+        time.sleep(YF_PAUSE * attempt)
+    # Alle forsøk feilet
+    return None
 
 def adx_band(adx_val: float):
     if pd.isna(adx_val):
@@ -55,7 +86,11 @@ def run():
 
     for t in tickers:
         try:
-            df = yf.download(t, period="9mo", interval="1d", auto_adjust=True, progress=False)
+            df = fetch_ohlc_single(t)
+            if df is None:
+                rows.append({"ticker": t, "note": "download_failed_or_insufficient_data"})
+                continue
+
             if isinstance(df.columns, pd.MultiIndex):
                 lvl0 = list(df.columns.get_level_values(0))
                 lvl1 = list(df.columns.get_level_values(1))
@@ -82,7 +117,10 @@ def run():
             adx_obj = ADXIndicator(high=high, low=low, close=close, window=14)
             adx_series = adx_obj.adx()
 
-            mfi_series = MFIIndicator(high=high, low=low, close=close, volume=vol, window=14).money_flow_index()
+            mfi_series = None
+            if vol is not None and not vol.isna().all():
+                mfi_series = MFIIndicator(high=high, low=low, close=close, volume=vol, window=14).money_flow_index()
+
 
             # --- Dagsdata ---
             c0, c1 = close.iloc[-1], close.iloc[-2]
@@ -96,7 +134,7 @@ def run():
             sma50_now = float(sma50_series.iloc[-1]) if not pd.isna(sma50_series.iloc[-1]) else np.nan
             macd_hist_now = float(macd_hist_series.iloc[-1]) if not pd.isna(macd_hist_series.iloc[-1]) else np.nan
             adx_now = float(adx_series.iloc[-1]) if not pd.isna(adx_series.iloc[-1]) else np.nan
-            mfi_now = float(mfi_series.iloc[-1]) if not pd.isna(mfi_series.iloc[-1]) else np.nan
+            mfi_now = float(mfi_series.iloc[-1]) if mfi_series is not None and not pd.isna(mfi_series.iloc[-1]) else np.nan
 
             long_gate = rsi14_now <= 35
             short_gate = rsi14_now >= 65
@@ -132,6 +170,49 @@ def run():
             rows.append({"ticker": t, "note": f"error: {e}"})
 
     out = pd.DataFrame(rows)
+
+    # Hvis signal-kolonne mangler (f.eks. bare note-rader), sett NEUTRAL
+    if "signal" not in out.columns:
+        out["signal"] = "NEUTRAL"
+
+    # Sortering: prioriter signal, deretter laveste RSI14
+    signal_order = {"BUY": 0, "SELL": 1, "BUY-watch": 2, "SELL-watch": 3, "NEUTRAL": 4}
+    out["signal_rank"] = out["signal"].map(signal_order).fillna(9)
+    if "rsi14" in out.columns:
+        out.sort_values(["signal_rank", "rsi14"], ascending=[True, True], inplace=True)
+    else:
+        out.sort_values(["signal_rank"], ascending=[True], inplace=True)
+    out.drop(columns=["signal_rank"], inplace=True)
+
+    # --- Executive Summary + delte lister ---
+    counts = out["signal"].value_counts(dropna=False).to_dict()
+    buy_df        = out[out["signal"] == "BUY"]
+    sell_df       = out[out["signal"] == "SELL"]
+    buy_watch_df  = out[out["signal"] == "BUY-watch"]
+    sell_watch_df = out[out["signal"] == "SELL-watch"]
+
+    # Lag egne CSV-er (kun hvis ikke tomme)
+    if not buy_df.empty:        buy_df.to_csv("buy.csv", index=False)
+    if not sell_df.empty:       sell_df.to_csv("sell.csv", index=False)
+    if not buy_watch_df.empty:  buy_watch_df.to_csv("watch_buy.csv", index=False)
+    if not sell_watch_df.empty: sell_watch_df.to_csv("watch_sell.csv", index=False)
+
+    # Skriv kort oppsummering
+    def _c(d, k): return int(d.get(k, 0))
+    print(
+        f"Summary — BUY:{_c(counts,'BUY')}  SELL:{_c(counts,'SELL')}  "
+        f"BUY-watch:{_c(counts,'BUY-watch')}  SELL-watch:{_c(counts,'SELL-watch')}  "
+        f"NEUTRAL:{_c(counts,'NEUTRAL')}"
+    )
+
+    # Skriv hovedfiler
+    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
+    outname = f"report_{stamp}.csv"
+    out.to_csv(outname, index=False)
+    out.to_csv("latest.csv", index=False)
+    print(f"Wrote {outname} and latest.csv with {len(out)} rows")
+
+
     signal_order = {"BUY": 0, "SELL": 1, "BUY-watch": 2, "SELL-watch": 3, "NEUTRAL": 4}
     out["signal_rank"] = out["signal"].map(signal_order).fillna(9)
     out.sort_values(["signal_rank", "rsi14"], ascending=[True, True], inplace=True)

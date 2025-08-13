@@ -1,0 +1,2 @@
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
+NHY.OL,2025-08-12,64.94,67.77,5.22,0.017,59.4148,9.3,32.96,78.21,72.91,SELL-watch,1,5.0,1.5,HIGH
