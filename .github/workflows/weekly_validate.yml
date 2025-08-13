@@ -1,0 +1,46 @@
+name: Weekly Ticker Validation
+
+on:
+  schedule:
+    # Kjør mandag 05:20 UTC (≈ 07:20 CET / 06:20 CEST)
+    - cron: "20 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run validator
+        env:
+          YF_PAUSE: "0.40"
+        run: |
+          echo "YF_PAUSE=$(echo $YF_PAUSE)"
+          python validate_tickers.py
+          # Skriv et kort sammendrag i jobbloggen:
+          echo "### Weekly ticker validation finished" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`valid_tickers.txt\` og \`invalid_tickers.csv\` lastes opp som artifacts." >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload validation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-validation
+          path: |
+            valid_tickers.txt
+            invalid_tickers.csv
