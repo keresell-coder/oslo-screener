@@ -1,0 +1,35 @@
+# --- Signalterskler ---
+rsi14_buy_max: 35        # BUY-kandidat: RSI14 <= 35
+rsi14_sell_min: 65       # SELL-kandidat: RSI14 >= 65
+
+# Daglig retningsfilter (må snu samme dag)
+require_day_up_for_buy: true     # BUY krever Close > forrige Close
+require_day_down_for_sell: true  # SELL krever Close < forrige Close
+
+# Trend-/momentum-støtte (minst én av disse må støtte)
+use_sma50_support: true          # Pris >SMA50 for BUY, <SMA50 for SELL teller som støtte
+use_macd_hist_support: true      # MACD-hist >0 for BUY, <0 for SELL teller som støtte
+
+# ADX-bånd for risikomodul
+adx_low_max: 20           # <20 = LOW
+adx_moderate_max: 30      # 20–30 = MODERATE; >30 = HIGH
+
+# Stop-loss (prosent) per ADX-bånd
+stop_loss_low: 1.75
+stop_loss_moderate: 3.0
+stop_loss_high: 5.0
+
+# Posisjonsstørrelse (prosent av portefølje)
+position_high_conviction: 5.0    # 3/3 primærsignaler + ADX >= 25
+position_moderate: 3.0           # 2/3 primærsignaler
+position_low: 1.5                # 1/3 primærsignaler
+
+# Andre justeringer
+min_history_days: 60
+rsi6_length: 6
+sma50_length: 50
+macd_fast: 12
+macd_slow: 26
+macd_signal: 9
+adx_length: 14
+mfi_length: 14
