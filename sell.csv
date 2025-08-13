@@ -1,0 +1,2 @@
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
+HAVI.OL,2025-08-13,1.695,66.17,-0.6,0.0214,1.4354,18.09,48.34,68.21,67.61,SELL,2.0,5.0,3.0,HIGH,

@@ -1,0 +1,2 @@
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
+AMSC.OL,2025-08-13,1.466,20.98,1.08,0.0575,1.4945,-1.91,59.27,32.59,41.34,BUY,3.0,5.0,5.0,HIGH,

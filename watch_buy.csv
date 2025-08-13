@@ -1,2 +1,6 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-KOG.OL,2025-08-13,295.55,32.94,-2.34,0.6027,343.194,-13.88,34.53,41.91,33.32,BUY-watch,2,5.0,3.0,HIGH
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
+SOGN.OL,2025-08-12,261.0,32.21,-1.65,-1.6077,281.93,-7.42,18.22,10.91,21.58,BUY-watch,1.0,1.75,1.5,LOW,
+KOG.OL,2025-08-13,295.55,32.94,-2.34,0.6027,343.194,-13.88,34.53,41.91,33.32,BUY-watch,2.0,5.0,3.0,HIGH,
+EMGS.OL,2025-08-13,1.6,33.19,-20.77,-0.0155,1.904,-15.97,22.37,10.17,18.8,BUY-watch,1.0,3.0,1.5,MODERATE,
+NONG.OL,2025-08-13,141.8,33.68,-0.78,-0.9067,148.0904,-4.25,12.54,33.3,20.03,BUY-watch,1.0,1.75,1.5,LOW,
+HYPRO.OL,2025-08-13,2.95,34.16,-3.41,-0.0571,3.5997,-18.05,16.76,21.53,23.81,BUY-watch,1.0,1.75,1.5,LOW,

@@ -6,6 +6,8 @@ import os, time
 import pandas as pd
 import yfinance as yf
 
+MIN_DAYS = int(os.getenv("MIN_HISTORY_DAYS", "1"))
+
 YF_PAUSE = float(os.getenv("YF_PAUSE", "0.35"))
 
 def normalize(t):
@@ -32,7 +34,7 @@ def check_ticker(t: str, tries: int = 3) -> tuple[bool, str]:
         try:
             df = yf.download(t, period="9mo", interval="1d", auto_adjust=True, progress=False, threads=False)
             df = flatten(df)
-            if df is not None and not df.empty and len(df) >= 60 and set(["Close","High","Low"]).issubset(df.columns):
+            if df is not None and not df.empty and len(df) >= MIN_DAYS and set(["Close","High","Low"]).issubset(df.columns):
                 return True, "ok"
             last_err = f"insufficient_data_or_columns ({len(df) if df is not None else 0})"
         except Exception as e:
