@@ -38,21 +38,28 @@ jobs:
         run: python scripts/post_to_openai.py
 
       # --- NYTT: commit & push til repo ---
-      - name: Commit exec_summary.md to repo (dated, Europe/Oslo)
+      - name: Commit daily files to repo (dated + latest), Europe/Oslo
         env:
           TZ: Europe/Oslo
         run: |
           set -e
           mkdir -p summaries
           OSLO_DATE=$(date +%Y-%m-%d)
-          OUT="summaries/exec_summary_${OSLO_DATE}.md"
-          cp exec_summary.md "$OUT"
+
+          # Daterte kopier (historikk)
+          cp exec_summary.md "summaries/exec_summary_${OSLO_DATE}.md"
+
+          # Faste "latest"-filer (for ChatGPT)
+          cp exec_summary.md exec_summary.md
+          cp latest.csv latest.csv
+
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --ff-only
-          git add "$OUT"
-          git commit -m "summary: ${OSLO_DATE} [skip ci]" || echo "No changes"
+          git add "summaries/exec_summary_${OSLO_DATE}.md" exec_summary.md latest.csv
+          git commit -m "daily: exec_summary + latest.csv (${OSLO_DATE}) [skip ci]" || echo "No changes"
           git push origin HEAD:main
+
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
