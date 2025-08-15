@@ -5,17 +5,20 @@ on:
     - cron: "15 6 * * 1-5"   # ~08:15 Europe/Oslo
 
 permissions:
-  contents: write   # ← nødvendig for git push fra workflow
+  contents: write  # nødvendig for å pushe til repo
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          fetch-depth: 0            # vi trenger hele historikken for trygg push
+          persist-credentials: true # bruk GITHUB_TOKEN for push
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
@@ -34,20 +37,22 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python scripts/post_to_openai.py
 
-      # === B: commit sammendraget til repo, datostemplet i Europe/Oslo ===
-      - name: Commit exec_summary.md to repo
+      # --- NYTT: commit & push til repo ---
+      - name: Commit exec_summary.md to repo (dated, Europe/Oslo)
         env:
           TZ: Europe/Oslo
         run: |
           set -e
           mkdir -p summaries
           OSLO_DATE=$(date +%Y-%m-%d)
-          cp exec_summary.md "summaries/exec_summary_${OSLO_DATE}.md"
-          git config user.name "github-actions[bot]"
+          OUT="summaries/exec_summary_${OSLO_DATE}.md"
+          cp exec_summary.md "$OUT"
+          git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "summaries/exec_summary_${OSLO_DATE}.md"
+          git pull --ff-only
+          git add "$OUT"
           git commit -m "summary: ${OSLO_DATE} [skip ci]" || echo "No changes"
-          git push
+          git push origin HEAD:main
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
