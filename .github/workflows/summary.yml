@@ -1,14 +1,19 @@
 name: Screener + Exec Summary
 on:
-  workflow_dispatch:        # manuell kjøring fra Actions
+  workflow_dispatch:
   schedule:
-    - cron: "15 6 * * 1-5"  # hverdager ca. 08:15 Europe/Oslo (≈06:15 UTC)
+    - cron: "15 6 * * 1-5"   # ~08:15 Europe/Oslo
+
+permissions:
+  contents: write   # ← nødvendig for git push fra workflow
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - uses: actions/setup-python@v5
         with:
@@ -29,6 +34,21 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python scripts/post_to_openai.py
 
+      # === B: commit sammendraget til repo, datostemplet i Europe/Oslo ===
+      - name: Commit exec_summary.md to repo
+        env:
+          TZ: Europe/Oslo
+        run: |
+          set -e
+          mkdir -p summaries
+          OSLO_DATE=$(date +%Y-%m-%d)
+          cp exec_summary.md "summaries/exec_summary_${OSLO_DATE}.md"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "summaries/exec_summary_${OSLO_DATE}.md"
+          git commit -m "summary: ${OSLO_DATE} [skip ci]" || echo "No changes"
+          git push
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -36,3 +56,4 @@ jobs:
           path: |
             latest.csv
             exec_summary.md
+            summaries/exec_summary_*.md
