@@ -45,20 +45,19 @@ jobs:
           set -e
           mkdir -p summaries
           OSLO_DATE=$(date +%Y-%m-%d)
+          OUT="summaries/exec_summary_${OSLO_DATE}.md"
 
-          # Daterte kopier (historikk)
-          cp exec_summary.md "summaries/exec_summary_${OSLO_DATE}.md"
+          # Lag datostemplet kopi (historikk)
+          cp exec_summary.md "$OUT"
 
-          # Faste "latest"-filer (for ChatGPT)
-          cp exec_summary.md exec_summary.md
-          cp latest.csv latest.csv
-
+          # Commit «latest»-filene som allerede finnes
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --ff-only
-          git add "summaries/exec_summary_${OSLO_DATE}.md" exec_summary.md latest.csv
+          git add "$OUT" exec_summary.md latest.csv
           git commit -m "daily: exec_summary + latest.csv (${OSLO_DATE}) [skip ci]" || echo "No changes"
           git push origin HEAD:main
+
 
 
       - name: Upload artifacts
