@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Screener (conda:oslo)",
+      "type": "shell",
+      "command": "source ~/miniforge3/bin/activate && conda activate oslo && export YF_PAUSE=0.6 && python screener.py",
+      "problemMatcher": []
+    }
+  ]
+}

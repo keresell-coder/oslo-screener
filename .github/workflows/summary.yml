@@ -1,0 +1,38 @@
+name: Screener + Exec Summary
+on:
+  workflow_dispatch:        # manuell kjøring fra Actions
+  schedule:
+    - cron: "15 6 * * 1-5"  # hverdager ca. 08:15 Europe/Oslo (≈06:15 UTC)
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip wheel
+          pip install -r requirements.txt openai
+
+      - name: Run screener
+        env:
+          YF_PAUSE: "0.40"
+        run: python screener.py
+
+      - name: Post to OpenAI → exec_summary.md
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python scripts/post_to_openai.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: screener-and-summary
+          path: |
+            latest.csv
+            exec_summary.md

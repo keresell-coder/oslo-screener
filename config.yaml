@@ -25,7 +25,7 @@ position_moderate: 3.0           # 2/3 primærsignaler
 position_low: 1.5                # 1/3 primærsignaler
 
 # Andre justeringer
-min_history_days: 60
+min_history_days: 30
 rsi6_length: 6
 sma50_length: 50
 macd_fast: 12
