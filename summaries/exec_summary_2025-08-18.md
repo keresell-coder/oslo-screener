@@ -1,32 +1,31 @@
-```markdown
-## Oppsummering
+## Oppsummering for Oslo Børs
 
-### Antall per klasse
+### 1. Antall per klasse
 - **BUY**: 3
-- **SELL**: 40
-- **NEUTRAL**: 20
-- **BUY-watch**: 3
-- **SELL-watch**: 15
-- **NaN**: 2
+- **SELL**: 42
+- **BUY-watch**: 2
+- **SELL-watch**: 14
+- **NEUTRAL**: 37
 
-### Topp 3 BUY og Topp 3 SELL (etter intern conviction)
-**BUY:**
-1. AMSC.OL
-2. EQNR.OL
-3. (Ingen andre tilgjengelige)
+### 2. Topp 3 BUY og topp 3 SELL etter intern conviction
+**Topp 3 BUY:**
+1. **AMSC.OL** - *BUY-watch*
+2. **EQNR.OL** - *BUY-watch*
+3. **Ingen flere tilgjengelige BUY*
 
-**SELL:**
-1. KOA.OL
-2. GJF.OL
-3. TEL.OL
+**Topp 3 SELL:**
+1. **KOA.OL** - *SELL*
+2. **BWLPG.OL** - *SELL-watch*
+3. **BRG.OL** - *SELL-watch*
 
-### Watch-triggere (nær terskler)
-1. AMSC.OL (på grensen til BUY)
-2. EQNR.OL (pålitelige indikatorer på terskler)
-3. GJF.OL (forventet avvik fra SMA)
+### 3. 3–5 Watch-triggere (nær terskler)
+1. **NOD.OL** - 169.1 (nær støtte)
+2. **KOG.OL** - 303.6 (nær motstand)
+3. **GJF.OL** - 289.0 (nær motstand)
+4. **TEL.OL** - 166.1 (nær støtte)
+5. **AMSC.OL** - 1.46 (nær motstand)
 
-### Kort market color
-1. Generelt negativ sentiment dominerer med flere SELL-anbefalinger.
-2. Lav volatilitet blant flere aksjer, indikert av ADX.
-3. Flere aksjer nærmer seg kritiske terskler for mulig kjøp.
-```
+### 4. Kort market color
+- Generelt negativ stemning på markedet med mange SELL-anbefalinger.
+- Enkelte aksjer nærmer seg tekniske motstandsnivåer.
+- En del aksjer med volatilitet, noe som kan indikere usikkerhet.
