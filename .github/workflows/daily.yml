@@ -8,8 +8,6 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-permissions:
   contents: write
 
 jobs:
@@ -26,15 +24,32 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip wheel
           pip install -r requirements.txt
 
       - name: Run screener
         env:
           YF_PAUSE: "0.40"
         run: |
-          python -c "import os; print('YF_PAUSE=', os.getenv('YF_PAUSE'))"
+          python - << 'PY'
+          import os; print("YF_PAUSE=", os.getenv("YF_PAUSE"))
+          PY
           python screener.py
+
+      # ⬇️ NYTT STEG: bygg v2.3.1-rapporten (leser latest.csv og skriver summaries/daily_v231_*.md)
+      - name: Build v2.3.1 report
+        run: |
+          python scripts/build_v231_report.py
+
+      # ⬇️ OPPDATERT: ta med summaries/*.md i commit
+      - name: Commit latest.csv and report to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latest.csv summaries/*.md report_*.csv || true
+          git commit -m "daily: latest.csv + v2.3.1 report [skip ci]" || echo "No changes to commit"
+          git push origin HEAD:main
+
       - name: Commit latest.csv to main
         run: |
           git config user.name "github-actions[bot]"
