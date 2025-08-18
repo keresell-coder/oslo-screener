@@ -1,31 +1,41 @@
-## Oppsummering for Oslo Børs
+# Oslo Børs Screener Oppsummering (DD.MM.2025)
 
 ### 1. Antall per klasse
 - **BUY**: 3
-- **SELL**: 42
-- **BUY-watch**: 2
-- **SELL-watch**: 14
-- **NEUTRAL**: 37
+- **SELL**: 37
+- **NEUTRAL**: 27
+- **WATCH**: 8
 
-### 2. Topp 3 BUY og topp 3 SELL etter intern conviction
-**Topp 3 BUY:**
-1. **AMSC.OL** - *BUY-watch*
-2. **EQNR.OL** - *BUY-watch*
-3. **Ingen flere tilgjengelige BUY*
+### 2. Topp 3 BUY og Topp 3 SELL (etter intern conviction)
+#### Topp 3 BUY:
+1. **AMSC.OL**  
+   - RSI: 21.36  
+   - MACD: 0.0457  
+   - ADX: 58.27
+2. **EQNR.OL**  
+   - RSI: 33.11  
+   - MACD: -1.576  
+   - ADX: 14.04
+3. **(Ingen flere BUY tilgjengelig)**
 
-**Topp 3 SELL:**
-1. **KOA.OL** - *SELL*
-2. **BWLPG.OL** - *SELL-watch*
-3. **BRG.OL** - *SELL-watch*
+#### Topp 3 SELL:
+1. **KOA.OL**  
+   - RSI: 67.2  
+   - MACD: 0.0303  
+   - ADX: 24.88
+2. **GJF.OL**  
+   - RSI: 70.33  
+   - MACD: 0.3147  
+   - ADX: 36.76
+3. **(Ingen flere SELL tilgjengelig)**
 
-### 3. 3–5 Watch-triggere (nær terskler)
-1. **NOD.OL** - 169.1 (nær støtte)
-2. **KOG.OL** - 303.6 (nær motstand)
-3. **GJF.OL** - 289.0 (nær motstand)
-4. **TEL.OL** - 166.1 (nær støtte)
-5. **AMSC.OL** - 1.46 (nær motstand)
+### 3. Watch-triggere (nær terskler)
+1. **AMSC.OL** - Nær potensielt kjøp
+2. **EQNR.OL** - Nær potensielt kjøp
+3. **AKVA.OL** - Nær maks terskel
+4. **BWLPG.OL** - Nær potensielt salg
 
-### 4. Kort market color
-- Generelt negativ stemning på markedet med mange SELL-anbefalinger.
-- Enkelte aksjer nærmer seg tekniske motstandsnivåer.
-- En del aksjer med volatilitet, noe som kan indikere usikkerhet.
+### 4. Kort Market Color
+- Den generelle trenden på Oslo Børs indikerer en overvekt på salg. 
+- Flere aksjer viser indikatorer nær grenseverdier, noe som kan tyde på potensielle kjøpskorreksjoner. 
+- Det er høy volatilitet i markedet, med færre aksjer som oppnår sterke kjøpssignaler.
