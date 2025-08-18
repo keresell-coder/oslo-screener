@@ -36,10 +36,26 @@ jobs:
           PY
           python screener.py
 
-      # ⬇️ NYTT STEG: bygg v2.3.1-rapporten (leser latest.csv og skriver summaries/daily_v231_*.md)
+      # ⬇️ NYTT: bygg v2.3.1-rapporten (leser latest.csv, skriver summaries/daily_v231_*.md)
       - name: Build v2.3.1 report
         run: |
           python scripts/build_v231_report.py
+
+      # (Valgfritt) behold exec summary (OpenAI) – hvis du ønsker å slå den AV:
+      # legg til linjen under inni det steget:   if: ${{ false }}
+      - name: Post to OpenAI → exec_summary.md
+        run: |
+          python scripts/post_to_openai.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Commit latest.csv and reports to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latest.csv summaries/*.md report_*.csv exec_summary.md || true
+          git commit -m "daily: latest.csv + v2.3.1 report + exec summary [skip ci]" || echo "No changes to commit"
+          git push origin HEAD:main
 
       # ⬇️ OPPDATERT: ta med summaries/*.md i commit
       - name: Commit latest.csv and report to main

@@ -147,6 +147,8 @@ notes = []
 
 # Hent bare for kandidater i RSI-sonene (mye raskere og mer stabilt)
 candidates = df[(df["rsi14"] <= 35) | (df["rsi14"] >= 65)]["ticker"].dropna().unique().tolist()
+# Hent kun for kandidater i RSI-sonene (raskere og mer stabilt)
+candidates = df[(df["rsi14"] <= 35) | (df["rsi14"] >= 65)]["ticker"].dropna().unique().tolist()
 prev_map = {}
 for t in candidates:
     p, dclose = fetch_prev_close(t, csv_last.isoformat())
