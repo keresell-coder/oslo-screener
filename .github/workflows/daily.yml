@@ -2,7 +2,7 @@ name: Daily Oslo Screener
 
 on:
   schedule:
-    - cron: "15 6 * * 1-5"   # kjører 06:15 UTC ~ 08:15 Europe/Oslo hverdager
+    - cron: "15 6 * * 1-5"   # 06:15 UTC ~ 08:15 Oslo, hverdager
   workflow_dispatch:         # gjør at du kan kjøre manuelt
 
 permissions:
@@ -34,21 +34,19 @@ jobs:
           PY
           python screener.py
 
-      # ⬇️ Kritisk: bygger v2.3.1-rapporten (leser latest.csv, skriver summaries/daily_v231_*.md)
+      # ⬇️ Kritisk: bygg v2.3.1-rapporten (leser latest.csv, skriver summaries/daily_v231_*.md)
       - name: Build v2.3.1 report
         run: python scripts/build_v231_report.py
 
-      # Valgfritt OpenAI-eksamensoppsummering. La stå av nå for enkelhet:
+      # Exec summary AV (helt slått av):
+      # (Fjern hele blokken under hvis du vil slette den for alltid)
       - name: Post to OpenAI → exec_summary.md
-        if: ${{ false }}                      # sett til true for å aktivere
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python scripts/post_to_openai.py
+        if: ${{ false }}
 
       - name: Commit latest.csv and reports to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latest.csv summaries/*.md report_*.csv exec_summary.md || true
+          git add latest.csv summaries/*.md report_*.csv || true
           git commit -m "daily: latest.csv + v2.3.1 report [skip ci]" || echo "No changes to commit"
           git push origin HEAD:main
