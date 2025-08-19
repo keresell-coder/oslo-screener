@@ -383,3 +383,7 @@ md.append("_Event/Fundamentale flagg_: pending nyhets- og fundamentals-API.\n")
 
 out_path.write_text("\n".join(md), encoding="utf-8")
 print(f"Wrote {out_path}")
+# ... etter out_path.write_text("\n".join(md), encoding="utf-8")
+latest_md = OUT_DIR / "latest_v231.md"
+latest_md.write_text((OUT_DIR / out_name).read_text(encoding="utf-8"), encoding="utf-8")
+print(f"Wrote {out_path} and {latest_md}")
