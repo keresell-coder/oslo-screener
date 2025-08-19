@@ -1,40 +1,40 @@
-### 1. Oppsummer antall per klasse
+```markdown
+## 1. Oppsummering av Antall per Klasse
 - **BUY**: 5
-- **SELL**: 24
-- **WATCH**: 10
-- **NEUTRAL**: 49
-- **Manglende data**: 2
+- **SELL**: 20
+- **BUY-watch**: 6
+- **SELL-watch**: 16
+- **NEUTRAL**: 38
+- **Mangler data**: 2
 
----
+## 2. Topp 3 BUY og Topp 3 SELL
+### Topp 3 BUY
+1. **Ticker:** PCIB.OL
+   - *Intern conviction*: BUY-watch
+2. **Ticker:** AMSC.OL
+   - *Intern conviction*: BUY-watch
+3. **Ticker:** MULTI.OL
+   - *Intern conviction*: BUY-watch
 
-### 2. Topp 3 BUY og topp 3 SELL etter intern conviction
+### Topp 3 SELL
+1. **Ticker:** WWI.OL
+   - *Intern conviction*: SELL
+2. **Ticker:** GJF.OL
+   - *Intern conviction*: SELL
+3. **Ticker:** NOD.OL
+   - *Intern conviction*: SELL
+   
+**Felt med manglende data/NaN**: Ingen
 
-#### Topp 3 BUY
-1. **PCIB.OL** (konviksjon: BUY-watch)
-2. **AMSC.OL** (konviksjon: BUY-watch)
-3. **MULTI.OL** (konviksjon: BUY-watch)
+## 3. Watch-Triggere (nær terskler)
+1. **Ticker:** SOAG.OL - Nær salgstreshold
+2. **Ticker:** SUBC.OL - Nær salgstreshold
+3. **Ticker:** AKVA.OL - Nær salgstreshold
+4. **Ticker:** NORCO.OL - Nær salgstreshold
+5. **Ticker:** ODFB.OL - Nær salgstreshold
 
-*Ingen NaN-felt.*
-
-#### Topp 3 SELL
-1. **GJF.OL** (konviksjon: SELL)
-2. **NOD.OL** (konviksjon: SELL)
-3. **STB.OL** (konviksjon: SELL)
-
-*Ingen NaN-felt.*
-
----
-
-### 3. 3–5 watch-triggere (nær terskler)
-1. **PCIB.OL** - Ligger under terskel for BUY (0.41, WATCH).
-2. **AMSC.OL** - Ligger under terskel for BUY (1.46, WATCH).
-3. **MULTI.OL** - Ligger under terskel for BUY (183.0, WATCH).
-4. **SOAG.OL** - Ligger under terskel for SELL-watch (444.95, SELL-watch).
-5. **WWIB.OL** - Ligger under terskel for SELL-watch (472.5, SELL-watch).
-
----
-
-### 4. Kort market color
-- Generelt bearish stemning med mange aksjer i SELL-kategorien.
-- WATCH aksjer viser potensial for fremtidige bevegelser, spesielt PCIB.OL.
-- Lav ADX i flere aksjer antyder lav volatilitet; avventende marked.
+## 4. Kort Market Color
+- Generelt bearish marked med et overvekt av SELL-signaler.
+- Flere aksjer nær ved å bryte ned gjennom støttelinjer.
+- Lav ADX tyder på ustabilitet i trender.
+```
