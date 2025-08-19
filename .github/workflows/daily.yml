@@ -1,9 +1,9 @@
-name: Daily Oslo Screener
+name: Daily Screener (v2.3.1)
 
 on:
   schedule:
-    - cron: "15 6 * * 1-5"   # 06:15 UTC ~ 08:15 Oslo, hverdager
-  workflow_dispatch:         # gjør at du kan kjøre manuelt
+    - cron: "15 6 * * 1-5"   # ca. 08:15 Oslo (06:15 UTC), justér ved behov
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,20 +28,25 @@ jobs:
       - name: Run screener
         env:
           YF_PAUSE: "0.40"
-        run: |
-          python - << 'PY'
-          import os; print("YF_PAUSE=", os.getenv("YF_PAUSE"))
-          PY
-          python screener.py
+        run: python screener.py
 
-      # ⬇️ Kritisk: bygg v2.3.1-rapporten (leser latest.csv, skriver summaries/daily_v231_*.md)
       - name: Build v2.3.1 report
         run: python scripts/build_v231_report.py
 
       - name: Commit latest.csv and reports to main
         run: |
+          set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add latest.csv summaries/*.md report_*.csv || true
           git commit -m "daily: latest.csv + v2.3.1 report [skip ci]" || echo "No changes to commit"
           git push origin HEAD:main
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: screener-and-summary
+          path: |
+            latest.csv
+            summaries/*.md
+            report_*.csv
