@@ -38,11 +38,6 @@ jobs:
       - name: Build v2.3.1 report
         run: python scripts/build_v231_report.py
 
-      # Exec summary AV (helt slått av):
-      # (Fjern hele blokken under hvis du vil slette den for alltid)
-      - name: Post to OpenAI → exec_summary.md
-        if: ${{ false }}
-
       - name: Commit latest.csv and reports to main
         run: |
           git config user.name "github-actions[bot]"
