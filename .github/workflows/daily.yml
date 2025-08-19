@@ -2,10 +2,8 @@ name: Daily Oslo Screener
 
 on:
   schedule:
-    # GitHub Actions bruker UTC (ikke lokal tid). 06:10 UTC = 08:10 CEST om sommeren,
-    # og 07:10 CET om vinteren.
-    - cron: "10 6 * * 1-5"
-  workflow_dispatch:
+    - cron: "15 6 * * 1-5"   # kjører 06:15 UTC ~ 08:15 Europe/Oslo hverdager
+  workflow_dispatch:         # gjør at du kan kjøre manuelt
 
 permissions:
   contents: write
@@ -36,60 +34,21 @@ jobs:
           PY
           python screener.py
 
-      # ⬇️ NYTT: bygg v2.3.1-rapporten (leser latest.csv, skriver summaries/daily_v231_*.md)
+      # ⬇️ Kritisk: bygger v2.3.1-rapporten (leser latest.csv, skriver summaries/daily_v231_*.md)
       - name: Build v2.3.1 report
-        run: |
-          python scripts/build_v231_report.py
+        run: python scripts/build_v231_report.py
 
-      # (Valgfritt) behold exec summary (OpenAI) – hvis du ønsker å slå den AV:
-      # legg til linjen under inni det steget:   if: ${{ false }}
+      # Valgfritt OpenAI-eksamensoppsummering. La stå av nå for enkelhet:
       - name: Post to OpenAI → exec_summary.md
-        run: |
-          python scripts/post_to_openai.py
+        if: ${{ false }}                      # sett til true for å aktivere
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python scripts/post_to_openai.py
 
       - name: Commit latest.csv and reports to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add latest.csv summaries/*.md report_*.csv exec_summary.md || true
-          git commit -m "daily: latest.csv + v2.3.1 report + exec summary [skip ci]" || echo "No changes to commit"
-          git push origin HEAD:main
-
-      # ⬇️ OPPDATERT: ta med summaries/*.md i commit
-      - name: Commit latest.csv and report to main
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latest.csv summaries/*.md report_*.csv || true
           git commit -m "daily: latest.csv + v2.3.1 report [skip ci]" || echo "No changes to commit"
           git push origin HEAD:main
-
-      - name: Commit latest.csv to main
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latest.csv report_*.csv || true
-          git commit -m "Update latest.csv [skip ci]" || echo "No changes to commit"
-          git push origin HEAD:main
-
-          # Skriv en kompakt oppsummering til GitHub Step Summary:
-          echo "### Daily Screener Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "\`latest.csv\` og ev. \`signals_only.csv\` er lastet opp som artifacts." >> $GITHUB_STEP_SUMMARY
-          if test -f signals_only.csv; then
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "**BUY/SELL i dag (signaler, ikke watch):**" >> $GITHUB_STEP_SUMMARY
-            # Vis de første linjene for rask lesing
-            head -n 10 signals_only.csv >> $GITHUB_STEP_SUMMARY
-          fi
-
-      - name: Upload results
-        uses: actions/upload-artifact@v4
-        with:
-          name: oslo-screener-report
-          path: |
-            latest.csv
-            report_*.csv
-            signals_only.csv
