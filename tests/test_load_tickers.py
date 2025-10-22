@@ -16,23 +16,13 @@ def reload_screener():
     return importlib.reload(screener)
 
 
-def test_load_tickers_prefers_valid(tmp_path, monkeypatch):
+def test_load_tickers_reads_valid_list(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     (tmp_path / "valid_tickers.txt").write_text("AAA.OL\nBBB.OL\n")
-    (tmp_path / "tickers.txt").write_text("OLD.OL\n")
 
     screener = reload_screener()
 
     assert screener.load_tickers() == ["AAA.OL", "BBB.OL"]
-
-
-def test_load_tickers_falls_back_to_default(tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
-    (tmp_path / "tickers.txt").write_text("ONLY.OL\n")
-
-    screener = reload_screener()
-
-    assert screener.load_tickers() == ["ONLY.OL"]
 
 
 def test_load_tickers_raises_when_missing(tmp_path, monkeypatch):
@@ -41,4 +31,14 @@ def test_load_tickers_raises_when_missing(tmp_path, monkeypatch):
     screener = reload_screener()
 
     with pytest.raises(FileNotFoundError):
+        screener.load_tickers()
+
+
+def test_load_tickers_raises_when_empty(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "valid_tickers.txt").write_text("\n")
+
+    screener = reload_screener()
+
+    with pytest.raises(ValueError):
         screener.load_tickers()
