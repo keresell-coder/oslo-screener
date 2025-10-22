@@ -44,6 +44,14 @@ class LastOseTradingDayTests(unittest.TestCase):
         naive_date = dt.date(2025, 8, 20)
         self.assertEqual(last_ose_trading_day(naive_date), dt.date(2025, 8, 20))
 
+    def test_naive_datetime_before_cutoff_rolls_back(self):
+        naive_dt = dt.datetime(2025, 8, 19, 8, 45)
+        self.assertEqual(last_ose_trading_day(naive_dt), dt.date(2025, 8, 18))
+
+    def test_naive_datetime_after_cutoff_stays_same_day(self):
+        naive_dt = dt.datetime(2025, 8, 19, 9, 30)
+        self.assertEqual(last_ose_trading_day(naive_dt), dt.date(2025, 8, 19))
+
 
 if __name__ == "__main__":
     unittest.main()
