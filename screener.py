@@ -13,7 +13,7 @@ from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
 
-TICKERS_FILE = "tickers.txt"
+VALID_TICKERS_FILE = os.getenv("VALID_TICKERS_FILE", "valid_tickers.txt")
 YF_PAUSE = float(os.getenv("YF_PAUSE", "0.35"))  # kan endres i Actions
 
 # ---------- Konfig ----------
@@ -40,9 +40,22 @@ def load_config(path: str = "config.yaml") -> dict:
     return defaults
 
 # ---------- Hjelp ----------
-def load_tickers(path=TICKERS_FILE):
+def _read_tickers_from_file(path: str) -> list[str]:
     with open(path) as f:
         return [t.strip() for t in f if t.strip()]
+
+
+def load_tickers(path: str = VALID_TICKERS_FILE) -> list[str]:
+    """Return tickers from the validated list used by the screener."""
+
+    if not path:
+        raise FileNotFoundError("No validated tickers file configured")
+
+    tickers = _read_tickers_from_file(path)
+    if not tickers:
+        raise ValueError(f"Validated tickers file '{path}' is empty")
+
+    return tickers
 
 def flatten(df: pd.DataFrame) -> pd.DataFrame:
     if isinstance(df.columns, pd.MultiIndex):
