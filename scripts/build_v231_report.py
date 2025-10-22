@@ -28,15 +28,36 @@ CSV_PATH = "latest.csv"
 OUT_DIR  = pl.Path("summaries")
 OUT_DIR.mkdir(exist_ok=True)
 
-# ---------- Hjelp: siste OSE-handelsdag (forenklet: hopper over helg) ----------
-def last_ose_trading_day(today: dt.date | None = None) -> dt.date:
+# ---------- Hjelp: siste OSE-handelsdag (tidlig morgen = rull til gårsdag) ----------
+def last_ose_trading_day(today: dt.date | dt.datetime | None = None) -> dt.date:
     tz = ZoneInfo("Europe/Oslo")
+
     if today is None:
-        today = dt.datetime.now(tz).date()
-    d = today
+        now = dt.datetime.now(tz)
+    elif isinstance(today, dt.datetime):
+        # Normaliser til Oslo-tid
+        if today.tzinfo is None:
+            now = today.replace(tzinfo=tz)
+        else:
+            now = today.astimezone(tz)
+    else:
+        now = dt.datetime.combine(today, dt.time.min, tzinfo=tz)
+
+    d = now.date()
+
     # Lørdag/søndag -> rull tilbake
     while d.weekday() >= 5:
         d -= dt.timedelta(days=1)
+
+    # Dersom vi er en ukedag før sluttkurser normalt foreligger (~09:15),
+    # betrakt gårsdagen som siste handelsdag. Sikrer at morgenkjøringen
+    # aksepterer latest.csv med gårsdagens dato.
+    cutoff = dt.time(hour=9, minute=15)
+    if now.date() == d and now.time() < cutoff:
+        d -= dt.timedelta(days=1)
+        while d.weekday() >= 5:
+            d -= dt.timedelta(days=1)
+
     return d
 # (Du kan senere legge til norsk helligdagsfil og hoppe over disse også.)
 
