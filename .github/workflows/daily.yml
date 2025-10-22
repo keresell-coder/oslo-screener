@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   run:
@@ -50,3 +52,39 @@ jobs:
             latest.csv
             summaries/*.md
             report_*.csv
+
+      - name: Prepare site content
+        run: |
+          mkdir -p site
+          cp latest.csv site/latest.csv
+          cat <<'HTML' > site/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8" />
+            <title>Oslo Screener latest.csv</title>
+          </head>
+          <body>
+            <main>
+              <h1>Oslo Screener Reports</h1>
+              <p><a href="latest.csv">Download the freshest latest.csv report</a>.</p>
+            </main>
+          </body>
+          </html>
+          HTML
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: run
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

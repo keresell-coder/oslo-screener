@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -36,6 +36,23 @@ jobs:
           echo "### Weekly ticker validation finished" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "\`valid_tickers.txt\` og \`invalid_tickers.csv\` lastes opp som artifacts." >> $GITHUB_STEP_SUMMARY
+
+      - name: Commit validated tickers
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          set -e
+          git add valid_tickers.txt invalid_tickers.csv
+          if git diff --cached --quiet; then
+            echo "No ticker changes to commit"
+            exit 0
+          fi
+
+          git commit -m "weekly: oppdater validerte tickers [skip ci]"
+          git push origin HEAD:main
 
       - name: Upload validation artifacts
         uses: actions/upload-artifact@v4
