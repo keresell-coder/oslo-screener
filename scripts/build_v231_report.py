@@ -35,13 +35,14 @@ def last_ose_trading_day(today: dt.date | dt.datetime | None = None) -> dt.date:
     if today is None:
         now = dt.datetime.now(tz)
     elif isinstance(today, dt.datetime):
-        # Normaliser til Oslo-tid
         if today.tzinfo is None:
             now = today.replace(tzinfo=tz)
         else:
             now = today.astimezone(tz)
     else:
-        now = dt.datetime.combine(today, dt.time.min, tzinfo=tz)
+        # Tolker rene datoer som midt på dagen for å unngå at de
+        # vurderes som «før børsen åpner» i cutoff-sjekken under.
+        now = dt.datetime.combine(today, dt.time(hour=12), tzinfo=tz)
 
     d = now.date()
 
@@ -50,8 +51,7 @@ def last_ose_trading_day(today: dt.date | dt.datetime | None = None) -> dt.date:
         d -= dt.timedelta(days=1)
 
     # Dersom vi er en ukedag før sluttkurser normalt foreligger (~09:15),
-    # betrakt gårsdagen som siste handelsdag. Sikrer at morgenkjøringen
-    # aksepterer latest.csv med gårsdagens dato.
+    # betrakt gårsdagen som siste handelsdag.
     cutoff = dt.time(hour=9, minute=15)
     if now.date() == d and now.time() < cutoff:
         d -= dt.timedelta(days=1)
