@@ -13,7 +13,8 @@ from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
 
-TICKERS_FILE = "tickers.txt"
+TICKERS_FILE = os.getenv("TICKERS_FILE", "tickers.txt")
+VALID_TICKERS_FILE = os.getenv("VALID_TICKERS_FILE", "valid_tickers.txt")
 YF_PAUSE = float(os.getenv("YF_PAUSE", "0.35"))  # kan endres i Actions
 
 # ---------- Konfig ----------
@@ -40,9 +41,39 @@ def load_config(path: str = "config.yaml") -> dict:
     return defaults
 
 # ---------- Hjelp ----------
-def load_tickers(path=TICKERS_FILE):
+def _read_tickers_from_file(path: str) -> list[str]:
     with open(path) as f:
         return [t.strip() for t in f if t.strip()]
+
+
+def load_tickers(path: str = TICKERS_FILE, validated_path: str = VALID_TICKERS_FILE):
+    """Return tickers prioritising the validated list when available.
+
+    The weekly validation job produces ``valid_tickers.txt``. When that file is
+    present and non-empty we should prefer it so that the screener always runs on
+    the latest validated ticker universe. If the validated file is missing or
+    empty we gracefully fall back to ``tickers.txt`` which is the manually
+    maintained list.
+    """
+
+    candidates: list[str] = []
+    if validated_path:
+        candidates.append(validated_path)
+    if path and path not in candidates:
+        candidates.append(path)
+
+    for candidate in candidates:
+        try:
+            tickers = _read_tickers_from_file(candidate)
+        except FileNotFoundError:
+            continue
+
+        if tickers:
+            return tickers
+
+    raise FileNotFoundError(
+        f"Could not load tickers from any candidate file: {', '.join(candidates)}"
+    )
 
 def flatten(df: pd.DataFrame) -> pd.DataFrame:
     if isinstance(df.columns, pd.MultiIndex):
