@@ -1,8 +1,24 @@
+import ast
 import datetime as dt
 import unittest
+from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from scripts.build_v231_report import last_ose_trading_day
+
+def load_last_ose_trading_day():
+    path = Path("scripts/build_v231_report.py")
+    module_ast = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    func_node = next(
+        node for node in module_ast.body
+        if isinstance(node, ast.FunctionDef) and node.name == "last_ose_trading_day"
+    )
+    module_ns = {"dt": dt, "ZoneInfo": ZoneInfo}
+    code = compile(ast.Module(body=[func_node], type_ignores=[]), str(path), "exec")
+    exec(code, module_ns)
+    return module_ns["last_ose_trading_day"]
+
+
+last_ose_trading_day = load_last_ose_trading_day()
 
 
 class LastOseTradingDayTests(unittest.TestCase):
