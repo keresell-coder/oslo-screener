@@ -1,2 +1,2 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
-AMSC.OL,2025-08-15,1.466,21.88,1.2,0.0495,1.4912,-1.69,58.67,21.69,45.38,BUY,3.0,5.0,5.0,HIGH,
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
+EMGS.OL,2025-12-04,0.258,22.95,0.98,0.0323,0.7925,-67.44,64.19,41.58,30.73,BUY,3,5.0,5.0,HIGH

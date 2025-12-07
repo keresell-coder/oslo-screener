@@ -1,2 +1,5 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
-GJF.OL,2025-08-15,285.0,65.9,-0.46,0.0889,267.352,6.6,35.54,53.85,70.33,SELL,2.0,5.0,3.0,HIGH,
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
+HSHP.OL,2025-12-04,98.8,74.72,-6.62,1.4601,83.1947,18.76,36.45,85.99,77.85,SELL,2,5.0,3.0,HIGH
+HUNT.OL,2025-12-04,1.986,75.57,-0.51,0.0511,1.3318,49.12,52.81,88.87,74.87,SELL,2,5.0,3.0,HIGH
+SPIR.OL,2025-12-04,8.42,75.81,-0.63,0.2377,6.972,20.77,36.62,68.55,84.99,SELL,2,5.0,3.0,HIGH
+OLT.OL,2025-12-05,333.0,78.35,-2.35,-1.1671,290.9,14.47,59.18,81.53,69.89,SELL,3,5.0,5.0,HIGH
