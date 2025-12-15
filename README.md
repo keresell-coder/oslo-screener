@@ -59,5 +59,11 @@ Hvis GitHub/IDE-suggestede patches ikke kan brukes direkte, kan du hente inn com
    git merge apply-work
    ```
 
+   Du kan gjøre det samme med ett steg ved å kjøre hjelpeskriptet (brukes når «Apply» feiler):
+
+   ```bash
+   ./scripts/apply_work.sh
+   ```
+
 5. **Verifiser**
    Kjør testene eller skriptene som normalt (for eksempel `pytest` eller `python scripts/build_v231_report.py --help`) for å bekrefte at endringene fungerer.
