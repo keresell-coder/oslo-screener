@@ -134,6 +134,7 @@ def run():
     cfg = load_config()
     tickers = load_tickers()
     rows = []
+    fetch_started_at = datetime.now(timezone.utc)
 
     for t in tickers:
         try:
@@ -206,6 +207,7 @@ def run():
             rows.append({"ticker": t, "note": f"error: {e}"})
 
     out = pd.DataFrame(rows)
+    fetch_completed_at = datetime.now(timezone.utc)
 
     if "signal" not in out.columns:
         out["signal"] = "NEUTRAL"
@@ -243,10 +245,26 @@ def run():
         f"NEUTRAL:{_c(counts,'NEUTRAL')}"
     )
 
-    stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%MZ")
+    generated_at = datetime.now(timezone.utc)
+    stamp = generated_at.strftime("%Y-%m-%dT%H%MZ")
     outname = f"report_{stamp}.csv"
-    out.to_csv(outname, index=False)
-    out.to_csv("latest.csv", index=False)
+
+    def _iso(dt: datetime) -> str:
+        return dt.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+
+    def write_csv_with_metadata(df: pd.DataFrame, path: str, report_label: str):
+        metadata = (
+            f"# oslo-screener report={report_label} "
+            f"data_fetch_started={_iso(fetch_started_at)} "
+            f"data_fetch_completed={_iso(fetch_completed_at)} "
+            f"generated_at={_iso(generated_at)}"
+        )
+        with open(path, "w", newline="") as f:
+            f.write(metadata + "\n")
+            df.to_csv(f, index=False, line_terminator="\n")
+
+    write_csv_with_metadata(out, outname, outname)
+    write_csv_with_metadata(out, "latest.csv", "latest.csv")
     print(f"Wrote {outname} and latest.csv with {len(out)} rows")
 
 if __name__ == "__main__":

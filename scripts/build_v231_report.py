@@ -196,7 +196,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def load_csv(csv_path: pl.Path) -> pd.DataFrame:
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, comment="#")
     if df.empty:
         raise ValueError("CSV-filen er tom")
     df.columns = [c.strip().lower() for c in df.columns]
