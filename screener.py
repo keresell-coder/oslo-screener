@@ -261,7 +261,7 @@ def run():
         )
         with open(path, "w", newline="") as f:
             f.write(metadata + "\n")
-            df.to_csv(f, index=False, line_terminator="\n")
+            df.to_csv(f, index=False, lineterminator="\n")
 
     write_csv_with_metadata(out, outname, outname)
     write_csv_with_metadata(out, "latest.csv", "latest.csv")
