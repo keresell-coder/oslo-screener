@@ -259,8 +259,10 @@ def run():
             f"data_fetch_completed={_iso(fetch_completed_at)} "
             f"generated_at={_iso(generated_at)}"
         )
+        columns_hint = "# columns=" + ",".join(df.columns)
         with open(path, "w", newline="") as f:
             f.write(metadata + "\n")
+            f.write(columns_hint + "\n")  # comment line ChatGPT can read without breaking CSV parsing
             df.to_csv(f, index=False, lineterminator="\n")
 
     write_csv_with_metadata(out, outname, outname)

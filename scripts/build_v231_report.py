@@ -30,6 +30,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.github_latest import ensure_latest_csv
+from scripts.io_latest import load_latest_df
 
 
 DEFAULT_CSV_PATH = pl.Path("latest.csv")
@@ -196,7 +197,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def load_csv(csv_path: pl.Path) -> pd.DataFrame:
-    df = pd.read_csv(csv_path, comment="#")
+    df = load_latest_df(csv_path)
     if df.empty:
         raise ValueError("CSV-filen er tom")
     df.columns = [c.strip().lower() for c in df.columns]
