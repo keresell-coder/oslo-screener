@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2025-12-19T06:47:40Z data_fetch_completed=2025-12-19T06:48:11Z generated_at=2025-12-19T06:48:11Z
+# oslo-screener report=report_2025-12-19T0648Z.csv data_fetch_started=2025-12-19T06:47:40Z data_fetch_completed=2025-12-19T06:48:11Z generated_at=2025-12-19T06:48:11Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 EMGS.OL,2025-12-18,0.275,31.43,2.36,0.0289,0.5893,-53.34,34.52,72.68,56.67,BUY,3,5.0,5.0,HIGH
