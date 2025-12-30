@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2025-12-30T06:49:08Z data_fetch_completed=2025-12-30T06:49:30Z generated_at=2025-12-30T06:49:30Z
+# oslo-screener report=report_2025-12-30T0649Z.csv data_fetch_started=2025-12-30T06:49:08Z data_fetch_completed=2025-12-30T06:49:30Z generated_at=2025-12-30T06:49:30Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 HAVI.OL,2025-12-29,0.8,19.28,2.75,-0.0218,1.1298,-29.19,52.7,14.99,15.02,BUY,2,5.0,3.0,HIGH
