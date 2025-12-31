@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2025-12-31T06:49:35Z data_fetch_completed=2025-12-31T06:50:10Z generated_at=2025-12-31T06:50:10Z
+# oslo-screener report=report_2025-12-31T0650Z.csv data_fetch_started=2025-12-31T06:49:35Z data_fetch_completed=2025-12-31T06:50:10Z generated_at=2025-12-31T06:50:10Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
 ENTRA.OL,2025-12-30,115.6,65.89,-1.29,0.6057,112.45,2.8,23.55,63.73,81.65,SELL,2.0,3.0,3.0,MODERATE,
