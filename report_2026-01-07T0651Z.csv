@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-01-07T06:50:35Z data_fetch_completed=2026-01-07T06:51:04Z generated_at=2026-01-07T06:51:04Z
+# oslo-screener report=report_2026-01-07T0651Z.csv data_fetch_started=2026-01-07T06:50:35Z data_fetch_completed=2026-01-07T06:51:04Z generated_at=2026-01-07T06:51:04Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 YAR.OL,2026-01-06,413.1,65.92,-1.1,0.5018,381.722,8.22,38.84,85.55,63.52,SELL,2,5.0,3.0,HIGH
