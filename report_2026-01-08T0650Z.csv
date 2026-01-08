@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-01-08T06:50:35Z data_fetch_completed=2026-01-08T06:50:58Z generated_at=2026-01-08T06:50:58Z
+# oslo-screener report=report_2026-01-08T0650Z.csv data_fetch_started=2026-01-08T06:50:35Z data_fetch_completed=2026-01-08T06:50:58Z generated_at=2026-01-08T06:50:58Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
 RING.OL,2026-01-07,412.0,65.27,-7.23,1.2098,391.184,5.32,24.85,62.21,60.46,SELL,2.0,3.0,3.0,MODERATE,
