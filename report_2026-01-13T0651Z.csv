@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-01-13T06:50:36Z data_fetch_completed=2026-01-13T06:51:18Z generated_at=2026-01-13T06:51:18Z
+# oslo-screener report=report_2026-01-13T0651Z.csv data_fetch_started=2026-01-13T06:50:36Z data_fetch_completed=2026-01-13T06:51:18Z generated_at=2026-01-13T06:51:18Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 EMGS.OL,2026-01-12,0.207,33.1,5.73,0.0085,0.3749,-44.78,28.12,12.03,43.72,BUY,3,3.0,5.0,MODERATE
