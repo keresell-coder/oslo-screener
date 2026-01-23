@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-01-23T06:52:06Z data_fetch_completed=2026-01-23T06:52:50Z generated_at=2026-01-23T06:52:50Z
+# oslo-screener report=report_2026-01-23T0652Z.csv data_fetch_started=2026-01-23T06:52:06Z data_fetch_completed=2026-01-23T06:52:50Z generated_at=2026-01-23T06:52:50Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 MOWI.OL,2026-01-22,215.0,32.39,0.65,-2.6001,229.5616,-6.34,32.63,22.32,24.73,BUY,2,5.0,3.0,HIGH
