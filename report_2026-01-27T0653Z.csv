@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-01-27T06:53:30Z data_fetch_completed=2026-01-27T06:53:50Z generated_at=2026-01-27T06:53:50Z
+# oslo-screener report=report_2026-01-27T0653Z.csv data_fetch_started=2026-01-27T06:53:30Z data_fetch_completed=2026-01-27T06:53:50Z generated_at=2026-01-27T06:53:50Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 SALM.OL,2026-01-26,534.5,30.97,4.25,-5.5158,586.22,-8.82,37.15,23.93,27.35,BUY,2,5.0,3.0,HIGH
