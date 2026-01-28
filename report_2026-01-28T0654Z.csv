@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-01-28T06:53:47Z data_fetch_completed=2026-01-28T06:54:20Z generated_at=2026-01-28T06:54:20Z
+# oslo-screener report=report_2026-01-28T0654Z.csv data_fetch_started=2026-01-28T06:53:47Z data_fetch_completed=2026-01-28T06:54:20Z generated_at=2026-01-28T06:54:20Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 BAKKA.OL,2026-01-27,448.2,32.95,0.82,-4.1958,480.794,-6.78,34.06,32.59,27.42,BUY,2,5.0,3.0,HIGH
