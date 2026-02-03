@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-02-03T07:08:22Z data_fetch_completed=2026-02-03T07:09:01Z generated_at=2026-02-03T07:09:01Z
+# oslo-screener report=report_2026-02-03T0709Z.csv data_fetch_started=2026-02-03T07:08:22Z data_fetch_completed=2026-02-03T07:09:01Z generated_at=2026-02-03T07:09:01Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 PARB.OL,2026-02-02,81.4,32.06,1.88,-0.7728,86.67,-6.08,19.06,10.77,22.44,BUY,2,1.75,3.0,LOW
