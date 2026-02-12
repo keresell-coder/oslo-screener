@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-02-12T07:16:24Z data_fetch_completed=2026-02-12T07:17:01Z generated_at=2026-02-12T07:17:01Z
+# oslo-screener report=report_2026-02-12T0717Z.csv data_fetch_started=2026-02-12T07:16:24Z data_fetch_completed=2026-02-12T07:17:01Z generated_at=2026-02-12T07:17:01Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 QEC.OL,2026-02-11,1.706,26.8,4.05,-0.0275,2.1453,-20.48,36.15,16.94,21.61,BUY,2,5.0,3.0,HIGH
