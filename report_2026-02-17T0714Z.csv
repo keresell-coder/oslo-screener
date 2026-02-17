@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-02-17T07:13:54Z data_fetch_completed=2026-02-17T07:14:23Z generated_at=2026-02-17T07:14:23Z
+# oslo-screener report=report_2026-02-17T0714Z.csv data_fetch_started=2026-02-17T07:13:54Z data_fetch_completed=2026-02-17T07:14:23Z generated_at=2026-02-17T07:14:23Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 GENT.OL,2026-02-16,39.8,20.05,6.24,-2.2449,56.032,-28.97,24.92,12.59,15.65,BUY,2,3.0,3.0,MODERATE
