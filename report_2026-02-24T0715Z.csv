@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-02-24T07:14:42Z data_fetch_completed=2026-02-24T07:15:03Z generated_at=2026-02-24T07:15:03Z
+# oslo-screener report=report_2026-02-24T0715Z.csv data_fetch_started=2026-02-24T07:14:42Z data_fetch_completed=2026-02-24T07:15:03Z generated_at=2026-02-24T07:15:03Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 BWLPG.OL,2026-02-23,166.4,66.27,-5.31,0.4955,142.3799,16.87,47.11,71.86,64.0,SELL,2,5.0,3.0,HIGH
