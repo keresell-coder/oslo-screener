@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-02-26T07:14:33Z data_fetch_completed=2026-02-26T07:14:55Z generated_at=2026-02-26T07:14:55Z
+# oslo-screener report=report_2026-02-26T0714Z.csv data_fetch_started=2026-02-26T07:14:33Z data_fetch_completed=2026-02-26T07:14:55Z generated_at=2026-02-26T07:14:55Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 PHO.OL,2026-02-25,59.3,28.56,8.51,-0.5031,68.79,-13.8,51.9,11.5,31.85,BUY,2,5.0,3.0,HIGH
