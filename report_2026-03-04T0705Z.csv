@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-03-04T07:04:41Z data_fetch_completed=2026-03-04T07:05:01Z generated_at=2026-03-04T07:05:01Z
+# oslo-screener report=report_2026-03-04T0705Z.csv data_fetch_started=2026-03-04T07:04:41Z data_fetch_completed=2026-03-04T07:05:01Z generated_at=2026-03-04T07:05:01Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 WWIB.OL,2026-03-03,658.0,65.15,-0.67,-0.5343,596.14,10.38,42.8,57.15,57.08,SELL,3,5.0,5.0,HIGH
