@@ -228,15 +228,14 @@ def run():
     
     # --- Signals-only (kun endelige BUY/SELL, ikke watch/neutral) ---
     signals_only = pd.concat([buy_df, sell_df], axis=0) if not buy_df.empty or not sell_df.empty else pd.DataFrame(columns=out.columns)
-    if not signals_only.empty:
-        # Velg de viktigste kolonnene for hurtiglesing
-        cols = [c for c in ["ticker","date","close","rsi14","rsi_dir","macd_hist","sma50","pct_above_sma50","adx14","mfi14","rsi6","signal","primary_count","stop_loss_pct","position_pct","risk"] if c in signals_only.columns]
-        signals_only[cols].to_csv("signals_only.csv", index=False)
+    signal_cols = [c for c in ["ticker","date","close","rsi14","rsi_dir","macd_hist","sma50","pct_above_sma50","adx14","mfi14","rsi6","signal","primary_count","stop_loss_pct","position_pct","risk"] if c in out.columns]
 
-    if not buy_df.empty:        buy_df.to_csv("buy.csv", index=False)
-    if not sell_df.empty:       sell_df.to_csv("sell.csv", index=False)
-    if not buy_watch_df.empty:  buy_watch_df.to_csv("watch_buy.csv", index=False)
-    if not sell_watch_df.empty: sell_watch_df.to_csv("watch_sell.csv", index=False)
+    # Always write signal files (empty with headers when no signals) to prevent stale data
+    (signals_only[signal_cols] if not signals_only.empty else pd.DataFrame(columns=signal_cols)).to_csv("signals_only.csv", index=False)
+    (buy_df if not buy_df.empty else pd.DataFrame(columns=out.columns)).to_csv("buy.csv", index=False)
+    (sell_df if not sell_df.empty else pd.DataFrame(columns=out.columns)).to_csv("sell.csv", index=False)
+    (buy_watch_df if not buy_watch_df.empty else pd.DataFrame(columns=out.columns)).to_csv("watch_buy.csv", index=False)
+    (sell_watch_df if not sell_watch_df.empty else pd.DataFrame(columns=out.columns)).to_csv("watch_sell.csv", index=False)
 
     def _c(d, k): return int(d.get(k, 0))
     print(

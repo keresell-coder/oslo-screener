@@ -15,7 +15,7 @@
 from __future__ import annotations
 
 import argparse
-import sys, math, random
+import os, sys, math, random
 import pathlib as pl
 import datetime as dt
 from zoneinfo import ZoneInfo
@@ -193,6 +193,18 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="Legg ikke til tidsbasert query-parameter på forespørsler (bruk caches).",
     )
+    parser.add_argument(
+        "--price-tolerance",
+        type=float,
+        default=float(os.environ.get("PRICE_TOLERANCE_PCT", "0.5")),
+        help="Maks tillatt prisavvik i prosent (default: %(default)s).",
+    )
+    parser.add_argument(
+        "--price-check-count",
+        type=int,
+        default=int(os.environ.get("PRICE_CHECK_COUNT", "3")),
+        help="Antall tilfeldige tickers å verifisere pris for (default: %(default)s).",
+    )
     return parser.parse_args(argv)
 
 
@@ -263,27 +275,46 @@ def main(argv: list[str] | None = None) -> int:
         p, dclose = fetch_prev_and_day_close(str(t), csv_last)
         prev_map[str(t)] = (p, dclose)
 
+    # --- Price verification: check multiple random tickers ---
+    tolerance_pct = args.price_tolerance
+    check_count = args.price_check_count
+
     random.seed(42)
-    if len(cands) > 0:
-        sample_t = random.choice(cands)
-    else:
-        sample_t = str(df["ticker"].iloc[0])
-    pclose, dclose = prev_map.get(sample_t, (np.nan, np.nan))
-    price_check = "Pris-sjekk: data unavailable"
-    if not (pd.isna(pclose) or pd.isna(dclose)):
+    # Build pool of checkable tickers (candidates first, then all tickers)
+    check_pool = list(cands) if cands else df["ticker"].dropna().unique().tolist()
+    random.shuffle(check_pool)
+    sample_tickers = check_pool[:min(check_count, len(check_pool))]
+
+    price_checks: list[str] = []
+    price_failures: list[str] = []
+    for sample_t in sample_tickers:
+        sample_t = str(sample_t)
+        pclose, dclose = prev_map.get(sample_t, (np.nan, np.nan))
+        if dclose is None or pd.isna(dclose):
+            # If candidate data not fetched yet, fetch it now
+            pclose, dclose = fetch_prev_and_day_close(sample_t, csv_last)
+        if pd.isna(dclose):
+            price_checks.append(f"{sample_t}: data unavailable")
+            continue
         row = df.loc[df["ticker"] == sample_t].head(1)
-        if not row.empty and "close" in row:
-            csv_close = float(row["close"].iloc[0])
-            if csv_close > 0 and dclose > 0:
-                dev = abs(csv_close - dclose) / max(csv_close, dclose) * 100.0
-                if dev > 0.1:
-                    print("STOPPET – prisavvik >0,1 %")
-                    return 1
-                price_check = (
-                    f"Pris-sjekk: {sample_t} CSV={csv_close:.3f} vs Yahoo {dclose:.3f} – avvik {dev:.2f}% (OK)"
-                )
-    else:
-        price_check = f"Pris-sjekk: {sample_t} data unavailable (kunne ikke hente dagsclose)"
+        if row.empty or "close" not in row:
+            price_checks.append(f"{sample_t}: missing in CSV")
+            continue
+        csv_close = float(row["close"].iloc[0])
+        if csv_close <= 0 or dclose <= 0:
+            price_checks.append(f"{sample_t}: zero/negative price")
+            continue
+        dev = abs(csv_close - dclose) / max(csv_close, dclose) * 100.0
+        if dev > tolerance_pct:
+            price_failures.append(f"{sample_t} CSV={csv_close:.3f} vs Yahoo={dclose:.3f} avvik={dev:.2f}%")
+        else:
+            price_checks.append(f"{sample_t} CSV={csv_close:.3f} vs Yahoo={dclose:.3f} avvik={dev:.2f}% (OK)")
+
+    if price_failures:
+        print(f"STOPPET – prisavvik >{tolerance_pct}% for: {'; '.join(price_failures)}")
+        return 1
+
+    price_check = "Pris-sjekk: " + ("; ".join(price_checks) if price_checks else "ingen tickers å verifisere")
 
     need_rsi_dir = "rsi_dir" in df.columns
 

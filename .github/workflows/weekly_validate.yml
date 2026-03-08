@@ -29,7 +29,9 @@ jobs:
       - name: Run validator
         env:
           YF_PAUSE: "0.40"
+          MIN_HISTORY_DAYS: "60"
         run: |
+          set -e
           echo "YF_PAUSE=$(echo $YF_PAUSE)"
           python validate_tickers.py
           # Skriv et kort sammendrag i jobbloggen:
@@ -52,7 +54,17 @@ jobs:
           fi
 
           git commit -m "weekly: oppdater validerte tickers [skip ci]"
-          git push origin HEAD:main
+
+          # Retry push with pull-rebase on conflict
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Push succeeded on attempt $attempt"
+              break
+            fi
+            echo "Push failed (attempt $attempt/3), pulling with rebase and retrying..."
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
 
       - name: Upload validation artifacts
         uses: actions/upload-artifact@v4
