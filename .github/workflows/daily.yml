@@ -40,7 +40,7 @@ jobs:
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latest.csv summaries/*.md report_*.csv || true
+          git add latest.csv summaries/*.md report_*.csv buy.csv sell.csv watch_buy.csv watch_sell.csv signals_only.csv || true
           git commit -m "daily: latest.csv + v2.3.1 report [skip ci]" || echo "No changes to commit"
           git push origin HEAD:main
 
