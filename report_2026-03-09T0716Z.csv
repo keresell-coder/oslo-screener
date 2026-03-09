@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-03-09T07:16:10Z data_fetch_completed=2026-03-09T07:16:29Z generated_at=2026-03-09T07:16:29Z
+# oslo-screener report=report_2026-03-09T0716Z.csv data_fetch_started=2026-03-09T07:16:10Z data_fetch_completed=2026-03-09T07:16:29Z generated_at=2026-03-09T07:16:29Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 AKSO.OL,2026-03-06,40.7,69.11,-0.88,-0.0947,35.5332,14.54,55.13,81.63,64.39,SELL,3,5.0,5.0,HIGH
