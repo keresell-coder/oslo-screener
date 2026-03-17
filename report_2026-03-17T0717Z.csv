@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-03-17T07:17:33Z data_fetch_completed=2026-03-17T07:17:51Z generated_at=2026-03-17T07:17:51Z
+# oslo-screener report=report_2026-03-17T0717Z.csv data_fetch_started=2026-03-17T07:17:33Z data_fetch_completed=2026-03-17T07:17:51Z generated_at=2026-03-17T07:17:51Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 KOA.OL,2026-03-16,1.93,31.42,0.35,-0.0153,2.1436,-9.96,23.86,26.35,22.56,BUY,2,3.0,3.0,MODERATE
