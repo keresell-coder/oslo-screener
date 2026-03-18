@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-03-18T07:16:31Z data_fetch_completed=2026-03-18T07:16:49Z generated_at=2026-03-18T07:16:49Z
+# oslo-screener report=report_2026-03-18T0716Z.csv data_fetch_started=2026-03-18T07:16:31Z data_fetch_completed=2026-03-18T07:16:49Z generated_at=2026-03-18T07:16:49Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 IDEX.OL,2026-03-17,10.78,66.75,-9.16,0.4365,6.7734,59.15,43.23,77.83,60.56,SELL,2,5.0,3.0,HIGH
