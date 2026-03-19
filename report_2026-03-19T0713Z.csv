@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-03-19T07:12:36Z data_fetch_completed=2026-03-19T07:13:03Z generated_at=2026-03-19T07:13:03Z
+# oslo-screener report=report_2026-03-19T0713Z.csv data_fetch_started=2026-03-19T07:12:36Z data_fetch_completed=2026-03-19T07:13:03Z generated_at=2026-03-19T07:13:03Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ACR.OL,2026-03-18,6.92,33.05,1.06,-0.005,7.7628,-10.86,42.94,31.37,32.08,BUY,2,5.0,3.0,HIGH
