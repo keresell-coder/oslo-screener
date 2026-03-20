@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-03-20T07:11:43Z data_fetch_completed=2026-03-20T07:12:06Z generated_at=2026-03-20T07:12:06Z
+# oslo-screener report=report_2026-03-20T0712Z.csv data_fetch_started=2026-03-20T07:11:43Z data_fetch_completed=2026-03-20T07:12:06Z generated_at=2026-03-20T07:12:06Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 HAUTO.OL,2026-03-19,135.5,65.91,-1.79,-0.7771,113.0927,19.81,45.32,50.66,65.46,SELL,3,5.0,5.0,HIGH
