@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-03-26T07:35:15Z data_fetch_completed=2026-03-26T07:35:34Z generated_at=2026-03-26T07:35:34Z
+# oslo-screener report=report_2026-03-26T0735Z.csv data_fetch_started=2026-03-26T07:35:15Z data_fetch_completed=2026-03-26T07:35:34Z generated_at=2026-03-26T07:35:34Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 NAS.OL,2026-03-25,14.13,34.38,1.69,-0.0469,15.9712,-11.53,24.37,49.81,31.12,BUY,2,3.0,3.0,MODERATE
