@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-04-13T08:21:08Z data_fetch_completed=2026-04-13T08:21:23Z generated_at=2026-04-13T08:21:23Z
+# oslo-screener report=report_2026-04-13T0821Z.csv data_fetch_started=2026-04-13T08:21:08Z data_fetch_completed=2026-04-13T08:21:23Z generated_at=2026-04-13T08:21:23Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ASA.OL,2026-04-13,1.8,30.21,16.89,-0.0808,4.3878,-58.98,58.98,24.45,48.59,BUY,2,5.0,3.0,HIGH
