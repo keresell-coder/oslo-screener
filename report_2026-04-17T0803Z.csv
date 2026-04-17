@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-04-17T08:02:53Z data_fetch_completed=2026-04-17T08:03:30Z generated_at=2026-04-17T08:03:30Z
+# oslo-screener report=report_2026-04-17T0803Z.csv data_fetch_started=2026-04-17T08:02:53Z data_fetch_completed=2026-04-17T08:03:30Z generated_at=2026-04-17T08:03:30Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 MING.OL,2026-04-17,210.35,65.52,-4.18,0.6447,197.6703,6.41,31.08,76.13,61.97,SELL,2,5.0,3.0,HIGH
