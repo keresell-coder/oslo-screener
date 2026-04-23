@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-04-23T08:08:41Z data_fetch_completed=2026-04-23T08:09:00Z generated_at=2026-04-23T08:09:00Z
+# oslo-screener report=report_2026-04-23T0809Z.csv data_fetch_started=2026-04-23T08:08:41Z data_fetch_completed=2026-04-23T08:09:00Z generated_at=2026-04-23T08:09:00Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 LSG.OL,2026-04-23,46.32,33.65,0.77,-0.337,49.1266,-5.71,16.98,30.4,18.04,BUY,2,1.75,3.0,LOW
