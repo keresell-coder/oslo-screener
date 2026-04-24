@@ -1,4 +1,4 @@
-# oslo-screener report=latest.csv data_fetch_started=2026-04-24T08:20:22Z data_fetch_completed=2026-04-24T08:20:44Z generated_at=2026-04-24T08:20:44Z
+# oslo-screener report=report_2026-04-24T0820Z.csv data_fetch_started=2026-04-24T08:20:22Z data_fetch_completed=2026-04-24T08:20:44Z generated_at=2026-04-24T08:20:44Z
 # columns=ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
 HELG.OL,2026-04-24,173.0,66.22,-2.37,0.9529,163.5051,5.81,31.18,37.61,73.16,SELL,2,5.0,3.0,HIGH
