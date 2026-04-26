@@ -76,7 +76,7 @@ def fetch_ohlc_single(ticker: str, tries: int = 3) -> pd.DataFrame | None:
                 auto_adjust=True, progress=False, threads=False
             )
             df = flatten(df)
-            if df is not None and not df.empty and len(df) >= 60:
+            if df is not None and not df.empty:
                 return df
         except Exception as e:
             last_exc = e
