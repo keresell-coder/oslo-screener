@@ -1,24 +1,8 @@
-import ast
 import datetime as dt
 import unittest
-from pathlib import Path
 from zoneinfo import ZoneInfo
 
-
-def load_last_ose_trading_day():
-    path = Path("scripts/build_v231_report.py")
-    module_ast = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
-    func_node = next(
-        node for node in module_ast.body
-        if isinstance(node, ast.FunctionDef) and node.name == "last_ose_trading_day"
-    )
-    module_ns = {"dt": dt, "ZoneInfo": ZoneInfo}
-    code = compile(ast.Module(body=[func_node], type_ignores=[]), str(path), "exec")
-    exec(code, module_ns)
-    return module_ns["last_ose_trading_day"]
-
-
-last_ose_trading_day = load_last_ose_trading_day()
+from scripts.trading_calendar import last_ose_trading_day
 
 
 class LastOseTradingDayTests(unittest.TestCase):
@@ -51,6 +35,32 @@ class LastOseTradingDayTests(unittest.TestCase):
     def test_naive_datetime_after_cutoff_stays_same_day(self):
         naive_dt = dt.datetime(2025, 8, 19, 9, 30)
         self.assertEqual(last_ose_trading_day(naive_dt), dt.date(2025, 8, 19))
+
+    # Holiday-aware tests
+    def test_maundy_thursday_rolls_back_to_wednesday(self):
+        # Maundy Thursday 2026 = April 2; before cutoff → rolls to previous trading day
+        maundy_thursday_morning = dt.datetime(2026, 4, 2, 8, 0, tzinfo=self.tz)
+        self.assertEqual(last_ose_trading_day(maundy_thursday_morning), dt.date(2026, 4, 1))
+
+    def test_good_friday_rolls_back_to_wednesday(self):
+        # Good Friday 2026 = April 3; noon → rolls back past Maundy Thursday to April 1
+        good_friday = dt.date(2026, 4, 3)
+        self.assertEqual(last_ose_trading_day(good_friday), dt.date(2026, 4, 1))
+
+    def test_easter_monday_rolls_back_to_wednesday(self):
+        # Easter Monday 2026 = April 6; noon → rolls back to April 1
+        easter_monday = dt.date(2026, 4, 6)
+        self.assertEqual(last_ose_trading_day(easter_monday), dt.date(2026, 4, 1))
+
+    def test_constitution_day_rolls_back(self):
+        # May 17 2026 is a Sunday so it's already a weekend; previous trading day is May 15 (Friday)
+        constitution_day = dt.date(2026, 5, 17)
+        self.assertEqual(last_ose_trading_day(constitution_day), dt.date(2026, 5, 15))
+
+    def test_ascension_day_rolls_back(self):
+        # Ascension Day 2026 = May 14 (Thursday); noon → rolls back to May 13 (Wednesday)
+        ascension = dt.date(2026, 5, 14)
+        self.assertEqual(last_ose_trading_day(ascension), dt.date(2026, 5, 13))
 
 
 if __name__ == "__main__":

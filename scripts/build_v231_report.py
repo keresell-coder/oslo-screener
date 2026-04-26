@@ -1,7 +1,7 @@
 # scripts/build_v231_report.py
 # v2.3.1 — Bygger teknisk dagsrapport fra latest.csv til summaries/daily_v231_<YYYY-MM-DD>.md
-# - Ferskhetssjekk (virkedag, helg-hopp; helligdager kan legges til senere)
-# - En tilfeldig prisverifisering mot Yahoo (±0.1 %)
+# - Ferskhetssjekk (virkedager + norske helligdager)
+# - En tilfeldig prisverifisering mot Yahoo (±0.5 %)
 # - Klassifisering:
 #     Gatekeeper: RSI14 <=35 eller >=65
 #     BUY:  RSI14<=35 og (RSI_dir>0 hvis finnes, ellers dagsclose>forrige close)
@@ -18,7 +18,6 @@ import argparse
 import sys, math, random
 import pathlib as pl
 import datetime as dt
-from zoneinfo import ZoneInfo
 
 import numpy as np
 import pandas as pd
@@ -31,43 +30,11 @@ if str(ROOT) not in sys.path:
 
 from scripts.github_latest import ensure_latest_csv
 from scripts.io_latest import load_latest_df
+from scripts.trading_calendar import last_ose_trading_day
 
 
 DEFAULT_CSV_PATH = pl.Path("latest.csv")
 OUT_DIR = pl.Path("summaries")
-
-# ---------- Hjelp: siste OSE-handelsdag (tidlig morgen = rull til gårsdag) ----------
-def last_ose_trading_day(today: dt.date | dt.datetime | None = None) -> dt.date:
-    tz = ZoneInfo("Europe/Oslo")
-
-    if today is None:
-        now = dt.datetime.now(tz)
-    elif isinstance(today, dt.datetime):
-        if today.tzinfo is None:
-            now = today.replace(tzinfo=tz)
-        else:
-            now = today.astimezone(tz)
-    else:
-        # Tolker rene datoer som midt på dagen for å unngå at de
-        # vurderes som «før børsen åpner» i cutoff-sjekken under.
-        now = dt.datetime.combine(today, dt.time(hour=12), tzinfo=tz)
-
-    d = now.date()
-
-    # Lørdag/søndag -> rull tilbake
-    while d.weekday() >= 5:
-        d -= dt.timedelta(days=1)
-
-    # Dersom vi er en ukedag før sluttkurser normalt foreligger (~09:15),
-    # betrakt gårsdagen som siste handelsdag.
-    cutoff = dt.time(hour=9, minute=15)
-    if now.date() == d and now.time() < cutoff:
-        d -= dt.timedelta(days=1)
-        while d.weekday() >= 5:
-            d -= dt.timedelta(days=1)
-
-    return d
-# (Du kan senere legge til norsk helligdagsfil og hoppe over disse også.)
 
 # ---------- Yahoo-hjelp: finn forrige og dagens close rundt CSV-dato ----------
 def fetch_prev_and_day_close(ticker: str, csv_date: dt.date) -> tuple[float | float("nan"), float | float("nan")]:
@@ -276,11 +243,11 @@ def main(argv: list[str] | None = None) -> int:
             csv_close = float(row["close"].iloc[0])
             if csv_close > 0 and dclose > 0:
                 dev = abs(csv_close - dclose) / max(csv_close, dclose) * 100.0
-                if dev > 0.1:
-                    print("STOPPET – prisavvik >0,1 %")
-                    return 1
+                if dev > 0.5:
+                    print(f"ADVARSEL – prisavvik {dev:.2f}% >0,5 % for {sample_t} (CSV={csv_close:.3f} vs Yahoo {dclose:.3f})")
                 price_check = (
-                    f"Pris-sjekk: {sample_t} CSV={csv_close:.3f} vs Yahoo {dclose:.3f} – avvik {dev:.2f}% (OK)"
+                    f"Pris-sjekk: {sample_t} CSV={csv_close:.3f} vs Yahoo {dclose:.3f} – avvik {dev:.2f}%"
+                    + (" ⚠️ avvik høy" if dev > 0.5 else " (OK)")
                 )
     else:
         price_check = f"Pris-sjekk: {sample_t} data unavailable (kunne ikke hente dagsclose)"

@@ -4,4 +4,4 @@ numpy
 ta
 setuptools
 pyyaml
-pyyaml
+requests

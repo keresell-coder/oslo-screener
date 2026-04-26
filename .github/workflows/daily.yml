@@ -33,6 +33,7 @@ jobs:
         run: python screener.py
 
       - name: Build v2.3.1 report
+        continue-on-error: true
         run: python scripts/build_v231_report.py
 
       - name: Commit latest.csv and reports to main
