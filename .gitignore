@@ -1,3 +1,6 @@
+# Report CSVs — saved as GitHub Actions artifacts, no need to commit to git
+report_*.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
