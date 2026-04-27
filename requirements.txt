@@ -5,3 +5,4 @@ ta
 setuptools
 pyyaml
 requests
+lxml
