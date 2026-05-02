@@ -38,44 +38,54 @@ def load_csv(path: pl.Path) -> pd.DataFrame:
 # ---------- Price spot-check ----------
 
 def _spot_check(df: pd.DataFrame, csv_date: dt.date) -> str:
-    """Fetch one ticker from Yahoo and compare its close to the CSV value."""
+    """Fetch one ticker from Yahoo and compare its close to the CSV value.
+
+    Tries up to 3 randomly-selected candidates so that a single unavailable
+    ticker doesn't silently fail the whole freshness check.
+    """
     cands = df.loc[df["signal"].isin(["BUY", "SELL"]), "ticker"].dropna().unique().tolist()
     if not cands:
         cands = df["ticker"].dropna().unique().tolist()
     if not cands:
         return "Pris-sjekk: ingen data"
 
-    random.seed(csv_date.toordinal())
-    t = random.choice(cands)
-    try:
-        start = (csv_date - dt.timedelta(days=5)).isoformat()
-        end = (csv_date + dt.timedelta(days=1)).isoformat()
-        hist = yf.download(t, start=start, end=end, interval="1d",
-                           auto_adjust=True, progress=False)
-        if hist.empty:
-            return f"Pris-sjekk: {t} – Yahoo data utilgjengelig"
-        if isinstance(hist.columns, pd.MultiIndex):
-            hist.columns = hist.columns.get_level_values(0)
-        idx_dates = [x.date() for x in hist.index.to_pydatetime()]
-        days = [d for d in idx_dates if d <= csv_date]
-        if not days:
-            return f"Pris-sjekk: {t} – ingen data <= {csv_date}"
-        d0 = max(days)
-        yahoo_close = float(hist["Close"].iloc[idx_dates.index(d0)])
-        csv_row = df.loc[df["ticker"] == t]
-        if csv_row.empty:
-            return f"Pris-sjekk: {t} – ikke i CSV"
-        csv_close = float(csv_row["close"].iloc[0])
-        if csv_close > 0 and yahoo_close > 0:
-            dev = abs(csv_close - yahoo_close) / max(csv_close, yahoo_close) * 100.0
-            if dev > 0.5:
-                print(f"ADVARSEL – prisavvik {dev:.2f}% >0,5% for {t} "
-                      f"(CSV={csv_close:.3f} vs Yahoo={yahoo_close:.3f})")
-            status = "OK" if dev <= 0.5 else "⚠️ avvik høy"
-            return f"Pris-sjekk: {t} CSV={csv_close:.3f} vs Yahoo={yahoo_close:.3f} – avvik {dev:.2f}% ({status})"
-    except Exception as e:
-        return f"Pris-sjekk: {t} – feil: {e}"
-    return f"Pris-sjekk: {t} – utilgjengelig"
+    rng = random.Random(csv_date.toordinal())
+    sample = cands.copy()
+    rng.shuffle(sample)
+    sample = sample[:3]
+
+    start = (csv_date - dt.timedelta(days=5)).isoformat()
+    end = (csv_date + dt.timedelta(days=1)).isoformat()
+
+    for t in sample:
+        try:
+            hist = yf.download(t, start=start, end=end, interval="1d",
+                               auto_adjust=True, progress=False)
+            if hist.empty:
+                continue
+            if isinstance(hist.columns, pd.MultiIndex):
+                hist.columns = hist.columns.get_level_values(0)
+            idx_dates = [x.date() for x in hist.index.to_pydatetime()]
+            days = [d for d in idx_dates if d <= csv_date]
+            if not days:
+                continue
+            d0 = max(days)
+            yahoo_close = float(hist["Close"].iloc[idx_dates.index(d0)])
+            csv_row = df.loc[df["ticker"] == t]
+            if csv_row.empty:
+                continue
+            csv_close = float(csv_row["close"].iloc[0])
+            if csv_close > 0 and yahoo_close > 0:
+                dev = abs(csv_close - yahoo_close) / max(csv_close, yahoo_close) * 100.0
+                if dev > 0.5:
+                    print(f"ADVARSEL – prisavvik {dev:.2f}% >0,5% for {t} "
+                          f"(CSV={csv_close:.3f} vs Yahoo={yahoo_close:.3f})")
+                status = "OK" if dev <= 0.5 else "⚠️ avvik høy"
+                return f"Pris-sjekk: {t} CSV={csv_close:.3f} vs Yahoo={yahoo_close:.3f} – avvik {dev:.2f}% ({status})"
+        except Exception:
+            continue
+
+    return f"Pris-sjekk: {sample[0] if sample else '?'} – Yahoo data utilgjengelig"
 
 
 # ---------- Icon helpers ----------
@@ -165,6 +175,7 @@ def _enrich(r: pd.Series) -> dict:
     )
 
     closest = "—"
+    closest_delta = np.nan
     if bucket.endswith("watch"):
         opts: list[tuple[str, float]] = []
         if not np.isnan(r14):
@@ -172,10 +183,16 @@ def _enrich(r: pd.Series) -> dict:
         if not np.isnan(macd):
             opts.append(("MACD→0", abs(macd)))
         if not np.isnan(pct):
-            opts.append(("SMA→±0.2", max(0.0, 0.2 - abs(pct))))
+            # Directional distance: how far pct must move to cross the ±0.2% SMA support threshold.
+            # BUY needs pct ≥ +0.2; SELL needs pct ≤ −0.2.
+            if bias == "BUY":
+                opts.append(("SMA50", max(0.0, 0.2 - pct)))
+            elif bias == "SELL":
+                opts.append(("SMA50", max(0.0, pct + 0.2)))
         if opts:
             lab, dv = sorted(opts, key=lambda x: x[1])[0]
             closest = f"{lab} (Δ={dv:.2f})"
+            closest_delta = dv
 
     return dict(
         bucket=bucket, rank=rank,
@@ -183,7 +200,7 @@ def _enrich(r: pd.Series) -> dict:
         rsi14=r14, rdir=rdir, macd=macd, pct=pct,
         adx=adx, rsi6=r6, mfi=mfi,
         macd_ic=macd_ic, sma_ic=sma_ic, adx_ic=adx_ic,
-        mfi_ic=mfi_ic, rsi6_ic=rsi6_ic, closest=closest,
+        mfi_ic=mfi_ic, rsi6_ic=rsi6_ic, closest=closest, closest_delta=closest_delta,
     )
 
 
@@ -280,6 +297,8 @@ def main() -> int:
         if name in ("BUY", "SELL") and not sub.empty:
             sub = sub.sort_values(["rank", "adx", "macd", "pct"],
                                   ascending=[False, False, False, False])
+        elif name in ("BUY-watch", "SELL-watch") and not sub.empty:
+            sub = sub.sort_values("closest_delta", ascending=True, na_position="last")
         return sub
 
     BUY       = bucket("BUY")
