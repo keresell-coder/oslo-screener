@@ -5,6 +5,10 @@ on:
     - cron: "15 6 * * 1-5"   # 06:15 UTC = ca. 08:15 Oslo (CEST) / 07:15 Oslo (CET)
   workflow_dispatch:
 
+concurrency:
+  group: daily-screener-main
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pages: write
@@ -13,6 +17,7 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,6 +37,35 @@ jobs:
           YF_PAUSE: "0.40"
         run: python screener.py
 
+      - name: Verify latest.csv
+        run: |
+          python - <<'PY'
+          import csv
+          import sys
+          from pathlib import Path
+
+          path = Path("latest.csv")
+          if not path.exists():
+              sys.exit("latest.csv was not created")
+
+          lines = path.read_text(encoding="utf-8").splitlines()
+          if not lines or not lines[0].startswith("# oslo-screener"):
+              sys.exit("latest.csv is missing the oslo-screener metadata header")
+          if "generated_at=" not in lines[0]:
+              sys.exit("latest.csv metadata is missing generated_at")
+
+          data_lines = [line for line in lines if not line.startswith("#")]
+          rows = list(csv.DictReader(data_lines))
+          if not rows:
+              sys.exit("latest.csv has no data rows")
+          required = {"ticker", "date", "close", "rsi14", "signal"}
+          missing = required.difference(rows[0])
+          if missing:
+              sys.exit(f"latest.csv is missing required columns: {sorted(missing)}")
+
+          print(f"latest.csv verified with {len(rows)} rows")
+          PY
+
       - name: Build daily report
         continue-on-error: true
         run: python scripts/build_report.py
@@ -43,6 +77,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add latest.csv summaries/*.md || true
           git commit -m "daily: latest.csv + dagsrapport [skip ci]" || echo "No changes to commit"
+          git pull --rebase origin main
           git push origin HEAD:main
 
       - name: Upload artifacts
@@ -82,6 +117,7 @@ jobs:
   deploy:
     needs: run
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -89,3 +125,19 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Trigger dashboard refresh when token is configured
+        env:
+          DASHBOARD_WORKFLOW_TOKEN: ${{ secrets.DASHBOARD_WORKFLOW_TOKEN }}
+        run: |
+          if [ -z "${DASHBOARD_WORKFLOW_TOKEN:-}" ]; then
+            echo "DASHBOARD_WORKFLOW_TOKEN is not configured; dashboard will refresh on its schedule."
+            exit 0
+          fi
+          curl -fsSL \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${DASHBOARD_WORKFLOW_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/keresell-coder/oslo-screener-dashboard/actions/workflows/daily.yml/dispatches \
+            -d '{"ref":"main"}'
