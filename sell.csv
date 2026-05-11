@@ -1,5 +1,3 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
-JIN.OL,2026-05-07,6.32,66.3,-2.81,0.0183,5.83,8.4,36.2,82.32,70.59,SELL,2.0,5.0,3.0,HIGH,
-HYPRO.OL,2026-05-08,2.61,66.37,-5.24,0.1366,1.6795,55.4,32.77,54.21,62.44,SELL,2.0,5.0,3.0,HIGH,
-ZAL.OL,2026-05-08,99.0,66.69,-2.52,-0.4081,92.288,7.27,51.73,56.69,56.06,SELL,3.0,5.0,5.0,HIGH,
-ATEA.OL,2026-05-08,160.4,69.94,-2.09,1.4732,144.5,11.0,33.02,70.44,72.09,SELL,2.0,5.0,3.0,HIGH,
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
+AKVA.OL,2026-05-11,136.5,65.31,-0.8,-0.1463,114.373,19.35,36.65,53.97,69.37,SELL,3,5.0,5.0,HIGH
+NOD.OL,2026-05-11,196.3,70.91,-5.6,0.1146,163.674,19.93,37.7,79.88,68.73,SELL,2,5.0,3.0,HIGH
