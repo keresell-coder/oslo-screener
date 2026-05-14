@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-JIN.OL,2026-05-13,6.38,65.67,-1.39,0.0164,5.876,8.58,40.62,79.35,68.63,SELL,2,5.0,3.0,HIGH
-QEC.OL,2026-05-13,2.335,65.81,-4.48,0.025,2.0406,14.43,43.65,85.47,69.33,SELL,2,5.0,3.0,HIGH
+QEC.OL,2026-05-13,2.34,66.28,-4.01,0.0254,2.0407,14.67,43.65,83.28,70.42,SELL,2,5.0,3.0,HIGH
