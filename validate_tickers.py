@@ -5,8 +5,21 @@
 import os, time
 import pandas as pd
 import yfinance as yf
+import yaml
 
-MIN_DAYS = int(os.getenv("MIN_HISTORY_DAYS", "1"))
+
+def load_min_history_days() -> int:
+    if os.getenv("MIN_HISTORY_DAYS"):
+        return int(os.environ["MIN_HISTORY_DAYS"])
+    try:
+        with open("config.yaml") as f:
+            cfg = yaml.safe_load(f) or {}
+        return int(cfg.get("min_history_days", 30))
+    except Exception:
+        return 30
+
+
+MIN_DAYS = load_min_history_days()
 
 YF_PAUSE = float(os.getenv("YF_PAUSE", "0.35"))
 
