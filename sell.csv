@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-HSHP.OL,2026-05-15,146.0,66.01,-5.55,1.6366,131.014,11.44,23.65,78.46,67.95,SELL,2,3.0,3.0,MODERATE
-LINK.OL,2026-05-15,27.5,66.88,-3.12,0.2446,23.2574,18.24,33.81,27.78,70.13,SELL,2,5.0,3.0,HIGH
+NOD.OL,2026-05-18,200.6,68.2,-5.56,-0.1901,168.348,19.16,40.71,69.87,63.91,SELL,3,5.0,5.0,HIGH
