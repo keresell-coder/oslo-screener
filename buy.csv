@@ -1,2 +1,3 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-WSTEP.OL,2026-05-26,15.25,33.96,2.16,-0.1864,16.2626,-6.23,28.2,18.97,21.27,BUY,2,3.0,3.0,MODERATE
+2020.OL,2026-05-27,4.626,11.16,0.18,2.9423,77.436,-94.03,63.41,67.07,16.19,BUY,3,5.0,5.0,HIGH
+ORK.OL,2026-05-27,104.75,34.05,1.94,-0.719,112.2807,-6.71,29.05,29.68,29.61,BUY,2,3.0,3.0,MODERATE
