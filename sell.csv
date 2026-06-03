@@ -1,2 +1,3 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-ELK.OL,2026-06-02,33.5,71.17,-0.69,0.4504,28.9568,15.69,25.0,84.81,80.59,SELL,2,3.0,3.0,MODERATE
+TIETO.OL,2026-06-03,230.4,65.59,-5.97,1.3967,209.6975,9.87,20.94,86.8,69.7,SELL,2,3.0,3.0,MODERATE
+ATEA.OL,2026-06-03,166.6,69.41,-2.58,0.6111,147.5716,12.89,41.6,83.42,69.87,SELL,2,5.0,3.0,HIGH
