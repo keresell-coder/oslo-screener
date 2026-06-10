@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-GOD.OL,2026-06-09,13.0,67.08,-12.09,0.107,11.1641,16.44,59.11,86.98,60.52,SELL,2,5.0,3.0,HIGH
-PLT.OL,2026-06-09,8.16,67.73,-3.24,0.0728,6.4078,27.34,42.43,84.18,70.03,SELL,2,5.0,3.0,HIGH
+GOD.OL,2026-06-10,13.05,67.96,-2.34,0.0811,11.2303,16.2,60.1,82.35,61.54,SELL,2,5.0,3.0,HIGH
