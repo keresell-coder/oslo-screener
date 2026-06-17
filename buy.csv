@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-2020.OL,2026-06-16,3.844,12.96,0.08,3.2559,45.5256,-91.56,71.4,34.37,21.73,BUY,3,5.0,5.0,HIGH
-ASA.OL,2026-06-16,0.993,33.22,3.87,0.0467,1.9251,-48.42,33.69,45.86,42.1,BUY,3,5.0,5.0,HIGH
+ACR.OL,2026-06-17,4.75,33.68,3.1,0.0431,5.6183,-15.45,31.74,11.94,41.28,BUY,3,5.0,5.0,HIGH
