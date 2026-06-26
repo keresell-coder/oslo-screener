@@ -1,2 +1,2 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-SCATC.OL,2026-06-25,96.25,34.67,4.54,0.1293,107.357,-10.35,34.11,35.82,38.8,BUY,3,5.0,5.0,HIGH
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
+YAR.OL,2026-06-26,432.2,32.2,1.35,-2.6034,496.4333,-12.94,37.85,25.03,30.5,BUY,2.0,5.0,3.0,HIGH,

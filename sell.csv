@@ -1,4 +1,2 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-HUNT.OL,2026-06-25,10.04,65.95,-11.24,0.1159,7.2838,37.84,47.99,66.6,61.78,SELL,2,5.0,3.0,HIGH
-INIFY.OL,2026-06-25,7.8,68.7,-3.59,0.022,4.977,56.72,30.17,60.02,61.42,SELL,2,5.0,3.0,HIGH
-FRO.OL,2026-06-25,404.0,71.79,-9.57,6.7024,346.5911,16.56,30.38,90.66,73.27,SELL,2,5.0,3.0,HIGH
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
+AFG.OL,2026-06-26,192.6,66.59,-3.01,0.3186,179.1208,7.53,31.34,64.38,71.45,SELL,2.0,5.0,3.0,HIGH,
