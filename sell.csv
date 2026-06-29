@@ -1,2 +1,4 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
-AFG.OL,2026-06-26,192.6,66.59,-3.01,0.3186,179.1208,7.53,31.34,64.38,71.45,SELL,2.0,5.0,3.0,HIGH,
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
+INIFY.OL,2026-06-29,7.7,65.83,-3.69,-0.0372,5.141,49.78,30.91,54.04,55.87,SELL,3,5.0,5.0,HIGH
+VEI.OL,2026-06-29,188.8,67.09,-9.85,0.8333,178.9635,5.5,26.61,86.61,66.95,SELL,2,3.0,3.0,MODERATE
+AFG.OL,2026-06-29,194.2,68.89,-2.53,0.4585,179.6156,8.12,32.68,74.19,75.66,SELL,2,5.0,3.0,HIGH
