@@ -1,2 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-AFG.OL,2026-07-07,197.6,70.68,-0.72,0.3252,182.8529,8.07,40.34,81.83,74.97,SELL,2,5.0,3.0,HIGH
+B2I.OL,2026-07-08,24.7,69.82,-0.81,0.2187,22.3577,10.48,37.15,82.25,75.1,SELL,2,5.0,3.0,HIGH
