@@ -1,2 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-GJF.OL,2026-07-09,274.2,65.81,-1.93,0.5556,259.336,5.73,25.67,67.92,69.02,SELL,2,3.0,3.0,MODERATE
+AFG.OL,2026-07-10,199.2,69.01,-1.96,0.1401,184.7484,7.82,41.32,75.14,70.38,SELL,2,5.0,3.0,HIGH
