@@ -1,2 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-NHY.OL,2026-07-10,85.84,27.01,3.84,-0.3132,102.461,-16.22,42.91,26.0,31.24,BUY,2,5.0,3.0,HIGH
+NHY.OL,2026-07-13,85.98,27.77,3.72,-0.106,102.1543,-15.83,43.58,32.82,34.3,BUY,2,5.0,3.0,HIGH
