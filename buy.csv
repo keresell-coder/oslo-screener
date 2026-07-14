@@ -1,2 +1,4 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-NHY.OL,2026-07-13,85.98,27.77,3.72,-0.106,102.1543,-15.83,43.58,32.82,34.3,BUY,2,5.0,3.0,HIGH
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
+EPR.OL,2026-07-14,82.0,28.41,4.15,-0.6848,90.356,-9.25,25.81,27.46,22.42,BUY,2.0,3.0,3.0,MODERATE,
+HYPRO.OL,2026-07-14,0.808,33.39,0.41,0.0264,2.1149,-61.79,24.74,37.34,37.23,BUY,3.0,3.0,3.0,MODERATE,
+SALM.OL,2026-07-14,464.8,34.85,1.44,-1.8838,525.0074,-11.47,30.76,27.89,38.37,BUY,2.0,5.0,3.0,HIGH,
