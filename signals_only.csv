@@ -1,2 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-SPOG.OL,2026-07-15,70.8,33.89,0.88,-0.1133,73.7168,-3.96,19.48,42.38,23.3,BUY,2.0,1.75,3.0,LOW
+EPR.OL,2026-07-16,82.8,33.8,2.43,-0.5826,89.878,-7.88,27.69,19.27,34.9,BUY,2.0,3.0,3.0,MODERATE
