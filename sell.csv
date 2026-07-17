@@ -1,2 +1,2 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-AFG.OL,2026-07-10,199.2,69.01,-1.96,0.1401,184.7484,7.82,41.32,75.14,70.38,SELL,2,5.0,3.0,HIGH
+ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,note
+KID.OL,2026-07-17,130.2,68.36,-0.7,1.1389,121.6613,7.02,20.23,65.51,80.12,SELL,2.0,3.0,3.0,MODERATE,
