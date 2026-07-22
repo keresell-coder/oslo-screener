@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-GOD.OL,2026-07-21,14.0,65.97,-1.13,0.0642,12.736,9.92,32.7,89.19,76.66,SELL,2,5.0,3.0,HIGH
-BRG.OL,2026-07-21,160.2,67.39,-3.77,1.1667,146.888,9.06,25.21,66.9,71.82,SELL,2,3.0,3.0,MODERATE
+BRG.OL,2026-07-22,161.6,69.72,-2.33,1.2212,147.244,9.75,26.69,65.55,75.97,SELL,2,3.0,3.0,MODERATE
