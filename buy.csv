@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-2020.OL,2026-07-27,3.38,29.79,2.26,0.5393,3.7565,-10.02,63.22,52.13,74.46,BUY,3,5.0,5.0,HIGH
-PARB.OL,2026-07-27,60.4,32.34,3.22,-0.8646,67.802,-10.92,30.9,16.7,33.4,BUY,2,5.0,3.0,HIGH
+PARB.OL,2026-07-28,60.5,32.81,0.47,-0.6742,67.66,-10.58,31.32,16.75,34.5,BUY,2,5.0,3.0,HIGH
