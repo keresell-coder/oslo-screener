@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-SCATC.OL,2026-07-30,91.3,32.13,3.15,-0.4013,98.443,-7.26,20.77,23.93,22.19,BUY,2,3.0,3.0,MODERATE
-NOD.OL,2026-07-30,152.4,33.18,0.7,-0.5114,180.598,-15.61,25.33,35.42,28.5,BUY,2,3.0,3.0,MODERATE
+PHO.OL,2026-07-31,54.3,32.9,7.69,-0.2689,59.09,-8.11,18.67,22.85,31.84,BUY,2,1.75,3.0,LOW
