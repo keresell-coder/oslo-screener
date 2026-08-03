@@ -1,2 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-PHO.OL,2026-07-31,54.3,32.9,7.69,-0.2689,59.09,-8.11,18.67,22.85,31.84,BUY,2,1.75,3.0,LOW
+HYPRO.OL,2026-08-03,0.604,30.9,0.53,0.0404,1.4254,-57.63,25.95,12.2,25.34,BUY,3,3.0,5.0,MODERATE
