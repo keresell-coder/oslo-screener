@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-WAWI.OL,2026-08-03,147.5,66.61,-0.56,0.4298,134.432,9.72,20.65,67.92,74.6,SELL,2,3.0,3.0,MODERATE
-GOD.OL,2026-08-03,14.75,68.66,-1.18,0.0922,13.3,10.9,40.15,92.82,73.84,SELL,2,5.0,3.0,HIGH
+STB.OL,2026-08-04,201.6,67.32,-3.9,0.206,184.862,9.05,44.48,62.43,62.08,SELL,2,5.0,3.0,HIGH
