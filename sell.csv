@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-TOM.OL,2026-08-06,109.5,67.22,-0.95,0.7199,98.865,10.76,27.01,53.36,77.36,SELL,2,3.0,3.0,MODERATE
-B2I.OL,2026-08-06,25.525,67.4,-2.19,0.1185,23.3695,9.22,33.05,71.18,74.24,SELL,2,5.0,3.0,HIGH
+PRS.OL,2026-08-07,5.92,69.73,-0.32,0.0925,4.6571,27.12,41.73,86.6,65.51,SELL,2,5.0,3.0,HIGH
