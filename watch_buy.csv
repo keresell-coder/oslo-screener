@@ -1,2 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-HYPRO.OL,2026-08-10,0.59,30.79,0.0,0.0347,1.2023,-50.93,27.49,20.04,25.36,BUY-watch,2,3.0,3.0,MODERATE
+HYPRO.OL,2026-08-11,0.57,29.71,-0.96,0.0338,1.2435,-54.16,26.64,23.76,20.7,BUY-watch,2,3.0,3.0,MODERATE
