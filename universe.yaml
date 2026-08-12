@@ -1,0 +1,27 @@
+# Definerer hvilke Oslo-noterte aksjer som skal overvåkes.
+# Leses av sync_universe.py, som henter listen fra Euronext og skriver tickers.txt.
+
+# Euronext MIC-koder som skal følges automatisk:
+#   XOSL = Oslo Børs (hovedlisten)
+#   XOAS = Euronext Expand Oslo
+#   MERK = Euronext Growth Oslo
+markets:
+  - XOSL
+
+# Tickere som alltid skal være med, selv om de ikke ligger i markedene over.
+# (Historiske valg fra den opprinnelige listen – Growth/Expand-navn vi følger likevel.)
+include:
+  - BMA.OL      # Byggma (Euronext Growth Oslo)
+  - HUNT.OL     # Hunter Group (Euronext Expand Oslo)
+  - INIFY.OL    # Inify Laboratories (Euronext Growth Oslo)
+  - ININ.OL     # ININ Group (Euronext Growth Oslo)
+  - PYRUM.OL    # Pyrum Innovations (Euronext Growth Oslo)
+
+# Tickere som aldri skal med – tegningsretter, midlertidige linjer, duplikater.
+exclude:
+  - ASAS.OL     # Atlantic Sapphire tegningsrett-linje; ordinær aksje er ASA.OL
+
+# Sikkerhetsgrenser mot at en feilende/strupet nedlasting tømmer listen.
+guards:
+  min_fetched: 150        # Avbryt hvis Euronext returnerer færre enn dette antallet instrumenter
+  max_removed_pct: 10.0   # Avbryt hvis mer enn X % av dagens tickers forsvinner på én kjøring

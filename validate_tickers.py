@@ -1,8 +1,13 @@
 # validate_tickers.py
 # Leser tickers.txt, rydder og verifiserer mot Yahoo (yfinance).
 # Skriver ut: valid_tickers.txt + invalid_tickers.csv
+#
+# Miljøvariabler:
+#   MIN_HISTORY_DAYS      – minste antall dagsbarer (default: min_history_days fra config.yaml)
+#   ALLOW_TICKER_SHRINK=1 – godta at valid-listen krymper mer enn MAX_VALID_DROP_PCT
+#   MAX_VALID_DROP_PCT    – terskel for krymping i prosent (default 10)
 
-import os, time
+import os, sys, time
 import pandas as pd
 import yfinance as yf
 import yaml
@@ -22,6 +27,7 @@ def load_min_history_days() -> int:
 MIN_DAYS = load_min_history_days()
 
 YF_PAUSE = float(os.getenv("YF_PAUSE", "0.35"))
+MAX_VALID_DROP_PCT = float(os.getenv("MAX_VALID_DROP_PCT", "10"))
 
 def normalize(t):
     t = t.strip().upper()
@@ -55,6 +61,55 @@ def check_ticker(t: str, tries: int = 3) -> tuple[bool, str]:
         time.sleep(YF_PAUSE * attempt)
     return False, last_err or "unknown"
 
+
+def read_previous_valid(path: str = "valid_tickers.txt") -> list[str]:
+    try:
+        with open(path) as f:
+            return [line.strip() for line in f if line.strip()]
+    except FileNotFoundError:
+        return []
+
+
+def check_shrink(previous: list[str], valids: list[str]) -> str | None:
+    """Skiller mellom reelle avnoteringer og en strupet/feilende Yahoo-kjøring."""
+    if not previous:
+        return None
+    dropped = len(set(previous) - set(valids))
+    if not dropped:
+        return None
+    drop_pct = 100.0 * dropped / len(previous)
+    if drop_pct > MAX_VALID_DROP_PCT:
+        return (
+            f"{dropped} av {len(previous)} tidligere gyldige tickers ({drop_pct:.1f} %) feilet nå "
+            f"(MAX_VALID_DROP_PCT={MAX_VALID_DROP_PCT})"
+        )
+    return None
+
+
+def write_summary(previous: list[str], valids: list[str], invalids: list[dict]) -> None:
+    added = sorted(set(valids) - set(previous))
+    removed = sorted(set(previous) - set(valids))
+
+    lines = [
+        "### Ticker validation",
+        "",
+        f"- Sjekket mot Yahoo med minst **{MIN_DAYS}** dagsbarer",
+        f"- Gyldige: **{len(valids)}** | ugyldige: **{len(invalids)}**",
+    ]
+    if added:
+        lines += ["", "**Nye gyldige:** " + ", ".join(added)]
+    if removed:
+        lines += ["", "**Falt ut:** " + ", ".join(removed)]
+    if invalids:
+        lines += ["", "**Ugyldige:**"] + [f"- {row['ticker']}: {row['note']}" for row in invalids]
+
+    print("\n".join(lines))
+    summary_path = os.getenv("GITHUB_STEP_SUMMARY")
+    if summary_path:
+        with open(summary_path, "a") as f:
+            f.write("\n".join(lines) + "\n")
+
+
 def main():
     with open("tickers.txt") as f:
         raw = [line.strip() for line in f if line.strip()]
@@ -66,19 +121,35 @@ def main():
         if t and t not in seen:
             seen.add(t); tickers.append(t)
 
+    previous = read_previous_valid()
+
     valids, invalids = [], []
     for t in tickers:
         ok, note = check_ticker(t)
         (valids if ok else invalids).append({"ticker": t, "note": note})
 
+    valid_tickers = [row["ticker"] for row in valids]
+
+    # Ikke la en feilet kjøring tømme eller barbere listen screeneren lever av.
+    if not valid_tickers:
+        sys.exit("Ingen gyldige tickers – beholder forrige valid_tickers.txt")
+
+    problem = check_shrink(previous, valid_tickers)
+    if problem and os.getenv("ALLOW_TICKER_SHRINK") != "1":
+        sys.exit(
+            f"Validering avbrutt: {problem}. "
+            "Filene er uendret. Kjør på nytt med ALLOW_TICKER_SHRINK=1 hvis nedgangen er reell."
+        )
+
     # write results
     with open("valid_tickers.txt", "w") as f:
-        for row in valids:
-            f.write(row["ticker"] + "\n")
-    pd.DataFrame(invalids).to_csv("invalid_tickers.csv", index=False)
+        for ticker in valid_tickers:
+            f.write(ticker + "\n")
+    pd.DataFrame(invalids, columns=["ticker", "note"]).to_csv("invalid_tickers.csv", index=False)
 
     print(f"Checked {len(tickers)} tickers → valid: {len(valids)}, invalid: {len(invalids)}")
     print("Wrote valid_tickers.txt and invalid_tickers.csv")
+    write_summary(previous, valid_tickers, invalids)
 
 if __name__ == "__main__":
     main()
