@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-NOM.OL,2026-08-13,2.71,25.9,0.42,-0.2461,6.4659,-58.09,36.6,28.12,18.95,BUY,2,5.0,3.0,HIGH
-HYPRO.OL,2026-08-13,0.578,31.15,1.59,0.0308,1.1199,-48.39,27.96,15.01,30.3,BUY,3,3.0,5.0,MODERATE
+NEXT.OL,2026-08-12,0.267,31.4,1.83,0.0325,0.5291,-49.54,33.35,28.75,48.42,BUY,3,5.0,5.0,HIGH
