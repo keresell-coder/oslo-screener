@@ -1,3 +1,2 @@
 ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-NOM.OL,2026-08-14,2.715,26.53,0.72,-0.2078,6.0597,-55.2,37.22,33.66,21.03,BUY,2,5.0,3.0,HIGH
-DELIA.OL,2026-08-14,20.2,29.78,4.98,-0.954,26.2106,-22.93,22.01,38.19,21.66,BUY,2,3.0,3.0,MODERATE
+DELIA.OL,2026-08-17,20.6,31.9,1.74,-0.9459,26.0513,-20.93,26.55,38.39,25.52,BUY,2,3.0,3.0,MODERATE
