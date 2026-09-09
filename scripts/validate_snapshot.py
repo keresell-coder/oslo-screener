@@ -24,17 +24,20 @@ def read_csv(path):
     return rows, parse_metadata(text)
 
 
-def validate_snapshot(directory=Path("."), *, require_report=False, now=None):
+def validate_snapshot(directory=Path("."), *, require_report=False, require_landing=False, now=None):
     directory = Path(directory)
     health = json.loads((directory / "health.json").read_text())
     rows, metadata = read_csv(directory / "latest.csv")
     checked = evaluate_snapshot(rows, metadata, now)
-    for key in ("snapshot_id", "status", "market_data_as_of", "expected_session", "coverage", "reasons"):
+    for key in ("schema", "snapshot_id", "generated_at", "valid_until", "status", "actionable",
+                "market_data_as_of", "expected_session", "coverage", "reasons", "eligible_tickers"):
         if checked[key] != health[key]:
             raise ValueError(f"health/{key} does not match verified CSV observations")
     mandatory = {"latest.csv", *CATEGORIES}
     if require_report:
         mandatory.add("summaries/latest.md")
+    if require_landing:
+        mandatory.update({"index.html", ".nojekyll"})
     if not mandatory.issubset(health.get("artifacts", {})):
         raise ValueError("incomplete artifact manifest")
     for name, expected_hash in health["artifacts"].items():
@@ -58,6 +61,8 @@ def validate_snapshot(directory=Path("."), *, require_report=False, now=None):
         raise ValueError("noncurrent row has an actionable signal")
     if require_report and f"snapshot_id={health['snapshot_id']}" not in (directory / "summaries/latest.md").read_text():
         raise ValueError("report snapshot mismatch")
+    if require_landing and f"snapshot_id={health['snapshot_id']}" not in (directory / "index.html").read_text():
+        raise ValueError("landing page snapshot mismatch")
     return health
 
 

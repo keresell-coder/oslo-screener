@@ -6,6 +6,7 @@ on:
     paths:
       - '**.py'
       - 'tests/**'
+      - 'templates/**'
       - 'requirements*.txt'
       - '.github/workflows/**'
 permissions:
