@@ -2,6 +2,7 @@ name: Daily Screener
 
 on:
   schedule:
+    - cron: "15 16 * * 1-5"  # after the completed Oslo session in CET and CEST
     - cron: "15 6 * * 1-5"   # 06:15 UTC = ca. 08:15 Oslo (CEST) / 07:15 Oslo (CET)
   workflow_dispatch:
 
@@ -17,6 +18,8 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
+    outputs:
+      data_status: ${{ steps.health.outputs.status }}
     timeout-minutes: 45
     steps:
       - name: Checkout
@@ -30,52 +33,35 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip wheel
-          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Regression tests
+        run: python -m pytest -q
 
       - name: Run screener
         env:
           YF_PAUSE: "0.40"
         run: python screener.py
 
-      - name: Verify latest.csv
-        run: |
-          python - <<'PY'
-          import csv
-          import sys
-          from pathlib import Path
-
-          path = Path("latest.csv")
-          if not path.exists():
-              sys.exit("latest.csv was not created")
-
-          lines = path.read_text(encoding="utf-8").splitlines()
-          if not lines or not lines[0].startswith("# oslo-screener"):
-              sys.exit("latest.csv is missing the oslo-screener metadata header")
-          if "generated_at=" not in lines[0]:
-              sys.exit("latest.csv metadata is missing generated_at")
-
-          data_lines = [line for line in lines if not line.startswith("#")]
-          rows = list(csv.DictReader(data_lines))
-          if not rows:
-              sys.exit("latest.csv has no data rows")
-          required = {"ticker", "date", "close", "rsi14", "signal"}
-          missing = required.difference(rows[0])
-          if missing:
-              sys.exit(f"latest.csv is missing required columns: {sorted(missing)}")
-
-          print(f"latest.csv verified with {len(rows)} rows")
-          PY
-
       - name: Build daily report
-        continue-on-error: true
         run: python scripts/build_report.py
+
+      - name: Verify complete snapshot bundle
+        id: health
+        run: |
+          python scripts/validate_snapshot.py --require-report --allow-blocked
+          python - <<'PYCODE'
+          import json, os
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write("status=" + json.load(open("health.json"))["status"] + "\n")
+          PYCODE
 
       - name: Commit latest.csv and reports to main
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add latest.csv summaries/*.md buy.csv sell.csv watch_buy.csv watch_sell.csv signals_only.csv || true
+          git add health.json latest.csv summaries/*.md buy.csv sell.csv watch_buy.csv watch_sell.csv signals_only.csv
           git commit -m "daily: latest.csv + dagsrapport [skip ci]" || echo "No changes to commit"
           git pull --rebase --autostash origin main
           git push origin HEAD:main
@@ -85,29 +71,24 @@ jobs:
         with:
           name: screener-and-summary
           path: |
+            health.json
             latest.csv
             summaries/*.md
             report_*.csv
 
       - name: Prepare site content
         run: |
-          mkdir -p site
-          cp latest.csv site/latest.csv
-          cat <<'HTML' > site/index.html
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="utf-8" />
-            <title>Oslo Screener latest.csv</title>
-          </head>
-          <body>
-            <main>
-              <h1>Oslo Screener Reports</h1>
-              <p><a href="latest.csv">Download the freshest latest.csv report</a>.</p>
-            </main>
-          </body>
-          </html>
-          HTML
+          python - <<'PYCODE'
+          import json, shutil
+          from pathlib import Path
+          health = json.loads(Path("health.json").read_text())
+          Path("site").mkdir(exist_ok=True)
+          for name in ["health.json", *health["artifacts"]]:
+              dest = Path("site") / name
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copyfile(name, dest)
+          Path("site/index.html").write_text('<!doctype html><html lang="en"><meta charset="utf-8"><title>Oslo Screener data</title><h1>Oslo Screener</h1><p>Source health: ' + health["status"] + '</p><p><a href="health.json">Observation dates, coverage and health</a> · <a href="latest.csv">CSV snapshot</a></p></html>')
+          PYCODE
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
@@ -141,3 +122,9 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/keresell-coder/oslo-screener-dashboard/actions/workflows/daily.yml/dispatches \
             -d '{"ref":"main"}'
+
+      - name: Fail run when source health is blocked
+        if: needs.run.outputs.data_status == 'blocked'
+        run: |
+          echo "Published a safe blocked snapshot. No actionable output; source coverage needs attention."
+          exit 1

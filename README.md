@@ -36,10 +36,33 @@ python validate_tickers.py
 
 Begge skriptene avbryter uten å skrive filer hvis listen krymper unormalt mye (strupet/feilende nedlasting ser ellers ut som en masseavnotering). Overstyr med `FORCE_SYNC=1` henholdsvis `ALLOW_TICKER_SHRINK=1` når endringen er reell. Valideringen bruker samme historikk-krav som screeneren (`min_history_days` i `config.yaml`).
 
-## Drift og publisering
+## Drift, datakvalitet og publisering
 
-- `Daily Screener` kjører hverdager på `main`, bygger `latest.csv`, verifiserer metadata/kolonner/rader, bygger dagsrapport, committer endringer, publiserer `latest.csv` til GitHub Pages og forsøker å trigge dashboard-refresh dersom `DASHBOARD_WORKFLOW_TOKEN` er satt.
-- `Weekly Universe Sync and Ticker Validation` kjører søndager 05:20 UTC på `main`: synkroniserer `tickers.txt` mot Euronext, validerer mot Yahoo, og committer `tickers.txt` / `valid_tickers.txt` / `invalid_tickers.csv`. Nye og fjernede tickere listes i jobbsammendraget. Kan også kjøres manuelt med `workflow_dispatch` (avkryssing for å overstyre sikkerhetsgrensene).
-- Begge workflows bruker concurrency slik at planlagte jobber ikke skriver over hverandre.
-- `latest.csv` har metadata i kommentarfeltet øverst, inkludert `data_fetch_started`, `data_fetch_completed` og `generated_at`. Nedstrøms apper skal bruke disse feltene for friskhetskontroll.
-- Dashboardet (`keresell-coder/oslo-screener-dashboard`) har egen planlagt refresh etter screener-jobben og en ekstra backup-run senere på dagen.
+`Daily Screener` kjører hverdager 06:15 og 16:15 UTC. Morgenkjøringen bruker forrige avsluttede handelssesjon; siste kjøring følger Oslo-slutt i både CET og CEST. Alle indikatorer beregnes **etter** at uavsluttede dagsbarer er fjernet. Minstekravet til historikk dekker alle indikatorenes oppvarming, også SMA50.
+
+`health.json` og metadata i hver CSV deler `snapshot_id`, `generated_at`, `expected_session`, `market_data_as_of` og `status`. Hver rad har `data_status`, observasjonsdato og en eventuell årsak til at den er utelatt. Fersk genereringstid gjør aldri gamle observasjoner aktuelle. `last_valid_ohlc_date` skiller siste brukbare prisbar fra en nyere datostemplet rad med manglende OHLC; `market_data_as_of` viser siste brukbare observasjon på tvers av universet.
+
+- `current`: 100% av universet har aktuelle, gyldige observasjoner.
+- `degraded`: minst 90%, men under 100%, har aktuelle observasjoner. Bare disse radene kan gi oppsett.
+- `blocked`: under minimumsdekning, ugyldig metadata eller uavsluttet/utdatert sesjon. Alle signaler holdes tilbake (`WITHHELD`). `MIN_CURRENT_COVERAGE` kan endre det eksplisitte dekningskravet; standard er 0.9.
+- `coverage` inneholder universe_count, received_count, current, stale, missing, invalid, current_ratio, min_current_ratio og actionable_count.
+- `reasons`, `excluded`, `observation_dates` og `signal_counts` forklarer dekningen. `artifacts` inneholder SHA-256 for publiserte CSV-er og rapporter.
+- `valid_until` er når neste handelssesjon pluss datamargin er ferdig. Konsumenter skal blokkere en bufret status etter dette tidspunktet, selv om siste kjøring var vellykket.
+
+Alle kategori-CSV-er overskrives også når de er tomme. Rapport, hoved-CSV og kategori-CSV-er valideres som ett snapshot; rapportfeil stanser publisering. En gyldig **blocked**-rapport publiseres med tomme handlingslister og synlig helse, før workflowen markeres feilet. Status er tilgjengelig på https://keresell-coder.github.io/oslo-screener/health.json sammen med de tilhørende filene.
+
+Pull requests og kodeendringer på main kjører regresjonstester. Direkte avhengigheter er låst til versjonene brukt ved kontrollen:
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest -q
+python screener.py
+python scripts/build_report.py
+python scripts/validate_snapshot.py --require-report --allow-blocked
+```
+
+`--allow-blocked` tillater validering av en trygg sperret publisering; det endrer aldri datastatus. Uten flagget gir blocked returkode ulik null.
+
+Kalenderen er kontrollert mot Euronexts 2026-kalender og gjeldende kontanthandelstider: slutt på trading-at-last 16:30 Oslo, 13:10 på onsdag før påske. En konservativ **15 minutters datamargin** kommer i tillegg. 24. og 31. desember er stengt. Primærkildene står i `market_health.py`. **Neste års offisielle kalender må kontrolleres før 2027; ukjente fremtidige år blokkerer oppsett.**
+
+BUY/SELL-reglene er fortsatt RSI-terskel og dagsretning. SMA50/MACD-støtte endrer primærantall, ikke selve merkelappen. ADX-bånd og prosentvise stopp/posisjoner er heuristikker, og nyhets-/fundamentaldekning inngår ikke. Dette er tekniske forskningskandidater, ikke en empirisk validert handelsstrategi.

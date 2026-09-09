@@ -1,26 +1,26 @@
 """Build daily technical report from latest.csv → summaries/daily_YYYY-MM-DD.md
 
-Reads the signal column that screener.py already computed — no re-classification,
-no extra Yahoo Finance calls per ticker.  One random spot-check call is made to
-verify price data freshness.
+Reads the canonical signal column and validates the shared snapshot, completed
+sessions, coverage and artifact checksums. No same-vendor price re-fetch is
+presented as independent verification.
 """
 
 from __future__ import annotations
 
-import random
+import json
+import hashlib
 import sys
 import pathlib as pl
 import datetime as dt
 
 import numpy as np
 import pandas as pd
-import yfinance as yf
 
 ROOT = pl.Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from scripts.trading_calendar import last_ose_trading_day
+from scripts.validate_snapshot import validate_snapshot
 
 OUT_DIR = pl.Path("summaries")
 
@@ -33,59 +33,6 @@ def load_csv(path: pl.Path) -> pd.DataFrame:
     if "ticker" not in df.columns:
         raise ValueError(f"'ticker' column missing in {path}")
     return df
-
-
-# ---------- Price spot-check ----------
-
-def _spot_check(df: pd.DataFrame, csv_date: dt.date) -> str:
-    """Fetch one ticker from Yahoo and compare its close to the CSV value.
-
-    Tries up to 3 randomly-selected candidates so that a single unavailable
-    ticker doesn't silently fail the whole freshness check.
-    """
-    cands = df.loc[df["signal"].isin(["BUY", "SELL"]), "ticker"].dropna().unique().tolist()
-    if not cands:
-        cands = df["ticker"].dropna().unique().tolist()
-    if not cands:
-        return "Pris-sjekk: ingen data"
-
-    rng = random.Random(csv_date.toordinal())
-    sample = cands.copy()
-    rng.shuffle(sample)
-    sample = sample[:3]
-
-    start = (csv_date - dt.timedelta(days=5)).isoformat()
-    end = (csv_date + dt.timedelta(days=1)).isoformat()
-
-    for t in sample:
-        try:
-            hist = yf.download(t, start=start, end=end, interval="1d",
-                               auto_adjust=True, progress=False)
-            if hist.empty:
-                continue
-            if isinstance(hist.columns, pd.MultiIndex):
-                hist.columns = hist.columns.get_level_values(0)
-            idx_dates = [x.date() for x in hist.index.to_pydatetime()]
-            days = [d for d in idx_dates if d <= csv_date]
-            if not days:
-                continue
-            d0 = max(days)
-            yahoo_close = float(hist["Close"].iloc[idx_dates.index(d0)])
-            csv_row = df.loc[df["ticker"] == t]
-            if csv_row.empty:
-                continue
-            csv_close = float(csv_row["close"].iloc[0])
-            if csv_close > 0 and yahoo_close > 0:
-                dev = abs(csv_close - yahoo_close) / max(csv_close, yahoo_close) * 100.0
-                if dev > 0.5:
-                    print(f"ADVARSEL – prisavvik {dev:.2f}% >0,5% for {t} "
-                          f"(CSV={csv_close:.3f} vs Yahoo={yahoo_close:.3f})")
-                status = "OK" if dev <= 0.5 else "⚠️ avvik høy"
-                return f"Pris-sjekk: {t} CSV={csv_close:.3f} vs Yahoo={yahoo_close:.3f} – avvik {dev:.2f}% ({status})"
-        except Exception:
-            continue
-
-    return f"Pris-sjekk: {sample[0] if sample else '?'} – Yahoo data utilgjengelig"
 
 
 # ---------- Icon helpers ----------
@@ -275,16 +222,12 @@ def main() -> int:
             print(f"STOPPET – '{col}'-kolonne mangler")
             return 1
 
-    csv_dates = pd.to_datetime(df["date"], errors="coerce").dropna().dt.date
-    if csv_dates.empty:
-        print("STOPPET – ingen gyldige datoer")
+    try:
+        health = validate_snapshot()
+    except (ValueError, KeyError, OSError) as exc:
+        print(f"STOPPET – ugyldig snapshot: {exc}")
         return 1
-    csv_last = csv_dates.max()
-
-    last_trading = last_ose_trading_day()
-    if csv_last < last_trading:
-        print(f"STOPPET – data er utdatert (CSV={csv_last}, forventet>={last_trading})")
-        return 1
+    csv_last = dt.date.fromisoformat(health["expected_session"])
 
     # Enrich signal rows with display icons and ranking
     signal_rows = df[df["signal"].isin(["BUY", "SELL", "BUY-watch", "SELL-watch"])]
@@ -306,7 +249,9 @@ def main() -> int:
     BUY_watch = bucket("BUY-watch")
     SELL_watch = bucket("SELL-watch")
 
-    price_check = _spot_check(df, csv_last)
+    # Same-provider spot checks are not independent validation and cannot promote health.
+    price_check = "Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert"
+    coverage = health["coverage"]
 
     OUT_DIR.mkdir(exist_ok=True)
     out_path  = OUT_DIR / f"daily_{csv_last.isoformat()}.md"
@@ -314,7 +259,12 @@ def main() -> int:
 
     md = [
         "# Oslo Børs – Teknisk dagsrapport\n",
-        f"**Dato:** {csv_last.strftime('%d.%m.%Y')}\n",
+        f"<!-- snapshot_id={health['snapshot_id']} -->\n",
+        f"**Forventet avsluttet handelssesjon:** {csv_last.strftime('%d.%m.%Y')}\n",
+        f"**Datastatus:** {health['status'].upper()} · {coverage['current']}/{coverage['universe_count']} aktuelle rader\n",
+        f"**Generert:** {health['generated_at']} · snapshot {health['snapshot_id']}\n",
+        "**Signaler holdes tilbake ved utilstrekkelig datadekning.**\n" if health['status'] == 'blocked' else "",
+        "**Utelatte rader:** " + (", ".join(f"{x['ticker']} ({x['reason']})" for x in health['excluded']) or "Ingen") + "\n",
         f"**Telling:** BUY {len(BUY)} | SELL {len(SELL)} "
         f"| BUY-watch {len(BUY_watch)} | SELL-watch {len(SELL_watch)}\n",
 
@@ -333,13 +283,16 @@ def main() -> int:
         _watch_table(SELL_watch),
 
         "\n\n---\n",
-        f"**Kontroller:** {price_check}. Ferskhet OK (CSV-dato er siste handelsdag).\n",
-        "_Event/Fundamentale flagg_: pending nyhets- og fundamentals-API.\n",
+        f"**Kontroller:** {price_check}. Datastatus {health['status']}; begrensninger: {', '.join(health['reasons']) or 'ingen strukturelle avvik'}.\n",
+        "_Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._\n",
     ]
 
     content = "\n".join(md)
     out_path.write_text(content, encoding="utf-8")
     latest_md.write_text(content, encoding="utf-8")
+    for path in (out_path, latest_md):
+        health["artifacts"][str(path)] = hashlib.sha256(path.read_bytes()).hexdigest()
+    pl.Path("health.json").write_text(json.dumps(health, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     print(f"Wrote {out_path} and {latest_md}")
     return 0
 
