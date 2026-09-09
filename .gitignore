@@ -1,4 +1,5 @@
-# Report CSVs — saved as GitHub Actions artifacts, no need to commit to git
+# Local historical CSVs stay ignored. The publication script force-stages only
+# the exact timestamp CSV declared by the current health manifest.
 report_*.csv
 .DS_Store
 

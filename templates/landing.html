@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oslo Screener — source health</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; background: #eef2f4; color: #172b35; }
+    body { max-width: 780px; margin: 5vh auto; padding: 24px; }
+    main { background: white; padding: clamp(24px, 6vw, 48px); border: 1px solid #d6e0e5; border-radius: 16px; }
+    h1 { margin-top: 0; } p { line-height: 1.6; } a { color: #145d78; }
+    .status { padding: 16px; border-left: 5px solid #a35e12; background: #fff6e7; }
+    .status[data-status="current"] { border-color: #277558; background: #eaf6ef; }
+    dt { color: #516670; margin-top: 18px; font-size: .9rem; } dd { margin: 4px 0 0; overflow-wrap: anywhere; }
+    .limits { color: #516670; font-size: .9rem; } li { margin: 10px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Oslo Screener</h1>
+  <p>Daily technical research candidates from completed Oslo market sessions.</p>
+  <!-- snapshot_id={{ health.snapshot_id }} -->
+  <section id="health-panel" class="status" data-status="unavailable" aria-live="polite">
+    <strong id="health-status">Not verified</strong>
+    <p id="health-reason">Checking the published source health. Do not treat this snapshot as current until verification succeeds.</p>
+  </section>
+  <dl>
+    <dt>Latest usable market observation</dt><dd id="observation">{{ health.market_data_as_of or 'Not verified' }}</dd>
+    <dt>Expected completed session at generation</dt><dd id="expected-session">{{ health.expected_session or 'Not verified' }}</dd>
+    <dt>Snapshot generated</dt><dd>{{ health.generated_at or 'Not verified' }}</dd>
+    <dt>Coverage at publication</dt><dd id="coverage">{{ health.coverage.current }} / {{ health.coverage.universe_count }} current · {{ health.coverage.stale }} stale · {{ health.coverage.missing }} missing · {{ health.coverage.invalid }} invalid</dd>
+    <dt>Validity deadline</dt><dd id="valid-until">{{ health.valid_until or 'Not verified' }}</dd>
+    <dt>Snapshot ID</dt><dd>{{ health.snapshot_id }}</dd>
+  </dl>
+  <ul>
+    <li><a href="summaries/latest.md">Read the dated technical report</a></li>
+    <li><a href="latest.csv">Download the canonical CSV snapshot</a></li>
+    <li><a href="health.json">Inspect observation dates, excluded rows and file checksums</a></li>
+  </ul>
+  <p class="limits">Passing source checks does not validate a strategy or expected return. BUY/SELL labels are technical research setups. Fundamental and news coverage is outside this screener.</p>
+  <noscript><p class="status">JavaScript is required for current health verification. This page remains unverified; inspect health.json and its validity deadline before using the data.</p></noscript>
+</main>
+<script>
+(() => {
+  "use strict";
+  const snapshotId = {{ health.snapshot_id | tojson }};
+  const schema = "oslo_screener.health.v1";
+  const byId = (id) => document.getElementById(id);
+  const labels = {current: "Source checks passed", degraded: "Limited coverage", blocked: "Checks blocked", unavailable: "Not verified"};
+  const timestamp = (value) => typeof value === "string" && /^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(value) ? Date.parse(value) : NaN;
+  const day = (value) => typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+  let lastHealth = null;
+  let request = 0;
+
+  function display(status, reason) {
+    byId("health-panel").dataset.status = status;
+    byId("health-status").textContent = labels[status];
+    byId("health-reason").textContent = reason;
+  }
+
+  function evaluate(health) {
+    const now = Date.now();
+    if (!health || health.schema !== schema || health.snapshot_id !== snapshotId || !["current", "degraded", "blocked"].includes(health.status)) {
+      display("blocked", "The health manifest does not match this page. Reload to obtain one complete snapshot."); return;
+    }
+    const expiry = timestamp(health.valid_until);
+    const generated = timestamp(health.generated_at);
+    if (!Number.isFinite(expiry) || !Number.isFinite(generated) || generated > now + 300000 || expiry <= generated) {
+      display("blocked", "The source publication or validity deadline is not verified."); return;
+    }
+    if (now >= expiry) {
+      display("blocked", "This snapshot has expired. A new completed-session snapshot is required."); return;
+    }
+    if (health.status === "blocked") {
+      display("blocked", "Signals are withheld. " + (Array.isArray(health.reasons) ? health.reasons.join("; ").replaceAll("_", " ") : "Inspect source coverage.")); return;
+    }
+    const coverage = health.coverage || {};
+    const keys = ["universe_count", "received_count", "current", "stale", "missing", "invalid"];
+    const count = coverage.universe_count;
+    const ratio = coverage.current / count;
+    if (!keys.every((key) => Number.isInteger(coverage[key]) && coverage[key] >= 0) || count <= 0 || coverage.received_count !== count ||
+        coverage.current + coverage.stale + coverage.missing + coverage.invalid !== count ||
+        !Number.isFinite(coverage.min_current_ratio) || coverage.min_current_ratio <= 0 || coverage.min_current_ratio > 1 ||
+        !Number.isFinite(coverage.current_ratio) || Math.abs(coverage.current_ratio - ratio) > 0.000001 || ratio < coverage.min_current_ratio ||
+        (health.status === "current" && ratio !== 1) || health.actionable !== true ||
+        !day(health.market_data_as_of) || !day(health.expected_session) || health.market_data_as_of !== health.expected_session ||
+        Date.parse(health.market_data_as_of) > now) {
+      display("blocked", "The declared observations or coverage do not support an available snapshot."); return;
+    }
+    byId("observation").textContent = health.market_data_as_of;
+    byId("expected-session").textContent = health.expected_session;
+    byId("valid-until").textContent = health.valid_until;
+    display(health.status, health.status === "current" ? "Completed-session dates and full row coverage pass the source checks for this snapshot." : "Only current, valid rows are eligible. Inspect the excluded coverage before using this report.");
+  }
+
+  async function refresh() {
+    const ownRequest = ++request;
+    try {
+      const response = await fetch("health.json", {cache: "no-store", signal: AbortSignal.timeout(8000)});
+      if (!response.ok) throw new Error("Health unavailable");
+      const health = await response.json();
+      if (ownRequest !== request) return;
+      lastHealth = health;
+      evaluate(health);
+    } catch {
+      if (ownRequest !== request) return;
+      lastHealth = null;
+      display("unavailable", "The source health check could not be read. Current validity is unverified; do not rely on an earlier passing label.");
+    }
+  }
+  refresh();
+  setInterval(refresh, 30000);
+  setInterval(() => { if (lastHealth) evaluate(lastHealth); }, 1000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) { if (lastHealth) evaluate(lastHealth); refresh(); } });
+})();
+</script>
+</body>
+</html>

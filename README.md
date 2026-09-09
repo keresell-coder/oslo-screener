@@ -51,6 +51,8 @@ Begge skriptene avbryter uten å skrive filer hvis listen krymper unormalt mye (
 
 Alle kategori-CSV-er overskrives også når de er tomme. Rapport, hoved-CSV og kategori-CSV-er valideres som ett snapshot; rapportfeil stanser publisering. En gyldig **blocked**-rapport publiseres med tomme handlingslister og synlig helse, før workflowen markeres feilet. Status er tilgjengelig på https://keresell-coder.github.io/oslo-screener/health.json sammen med de tilhørende filene.
 
+`scripts/prepare_publication.py` lager én helseside og `.nojekyll` i repo-roten, legger dem i checksum-manifestet og kopierer nøyaktig samme publiseringspakke til `site/`. Både den eldre branch-baserte Pages-byggingen og workflowens Pages-artifact får dermed samme `index.html`, helse, rapport og alle deklarerte CSV-er. Allerede Git-sporede `report_*.csv` og `summaries/*.md` kopieres også fra Git-indeksen, slik at eksisterende arkivlenker virker i begge publiseringsveier uten å publisere uvedkommende lokale endringer. `--stage` validerer begge kopiene og legger bare manifestets eksakte filnavn i Git, også tidsstemplet CSV som ellers er ignorert. Tidligere arkiver endres ikke. Helsesiden starter uverifisert, kontrollerer levende manifest og snapshot-ID, og sperrer ved hentefeil eller utløpt gyldighet.
+
 Pull requests og kodeendringer på main kjører regresjonstester. Direkte avhengigheter er låst til versjonene brukt ved kontrollen:
 
 ```bash
@@ -58,7 +60,9 @@ pip install -r requirements-dev.txt
 python -m pytest -q
 python screener.py
 python scripts/build_report.py
+python scripts/prepare_publication.py
 python scripts/validate_snapshot.py --require-report --allow-blocked
+python scripts/prepare_publication.py --verify
 ```
 
 `--allow-blocked` tillater validering av en trygg sperret publisering; det endrer aldri datastatus. Uten flagget gir blocked returkode ulik null.
