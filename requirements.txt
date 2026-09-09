@@ -1,7 +1,7 @@
-yfinance
-pandas
-numpy
-ta
-setuptools
-pyyaml
-requests
+yfinance==0.2.66
+pandas==2.3.3
+numpy==2.3.5
+ta==0.11.0
+setuptools==80.9.0
+pyyaml==6.0.3
+requests==2.32.5

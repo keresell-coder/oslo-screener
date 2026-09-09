@@ -21,7 +21,7 @@ class LastOseTradingDayTests(unittest.TestCase):
         self.assertEqual(last_ose_trading_day(tuesday_early), dt.date(2025, 8, 18))
 
     def test_weekday_after_cutoff_returns_same_day(self):
-        tuesday_late = dt.datetime(2025, 8, 19, 9, 30, tzinfo=self.tz)
+        tuesday_late = dt.datetime(2025, 8, 19, 16, 45, tzinfo=self.tz)
         self.assertEqual(last_ose_trading_day(tuesday_late), dt.date(2025, 8, 19))
 
     def test_naive_date_treated_as_same_day(self):
@@ -33,7 +33,7 @@ class LastOseTradingDayTests(unittest.TestCase):
         self.assertEqual(last_ose_trading_day(naive_dt), dt.date(2025, 8, 18))
 
     def test_naive_datetime_after_cutoff_stays_same_day(self):
-        naive_dt = dt.datetime(2025, 8, 19, 9, 30)
+        naive_dt = dt.datetime(2025, 8, 19, 16, 45)
         self.assertEqual(last_ose_trading_day(naive_dt), dt.date(2025, 8, 19))
 
     # Holiday-aware tests
