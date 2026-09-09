@@ -1,7 +1,3 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-APR.OL,2026-09-08,37.8,24.25,1.51,-0.2317,45.0,-16.0,29.23,13.32,13.73,BUY,2,3.0,3.0,MODERATE
-NOM.OL,2026-09-08,1.96,30.52,0.28,0.1182,4.0918,-52.1,40.93,58.57,38.98,BUY,3,5.0,5.0,HIGH
-HYPRO.OL,2026-09-08,0.508,32.44,1.06,0.0124,0.6434,-21.04,24.0,16.0,36.25,BUY,3,3.0,3.0,MODERATE
-IDEX.OL,2026-09-08,6.22,33.33,7.32,-0.1991,7.8896,-21.16,23.81,2.75,30.52,BUY,2,3.0,3.0,MODERATE
-BWO.OL,2026-09-08,39.25,33.56,1.76,-0.2198,43.9127,-10.62,27.06,34.47,32.16,BUY,2,3.0,3.0,MODERATE
-ENH.OL,2026-09-08,7.35,33.86,1.77,-0.0824,7.595,-3.23,27.07,24.81,19.42,BUY,2,3.0,3.0,MODERATE
+# oslo-screener report=buy.csv schema=oslo_screener.health.v1 snapshot_id=553dd909723b41b5ade1eb0d07f40ea3 data_fetch_started=2026-09-09T06:49:56Z data_fetch_completed=2026-09-09T06:50:25Z generated_at=2026-09-09T06:50:25Z expected_session=2026-09-08 universe_count=202 min_coverage_ratio=0.9 status=blocked market_data_as_of=2026-09-07
+# columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
+ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id

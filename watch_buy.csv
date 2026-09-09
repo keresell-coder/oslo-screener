@@ -1,14 +1,3 @@
-ticker,date,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk
-HPUR.OL,2026-09-08,6.44,23.73,-0.35,-0.1567,9.5179,-32.34,18.63,21.29,12.7,BUY-watch,1,1.75,1.5,LOW
-PARB.OL,2026-09-08,56.0,25.95,-5.05,-0.2635,62.676,-10.65,24.66,19.21,17.69,BUY-watch,1,3.0,1.5,MODERATE
-SALME.OL,2026-09-08,3.52,27.94,-6.38,-0.0299,3.968,-11.29,18.95,28.65,15.22,BUY-watch,1,1.75,1.5,LOW
-ORK.OL,2026-09-08,93.1,28.44,-0.33,-0.3725,102.562,-9.23,35.19,38.99,27.01,BUY-watch,1,5.0,1.5,HIGH
-NAVA.OL,2026-09-08,13.5,28.46,-2.67,-0.1522,15.947,-15.34,21.5,1.31,20.89,BUY-watch,1,3.0,1.5,MODERATE
-ENVIP.OL,2026-09-08,35.05,30.29,-13.32,-0.6771,41.346,-15.23,16.62,32.76,12.85,BUY-watch,1,1.75,1.5,LOW
-TOM.OL,2026-09-08,98.1,30.41,-17.47,-1.0927,103.836,-5.52,23.93,51.1,11.28,BUY-watch,1,3.0,1.5,MODERATE
-GSF.OL,2026-09-08,26.8,30.75,-0.58,-0.3294,29.3484,-8.68,14.59,52.02,19.68,BUY-watch,1,1.75,1.5,LOW
-STRO.OL,2026-09-08,9.4,31.71,-2.6,-0.0327,10.1016,-6.95,42.85,3.1,21.37,BUY-watch,1,5.0,1.5,HIGH
-KOA.OL,2026-09-08,1.974,33.01,-1.96,-0.0053,2.0735,-4.8,22.39,23.44,19.0,BUY-watch,1,3.0,1.5,MODERATE
-VVL.OL,2026-09-08,418.0,33.33,-2.86,-0.9793,454.2,-7.97,13.28,26.3,22.18,BUY-watch,1,1.75,1.5,LOW
-AGLX.OL,2026-09-08,16.55,33.86,-5.19,-0.0527,18.473,-10.41,23.85,46.25,25.63,BUY-watch,1,3.0,1.5,MODERATE
-INIFY.OL,2026-09-04,6.05,34.26,-3.13,-0.1303,7.655,-20.97,28.08,15.1,22.16,BUY-watch,1,3.0,1.5,MODERATE
+# oslo-screener report=watch_buy.csv schema=oslo_screener.health.v1 snapshot_id=553dd909723b41b5ade1eb0d07f40ea3 data_fetch_started=2026-09-09T06:49:56Z data_fetch_completed=2026-09-09T06:50:25Z generated_at=2026-09-09T06:50:25Z expected_session=2026-09-08 universe_count=202 min_coverage_ratio=0.9 status=blocked market_data_as_of=2026-09-07
+# columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
+ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
