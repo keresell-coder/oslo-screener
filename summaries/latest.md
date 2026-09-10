@@ -1,12 +1,12 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=fb2b4257d0df4e5da55c6a17ad59f43f -->
+<!-- snapshot_id=ba2f6aede9b14beb8a5b822e7f9a81e3 -->
 
 **Forventet avsluttet handelssesjon:** 09.09.2026
 
 **Datastatus:** BLOCKED · 0/202 aktuelle rader
 
-**Generert:** 2026-09-10T07:37:44Z · snapshot fb2b4257d0df4e5da55c6a17ad59f43f
+**Generert:** 2026-09-10T07:41:44Z · snapshot ba2f6aede9b14beb8a5b822e7f9a81e3
 
 **Signaler holdes tilbake ved utilstrekkelig datadekning.**
 
