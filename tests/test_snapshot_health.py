@@ -11,6 +11,7 @@ import pytest
 import screener
 from market_health import SCHEMA, evaluate_snapshot, last_ose_trading_day
 from scripts import build_report
+from scripts.prepare_publication import prepare_publication, validate_publication
 from scripts.validate_snapshot import read_csv, validate_snapshot
 
 NOW = dt.datetime.fromisoformat('2026-09-08T18:00:00+02:00')
@@ -94,6 +95,47 @@ def test_calendar_requires_annual_primary_source_review():
 def publish(tmp_path, monkeypatch, rows):
     monkeypatch.chdir(tmp_path)
     return screener.publish_snapshot(rows, len(rows), NOW, NOW, NOW, 'test')
+
+
+@pytest.mark.parametrize('stale_count,status', [(0, 'current'), (1, 'degraded'), (2, 'blocked')])
+def test_mixed_signal_universe_survives_publication_round_trip(tmp_path, monkeypatch, stale_count, status):
+    # Alphabetical input is reordered by signal and RSI when latest.csv is written.
+    rows = [row(f'{ticker}.OL', signal=signal, rsi14=rsi, note='') for ticker, signal, rsi in [
+        ('A', 'NEUTRAL', 45), ('B', 'SELL', 75), ('C', 'BUY', 32),
+        ('D', 'BUY-watch', 28), ('E', 'SELL-watch', 68), ('F', 'BUY', 25),
+        ('G', 'NEUTRAL', 55), ('H', 'SELL', 70), ('I', 'BUY-watch', 30),
+        ('J', 'SELL-watch', 65),
+    ]]
+    for item in rows[len(rows) - stale_count:]:
+        item.update(date='2026-09-04', data_status='stale')
+    expected_members = {item['ticker'] for item in rows if item['data_status'] == 'current'}
+    if status == 'blocked':
+        expected_members.clear()
+
+    health = publish(tmp_path, monkeypatch, rows)
+    published, _ = read_csv('latest.csv')
+    assert [item['ticker'] for item in published] != [item['ticker'] for item in rows]
+    assert health['status'] == status
+    assert health['coverage']['current'] == len(rows) - stale_count
+    assert set(health['eligible_tickers']) == expected_members
+    assert validate_snapshot(now=NOW)['status'] == status
+    assert health['eligible_tickers'] == [item['ticker'] for item in published
+                                          if item['ticker'] in expected_members]
+    assert all(item['signal'] == 'WITHHELD' for item in published
+               if item['ticker'] not in expected_members)
+    monkeypatch.setattr(build_report, 'validate_snapshot', lambda: validate_snapshot(now=NOW))
+    assert build_report.main() == 0
+    prepare_publication(now=NOW)
+    assert validate_publication(now=NOW)['status'] == status
+
+
+@pytest.mark.parametrize('eligible', [[], ['B.OL'], ['A.OL', 'A.OL']])
+def test_eligibility_membership_tampering_is_rejected(tmp_path, monkeypatch, eligible):
+    health = publish(tmp_path, monkeypatch, [row()])
+    health['eligible_tickers'] = eligible
+    Path('health.json').write_text(json.dumps(health))
+    with pytest.raises(ValueError, match='health/eligible_tickers'):
+        validate_snapshot(now=NOW)
 
 
 def test_empty_categories_overwrite_prior_signal_files(tmp_path, monkeypatch):
