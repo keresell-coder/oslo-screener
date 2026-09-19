@@ -1,13 +1,25 @@
 name: Daily Screener
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'screener.py'
+      - 'yahoo_history.py'
+      - 'market_health.py'
+      - 'config.yaml'
+      - 'universe.yaml'
+      - 'tickers.txt'
+      - 'scripts/**'
+      - '.github/workflows/daily.yml'
   schedule:
-    - cron: "15 16 * * 1-5"  # after the completed Oslo session in CET and CEST
-    - cron: "15 6 * * 1-5"   # 06:15 UTC = ca. 08:15 Oslo (CEST) / 07:15 Oslo (CET)
+    - cron: "37 19 * * 1-5"  # 20:37 CET / 21:37 CEST, allow Yahoo to finalize EOD
+    - cron: "37 23 * * 1-5"  # overnight retry for the same completed session
+    - cron: "37 3 * * 2-6"   # 04:37 CET / 05:37 CEST, well before next open
   workflow_dispatch:
 
 concurrency:
-  group: daily-screener-main
+  group: daily-screener-${{ github.ref }}
   cancel-in-progress: false
 
 permissions:
@@ -20,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       data_status: ${{ steps.health.outputs.status }}
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -45,7 +57,7 @@ jobs:
 
       - name: Run screener
         env:
-          YF_PAUSE: "0.40"
+          YF_PAUSE: "0.60"
         run: python screener.py
 
       - name: Build daily report
@@ -66,6 +78,7 @@ jobs:
           PYCODE
 
       - name: Commit the complete declared publication bundle to main
+        if: github.ref == 'refs/heads/main'
         run: |
           set -e
           git config user.name "github-actions[bot]"
@@ -79,18 +92,28 @@ jobs:
           git push origin HEAD:main
 
       - name: Upload artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: screener-and-summary
           path: site
           include-hidden-files: true
 
+      - name: Upload fetch diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yahoo-fetch-diagnostics
+          path: fetch_diagnostics.json
+
       - name: Upload site artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: run
     runs-on: ubuntu-latest
     timeout-minutes: 10

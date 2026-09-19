@@ -1,6 +1,6 @@
 # Oslo Børs Screener (RSI14/RSI6, SMA50, MACD, ADX, MFI)
 
-**Formål:** Automatisk daglig screening av utvalgte OSE-aksjer (Yahoo Finance `.OL`), med BUY/SELL/Watch-signaler og risikomodul.
+**Formål:** Automatisk daglig screening av Oslo Børs, Euronext Expand Oslo og Euronext Growth Oslo (Yahoo Finance `.OL`), med BUY/SELL/Watch-signaler og risikomodul.
 
 ## Hvordan kjøre lokalt
 ```bash
@@ -26,6 +26,10 @@ python scripts/build_report.py
 
 `universe.yaml` styrer hvilke Oslo-noterte aksjer som følges: hvilke markeder (MIC-koder) som hentes automatisk, pluss `include`/`exclude` for manuelle unntak.
 
+Alle tre markeder (`XOSL`, `XOAS`, `MERK`) er med. Screeneren leser hele `tickers.txt`, slik at en Yahoo-feil eller kort IPO-historikk ikke skjuler en notert aksje fra rapportens dekningsgrunnlag. `valid_tickers.txt` og `invalid_tickers.csv` er diagnostikk fra den ukentlige kontrollen. `SCREENER_TICKERS_FILE` kan velge en annen liste ved lokal testing; det eldre eksplisitte `VALID_TICKERS_FILE` støttes fortsatt.
+
+`instruments.csv` bevarer ISIN og marked for hvert symbol fra samme universsynkronisering. En aksje uten entydig børsidentitet kan ikke bruke børsens prisbackup.
+
 ```bash
 # hent noterte aksjer fra Euronext og oppdater tickers.txt
 python sync_universe.py
@@ -38,7 +42,23 @@ Begge skriptene avbryter uten å skrive filer hvis listen krymper unormalt mye (
 
 ## Drift, datakvalitet og publisering
 
-`Daily Screener` kjører hverdager 06:15 og 16:15 UTC. Morgenkjøringen bruker forrige avsluttede handelssesjon; siste kjøring følger Oslo-slutt i både CET og CEST. Alle indikatorer beregnes **etter** at uavsluttede dagsbarer er fjernet. Minstekravet til historikk dekker alle indikatorenes oppvarming, også SMA50.
+`Daily Screener` har tre gratis forsøk per handelssesjon: 19:37 og 23:37 UTC mandag–fredag, samt 03:37 UTC tirsdag–lørdag. Første forsøk er 20:37 CET / 21:37 CEST; siste forsøk er 04:37 CET / 05:37 CEST neste morgen. Dette gir Yahoo tid til å ferdigstille dagsdata og margin før børsåpning kl. 09:00 Oslo. Fredagens siste forsøk er lørdag morgen. GitHub kan forsinke eller miste planlagte kjøringer; tidspunktene er mål, ikke en garantert leveringstid.
+
+`yahoo_history.py` henter ni måneders historikk med eksplisitt sluttdato, inkludert manglende observasjoner. Den venter mellom **alle** forespørsler (standard 0,6 sekunder), og prøver nettverksfeil på nytt opptil tre ganger med økende ventetid. Inntil åtte ufullstendige/manglende sesjoner per aksje hentes på nytt én dag av gangen. Dette håndterer feilen der Yahoo gir blank Close i lange forespørsler, men komplett dagsbar i en kort forespørsel. Hele OHLCV-baren og Yahoo Adjusted Close må være gyldig; historiske hull, ugyldige priser og umulige OHLC-forhold blokkerer aksjen. Det lages ingen priser fra intradagdata, gamle sluttkurser eller interpolering. Yahoo-ratebegrensning stanser flere nedlastinger i den kjøringen og overlater neste forsøk til planen.
+
+Yahoo sine justeringsfaktorer brukes først etter at hele vinduet er validert. Historikken lastes på nytt hver kjøring for å ta med senere splitt-/utbyttejusteringer. Nye selskaper må ha nok ekte historikk for indikatorenes oppvarming, også SMA50. Alle indikatorer beregnes **etter** at uavsluttede dagsbarer er fjernet. `fetch_diagnostics.json` lagres som Actions-artifact med forespørselsantall, gjenhentede datoer og gjenværende feil. Yahoo er fortsatt en gratis kilde uten oppetidsgaranti; gyldighetskontrollene gjelder også etter vellykket HTTP-svar.
+
+`USE_EURONEXT_BACKUP=1` aktiverer en eksperimentell leser for Euronexts historiske CSV-nedlasting. **Ingen arbeidsflyt aktiverer den.** [Nettsidens vilkår](https://www.euronext.com/en/terms-use) begrenser systematisk og automatisert innhenting; teknisk tilgjengelighet er ikke en tillatelse til fast drift. Slik bruk må avklares med datakilden først. Dette er en annen tjeneste enn Euronexts [gratis MiFID-handelsfiler](https://marketdata.euronext.com/data-reporting-service/trades-file), som har egne vilkår.
+
+CSV-leseren krever ingen nettleser. Instrumentets ISIN, marked, datoer og OHLCV kontrolleres. En børsobservasjon brukes bare når prisgrunnlaget stemmer med en komplett Yahoo-observasjon. Justeringsfaktoren må komme fra samme dato eller en avstemt nabodato uten mellomliggende utbytte/splitt. Uavklarte kursforskjeller, manglende justeringer og nullhandel med manglende OHLC holdes tilbake. Det konstrueres ingen dagsbarer fra intradagkurser eller fra en eldre sluttkurs.
+
+Ved slik gjenhenting vises kilde og dato i CSV-radens `note` og i diagnostikken. MFI beregnes fra et komplett vindu med samme volumkilde; hvis børsens vindu ikke er komplett, vises MFI som utilgjengelig. Dette hindrer at ulike volumdefinisjoner blandes i én indikator. Både PR-akseptansetesten og ordinær drift bruker Yahoo alene.
+
+`Live free-data acceptance` tester samme fullstendige pris- og rapportløp på GitHubs runner ved relevante PR-er. Rapport og diagnostikk kan lastes ned fra Actions, også når dekningen blokkeres. Denne testen skriver ikke til main eller Pages. En manuell `Daily Screener`-kjøring fra en annen branch bygger også kun review-artifacts; publisering er begrenset til main.
+
+`Free MiFID source audit` kontrollerer en annen, uttrykkelig gratis Euronext-tjeneste med én vanlig HTTP-nedlasting for alle tre Oslo-markedene. `python scripts/audit_mifid.py` bevarer kildefilen lokalt, avstemmer ISIN/marked og identifiserer kanselleringer og uavklarte endringer. GitHub laster bare opp kontrollresultatet. Foreløpige ordrebokkurser og ordrebokvolum **brukes ikke i signaler**: offisiell sluttkurs, totalvolum, justeringer og full historikk må verifiseres først. Tjenestens korte tilgjengelighetsvindu erstatter ikke et historisk arkiv. Se [akseptanseresultatene](docs/free-data-validation.md).
+
+Endringer i produksjonskoden på main utløser også en ny dagskjøring, slik at en rettelse publiseres etter merge uten å vente til neste planlagte forsøk. Prisinnhenting har en øvre grense på 90 minutter. Fire samtidige arbeidere kan vente på trege svar, men deler én pause mellom forespørslene. Fremdrift og delvis diagnostikk lagres for hver tiende aksje, slik at langsomme/avbrutte kjøringer kan undersøkes.
 
 `health.json` og metadata i hver CSV deler `snapshot_id`, `generated_at`, `expected_session`, `market_data_as_of` og `status`. Hver rad har `data_status`, observasjonsdato og en eventuell årsak til at den er utelatt. Fersk genereringstid gjør aldri gamle observasjoner aktuelle. `last_valid_ohlc_date` skiller siste brukbare prisbar fra en nyere datostemplet rad med manglende OHLC; `market_data_as_of` viser siste brukbare observasjon på tvers av universet.
 
