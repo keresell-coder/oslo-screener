@@ -1,4 +1,5 @@
 import datetime as dt
+import threading
 
 import pandas as pd
 import pytest
@@ -130,3 +131,24 @@ def test_no_history_before_first_listing_is_invented():
     reader, calls, _ = fetcher(lambda _: good)
     assert len(reader.fetch('IPO.OL')) == 2
     assert len(calls) == 1
+
+
+def test_parallel_fetch_preserves_universe_order_and_individual_failures(monkeypatch):
+    import screener
+    barrier = threading.Barrier(4)
+    def fetch(symbol):
+        # This would time out if only one request could be in flight.
+        barrier.wait(timeout=3)
+        if symbol == 'BROKEN.OL':
+            raise HistoryUnavailable('missing source history')
+        return symbol
+    monkeypatch.setattr(screener, 'fetch_ohlc_single', fetch)
+    tickers = ['A.OL', 'BROKEN.OL', 'B.OL', 'C.OL']
+    actual = []
+    for ticker, job in screener.fetch_jobs(tickers):
+        try:
+            actual.append((ticker, job.result()))
+        except HistoryUnavailable:
+            actual.append((ticker, 'withheld'))
+    assert actual == [('A.OL', 'A.OL'), ('BROKEN.OL', 'withheld'),
+                      ('B.OL', 'B.OL'), ('C.OL', 'C.OL')]

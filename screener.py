@@ -5,6 +5,7 @@ import os, time
 import hashlib, json, uuid
 from pathlib import Path
 from datetime import datetime, timezone
+from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
 import pandas as pd
@@ -75,6 +76,16 @@ def fetch_ohlc_single(ticker: str, tries: int = 3) -> pd.DataFrame | None:
     fetcher = _history_fetcher or YahooHistoryFetcher(
         last_ose_trading_day(datetime.now(timezone.utc)), pause=YF_PAUSE, tries=tries)
     return fetcher.fetch(ticker)
+
+
+def fetch_jobs(tickers):
+    """Overlap slow responses while preserving input order and row failures."""
+    pool = ThreadPoolExecutor(max_workers=4)
+    try:
+        jobs = [pool.submit(fetch_ohlc_single, ticker) for ticker in tickers]
+        yield from zip(tickers, jobs)
+    finally:
+        pool.shutdown(wait=True, cancel_futures=True)
 
 def adx_band_with_cfg(adx_val: float, cfg: dict):
     if pd.isna(adx_val): return ("UNKNOWN", np.nan, "UNKNOWN")
@@ -197,10 +208,10 @@ def run():
             "tickers": _history_fetcher.diagnostics,
         }, indent=2) + "\n", encoding="utf-8")
 
-    for index, t in enumerate(tickers, 1):
+    for index, (t, download) in enumerate(fetch_jobs(tickers), 1):
         context = {"ticker": t}
         try:
-            df = fetch_ohlc_single(t)
+            df = download.result()
             if df is None or df.empty:
                 rows.append({"ticker": t, "data_status": "missing", "note": "download_failed"})
                 continue

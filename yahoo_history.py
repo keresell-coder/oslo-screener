@@ -7,6 +7,7 @@ and apply Yahoo's own adjustment factors. Never use intraday reconstruction.
 from __future__ import annotations
 
 import datetime as dt
+import threading
 import time
 
 import numpy as np
@@ -47,14 +48,21 @@ class YahooHistoryFetcher:
         self.rate_limited = False
         self.requests = 0
         self.diagnostics = []
+        self._request_lock = threading.Lock()
 
     def _request(self, ticker, start, end):
         if self.rate_limited:
             raise HistoryUnavailable("yahoo_rate_limited: waiting for next scheduled attempt")
         last_error = "empty_response"
         for attempt in range(self.tries):
-            try:
+            # One shared pacer for all workers, including targeted retries.
+            # Wait before starting so slow responses can overlap safely.
+            with self._request_lock:
+                if self.rate_limited:
+                    raise HistoryUnavailable("yahoo_rate_limited: waiting for next scheduled attempt")
+                self.sleep(self.pause)
                 self.requests += 1
+            try:
                 frame = ticker.history(
                     start=start.isoformat(), end=end.isoformat(), interval="1d",
                     auto_adjust=False, repair=False, actions=True, keepna=True,
@@ -72,15 +80,13 @@ class YahooHistoryFetcher:
                                      (frame.index.date < end)].sort_index()
             except YFRateLimitError as error:
                 # Do not turn a provider-wide limit into hundreds of retries.
-                self.rate_limited = True
+                with self._request_lock:
+                    self.rate_limited = True
                 raise HistoryUnavailable("yahoo_rate_limited: waiting for next scheduled attempt") from error
             except HistoryUnavailable:
                 raise
             except Exception as error:
                 last_error = f"{type(error).__name__}: {error}"
-            finally:
-                # Pace successful requests too, including targeted retries.
-                self.sleep(self.pause)
             if attempt + 1 < self.tries:
                 self.sleep(2 ** (attempt + 1))
         raise HistoryUnavailable("download_failed: " + last_error)

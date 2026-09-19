@@ -48,7 +48,7 @@ Yahoo sine justeringsfaktorer brukes først etter at hele vinduet er validert. H
 
 `Live free-data acceptance` tester samme fullstendige pris- og rapportløp på GitHubs runner ved relevante PR-er. Rapport og diagnostikk kan lastes ned fra Actions, også når dekningen blokkeres. Denne testen skriver ikke til main eller Pages. En manuell `Daily Screener`-kjøring fra en annen branch bygger også kun review-artifacts; publisering er begrenset til main.
 
-Endringer i produksjonskoden på main utløser også en ny dagskjøring, slik at en rettelse publiseres etter merge uten å vente til neste planlagte forsøk. Prisinnhenting har en øvre grense på 90 minutter. Fremdrift og delvis diagnostikk lagres for hver tiende aksje, slik at langsomme/avbrutte kjøringer kan undersøkes.
+Endringer i produksjonskoden på main utløser også en ny dagskjøring, slik at en rettelse publiseres etter merge uten å vente til neste planlagte forsøk. Prisinnhenting har en øvre grense på 90 minutter. Fire samtidige arbeidere kan vente på trege svar, men deler én pause mellom forespørslene. Fremdrift og delvis diagnostikk lagres for hver tiende aksje, slik at langsomme/avbrutte kjøringer kan undersøkes.
 
 `health.json` og metadata i hver CSV deler `snapshot_id`, `generated_at`, `expected_session`, `market_data_as_of` og `status`. Hver rad har `data_status`, observasjonsdato og en eventuell årsak til at den er utelatt. Fersk genereringstid gjør aldri gamle observasjoner aktuelle. `last_valid_ohlc_date` skiller siste brukbare prisbar fra en nyere datostemplet rad med manglende OHLC; `market_data_as_of` viser siste brukbare observasjon på tvers av universet.
 

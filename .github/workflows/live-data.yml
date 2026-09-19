@@ -14,6 +14,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: free-data-acceptance-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   live-data:
     runs-on: ubuntu-latest
