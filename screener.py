@@ -188,7 +188,16 @@ def run():
     expected_session = last_ose_trading_day(fetch_started_at)
     _history_fetcher = YahooHistoryFetcher(expected_session, pause=YF_PAUSE)
 
-    for t in tickers:
+    def write_fetch_diagnostics():
+        Path("fetch_diagnostics.json").write_text(json.dumps({
+            "expected_session": expected_session.isoformat(),
+            "universe_count": len(tickers),
+            "requests": _history_fetcher.requests,
+            "rate_limited": _history_fetcher.rate_limited,
+            "tickers": _history_fetcher.diagnostics,
+        }, indent=2) + "\n", encoding="utf-8")
+
+    for index, t in enumerate(tickers, 1):
         context = {"ticker": t}
         try:
             df = fetch_ohlc_single(t)
@@ -292,13 +301,15 @@ def run():
 
         except Exception as e:
             rows.append({**context, "data_status": "invalid", "note": f"error: {type(e).__name__}: {e}"})
+        finally:
+            if index % 10 == 0 or index == len(tickers):
+                # Keep partial evidence even when the runner times out later.
+                write_fetch_diagnostics()
+                complete = sum(r.get("status") == "complete" for r in _history_fetcher.diagnostics)
+                print(f"Fetched {index}/{len(tickers)} tickers; {complete} complete price histories; "
+                      f"{_history_fetcher.requests} requests", flush=True)
 
-    Path("fetch_diagnostics.json").write_text(json.dumps({
-        "expected_session": expected_session.isoformat(),
-        "requests": _history_fetcher.requests,
-        "rate_limited": _history_fetcher.rate_limited,
-        "tickers": _history_fetcher.diagnostics,
-    }, indent=2) + "\n", encoding="utf-8")
+    write_fetch_diagnostics()
     return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc))
 
 if __name__ == "__main__":

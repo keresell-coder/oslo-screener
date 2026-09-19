@@ -1,6 +1,17 @@
 name: Daily Screener
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'screener.py'
+      - 'yahoo_history.py'
+      - 'market_health.py'
+      - 'config.yaml'
+      - 'universe.yaml'
+      - 'tickers.txt'
+      - 'scripts/**'
+      - '.github/workflows/daily.yml'
   schedule:
     - cron: "37 19 * * 1-5"  # 20:37 CET / 21:37 CEST, allow Yahoo to finalize EOD
     - cron: "37 23 * * 1-5"  # overnight retry for the same completed session
@@ -21,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       data_status: ${{ steps.health.outputs.status }}
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - name: Checkout
         uses: actions/checkout@v4
