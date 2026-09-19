@@ -1,7 +1,11 @@
-"""Read Euronext's public daily CSV by verified ISIN and Oslo market.
+"""Experimental reader for Euronext historical CSVs by verified instrument.
 
 This is an ordinary HTTP download, not a browser or a live-trade reconstruction.
 The caller must reconcile the price basis before using these unadjusted bars.
+The general website terms restrict systematic automated retrieval. Public
+availability is not permission for scheduled use; no workflow enables this
+adapter. Euronext's separately licensed MiFID delayed trade files are a
+different service and are not accessed by this module.
 """
 import csv
 import io

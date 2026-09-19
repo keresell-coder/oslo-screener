@@ -2,6 +2,7 @@
 # the exact timestamp CSV declared by the current health manifest.
 report_*.csv
 fetch_diagnostics.json
+mifid-audit/
 .DS_Store
 
 # Byte-compiled / optimized / DLL files

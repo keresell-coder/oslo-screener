@@ -34,7 +34,6 @@ jobs:
       - name: Fetch full Oslo universe and build a reviewable report
         env:
           YF_PAUSE: '0.60'
-          USE_EURONEXT_BACKUP: '1'
         run: |
           python screener.py
           python scripts/build_report.py
