@@ -46,6 +46,7 @@ def test_all_three_markets_and_off_book_prices_do_not_change_order_book_candle()
     assert report['order_book_observations'] == 3
     assert set(report['venues']) == {'XOSL', 'XOAS', 'MERK'}
     assert report['signal_input_approved'] is False
+    assert report['available_sessions'] == ['2026-09-18']
     assert prices[0]['open'] == 100 and prices[0]['high'] == 103
     assert prices[0]['last_lit_trade'] == 103 and prices[0]['lit_volume'] == 20
 

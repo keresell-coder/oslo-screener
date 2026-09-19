@@ -59,6 +59,7 @@ def audit(payload: bytes, instruments: pd.DataFrame, expected: dt.date):
         if frame[name].isna().any():
             raise ValueError('missing trade timestamp')
     frame['session'] = frame.TradingDateTime.dt.tz_convert('Europe/Oslo').dt.date
+    available_sessions = sorted(str(day) for day in frame.session.unique())
     frame = frame[frame.session.eq(expected) & frame.Venue.isin(MARKETS)].copy()
     if frame.empty:
         raise ValueError('expected completed session is absent')
@@ -108,6 +109,7 @@ def audit(payload: bytes, instruments: pd.DataFrame, expected: dt.date):
         'source': 'Euronext MiFID delayed trade files',
         'terms_url': TERMS_URL, 'sha256': hashlib.sha256(payload).hexdigest(),
         'expected_session': expected.isoformat(), 'signal_input_approved': False,
+        'available_sessions': available_sessions,
         'universe_count': len(instruments), 'observed_trades': len(frame),
         'venues': frame.Venue.value_counts().to_dict(),
         'cancellations': int(frame.MmtModificationIndicator.eq('CANC').sum()),
@@ -138,7 +140,8 @@ def main():
         response.raise_for_status()
         payload = response.content
     manifest, observations = audit(payload, pd.read_csv(args.instruments, dtype=str), expected)
-    manifest['retrieved_at'] = now.isoformat()
+    manifest['audited_at'] = dt.datetime.now(dt.timezone.utc).isoformat()
+    manifest['retrieved_at'] = None if args.input_zip else manifest['audited_at']
     manifest['download_url'] = None if args.input_zip else SOURCE_URL
     manifest['input_file'] = str(args.input_zip) if args.input_zip else None
     args.output.mkdir(parents=True, exist_ok=True)

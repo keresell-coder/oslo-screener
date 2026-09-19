@@ -9,13 +9,14 @@ replacement is **not yet accepted for production**. Main is unchanged.
 | --- | --- | --- |
 | Yahoo-only, full GitHub runner | 29/293 current; 9.9%; blocked | Later scheduling and exact-session retries recover some observations, but do not repair the missing 17 September history. |
 | Yahoo plus experimental historical CSV backup, local and GitHub | 268/293 current; 91.5%; degraded and actionable under the existing 90% gate | An unattended HTTP path works technically. Its source terms still prevent treating it as an unrestricted production feed. |
-| Separately licensed MiFID trade file, local | 163,661 events across XOSL, XOAS and MERK, including two cancellations | One free file covers trades from all three markets without a browser or API key. |
+| Separately licensed MiFID trade file, local and GitHub | 163,661 events across XOSL, XOAS and MERK, including two cancellations | One free file covers trades from all three markets without a browser or API key. |
 | MiFID order-book price comparison | All four prices matched previously downloaded exchange daily observations for all 277 comparable stocks | Encouraging single-session evidence, not full source acceptance. |
 | Yahoo one-minute reconstruction, four stocks | Incomplete closing-auction activity and volume, also with `prepost=True` | Rejected as daily-price recovery. |
 
 GitHub evidence:
 - [Yahoo-only run: report builds, data acceptance fails](https://github.com/keresell-coder/oslo-screener/actions/runs/35430701637).
 - [Experimental historical-CSV run: completed successfully](https://github.com/keresell-coder/oslo-screener/actions/runs/35432097709).
+- [Separately licensed MiFID source audit: completed successfully](https://github.com/keresell-coder/oslo-screener/actions/runs/35433199537).
 
 Both full runs used all 293 mapped instruments: 197 Oslo Børs, 10 Expand and
 86 Growth. The previously configured 202 tickers were not broadly delisted;
@@ -36,6 +37,8 @@ Euronext documents CSV downloads, a maximum 15-minute publication delay and
 availability for at least 24 hours. It provides trades, not a ready-made adjusted
 daily history, dividends or split factors. Its advertised selections do not
 offer the old sessions needed to backfill the current Yahoo gaps.
+Both previous-day and since-previous-day selections returned only 18 September
+trades when checked on 19 September; neither supplied the missing 17 September.
 
 The audit cancels matching trades, withholds unresolved amendments/conflicting
 identifiers, and keeps off-book and dark-market observations out of provisional
