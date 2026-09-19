@@ -5,6 +5,9 @@ on:
   pull_request:
     paths:
       - 'yahoo_history.py'
+      - 'euronext_daily.py'
+      - 'instruments.csv'
+      - 'sync_universe.py'
       - 'screener.py'
       - 'tickers.txt'
       - 'universe.yaml'
@@ -31,6 +34,7 @@ jobs:
       - name: Fetch full Oslo universe and build a reviewable report
         env:
           YF_PAUSE: '0.60'
+          USE_EURONEXT_BACKUP: '1'
         run: |
           python screener.py
           python scripts/build_report.py

@@ -16,6 +16,7 @@ from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
 from market_health import SCHEMA, evaluate_snapshot, last_ose_trading_day, finite
 from yahoo_history import YahooHistoryFetcher
+from euronext_daily import EuronextDailySource
 
 VALID_TICKERS_FILE = os.getenv("SCREENER_TICKERS_FILE", os.getenv("VALID_TICKERS_FILE", "tickers.txt"))
 YF_PAUSE = float(os.getenv("YF_PAUSE", "0.60"))
@@ -147,7 +148,7 @@ def completed_history(df, expected_session):
 
 
 def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
-                     generated_at=None, snapshot_id=None):
+                     generated_at=None, snapshot_id=None, source=None):
     generated_at = generated_at or datetime.now(timezone.utc)
     snapshot_id = snapshot_id or uuid.uuid4().hex
     out = pd.DataFrame(rows).reindex(columns=OUTPUT_COLUMNS)
@@ -183,7 +184,7 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
                  "signals_only.csv": out[out.signal.isin(["BUY", "SELL"])]}
     health["artifacts"] = {name: write(frame, name) for name, frame in artifacts.items()}
     health["signal_counts"] = {label: int((out.signal == label).sum()) for label in order}
-    health["source"] = "Yahoo Finance adjusted daily OHLC via yfinance"
+    health["source"] = source or "Yahoo Finance adjusted daily OHLC via yfinance"
     Path("health.json").write_text(json.dumps(health, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     print(f"Snapshot {snapshot_id}: {health['status']}; completed session {expected}; {health['coverage']}")
     return health
@@ -197,7 +198,9 @@ def run():
     rows = []
     fetch_started_at = datetime.now(timezone.utc)
     expected_session = last_ose_trading_day(fetch_started_at)
-    _history_fetcher = YahooHistoryFetcher(expected_session, pause=YF_PAUSE)
+    backup = EuronextDailySource() if os.getenv('USE_EURONEXT_BACKUP') == '1' else None
+    _history_fetcher = YahooHistoryFetcher(expected_session, pause=YF_PAUSE, daily_fallback=backup,
+                                          mfi_length=cfg['mfi_length'])
 
     def write_fetch_diagnostics():
         Path("fetch_diagnostics.json").write_text(json.dumps({
@@ -264,7 +267,11 @@ def run():
             adx_series = adx_obj.adx()
 
             mfi_series = None
-            if vol is not None and not vol.isna().all():
+            if df.attrs.get('mfi_history'):
+                mfi_data = pd.DataFrame(df.attrs['mfi_history'])
+                mfi_series = MFIIndicator(high=mfi_data.High, low=mfi_data.Low, close=mfi_data.Close,
+                                         volume=mfi_data.Volume, window=cfg['mfi_length']).money_flow_index()
+            elif not df.attrs.get('mixed_price_sources') and vol is not None and not vol.isna().all():
                 mfi_series = MFIIndicator(high=high, low=low, close=close, volume=vol, window=cfg["mfi_length"]).money_flow_index()
 
             rsi14_now = float(rsi14_series.iloc[-1])
@@ -293,7 +300,8 @@ def run():
                 "date": df.index[-1].date().isoformat(),
                 "source_latest_date": source_latest_date,
                 "data_status": "current",
-                "note": "mfi_unavailable" if not finite(mfi_now) else "",
+                "note": "; ".join(n for n in (df.attrs.get('source_note', ''),
+                                                'mfi_unavailable' if not finite(mfi_now) else '') if n),
                 "close": round(float(c0), 4),
                 "rsi14": round(rsi14_now, 2),
                 "rsi_dir": round(rsi_dir, 2),
@@ -321,7 +329,10 @@ def run():
                       f"{_history_fetcher.requests} requests", flush=True)
 
     write_fetch_diagnostics()
-    return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc))
+    mixed = any(r.get('euronext_recovered_sessions') for r in _history_fetcher.diagnostics)
+    source = ('Yahoo Finance adjusted history with reconciled Euronext daily observations; '
+              'MFI uses one consistent provider per ticker') if mixed else None
+    return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc), source=source)
 
 if __name__ == "__main__":
     run()

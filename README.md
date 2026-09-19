@@ -28,6 +28,8 @@ python scripts/build_report.py
 
 Alle tre markeder (`XOSL`, `XOAS`, `MERK`) er med. Screeneren leser hele `tickers.txt`, slik at en Yahoo-feil eller kort IPO-historikk ikke skjuler en notert aksje fra rapportens dekningsgrunnlag. `valid_tickers.txt` og `invalid_tickers.csv` er diagnostikk fra den ukentlige kontrollen. `SCREENER_TICKERS_FILE` kan velge en annen liste ved lokal testing; det eldre eksplisitte `VALID_TICKERS_FILE` støttes fortsatt.
 
+`instruments.csv` bevarer ISIN og marked for hvert symbol fra samme universsynkronisering. En aksje uten entydig børsidentitet kan ikke bruke børsens prisbackup.
+
 ```bash
 # hent noterte aksjer fra Euronext og oppdater tickers.txt
 python sync_universe.py
@@ -45,6 +47,10 @@ Begge skriptene avbryter uten å skrive filer hvis listen krymper unormalt mye (
 `yahoo_history.py` henter ni måneders historikk med eksplisitt sluttdato, inkludert manglende observasjoner. Den venter mellom **alle** forespørsler (standard 0,6 sekunder), og prøver nettverksfeil på nytt opptil tre ganger med økende ventetid. Inntil åtte ufullstendige/manglende sesjoner per aksje hentes på nytt én dag av gangen. Dette håndterer feilen der Yahoo gir blank Close i lange forespørsler, men komplett dagsbar i en kort forespørsel. Hele OHLCV-baren og Yahoo Adjusted Close må være gyldig; historiske hull, ugyldige priser og umulige OHLC-forhold blokkerer aksjen. Det lages ingen priser fra intradagdata, gamle sluttkurser eller interpolering. Yahoo-ratebegrensning stanser flere nedlastinger i den kjøringen og overlater neste forsøk til planen.
 
 Yahoo sine justeringsfaktorer brukes først etter at hele vinduet er validert. Historikken lastes på nytt hver kjøring for å ta med senere splitt-/utbyttejusteringer. Nye selskaper må ha nok ekte historikk for indikatorenes oppvarming, også SMA50. Alle indikatorer beregnes **etter** at uavsluttede dagsbarer er fjernet. `fetch_diagnostics.json` lagres som Actions-artifact med forespørselsantall, gjenhentede datoer og gjenværende feil. Yahoo er fortsatt en gratis kilde uten oppetidsgaranti; gyldighetskontrollene gjelder også etter vellykket HTTP-svar.
+
+`USE_EURONEXT_BACKUP=1` aktiverer en separat, gratis backup fra Euronexts daglige CSV-nedlasting. Den krever ingen nettleser. Instrumentets ISIN, marked, datoer og OHLCV kontrolleres. En børsobservasjon brukes bare når prisgrunnlaget stemmer med en komplett Yahoo-observasjon. Justeringsfaktoren må komme fra samme dato eller en avstemt nabodato uten mellomliggende utbytte/splitt. Uavklarte kursforskjeller, manglende justeringer og nullhandel med manglende OHLC holdes tilbake. Det konstrueres ingen dagsbarer fra intradagkurser eller fra en eldre sluttkurs.
+
+Ved slik gjenhenting vises kilde og dato i CSV-radens `note` og i diagnostikken. MFI beregnes fra et komplett vindu med samme volumkilde; hvis børsens vindu ikke er komplett, vises MFI som utilgjengelig. Dette hindrer at ulike volumdefinisjoner blandes i én indikator. PR-akseptansetesten aktiverer backupen for kontroll; ordinær drift bruker den bare når miljøvariabelen er aktivert.
 
 `Live free-data acceptance` tester samme fullstendige pris- og rapportløp på GitHubs runner ved relevante PR-er. Rapport og diagnostikk kan lastes ned fra Actions, også når dekningen blokkeres. Denne testen skriver ikke til main eller Pages. En manuell `Daily Screener`-kjøring fra en annen branch bygger også kun review-artifacts; publisering er begrenset til main.
 
