@@ -8,16 +8,17 @@ from datetime import datetime, timezone
 
 import numpy as np
 import pandas as pd
-import yfinance as yf
 import yaml
 
 from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
 from market_health import SCHEMA, evaluate_snapshot, last_ose_trading_day, finite
+from yahoo_history import YahooHistoryFetcher
 
-VALID_TICKERS_FILE = os.getenv("VALID_TICKERS_FILE", "valid_tickers.txt")
-YF_PAUSE = float(os.getenv("YF_PAUSE", "0.35"))  # kan endres i Actions
+VALID_TICKERS_FILE = os.getenv("SCREENER_TICKERS_FILE", os.getenv("VALID_TICKERS_FILE", "tickers.txt"))
+YF_PAUSE = float(os.getenv("YF_PAUSE", "0.60"))
+_history_fetcher = None
 
 # ---------- Konfig ----------
 def load_config(path: str = "config.yaml") -> dict:
@@ -49,7 +50,7 @@ def _read_tickers_from_file(path: str) -> list[str]:
 
 
 def load_tickers(path: str = VALID_TICKERS_FILE) -> list[str]:
-    """Return tickers from the validated list used by the screener."""
+    """Screen the full exchange universe; provider failures stay visible."""
 
     if not path:
         raise FileNotFoundError("No validated tickers file configured")
@@ -71,20 +72,9 @@ def flatten(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def fetch_ohlc_single(ticker: str, tries: int = 3) -> pd.DataFrame | None:
-    last_exc = None
-    for attempt in range(1, tries + 1):
-        try:
-            df = yf.download(
-                ticker, period="9mo", interval="1d",
-                auto_adjust=True, progress=False, threads=False, timeout=12
-            )
-            df = flatten(df)
-            if df is not None and not df.empty:
-                return df
-        except Exception as e:
-            last_exc = e
-        time.sleep(YF_PAUSE * attempt)
-    return None
+    fetcher = _history_fetcher or YahooHistoryFetcher(
+        last_ose_trading_day(datetime.now(timezone.utc)), pause=YF_PAUSE, tries=tries)
+    return fetcher.fetch(ticker)
 
 def adx_band_with_cfg(adx_val: float, cfg: dict):
     if pd.isna(adx_val): return ("UNKNOWN", np.nan, "UNKNOWN")
@@ -190,11 +180,13 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
 
 # ---------- Hovedløp ----------
 def run():
+    global _history_fetcher
     cfg = load_config()
     tickers = load_tickers()
     rows = []
     fetch_started_at = datetime.now(timezone.utc)
     expected_session = last_ose_trading_day(fetch_started_at)
+    _history_fetcher = YahooHistoryFetcher(expected_session, pause=YF_PAUSE)
 
     for t in tickers:
         context = {"ticker": t}
@@ -301,6 +293,12 @@ def run():
         except Exception as e:
             rows.append({**context, "data_status": "invalid", "note": f"error: {type(e).__name__}: {e}"})
 
+    Path("fetch_diagnostics.json").write_text(json.dumps({
+        "expected_session": expected_session.isoformat(),
+        "requests": _history_fetcher.requests,
+        "rate_limited": _history_fetcher.rate_limited,
+        "tickers": _history_fetcher.diagnostics,
+    }, indent=2) + "\n", encoding="utf-8")
     return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc))
 
 if __name__ == "__main__":
