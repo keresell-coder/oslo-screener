@@ -168,6 +168,8 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
     metadata.update(status=health["status"], market_data_as_of=health["market_data_as_of"] or "unavailable")
     order = {"BUY": 0, "SELL": 1, "BUY-watch": 2, "SELL-watch": 3, "NEUTRAL": 4, "WITHHELD": 5}
     out = out.assign(_rank=out["signal"].map(order)).sort_values(["_rank", "rsi14"], na_position="last").drop(columns="_rank")
+    # The validator recomputes eligibility in CSV row order, after signal/RSI sorting.
+    health["eligible_tickers"] = out.loc[out["ticker"].isin(allowed), "ticker"].tolist()
     def write(frame, path):
         header = "# oslo-screener report=" + path + " " + " ".join(f"{k}={v}" for k, v in metadata.items())
         content = header + "\n# columns=" + ",".join(frame.columns) + "\n" + frame.to_csv(index=False, lineterminator="\n")
