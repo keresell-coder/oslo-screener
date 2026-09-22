@@ -1,3 +1,7 @@
+# Midlertidig: bruk hver aksje som består datakontrollen, uansett samlet prosent.
+# Sett tilbake til minimum for å gjeninnføre MIN_CURRENT_COVERAGE (standard 90%).
+coverage_policy: per_stock
+
 # --- Signalterskler ---
 rsi14_buy_max: 35        # BUY-kandidat: RSI14 <= 35
 rsi14_sell_min: 65       # SELL-kandidat: RSI14 >= 65

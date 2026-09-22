@@ -96,14 +96,18 @@ def finite(value) -> bool:
 def evaluate_snapshot(rows: list[dict], metadata: dict, now: dt.datetime | None = None) -> dict:
     """Recompute health from observations, never producer status or generation age.
 
-    Only eligible_tickers may appear in actionable outputs. Below minimum current
-    coverage the entire snapshot is withheld, including individually valid rows.
+    Only eligible_tickers may appear in actionable outputs. Minimum mode withholds
+    the whole snapshot below its coverage floor; per_stock requires one valid row.
+    Session, identity, indicator and artifact checks remain independent of policy.
     """
     now = now or dt.datetime.now(dt.timezone.utc)
     if now.tzinfo is None:
         raise ValueError("health evaluation requires an aware timestamp")
     expected = last_ose_trading_day(now).isoformat()
     reasons = []
+    policy = metadata.get("coverage_policy", "minimum")
+    if policy not in ("minimum", "per_stock"):
+        reasons.append("invalid_coverage_policy")
     generated = parse_utc(metadata.get("generated_at"))
     if generated is None:
         reasons.append("missing_or_invalid_generated_at")
@@ -123,6 +127,8 @@ def evaluate_snapshot(rows: list[dict], metadata: dict, now: dt.datetime | None 
         universe = int(metadata["universe_count"])
         minimum = float(metadata.get("min_coverage_ratio", 0.9))
         if universe <= 0 or not 0 < minimum <= 1:
+            raise ValueError
+        if policy == "per_stock" and minimum != 1 / universe:
             raise ValueError
     except (KeyError, ValueError, TypeError):
         universe, minimum = len(rows), 0.9
@@ -191,6 +197,7 @@ def evaluate_snapshot(rows: list[dict], metadata: dict, now: dt.datetime | None 
         "valid_until": min(next_session_ready(dt.date.fromisoformat(expected)),
                            dt.datetime(CALENDAR_VERIFIED_THROUGH + 1, 1, 1, tzinfo=OSLO_TZ)).isoformat(),
         "status": status, "actionable": bool(eligible), "reasons": sorted(set(reasons)),
+        **({"coverage_policy": policy} if "coverage_policy" in metadata else {}),
         "coverage": {"universe_count": universe, "received_count": len(rows), **dict(counts),
                      "current_ratio": ratio, "min_current_ratio": minimum,
                      "actionable_count": len(eligible)},

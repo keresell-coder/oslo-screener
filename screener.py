@@ -2,7 +2,7 @@
 # Output: latest.csv + report_*.csv + buy/sell/watch_*.csv + konsollsummary
 
 import os, time
-import hashlib, json, uuid
+import csv, hashlib, json, uuid
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -30,7 +30,7 @@ def load_config(path: str = "config.yaml") -> dict:
         "position_high_conviction": 5.0, "position_moderate": 3.0, "position_low": 1.5,
         "min_history_days": 60, "rsi6_length": 6, "sma50_length": 50,
         "macd_fast": 12, "macd_slow": 26, "macd_signal": 9,
-        "adx_length": 14, "mfi_length": 14,
+        "adx_length": 14, "mfi_length": 14, "coverage_policy": "minimum",
     }
     try:
         with open(path, "r") as f:
@@ -40,6 +40,8 @@ def load_config(path: str = "config.yaml") -> dict:
                 defaults[k] = data[k]
     except FileNotFoundError:
         pass
+    if defaults["coverage_policy"] not in ("minimum", "per_stock"):
+        raise ValueError("coverage_policy must be minimum or per_stock")
     return defaults
 
 # ---------- Hjelp ----------
@@ -146,20 +148,27 @@ def completed_history(df, expected_session):
 
 
 def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
-                     generated_at=None, snapshot_id=None):
+                     generated_at=None, snapshot_id=None, *, coverage_policy="minimum"):
+    if coverage_policy not in ("minimum", "per_stock"):
+        raise ValueError("coverage_policy must be minimum or per_stock")
     generated_at = generated_at or datetime.now(timezone.utc)
     snapshot_id = snapshot_id or uuid.uuid4().hex
     out = pd.DataFrame(rows).reindex(columns=OUTPUT_COLUMNS)
     out["snapshot_id"] = snapshot_id
     out["signal"] = out["signal"].fillna("WITHHELD")
     out["data_status"] = out["data_status"].fillna("missing")
+    out["note"] = out["note"].fillna("")
     expected = last_ose_trading_day(generated_at).isoformat()
     def iso(value):
         return value.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     metadata = dict(schema=SCHEMA, snapshot_id=snapshot_id, data_fetch_started=iso(fetch_started_at),
                     data_fetch_completed=iso(fetch_completed_at), generated_at=iso(generated_at),
                     expected_session=expected, universe_count=str(universe_count),
-                    min_coverage_ratio=os.getenv("MIN_CURRENT_COVERAGE", "0.9"))
+                    coverage_policy=coverage_policy,
+                    # One eligible row is sufficient in per-stock mode. Express
+                    # this in the existing ratio contract for older readers.
+                    min_coverage_ratio=(str(1 / universe_count) if coverage_policy == "per_stock" and universe_count > 0
+                                        else os.getenv("MIN_CURRENT_COVERAGE", "0.9")))
     health = evaluate_snapshot(out.to_dict("records"), metadata, generated_at)
     allowed = set(health["eligible_tickers"])
     for excluded in health["excluded"]:
@@ -168,8 +177,6 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
     metadata.update(status=health["status"], market_data_as_of=health["market_data_as_of"] or "unavailable")
     order = {"BUY": 0, "SELL": 1, "BUY-watch": 2, "SELL-watch": 3, "NEUTRAL": 4, "WITHHELD": 5}
     out = out.assign(_rank=out["signal"].map(order)).sort_values(["_rank", "rsi14"], na_position="last").drop(columns="_rank")
-    # The validator recomputes eligibility in CSV row order, after signal/RSI sorting.
-    health["eligible_tickers"] = out.loc[out["ticker"].isin(allowed), "ticker"].tolist()
     def write(frame, path):
         header = "# oslo-screener report=" + path + " " + " ".join(f"{k}={v}" for k, v in metadata.items())
         content = header + "\n# columns=" + ",".join(frame.columns) + "\n" + frame.to_csv(index=False, lineterminator="\n")
@@ -180,7 +187,13 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
                  "buy.csv": out[out.signal == "BUY"], "sell.csv": out[out.signal == "SELL"],
                  "watch_buy.csv": out[out.signal == "BUY-watch"], "watch_sell.csv": out[out.signal == "SELL-watch"],
                  "signals_only.csv": out[out.signal.isin(["BUY", "SELL"])]}
-    health["artifacts"] = {name: write(frame, name) for name, frame in artifacts.items()}
+    hashes = {name: write(frame, name) for name, frame in artifacts.items()}
+    # Eligibility and exclusions must describe the final serialized row order,
+    # including empty dates as read by the independent bundle validator.
+    published = csv.DictReader(line for line in Path("latest.csv").read_text().splitlines()
+                               if not line.startswith("#"))
+    health = evaluate_snapshot(list(published), metadata, generated_at)
+    health["artifacts"] = hashes
     health["signal_counts"] = {label: int((out.signal == label).sum()) for label in order}
     health["source"] = "Yahoo Finance adjusted daily OHLC via yfinance"
     Path("health.json").write_text(json.dumps(health, indent=2, allow_nan=False) + "\n", encoding="utf-8")
@@ -301,7 +314,8 @@ def run():
         except Exception as e:
             rows.append({**context, "data_status": "invalid", "note": f"error: {type(e).__name__}: {e}"})
 
-    return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc))
+    return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc),
+                            coverage_policy=cfg["coverage_policy"])
 
 if __name__ == "__main__":
     run()
