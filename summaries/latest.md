@@ -1,15 +1,15 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=78397fe832d8425f8545529865846ed5 -->
+<!-- snapshot_id=21efcfc1541e41a9af6ce6dd1026a183 -->
 
 **Forventet avsluttet handelssesjon:** 21.09.2026
 
-**Datastatus:** DEGRADED · 201/202 aktuelle rader
+**Datastatus:** CURRENT · 202/202 aktuelle rader
 
-**Generert:** 2026-09-21T20:26:10Z · snapshot 78397fe832d8425f8545529865846ed5
+**Generert:** 2026-09-22T11:31:51Z · snapshot 21efcfc1541e41a9af6ce6dd1026a183
 
 
-**Utelatte rader:** TRSB.OL (missing_expected_completed_session)
+**Utelatte rader:** Ingen
 
 **Telling:** BUY 3 | SELL 7 | BUY-watch 14 | SELL-watch 20
 
@@ -72,7 +72,7 @@ WWIB.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
 | MACD→0 (Δ=0.01) | REACH.OL | 6.60 | 67.04 | +0.00 | -0.01 ◻️ | 15.65 ❌ | 55 🟢 | RSI6 66 ⚪ · MFI 62 ⚪ |
 | MACD→0 (Δ=0.04) | ELMRA.OL | 46.80 | 67.81 | +1.56 | -0.04 ◻️ | 1.79 ❌ | 51 🟢 | RSI6 69 ⚪ · MFI 52 ⚪ |
-| MACD→0 (Δ=0.08) | MPCC.OL | 28.55 | 68.87 | +0.43 | 0.08 ❌ | 10.67 ❌ | 34 🟢 | RSI6 80 ⚪ · MFI 60 ⚪ |
+| MACD→0 (Δ=0.10) | MPCC.OL | 28.55 | 71.10 | +2.66 | 0.10 ❌ | 11.96 ❌ | 35 🟢 | RSI6 84 ⚪ · MFI 70 ⚪ |
 | MACD→0 (Δ=0.12) | VEI.OL | 214.50 | 67.00 | +1.29 | -0.12 ✅ | 8.19 ❌ | 30 🟢 | RSI6 71 ⚪ · MFI 60 ⚪ |
 | MACD→0 (Δ=0.25) | MING.OL | 217.10 | 67.94 | +0.64 | -0.25 ✅ | 6.20 ❌ | 24 ⚪ | RSI6 71 ⚪ · MFI 70 ⚪ |
 | MACD→0 (Δ=0.35) | SOFF.OL | 73.60 | 67.87 | +0.55 | 0.35 ❌ | 7.13 ❌ | 20 ⚠️ | RSI6 79 ⚪ · MFI 72 ⚪ |
@@ -94,6 +94,6 @@ WWIB.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
