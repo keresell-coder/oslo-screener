@@ -13,6 +13,9 @@
     .status[data-status="current"] { border-color: #277558; background: #eaf6ef; }
     dt { color: #516670; margin-top: 18px; font-size: .9rem; } dd { margin: 4px 0 0; overflow-wrap: anywhere; }
     .limits { color: #516670; font-size: .9rem; } li { margin: 10px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #d6e0e5; vertical-align: top; overflow-wrap: anywhere; }
+    .table-scroll { overflow-x: auto; }
   </style>
 </head>
 <body>
@@ -32,11 +35,26 @@
     <dt>Validity deadline</dt><dd id="valid-until">{{ health.valid_until or 'Not verified' }}</dd>
     <dt>Snapshot ID</dt><dd>{{ health.snapshot_id }}</dd>
   </dl>
+  {% if health.coverage_policy == 'per_stock' %}
+  <p class="status" id="coverage-policy">The overall percentage requirement is temporarily suspended. Only stocks passing the individual data checks can produce signals.</p>
+  {% endif %}
   <ul>
     <li><a href="summaries/latest.md">Read the dated technical report</a></li>
     <li><a href="latest.csv">Download the canonical CSV snapshot</a></li>
     <li><a href="health.json">Inspect observation dates, excluded rows and file checksums</a></li>
   </ul>
+  <section aria-labelledby="excluded-heading">
+    <h2 id="excluded-heading">Stocks without required data ({{ health.excluded | length }})</h2>
+    <p>These stocks are excluded from signal lists. Missing data does not establish delisting.</p>
+    {% if health.excluded %}
+    <div class="table-scroll"><table>
+      <thead><tr><th>Stock</th><th>Status</th><th>Observation date</th><th>Reason</th></tr></thead>
+      <tbody>{% for item in health.excluded %}
+      <tr><td>{{ item.ticker }}</td><td>{{ item.data_status }}</td><td>{{ item.market_data_as_of or 'Unavailable' }}</td><td>{{ item.reason }}</td></tr>
+      {% endfor %}</tbody>
+    </table></div>
+    {% else %}<p>No stocks are excluded.</p>{% endif %}
+  </section>
   <p class="limits">Passing source checks does not validate a strategy or expected return. BUY/SELL labels are technical research setups. Fundamental and news coverage is outside this screener.</p>
   <noscript><p class="status">JavaScript is required for current health verification. This page remains unverified; inspect health.json and its validity deadline before using the data.</p></noscript>
 </main>
@@ -78,7 +96,10 @@
     const keys = ["universe_count", "received_count", "current", "stale", "missing", "invalid"];
     const count = coverage.universe_count;
     const ratio = coverage.current / count;
-    if (!keys.every((key) => Number.isInteger(coverage[key]) && coverage[key] >= 0) || count <= 0 || coverage.received_count !== count ||
+    const policy = health.coverage_policy ?? "minimum";
+    if (!["minimum", "per_stock"].includes(policy) ||
+        (policy === "per_stock" && coverage.min_current_ratio !== 1 / count) ||
+        !keys.every((key) => Number.isInteger(coverage[key]) && coverage[key] >= 0) || count <= 0 || coverage.received_count !== count ||
         coverage.current + coverage.stale + coverage.missing + coverage.invalid !== count ||
         !Number.isFinite(coverage.min_current_ratio) || coverage.min_current_ratio <= 0 || coverage.min_current_ratio > 1 ||
         !Number.isFinite(coverage.current_ratio) || Math.abs(coverage.current_ratio - ratio) > 0.000001 || ratio < coverage.min_current_ratio ||

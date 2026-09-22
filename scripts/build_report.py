@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import hashlib
+import html
 import sys
 import pathlib as pl
 import datetime as dt
@@ -23,6 +24,20 @@ if str(ROOT) not in sys.path:
 from scripts.validate_snapshot import validate_snapshot
 
 OUT_DIR = pl.Path("summaries")
+
+
+def _excluded_table(excluded):
+    """Keep every unavailable stock visible without interpreting it as delisted."""
+    if not excluded:
+        return "Ingen aksjer er utelatt."
+    def cell(value):
+        return html.escape(str(value or "—"), quote=False).replace("|", "&#124;").replace("\n", " ").replace("\r", " ")
+    lines = ["| Aksje | Datastatus | Observasjonsdato | Årsak |",
+             "|---|---|---|---|"]
+    for item in excluded:
+        lines.append("| " + " | ".join(cell(item.get(key)) for key in
+                     ("ticker", "data_status", "market_data_as_of", "reason")) + " |")
+    return "\n".join(lines)
 
 
 # ---------- Data loading ----------
@@ -263,8 +278,10 @@ def main() -> int:
         f"**Forventet avsluttet handelssesjon:** {csv_last.strftime('%d.%m.%Y')}\n",
         f"**Datastatus:** {health['status'].upper()} · {coverage['current']}/{coverage['universe_count']} aktuelle rader\n",
         f"**Generert:** {health['generated_at']} · snapshot {health['snapshot_id']}\n",
-        "**Signaler holdes tilbake ved utilstrekkelig datadekning.**\n" if health['status'] == 'blocked' else "",
-        "**Utelatte rader:** " + (", ".join(f"{x['ticker']} ({x['reason']})" for x in health['excluded']) or "Ingen") + "\n",
+        "**Signaler holdes tilbake: snapshotet består ikke datakontrollen.**\n" if health['status'] == 'blocked' else "",
+        "**Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**\n"
+        if health.get('coverage_policy') == 'per_stock' else "",
+        f"**Utelatte aksjer:** {len(health['excluded'])}. Full liste med årsaker står nedenfor.\n",
         f"**Telling:** BUY {len(BUY)} | SELL {len(SELL)} "
         f"| BUY-watch {len(BUY_watch)} | SELL-watch {len(SELL_watch)}\n",
 
@@ -282,6 +299,9 @@ def main() -> int:
         "\n\n## SELL-watch (nærmest trigger)\n",
         _watch_table(SELL_watch),
 
+        "\n\n## Aksjer uten nødvendige data\n",
+        "Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.\n",
+        _excluded_table(health['excluded']),
         "\n\n---\n",
         f"**Kontroller:** {price_check}. Datastatus {health['status']}; begrensninger: {', '.join(health['reasons']) or 'ingen strukturelle avvik'}.\n",
         "_Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._\n",
