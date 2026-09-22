@@ -13,37 +13,63 @@
     .status[data-status="current"] { border-color: #277558; background: #eaf6ef; }
     dt { color: #516670; margin-top: 18px; font-size: .9rem; } dd { margin: 4px 0 0; overflow-wrap: anywhere; }
     .limits { color: #516670; font-size: .9rem; } li { margin: 10px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #d6e0e5; vertical-align: top; overflow-wrap: anywhere; }
+    .table-scroll { overflow-x: auto; }
   </style>
 </head>
 <body>
 <main>
   <h1>Oslo Screener</h1>
   <p>Daily technical research candidates from completed Oslo market sessions.</p>
-  <!-- snapshot_id=21efcfc1541e41a9af6ce6dd1026a183 -->
+  <!-- snapshot_id=2848682a165848f186a58dba0d04d017 -->
   <section id="health-panel" class="status" data-status="unavailable" aria-live="polite">
     <strong id="health-status">Not verified</strong>
     <p id="health-reason">Checking the published source health. Do not treat this snapshot as current until verification succeeds.</p>
   </section>
   <dl>
-    <dt>Latest usable market observation</dt><dd id="observation">2026-09-21</dd>
-    <dt>Expected completed session at generation</dt><dd id="expected-session">2026-09-21</dd>
-    <dt>Snapshot generated</dt><dd>2026-09-22T11:31:51Z</dd>
-    <dt>Coverage at publication</dt><dd id="coverage">202 / 202 current · 0 stale · 0 missing · 0 invalid</dd>
-    <dt>Validity deadline</dt><dd id="valid-until">2026-09-22T16:45:00+02:00</dd>
-    <dt>Snapshot ID</dt><dd>21efcfc1541e41a9af6ce6dd1026a183</dd>
+    <dt>Latest usable market observation</dt><dd id="observation">2026-09-22</dd>
+    <dt>Expected completed session at generation</dt><dd id="expected-session">2026-09-22</dd>
+    <dt>Snapshot generated</dt><dd>2026-09-22T19:45:29Z</dd>
+    <dt>Coverage at publication</dt><dd id="coverage">197 / 202 current · 5 stale · 0 missing · 0 invalid</dd>
+    <dt>Validity deadline</dt><dd id="valid-until">2026-09-23T16:45:00+02:00</dd>
+    <dt>Snapshot ID</dt><dd>2848682a165848f186a58dba0d04d017</dd>
   </dl>
+  
+  <p class="status" id="coverage-policy">The overall percentage requirement is temporarily suspended. Only stocks passing the individual data checks can produce signals.</p>
+  
   <ul>
     <li><a href="summaries/latest.md">Read the dated technical report</a></li>
     <li><a href="latest.csv">Download the canonical CSV snapshot</a></li>
     <li><a href="health.json">Inspect observation dates, excluded rows and file checksums</a></li>
   </ul>
+  <section aria-labelledby="excluded-heading">
+    <h2 id="excluded-heading">Stocks without required data (5)</h2>
+    <p>These stocks are excluded from signal lists. Missing data does not establish delisting.</p>
+    
+    <div class="table-scroll"><table>
+      <thead><tr><th>Stock</th><th>Status</th><th>Observation date</th><th>Reason</th></tr></thead>
+      <tbody>
+      <tr><td>GYL.OL</td><td>stale</td><td>2026-09-21</td><td>missing_expected_completed_session</td></tr>
+      
+      <tr><td>INIFY.OL</td><td>stale</td><td>2026-09-21</td><td>missing_expected_completed_session</td></tr>
+      
+      <tr><td>ININ.OL</td><td>stale</td><td>2026-09-21</td><td>missing_expected_completed_session</td></tr>
+      
+      <tr><td>SNOR.OL</td><td>stale</td><td>2026-09-21</td><td>missing_expected_completed_session</td></tr>
+      
+      <tr><td>TRSB.OL</td><td>stale</td><td>2026-09-21</td><td>missing_expected_completed_session</td></tr>
+      </tbody>
+    </table></div>
+    
+  </section>
   <p class="limits">Passing source checks does not validate a strategy or expected return. BUY/SELL labels are technical research setups. Fundamental and news coverage is outside this screener.</p>
   <noscript><p class="status">JavaScript is required for current health verification. This page remains unverified; inspect health.json and its validity deadline before using the data.</p></noscript>
 </main>
 <script>
 (() => {
   "use strict";
-  const snapshotId = "21efcfc1541e41a9af6ce6dd1026a183";
+  const snapshotId = "2848682a165848f186a58dba0d04d017";
   const schema = "oslo_screener.health.v1";
   const byId = (id) => document.getElementById(id);
   const labels = {current: "Source checks passed", degraded: "Limited coverage", blocked: "Checks blocked", unavailable: "Not verified"};
@@ -78,7 +104,10 @@
     const keys = ["universe_count", "received_count", "current", "stale", "missing", "invalid"];
     const count = coverage.universe_count;
     const ratio = coverage.current / count;
-    if (!keys.every((key) => Number.isInteger(coverage[key]) && coverage[key] >= 0) || count <= 0 || coverage.received_count !== count ||
+    const policy = health.coverage_policy ?? "minimum";
+    if (!["minimum", "per_stock"].includes(policy) ||
+        (policy === "per_stock" && coverage.min_current_ratio !== 1 / count) ||
+        !keys.every((key) => Number.isInteger(coverage[key]) && coverage[key] >= 0) || count <= 0 || coverage.received_count !== count ||
         coverage.current + coverage.stale + coverage.missing + coverage.invalid !== count ||
         !Number.isFinite(coverage.min_current_ratio) || coverage.min_current_ratio <= 0 || coverage.min_current_ratio > 1 ||
         !Number.isFinite(coverage.current_ratio) || Math.abs(coverage.current_ratio - ratio) > 0.000001 || ratio < coverage.min_current_ratio ||
