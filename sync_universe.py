@@ -8,10 +8,12 @@
 #   TICKERS_FILE        – alternativ sti til tickers.txt
 
 import html
+import csv
 import os
 import re
 import sys
 import time
+from pathlib import Path
 
 import requests
 import yaml
@@ -195,6 +197,24 @@ def write_tickers(tickers: list[str], path: str = TICKERS_FILE) -> None:
         f.write("\n".join(tickers) + "\n")
 
 
+def write_instruments(rows, tickers, path):
+    """Preserve exchange identity for daily-file reconciliation."""
+    selected = {}
+    for row in rows:
+        ticker = normalize(row['symbol'])
+        if ticker not in tickers:
+            continue
+        if ticker in selected and selected[ticker] != row:
+            raise SyncError('Ambiguous exchange identity for ' + ticker)
+        selected[ticker] = row
+    with Path(path).open('w', encoding='utf-8', newline='') as out:
+        writer = csv.DictWriter(out, fieldnames=['ticker', 'isin', 'mic', 'name'])
+        writer.writeheader()
+        for ticker in sorted(selected):
+            row = selected[ticker]
+            writer.writerow({key: ticker if key == 'ticker' else row[key] for key in writer.fieldnames})
+
+
 def write_summary(lines: list[str]) -> None:
     print("\n".join(lines))
     summary_path = os.getenv("GITHUB_STEP_SUMMARY")
@@ -245,6 +265,8 @@ def main() -> int:
         print(f"{TICKERS_FILE} er uendret. Kjør på nytt med FORCE_SYNC=1 hvis endringen er reell.",
               file=sys.stderr)
         return 1
+
+    write_instruments(rows, new, Path(TICKERS_FILE).with_name('instruments.csv'))
 
     if new == current:
         write_summary(["### Universe sync", "", f"- Ingen endringer ({len(current)} tickers)."])

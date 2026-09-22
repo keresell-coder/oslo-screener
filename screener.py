@@ -5,19 +5,22 @@ import os, time
 import hashlib, json, uuid
 from pathlib import Path
 from datetime import datetime, timezone
+from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
 import pandas as pd
-import yfinance as yf
 import yaml
 
 from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
 from market_health import SCHEMA, evaluate_snapshot, last_ose_trading_day, finite
+from yahoo_history import YahooHistoryFetcher
+from euronext_daily import EuronextDailySource
 
-VALID_TICKERS_FILE = os.getenv("VALID_TICKERS_FILE", "valid_tickers.txt")
-YF_PAUSE = float(os.getenv("YF_PAUSE", "0.35"))  # kan endres i Actions
+VALID_TICKERS_FILE = os.getenv("SCREENER_TICKERS_FILE", os.getenv("VALID_TICKERS_FILE", "tickers.txt"))
+YF_PAUSE = float(os.getenv("YF_PAUSE", "0.60"))
+_history_fetcher = None
 
 # ---------- Konfig ----------
 def load_config(path: str = "config.yaml") -> dict:
@@ -49,7 +52,7 @@ def _read_tickers_from_file(path: str) -> list[str]:
 
 
 def load_tickers(path: str = VALID_TICKERS_FILE) -> list[str]:
-    """Return tickers from the validated list used by the screener."""
+    """Screen the full exchange universe; provider failures stay visible."""
 
     if not path:
         raise FileNotFoundError("No validated tickers file configured")
@@ -71,20 +74,19 @@ def flatten(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def fetch_ohlc_single(ticker: str, tries: int = 3) -> pd.DataFrame | None:
-    last_exc = None
-    for attempt in range(1, tries + 1):
-        try:
-            df = yf.download(
-                ticker, period="9mo", interval="1d",
-                auto_adjust=True, progress=False, threads=False, timeout=12
-            )
-            df = flatten(df)
-            if df is not None and not df.empty:
-                return df
-        except Exception as e:
-            last_exc = e
-        time.sleep(YF_PAUSE * attempt)
-    return None
+    fetcher = _history_fetcher or YahooHistoryFetcher(
+        last_ose_trading_day(datetime.now(timezone.utc)), pause=YF_PAUSE, tries=tries)
+    return fetcher.fetch(ticker)
+
+
+def fetch_jobs(tickers):
+    """Overlap slow responses while preserving input order and row failures."""
+    pool = ThreadPoolExecutor(max_workers=4)
+    try:
+        jobs = [pool.submit(fetch_ohlc_single, ticker) for ticker in tickers]
+        yield from zip(tickers, jobs)
+    finally:
+        pool.shutdown(wait=True, cancel_futures=True)
 
 def adx_band_with_cfg(adx_val: float, cfg: dict):
     if pd.isna(adx_val): return ("UNKNOWN", np.nan, "UNKNOWN")
@@ -146,7 +148,7 @@ def completed_history(df, expected_session):
 
 
 def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
-                     generated_at=None, snapshot_id=None):
+                     generated_at=None, snapshot_id=None, source=None):
     generated_at = generated_at or datetime.now(timezone.utc)
     snapshot_id = snapshot_id or uuid.uuid4().hex
     out = pd.DataFrame(rows).reindex(columns=OUTPUT_COLUMNS)
@@ -182,7 +184,7 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
                  "signals_only.csv": out[out.signal.isin(["BUY", "SELL"])]}
     health["artifacts"] = {name: write(frame, name) for name, frame in artifacts.items()}
     health["signal_counts"] = {label: int((out.signal == label).sum()) for label in order}
-    health["source"] = "Yahoo Finance adjusted daily OHLC via yfinance"
+    health["source"] = source or "Yahoo Finance adjusted daily OHLC via yfinance"
     Path("health.json").write_text(json.dumps(health, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     print(f"Snapshot {snapshot_id}: {health['status']}; completed session {expected}; {health['coverage']}")
     return health
@@ -190,16 +192,29 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
 
 # ---------- Hovedløp ----------
 def run():
+    global _history_fetcher
     cfg = load_config()
     tickers = load_tickers()
     rows = []
     fetch_started_at = datetime.now(timezone.utc)
     expected_session = last_ose_trading_day(fetch_started_at)
+    backup = EuronextDailySource() if os.getenv('USE_EURONEXT_BACKUP') == '1' else None
+    _history_fetcher = YahooHistoryFetcher(expected_session, pause=YF_PAUSE, daily_fallback=backup,
+                                          mfi_length=cfg['mfi_length'])
 
-    for t in tickers:
+    def write_fetch_diagnostics():
+        Path("fetch_diagnostics.json").write_text(json.dumps({
+            "expected_session": expected_session.isoformat(),
+            "universe_count": len(tickers),
+            "requests": _history_fetcher.requests,
+            "rate_limited": _history_fetcher.rate_limited,
+            "tickers": _history_fetcher.diagnostics,
+        }, indent=2) + "\n", encoding="utf-8")
+
+    for index, (t, download) in enumerate(fetch_jobs(tickers), 1):
         context = {"ticker": t}
         try:
-            df = fetch_ohlc_single(t)
+            df = download.result()
             if df is None or df.empty:
                 rows.append({"ticker": t, "data_status": "missing", "note": "download_failed"})
                 continue
@@ -252,7 +267,11 @@ def run():
             adx_series = adx_obj.adx()
 
             mfi_series = None
-            if vol is not None and not vol.isna().all():
+            if df.attrs.get('mfi_history'):
+                mfi_data = pd.DataFrame(df.attrs['mfi_history'])
+                mfi_series = MFIIndicator(high=mfi_data.High, low=mfi_data.Low, close=mfi_data.Close,
+                                         volume=mfi_data.Volume, window=cfg['mfi_length']).money_flow_index()
+            elif not df.attrs.get('mixed_price_sources') and vol is not None and not vol.isna().all():
                 mfi_series = MFIIndicator(high=high, low=low, close=close, volume=vol, window=cfg["mfi_length"]).money_flow_index()
 
             rsi14_now = float(rsi14_series.iloc[-1])
@@ -281,7 +300,8 @@ def run():
                 "date": df.index[-1].date().isoformat(),
                 "source_latest_date": source_latest_date,
                 "data_status": "current",
-                "note": "mfi_unavailable" if not finite(mfi_now) else "",
+                "note": "; ".join(n for n in (df.attrs.get('source_note', ''),
+                                                'mfi_unavailable' if not finite(mfi_now) else '') if n),
                 "close": round(float(c0), 4),
                 "rsi14": round(rsi14_now, 2),
                 "rsi_dir": round(rsi_dir, 2),
@@ -300,8 +320,19 @@ def run():
 
         except Exception as e:
             rows.append({**context, "data_status": "invalid", "note": f"error: {type(e).__name__}: {e}"})
+        finally:
+            if index % 10 == 0 or index == len(tickers):
+                # Keep partial evidence even when the runner times out later.
+                write_fetch_diagnostics()
+                complete = sum(r.get("status") == "complete" for r in _history_fetcher.diagnostics)
+                print(f"Fetched {index}/{len(tickers)} tickers; {complete} complete price histories; "
+                      f"{_history_fetcher.requests} requests", flush=True)
 
-    return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc))
+    write_fetch_diagnostics()
+    mixed = any(r.get('euronext_recovered_sessions') for r in _history_fetcher.diagnostics)
+    source = ('Yahoo Finance adjusted history with reconciled Euronext daily observations; '
+              'MFI uses one consistent provider per ticker') if mixed else None
+    return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc), source=source)
 
 if __name__ == "__main__":
     run()
