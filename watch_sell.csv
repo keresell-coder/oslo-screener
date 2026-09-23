@@ -1,16 +1,9 @@
-# oslo-screener report=watch_sell.csv schema=oslo_screener.health.v1 snapshot_id=f1a5cd5fd9604ebab596d27caa195022 data_fetch_started=2026-09-23T11:29:00Z data_fetch_completed=2026-09-23T11:29:54Z generated_at=2026-09-23T11:29:54Z expected_session=2026-09-22 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=current market_data_as_of=2026-09-22
+# oslo-screener report=watch_sell.csv schema=oslo_screener.health.v1 snapshot_id=d95cfaf9f70243c9b8f7a6e87bc7290b data_fetch_started=2026-09-23T19:40:33Z data_fetch_completed=2026-09-23T19:41:16Z generated_at=2026-09-23T19:41:16Z expected_session=2026-09-23 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=degraded market_data_as_of=2026-09-23
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-NOD.OL,2026-09-22,2026-09-23,2026-09-22,current,,184.4,65.05,1.91,1.5237,166.302,10.88,12.96,82.91,75.68,SELL-watch,1,1.75,1.5,LOW,f1a5cd5fd9604ebab596d27caa195022
-STRO.OL,2026-09-22,2026-09-23,2026-09-22,current,,10.1,65.25,11.15,0.0761,9.9242,1.77,32.54,66.58,87.14,SELL-watch,1,5.0,1.5,HIGH,f1a5cd5fd9604ebab596d27caa195022
-ELMRA.OL,2026-09-22,2026-09-23,2026-09-22,current,,46.8,67.81,0.0,-0.0282,45.996,1.75,49.22,48.4,68.56,SELL-watch,2,5.0,3.0,HIGH,f1a5cd5fd9604ebab596d27caa195022
-VEI.OL,2026-09-22,2026-09-23,2026-09-22,current,,216.0,68.9,1.9,0.0443,198.832,8.63,30.02,67.75,75.06,SELL-watch,1,5.0,1.5,HIGH,f1a5cd5fd9604ebab596d27caa195022
-VOW.OL,2026-09-22,2026-09-23,2026-09-22,current,,2.715,69.06,2.3,0.0222,2.3538,15.35,39.47,66.44,76.88,SELL-watch,1,5.0,1.5,HIGH,f1a5cd5fd9604ebab596d27caa195022
-REACH.OL,2026-09-22,2026-09-23,2026-09-22,current,,6.69,69.43,2.39,-0.0065,5.7425,16.5,54.36,69.03,72.74,SELL-watch,2,5.0,3.0,HIGH,f1a5cd5fd9604ebab596d27caa195022
-WAWI.OL,2026-09-22,2026-09-23,2026-09-22,current,,181.5,70.59,0.64,0.6239,158.0409,14.84,32.15,63.0,75.26,SELL-watch,1,5.0,1.5,HIGH,f1a5cd5fd9604ebab596d27caa195022
-MPCC.OL,2026-09-22,2026-09-23,2026-09-22,current,,28.66,71.81,0.71,0.1184,25.5871,12.01,35.44,77.14,84.71,SELL-watch,1,5.0,1.5,HIGH,f1a5cd5fd9604ebab596d27caa195022
-MING.OL,2026-09-22,2026-09-23,2026-09-22,current,,219.45,71.9,3.96,-0.1033,204.9682,7.07,24.31,68.08,80.66,SELL-watch,2,3.0,3.0,MODERATE,f1a5cd5fd9604ebab596d27caa195022
-ZAP.OL,2026-09-22,2026-09-23,2026-09-22,current,,62.5,74.87,1.81,0.7021,50.021,24.95,39.72,85.47,83.84,SELL-watch,1,5.0,1.5,HIGH,f1a5cd5fd9604ebab596d27caa195022
-WWI.OL,2026-09-22,2026-09-23,2026-09-22,current,,886.0,78.24,0.45,3.0705,799.2,10.86,34.63,84.73,89.49,SELL-watch,1,5.0,1.5,HIGH,f1a5cd5fd9604ebab596d27caa195022
-KMAR.OL,2026-09-22,2026-09-23,2026-09-22,current,,64.04,79.39,3.08,0.6157,56.1468,14.06,24.94,82.86,92.98,SELL-watch,1,3.0,1.5,MODERATE,f1a5cd5fd9604ebab596d27caa195022
-PYRUM.OL,2026-09-22,2026-09-23,2026-09-22,current,,351.0,90.64,2.33,2.1521,301.8,16.3,58.49,99.26,95.89,SELL-watch,1,5.0,1.5,HIGH,f1a5cd5fd9604ebab596d27caa195022
+OTEC.OL,2026-09-23,2026-09-23,2026-09-23,current,,19.1,65.06,1.19,0.06,17.6504,8.21,11.47,63.13,65.91,SELL-watch,1.0,1.75,1.5,LOW,d95cfaf9f70243c9b8f7a6e87bc7290b
+AFG.OL,2026-09-23,2026-09-23,2026-09-23,current,,198.8,65.44,1.14,1.0753,190.72,4.24,18.84,80.52,82.15,SELL-watch,1.0,1.75,1.5,LOW,d95cfaf9f70243c9b8f7a6e87bc7290b
+KOG.OL,2026-09-23,2026-09-23,2026-09-23,current,,330.2,66.25,6.39,2.2906,307.904,7.24,16.14,58.23,82.18,SELL-watch,1.0,1.75,1.5,LOW,d95cfaf9f70243c9b8f7a6e87bc7290b
+NOD.OL,2026-09-23,2026-09-23,2026-09-23,current,,186.7,66.83,1.78,1.7361,166.764,11.95,14.87,83.39,78.58,SELL-watch,1.0,1.75,1.5,LOW,d95cfaf9f70243c9b8f7a6e87bc7290b
+ELMRA.OL,2026-09-23,2026-09-23,2026-09-23,current,,46.95,70.21,2.4,-0.0152,46.019,2.02,48.52,37.29,74.03,SELL-watch,2.0,5.0,3.0,HIGH,d95cfaf9f70243c9b8f7a6e87bc7290b
+VOW.OL,2026-09-23,2026-09-23,2026-09-23,current,,2.97,78.25,9.19,0.038,2.3691,25.36,40.68,78.62,88.65,SELL-watch,1.0,5.0,1.5,HIGH,d95cfaf9f70243c9b8f7a6e87bc7290b
