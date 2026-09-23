@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=2848682a165848f186a58dba0d04d017 -->
+<!-- snapshot_id=f1a5cd5fd9604ebab596d27caa195022 -->
 
 **Forventet avsluttet handelssesjon:** 22.09.2026
 
-**Datastatus:** DEGRADED · 197/202 aktuelle rader
+**Datastatus:** CURRENT · 202/202 aktuelle rader
 
-**Generert:** 2026-09-22T19:45:29Z · snapshot 2848682a165848f186a58dba0d04d017
+**Generert:** 2026-09-23T11:29:54Z · snapshot f1a5cd5fd9604ebab596d27caa195022
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 5. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 5 | SELL 5 | BUY-watch 12 | SELL-watch 13
 
@@ -89,17 +89,11 @@ HUNT.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| GYL.OL | stale | 2026-09-21 | missing_expected_completed_session |
-| INIFY.OL | stale | 2026-09-21 | missing_expected_completed_session |
-| ININ.OL | stale | 2026-09-21 | missing_expected_completed_session |
-| SNOR.OL | stale | 2026-09-21 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-09-21 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
