@@ -1,10 +1,10 @@
-# oslo-screener report=buy.csv schema=oslo_screener.health.v1 snapshot_id=d95cfaf9f70243c9b8f7a6e87bc7290b data_fetch_started=2026-09-23T19:40:33Z data_fetch_completed=2026-09-23T19:41:16Z generated_at=2026-09-23T19:41:16Z expected_session=2026-09-23 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=degraded market_data_as_of=2026-09-23
+# oslo-screener report=buy.csv schema=oslo_screener.health.v1 snapshot_id=72ce9d0c2dbc4a2a9eba323884d51e9f data_fetch_started=2026-09-24T11:39:44Z data_fetch_completed=2026-09-24T11:40:26Z generated_at=2026-09-24T11:40:26Z expected_session=2026-09-23 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=current market_data_as_of=2026-09-23
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-CLOUD.OL,2026-09-23,2026-09-23,2026-09-23,current,,11.7,23.37,1.47,-0.1795,13.0572,-10.39,28.8,29.74,14.5,BUY,2.0,3.0,3.0,MODERATE,d95cfaf9f70243c9b8f7a6e87bc7290b
-NOL.OL,2026-09-23,2026-09-23,2026-09-23,current,,7.26,26.2,4.05,-0.0208,7.4492,-2.54,39.79,99.46,17.61,BUY,2.0,5.0,3.0,HIGH,d95cfaf9f70243c9b8f7a6e87bc7290b
-ENH.OL,2026-09-23,2026-09-23,2026-09-23,current,,6.53,27.72,2.87,-0.087,7.5757,-13.8,32.9,19.57,20.75,BUY,2.0,5.0,3.0,HIGH,d95cfaf9f70243c9b8f7a6e87bc7290b
-IDEX.OL,2026-09-23,2026-09-23,2026-09-23,current,,5.58,32.86,7.07,-0.0332,7.368,-24.27,44.23,25.13,34.32,BUY,2.0,5.0,3.0,HIGH,d95cfaf9f70243c9b8f7a6e87bc7290b
-NAVA.OL,2026-09-23,2026-09-23,2026-09-23,current,,13.35,33.65,1.33,0.0546,15.206,-12.21,16.8,29.16,40.04,BUY,3.0,1.75,3.0,LOW,d95cfaf9f70243c9b8f7a6e87bc7290b
-SOGN.OL,2026-09-23,2026-09-23,2026-09-23,current,,307.0,34.12,3.38,-1.563,322.304,-4.75,26.37,18.73,30.34,BUY,2.0,3.0,3.0,MODERATE,d95cfaf9f70243c9b8f7a6e87bc7290b
-VISTN.OL,2026-09-23,2026-09-23,2026-09-23,current,,18.25,34.72,3.75,-0.0462,19.57,-6.75,23.53,23.53,33.2,BUY,2.0,3.0,3.0,MODERATE,d95cfaf9f70243c9b8f7a6e87bc7290b
+CLOUD.OL,2026-09-23,2026-09-24,2026-09-23,current,,11.7,23.37,1.47,-0.1795,13.0572,-10.39,28.8,29.74,14.5,BUY,2,3.0,3.0,MODERATE,72ce9d0c2dbc4a2a9eba323884d51e9f
+NOL.OL,2026-09-23,2026-09-24,2026-09-23,current,,7.26,26.2,4.05,-0.0208,7.4492,-2.54,39.79,99.46,17.61,BUY,2,5.0,3.0,HIGH,72ce9d0c2dbc4a2a9eba323884d51e9f
+ENH.OL,2026-09-23,2026-09-24,2026-09-23,current,,6.53,27.72,2.87,-0.087,7.5757,-13.8,32.9,19.57,20.75,BUY,2,5.0,3.0,HIGH,72ce9d0c2dbc4a2a9eba323884d51e9f
+IDEX.OL,2026-09-23,2026-09-24,2026-09-23,current,,5.58,32.86,7.07,-0.0332,7.368,-24.27,44.23,25.13,34.32,BUY,2,5.0,3.0,HIGH,72ce9d0c2dbc4a2a9eba323884d51e9f
+NAVA.OL,2026-09-23,2026-09-24,2026-09-23,current,,13.35,33.65,1.33,0.0546,15.206,-12.21,16.8,29.16,40.04,BUY,3,1.75,3.0,LOW,72ce9d0c2dbc4a2a9eba323884d51e9f
+SOGN.OL,2026-09-23,2026-09-24,2026-09-23,current,,307.0,34.12,3.38,-1.563,322.304,-4.75,26.37,18.73,30.34,BUY,2,3.0,3.0,MODERATE,72ce9d0c2dbc4a2a9eba323884d51e9f
+VISTN.OL,2026-09-23,2026-09-24,2026-09-23,current,,18.25,34.72,3.75,-0.0462,19.57,-6.75,23.53,23.53,33.2,BUY,2,3.0,3.0,MODERATE,72ce9d0c2dbc4a2a9eba323884d51e9f

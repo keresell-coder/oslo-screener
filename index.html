@@ -22,7 +22,7 @@
 <main>
   <h1>Oslo Screener</h1>
   <p>Daily technical research candidates from completed Oslo market sessions.</p>
-  <!-- snapshot_id=d95cfaf9f70243c9b8f7a6e87bc7290b -->
+  <!-- snapshot_id=72ce9d0c2dbc4a2a9eba323884d51e9f -->
   <section id="health-panel" class="status" data-status="unavailable" aria-live="polite">
     <strong id="health-status">Not verified</strong>
     <p id="health-reason">Checking the published source health. Do not treat this snapshot as current until verification succeeds.</p>
@@ -30,10 +30,10 @@
   <dl>
     <dt>Latest usable market observation</dt><dd id="observation">2026-09-23</dd>
     <dt>Expected completed session at generation</dt><dd id="expected-session">2026-09-23</dd>
-    <dt>Snapshot generated</dt><dd>2026-09-23T19:41:16Z</dd>
-    <dt>Coverage at publication</dt><dd id="coverage">200 / 202 current · 2 stale · 0 missing · 0 invalid</dd>
+    <dt>Snapshot generated</dt><dd>2026-09-24T11:40:26Z</dd>
+    <dt>Coverage at publication</dt><dd id="coverage">202 / 202 current · 0 stale · 0 missing · 0 invalid</dd>
     <dt>Validity deadline</dt><dd id="valid-until">2026-09-24T16:45:00+02:00</dd>
-    <dt>Snapshot ID</dt><dd>d95cfaf9f70243c9b8f7a6e87bc7290b</dd>
+    <dt>Snapshot ID</dt><dd>72ce9d0c2dbc4a2a9eba323884d51e9f</dd>
   </dl>
   
   <p class="status" id="coverage-policy">The overall percentage requirement is temporarily suspended. Only stocks passing the individual data checks can produce signals.</p>
@@ -44,18 +44,9 @@
     <li><a href="health.json">Inspect observation dates, excluded rows and file checksums</a></li>
   </ul>
   <section aria-labelledby="excluded-heading">
-    <h2 id="excluded-heading">Stocks without required data (2)</h2>
+    <h2 id="excluded-heading">Stocks without required data (0)</h2>
     <p>These stocks are excluded from signal lists. Missing data does not establish delisting.</p>
-    
-    <div class="table-scroll"><table>
-      <thead><tr><th>Stock</th><th>Status</th><th>Observation date</th><th>Reason</th></tr></thead>
-      <tbody>
-      <tr><td>INIFY.OL</td><td>stale</td><td>2026-09-22</td><td>missing_expected_completed_session</td></tr>
-      
-      <tr><td>TRSB.OL</td><td>stale</td><td>2026-09-22</td><td>missing_expected_completed_session</td></tr>
-      </tbody>
-    </table></div>
-    
+    <p>No stocks are excluded.</p>
   </section>
   <p class="limits">Passing source checks does not validate a strategy or expected return. BUY/SELL labels are technical research setups. Fundamental and news coverage is outside this screener.</p>
   <noscript><p class="status">JavaScript is required for current health verification. This page remains unverified; inspect health.json and its validity deadline before using the data.</p></noscript>
@@ -63,7 +54,7 @@
 <script>
 (() => {
   "use strict";
-  const snapshotId = "d95cfaf9f70243c9b8f7a6e87bc7290b";
+  const snapshotId = "72ce9d0c2dbc4a2a9eba323884d51e9f";
   const schema = "oslo_screener.health.v1";
   const byId = (id) => document.getElementById(id);
   const labels = {current: "Source checks passed", degraded: "Limited coverage", blocked: "Checks blocked", unavailable: "Not verified"};
