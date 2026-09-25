@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=c2f4ee95bdef4f42ae55d384c10d74cd -->
+<!-- snapshot_id=f0bf91597259431486a32ab8cad1430c -->
 
 **Forventet avsluttet handelssesjon:** 24.09.2026
 
-**Datastatus:** DEGRADED · 199/202 aktuelle rader
+**Datastatus:** CURRENT · 202/202 aktuelle rader
 
-**Generert:** 2026-09-24T19:59:32Z · snapshot c2f4ee95bdef4f42ae55d384c10d74cd
+**Generert:** 2026-09-25T11:46:17Z · snapshot f0bf91597259431486a32ab8cad1430c
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 4 | SELL 0 | BUY-watch 21 | SELL-watch 14
 
@@ -92,15 +92,11 @@ _Ingen SELL i dag._
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| GYL.OL | stale | 2026-09-23 | missing_expected_completed_session |
-| HSPG.OL | stale | 2026-09-23 | missing_expected_completed_session |
-| ZAL.OL | stale | 2026-09-23 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._

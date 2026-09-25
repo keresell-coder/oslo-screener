@@ -1,25 +1,25 @@
 {
   "schema": "oslo_screener.health.v1",
-  "snapshot_id": "c2f4ee95bdef4f42ae55d384c10d74cd",
-  "generated_at": "2026-09-24T19:59:32Z",
-  "evaluated_at": "2026-09-24T19:59:32.992406+00:00",
+  "snapshot_id": "f0bf91597259431486a32ab8cad1430c",
+  "generated_at": "2026-09-25T11:46:17Z",
+  "evaluated_at": "2026-09-25T11:46:17.077308+00:00",
   "market_data_as_of": "2026-09-24",
   "expected_session": "2026-09-24",
   "valid_until": "2026-09-25T16:45:00+02:00",
-  "status": "degraded",
+  "status": "current",
   "actionable": true,
   "reasons": [],
   "coverage_policy": "per_stock",
   "coverage": {
     "universe_count": 202,
     "received_count": 202,
-    "current": 199,
-    "stale": 3,
+    "current": 202,
+    "stale": 0,
     "missing": 0,
     "invalid": 0,
-    "current_ratio": 0.9851485148514851,
+    "current_ratio": 1.0,
     "min_current_ratio": 0.0049504950495049506,
-    "actionable_count": 199
+    "actionable_count": 202
   },
   "eligible_tickers": [
     "HPUR.OL",
@@ -70,6 +70,7 @@
     "TRMED.OL",
     "ONCIN.OL",
     "EQVA.OL",
+    "GYL.OL",
     "INIFY.OL",
     "WSTEP.OL",
     "ACR.OL",
@@ -78,6 +79,7 @@
     "DFENS.OL",
     "KOA.OL",
     "AKER.OL",
+    "HSPG.OL",
     "KID.OL",
     "PUBLI.OL",
     "ZLNA.OL",
@@ -137,6 +139,7 @@
     "SCATC.OL",
     "LIFE.OL",
     "MORG.OL",
+    "ZAL.OL",
     "ITERA.OL",
     "ABG.OL",
     "ELK.OL",
@@ -222,43 +225,23 @@
     "TGS.OL",
     "ELMRA.OL"
   ],
-  "excluded": [
-    {
-      "ticker": "GYL.OL",
-      "market_data_as_of": "2026-09-23",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "HSPG.OL",
-      "market_data_as_of": "2026-09-23",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "ZAL.OL",
-      "market_data_as_of": "2026-09-23",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    }
-  ],
+  "excluded": [],
   "observation_dates": {
-    "2026-09-24": 199,
-    "2026-09-23": 3
+    "2026-09-24": 202
   },
   "calendar_verified_through": 2026,
   "session_policy": "Completed Oslo cash session plus 15-minute feed buffer; never intraday.",
   "artifacts": {
-    "latest.csv": "c4ad0637de960824882aa88020abeac9f25e83363fff3e1031535e063eaccee7",
-    "report_2026-09-24T195932Z.csv": "e0045ba1b945e453808a96a3184061c640ae05734e8ce53ea534776ee90e3ce0",
-    "buy.csv": "eda95bab131623b9cae7322e9b28eb0be4854a24dcedcf46cc125b076ddeb67e",
-    "sell.csv": "ba76c80f6f2a3b584525034da048617441b377a9c296e2243c26edec6e79fc34",
-    "watch_buy.csv": "47f7d48d6635a06b035d00db6511dd5a8da35a5ff5e41529df65af71467bd4a7",
-    "watch_sell.csv": "7083e0cb4951102a665cff5b7f16fdad103033aa9212c6567e7e450ba2e54057",
-    "signals_only.csv": "d13eaa30259884e8e0356c2863fce9488d3c824f249374f34d35041361f934c1",
-    "summaries/daily_2026-09-24.md": "ad7fe9523dbf0aebf5de00f88d7bc4ea8d04db27a5b2b27500afadb4347462fd",
-    "summaries/latest.md": "ad7fe9523dbf0aebf5de00f88d7bc4ea8d04db27a5b2b27500afadb4347462fd",
-    "index.html": "387fd50d149858dad71734185d3069b8a9bda0fc0c90995e26655bbe92a70736",
+    "latest.csv": "b26b45ad27ec85d61d592e146616167d4d9fb89872fdd55590e10fd265afb389",
+    "report_2026-09-25T114617Z.csv": "2f213db812f0ad8557b6ce1225687eeb6ee36d5b33f737c1f9ec8a399af5c73b",
+    "buy.csv": "bb33e4f9b1a76f7a0df70e9bc5cac1965c452302d26660b96456d36baa8b48d9",
+    "sell.csv": "db441e8b1879abac1e489c87f0c112e2c35edf07f1252cadbc0650b81e32d75f",
+    "watch_buy.csv": "43dbed84bdb58806c31e50b726b6d545be8138a8dbab5651f61864a927910755",
+    "watch_sell.csv": "baedd4fcfcedab36bafa0ce2cfd897f8d5712f7ee45711523b432e5eea9a10c4",
+    "signals_only.csv": "5e750b546ac24990cb35e2e697f9b3391f7be8d12acbba54253b669188d018e3",
+    "summaries/daily_2026-09-24.md": "3a88d299d4e32bfa0f2b12f0838adf107311066d0d9832a54317ee6e261bd16c",
+    "summaries/latest.md": "3a88d299d4e32bfa0f2b12f0838adf107311066d0d9832a54317ee6e261bd16c",
+    "index.html": "ca8d93f2a246a3039df52e6860125380b40883e6eaf8c9377c1c6e8c172a0081",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "signal_counts": {
@@ -266,8 +249,8 @@
     "SELL": 0,
     "BUY-watch": 21,
     "SELL-watch": 14,
-    "NEUTRAL": 160,
-    "WITHHELD": 3
+    "NEUTRAL": 163,
+    "WITHHELD": 0
   },
   "source": "Yahoo Finance adjusted daily OHLC via yfinance"
 }
