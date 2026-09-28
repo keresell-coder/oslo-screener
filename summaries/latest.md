@@ -1,19 +1,19 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=5a4c4ece52904638afc79edafd5c3566 -->
+<!-- snapshot_id=77ff574548ea42b388f38adc7b5c2e63 -->
 
 **Forventet avsluttet handelssesjon:** 25.09.2026
 
-**Datastatus:** DEGRADED · 200/202 aktuelle rader
+**Datastatus:** CURRENT · 202/202 aktuelle rader
 
-**Generert:** 2026-09-25T20:01:39Z · snapshot 5a4c4ece52904638afc79edafd5c3566
+**Generert:** 2026-09-28T13:46:57Z · snapshot 77ff574548ea42b388f38adc7b5c2e63
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 2. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
-**Telling:** BUY 4 | SELL 2 | BUY-watch 16 | SELL-watch 11
+**Telling:** BUY 4 | SELL 2 | BUY-watch 17 | SELL-watch 11
 
 
 ## BUY (rangert)
@@ -59,6 +59,7 @@ ZAP.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | MACD→0 (Δ=0.16) | PHO.OL | 49.80 | 33.13 | -4.03 | -0.16 ❌ | -6.98 ❌ | 14 ⚠️ | RSI6 23 ⚪ · MFI 16 ⚪ |
 | MACD→0 (Δ=0.18) | ENTRA.OL | 98.60 | 34.60 | -1.77 | -0.18 ❌ | -5.36 ❌ | 37 🟢 | RSI6 30 ⚪ · MFI 9 ⚪ |
 | MACD→0 (Δ=0.21) | ARCH.OL | 21.65 | 30.18 | -0.38 | -0.21 ❌ | -8.93 ❌ | 28 🟢 | RSI6 22 ⚪ · MFI 39 ⚪ |
+| MACD→0 (Δ=0.22) | TRSB.OL | 107.04 | 33.55 | +0.00 | -0.22 ❌ | -2.90 ❌ | 16 ⚠️ | RSI6 11 ⚪ · MFI 22 ⚪ |
 | MACD→0 (Δ=0.39) | EPR.OL | 81.30 | 31.89 | -2.67 | -0.39 ❌ | -5.04 ❌ | 32 🟢 | RSI6 24 ⚪ · MFI 12 ⚪ |
 | MACD→0 (Δ=0.73) | NHY.OL | 82.38 | 32.07 | -1.14 | -0.73 ❌ | -7.49 ❌ | 24 ⚪ | RSI6 22 ⚪ · MFI 29 ⚪ |
 | MACD→0 (Δ=2.28) | GJF.OL | 259.40 | 25.15 | +0.00 | -2.28 ❌ | -7.01 ❌ | 24 ⚪ | RSI6 12 ⚪ · MFI 29 ⚪ |
@@ -87,14 +88,11 @@ ZAP.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| TRSB.OL | stale | 2026-09-24 | missing_expected_completed_session |
-| ZAL.OL | stale | 2026-09-24 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
