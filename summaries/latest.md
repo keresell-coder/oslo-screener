@@ -1,19 +1,19 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=9a1b11fa96874c169c104b9ab573f371 -->
+<!-- snapshot_id=8f9d6ebf09d1404b980fe0c760fdc100 -->
 
 **Forventet avsluttet handelssesjon:** 28.09.2026
 
-**Datastatus:** DEGRADED · 199/202 aktuelle rader
+**Datastatus:** CURRENT · 202/202 aktuelle rader
 
-**Generert:** 2026-09-28T21:59:21Z · snapshot 9a1b11fa96874c169c104b9ab573f371
+**Generert:** 2026-09-29T12:46:20Z · snapshot 8f9d6ebf09d1404b980fe0c760fdc100
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
-**Telling:** BUY 5 | SELL 0 | BUY-watch 16 | SELL-watch 19
+**Telling:** BUY 5 | SELL 0 | BUY-watch 17 | SELL-watch 19
 
 
 ## BUY (rangert)
@@ -54,12 +54,13 @@ _Ingen SELL i dag._
 | MACD→0 (Δ=0.08) | NAVA.OL | 13.30 | 32.84 | -0.81 | 0.08 ✅ | -11.59 ❌ | 15 ⚠️ | RSI6 36 ⚪ · MFI 46 ⚪ |
 | MACD→0 (Δ=0.09) | OTOVO.OL | 9.90 | 30.87 | -3.77 | -0.09 ❌ | -12.37 ❌ | 17 ⚠️ | RSI6 15 ⚪ · MFI 14 ⚪ |
 | MACD→0 (Δ=0.13) | ENH.OL | 6.18 | 24.52 | -1.50 | -0.13 ❌ | -17.76 ❌ | 39 🟢 | RSI6 18 ⚪ · MFI 16 ⚪ |
-| MACD→0 (Δ=0.13) | PUBLI.OL | 16.05 | 27.86 | -8.19 | -0.13 ❌ | -13.05 ❌ | 13 ⚠️ | RSI6 16 ⚪ · MFI 17 ⚪ |
+| MACD→0 (Δ=0.13) | PUBLI.OL | 15.80 | 27.86 | -8.19 | -0.13 ❌ | -13.05 ❌ | 13 ⚠️ | RSI6 16 ⚪ · MFI 17 ⚪ |
 | MACD→0 (Δ=0.14) | TOM.OL | 91.55 | 32.35 | -0.82 | -0.14 ❌ | -10.40 ❌ | 46 🟢 | RSI6 36 ⚪ · MFI 38 ⚪ |
 | MACD→0 (Δ=0.15) | CLOUD.OL | 11.38 | 19.80 | -1.48 | -0.15 ❌ | -12.28 ❌ | 29 🟢 | RSI6 10 ⚪ · MFI 22 ⚪ |
 | MACD→0 (Δ=0.19) | ARCH.OL | 21.55 | 29.39 | -0.79 | -0.19 ❌ | -9.21 ❌ | 28 🟢 | RSI6 20 ⚪ · MFI 33 ⚪ |
 | MACD→0 (Δ=0.20) | ENTRA.OL | 98.40 | 34.01 | -0.59 | -0.20 ❌ | -5.44 ❌ | 38 🟢 | RSI6 29 ⚪ · MFI 9 ⚪ |
 | MACD→0 (Δ=0.24) | PHO.OL | 49.00 | 30.30 | -2.83 | -0.24 ❌ | -8.18 ❌ | 16 ⚠️ | RSI6 19 ⚪ · MFI 24 ⚪ |
+| MACD→0 (Δ=0.28) | TRSB.OL | 107.04 | 33.55 | +0.00 | -0.28 ❌ | -2.78 ❌ | 18 ⚠️ | RSI6 11 ⚪ · MFI 25 ⚪ |
 | MACD→0 (Δ=0.43) | STECH.OL | 78.40 | 23.63 | -8.59 | -0.43 ❌ | -9.45 ❌ | 42 🟢 | RSI6 13 ⚪ · MFI 37 ⚪ |
 | MACD→0 (Δ=3.71) | VEND.OL | 204.80 | 22.41 | -1.46 | -3.71 ❌ | -15.05 ❌ | 23 ⚪ | RSI6 10 ⚪ · MFI 18 ⚪ |
 
@@ -75,7 +76,7 @@ _Ingen SELL i dag._
 | MACD→0 (Δ=0.08) | VOW.OL | 3.30 | 84.87 | +1.51 | 0.08 ❌ | 35.71 ❌ | 46 🟢 | RSI6 94 ⚪ · MFI 92 ⚪ |
 | RSI→65 (Δ=0.08) | WAWI.OL | 180.20 | 65.08 | +1.30 | -0.37 ✅ | 11.69 ❌ | 33 🟢 | RSI6 61 ⚪ · MFI 54 ⚪ |
 | MACD→0 (Δ=0.09) | NONG.OL | 175.96 | 66.01 | +0.88 | 0.09 ❌ | 6.05 ❌ | 16 ⚠️ | RSI6 72 ⚪ · MFI 71 ⚪ |
-| MACD→0 (Δ=0.13) | HUNT.OL | 18.48 | 66.03 | +5.79 | -0.13 ✅ | 51.17 ❌ | 53 🟢 | RSI6 60 ⚪ · MFI 52 ⚪ |
+| MACD→0 (Δ=0.12) | HUNT.OL | 16.98 | 66.03 | +5.79 | -0.12 ✅ | 51.17 ❌ | 53 🟢 | RSI6 60 ⚪ · MFI 52 ⚪ |
 | MACD→0 (Δ=0.13) | GOD.OL | 15.20 | 66.20 | +7.49 | 0.13 ❌ | 8.43 ❌ | 22 ⚪ | RSI6 76 ⚪ · MFI 91 ⚪ |
 | MACD→0 (Δ=0.14) | SPOL.OL | 207.75 | 65.65 | +0.00 | 0.14 ❌ | 5.22 ❌ | 19 ⚠️ | RSI6 73 ⚪ · MFI 59 ⚪ |
 | MACD→0 (Δ=0.15) | VEI.OL | 218.00 | 69.67 | +1.33 | 0.15 ❌ | 8.39 ❌ | 30 🟢 | RSI6 76 ⚪ · MFI 59 ⚪ |
@@ -93,15 +94,11 @@ _Ingen SELL i dag._
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| ININ.OL | stale | 2026-09-25 | missing_expected_completed_session |
-| PYRUM.OL | stale | 2026-09-25 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-09-25 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
