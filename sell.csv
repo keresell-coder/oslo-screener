@@ -1,7 +1,5 @@
-# oslo-screener report=sell.csv schema=oslo_screener.health.v1 snapshot_id=6b2599bb3e8e414c9d767259c0305810 data_fetch_started=2026-09-30T12:28:27Z data_fetch_completed=2026-09-30T12:29:00Z generated_at=2026-09-30T12:29:00Z expected_session=2026-09-29 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=current market_data_as_of=2026-09-29
+# oslo-screener report=sell.csv schema=oslo_screener.health.v1 snapshot_id=066b10efb345486fb360ae8c76c302a2 data_fetch_started=2026-09-30T20:48:20Z data_fetch_completed=2026-09-30T20:48:54Z generated_at=2026-09-30T20:48:54Z expected_session=2026-09-30 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=degraded market_data_as_of=2026-09-30
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-WWIB.OL,2026-09-29,2026-09-30,2026-09-29,current,,836.0,66.43,-11.23,1.9193,755.96,10.59,52.65,67.01,61.02,SELL,2,5.0,3.0,HIGH,6b2599bb3e8e414c9d767259c0305810
-ZAP.OL,2026-09-29,2026-09-30,2026-09-29,current,,62.1,69.72,-0.96,0.2691,51.607,20.33,43.12,62.72,69.7,SELL,2,5.0,3.0,HIGH,6b2599bb3e8e414c9d767259c0305810
-WWI.OL,2026-09-29,2026-09-30,2026-09-29,current,,905.0,71.94,-8.72,3.0398,816.1,10.89,42.6,78.32,67.78,SELL,2,5.0,3.0,HIGH,6b2599bb3e8e414c9d767259c0305810
-VOW.OL,2026-09-29,2026-09-30,2026-09-29,current,,3.2,76.54,-8.33,0.071,2.4526,30.47,46.15,84.92,77.37,SELL,2,5.0,3.0,HIGH,6b2599bb3e8e414c9d767259c0305810
+CONTX.OL,2026-09-30,2026-09-30,2026-09-30,current,,5.48,68.74,-6.69,0.0783,4.0196,36.33,34.5,74.53,66.97,SELL,2.0,5.0,3.0,HIGH,066b10efb345486fb360ae8c76c302a2
+VOW.OL,2026-09-30,2026-09-30,2026-09-30,current,,3.12,70.57,-5.97,0.0571,2.4714,26.24,45.01,72.4,66.1,SELL,2.0,5.0,3.0,HIGH,066b10efb345486fb360ae8c76c302a2
