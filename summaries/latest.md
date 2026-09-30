@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=b5150c9e366147339210d095aa4b1391 -->
+<!-- snapshot_id=6b2599bb3e8e414c9d767259c0305810 -->
 
 **Forventet avsluttet handelssesjon:** 29.09.2026
 
-**Datastatus:** DEGRADED · 197/202 aktuelle rader
+**Datastatus:** CURRENT · 202/202 aktuelle rader
 
-**Generert:** 2026-09-29T20:46:08Z · snapshot b5150c9e366147339210d095aa4b1391
+**Generert:** 2026-09-30T12:29:00Z · snapshot 6b2599bb3e8e414c9d767259c0305810
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 5. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 6 | SELL 4 | BUY-watch 15 | SELL-watch 12
 
@@ -52,7 +52,7 @@ WWIB.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 | Closest | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| MACD→0 (Δ=0.00) | NEXT.OL | 0.23 | 31.93 | -1.54 | -0.00 ◻️ | -15.04 ❌ | 24 ⚪ | RSI6 23 ⚪ · MFI 27 ⚪ |
+| MACD→0 (Δ=0.00) | NEXT.OL | 0.23 | 31.94 | -1.54 | -0.00 ◻️ | -15.04 ❌ | 24 ⚪ | RSI6 23 ⚪ · MFI 27 ⚪ |
 | MACD→0 (Δ=0.00) | HPUR.OL | 4.20 | 18.53 | -1.33 | 0.00 ◻️ | -44.42 ❌ | 34 🟢 | RSI6 16 ⚪ · MFI 20 ⚪ |
 | MACD→0 (Δ=0.00) | ENSU.OL | 0.56 | 30.83 | +0.00 | -0.00 ◻️ | -12.11 ❌ | 34 🟢 | RSI6 20 ⚪ · MFI 41 ⚪ |
 | MACD→0 (Δ=0.00) | HYPRO.OL | 0.48 | 31.89 | -0.42 | 0.00 ◻️ | -14.46 ❌ | 21 ⚪ | RSI6 22 ⚪ · MFI 41 ⚪ |
@@ -91,17 +91,11 @@ WWIB.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| BIEN.OL | stale | 2026-09-28 | missing_expected_completed_session |
-| GYL.OL | stale | 2026-09-28 | missing_expected_completed_session |
-| HSPG.OL | stale | 2026-09-28 | missing_expected_completed_session |
-| PYRUM.OL | stale | 2026-09-28 | missing_expected_completed_session |
-| SDSD.OL | stale | 2026-09-28 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
