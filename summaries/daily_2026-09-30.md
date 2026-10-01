@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=066b10efb345486fb360ae8c76c302a2 -->
+<!-- snapshot_id=810982d016f24b21a01e1cf9838ecfa6 -->
 
 **Forventet avsluttet handelssesjon:** 30.09.2026
 
-**Datastatus:** DEGRADED · 199/202 aktuelle rader
+**Datastatus:** CURRENT · 202/202 aktuelle rader
 
-**Generert:** 2026-09-30T20:48:54Z · snapshot 066b10efb345486fb360ae8c76c302a2
+**Generert:** 2026-10-01T13:06:10Z · snapshot 810982d016f24b21a01e1cf9838ecfa6
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 6 | SELL 2 | BUY-watch 14 | SELL-watch 16
 
@@ -55,7 +55,7 @@ VOW.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | MACD→0 (Δ=0.05) | NOM.OL | 0.89 | 25.76 | -0.11 | -0.05 ❌ | -68.61 ❌ | 29 🟢 | RSI6 17 ⚪ · MFI 44 ⚪ |
 | MACD→0 (Δ=0.06) | PARB.OL | 54.00 | 31.57 | +0.00 | 0.06 ✅ | -7.93 ❌ | 25 🟢 | RSI6 28 ⚪ · MFI 18 ⚪ |
 | MACD→0 (Δ=0.09) | OTOVO.OL | 9.88 | 30.61 | -0.26 | -0.09 ❌ | -12.30 ❌ | 18 ⚠️ | RSI6 15 ⚪ · MFI 7 ⚪ |
-| MACD→0 (Δ=0.14) | ELMRA.OL | 45.30 | 32.96 | -29.32 | -0.14 ❌ | -1.67 ❌ | 40 🟢 | RSI6 14 ⚪ · MFI 26 ⚪ |
+| MACD→0 (Δ=0.14) | ELMRA.OL | 45.30 | 32.96 | -29.32 | -0.14 ❌ | -1.67 ❌ | 41 🟢 | RSI6 14 ⚪ · MFI 27 ⚪ |
 | MACD→0 (Δ=0.18) | SBO.OL | 30.50 | 33.68 | +0.00 | -0.18 ❌ | -6.57 ❌ | 21 ⚪ | RSI6 28 ⚪ · MFI 78 ⚪ |
 | MACD→0 (Δ=0.20) | APR.OL | 33.20 | 27.81 | -2.07 | 0.20 ✅ | -16.98 ❌ | 32 🟢 | RSI6 31 ⚪ · MFI 27 ⚪ |
 | MACD→0 (Δ=0.21) | PUBLI.OL | 15.38 | 25.11 | -2.48 | -0.21 ❌ | -14.68 ❌ | 18 ⚠️ | RSI6 13 ⚪ · MFI 14 ⚪ |
@@ -92,15 +92,11 @@ VOW.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| BIEN.OL | stale | 2026-09-29 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-09-29 | missing_expected_completed_session |
-| ZAL.OL | stale | 2026-09-29 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
