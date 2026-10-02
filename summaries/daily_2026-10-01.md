@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=c4e4fede8e8e49e3b0bf2e91fa0bfa67 -->
+<!-- snapshot_id=219cee149b1344b49ebc8d2de0375d35 -->
 
 **Forventet avsluttet handelssesjon:** 01.10.2026
 
-**Datastatus:** DEGRADED · 200/202 aktuelle rader
+**Datastatus:** CURRENT · 202/202 aktuelle rader
 
-**Generert:** 2026-10-01T21:02:07Z · snapshot c4e4fede8e8e49e3b0bf2e91fa0bfa67
+**Generert:** 2026-10-02T12:27:27Z · snapshot 219cee149b1344b49ebc8d2de0375d35
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 2. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 3 | SELL 6 | BUY-watch 27 | SELL-watch 6
 
@@ -96,14 +96,11 @@ WAWI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). MACD støtter (✅). A
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| HSPG.OL | stale | 2026-09-30 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-09-30 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._

@@ -1,25 +1,25 @@
 {
   "schema": "oslo_screener.health.v1",
-  "snapshot_id": "c4e4fede8e8e49e3b0bf2e91fa0bfa67",
-  "generated_at": "2026-10-01T21:02:07Z",
-  "evaluated_at": "2026-10-01T21:02:07.755072+00:00",
+  "snapshot_id": "219cee149b1344b49ebc8d2de0375d35",
+  "generated_at": "2026-10-02T12:27:27Z",
+  "evaluated_at": "2026-10-02T12:27:27.702474+00:00",
   "market_data_as_of": "2026-10-01",
   "expected_session": "2026-10-01",
   "valid_until": "2026-10-02T16:45:00+02:00",
-  "status": "degraded",
+  "status": "current",
   "actionable": true,
   "reasons": [],
   "coverage_policy": "per_stock",
   "coverage": {
     "universe_count": 202,
     "received_count": 202,
-    "current": 200,
-    "stale": 2,
+    "current": 202,
+    "stale": 0,
     "missing": 0,
     "invalid": 0,
-    "current_ratio": 0.9900990099009901,
+    "current_ratio": 1.0,
     "min_current_ratio": 0.0049504950495049506,
-    "actionable_count": 200
+    "actionable_count": 202
   },
   "eligible_tickers": [
     "APR.OL",
@@ -153,6 +153,7 @@
     "MOWI.OL",
     "AFK.OL",
     "STRO.OL",
+    "HSPG.OL",
     "EQNR.OL",
     "ROGS.OL",
     "ELABS.OL",
@@ -188,6 +189,7 @@
     "BOUV.OL",
     "GYL.OL",
     "JAREN.OL",
+    "TRSB.OL",
     "GENO.OL",
     "DNO.OL",
     "HERMA.OL",
@@ -223,37 +225,23 @@
     "ODFB.OL",
     "LIFE.OL"
   ],
-  "excluded": [
-    {
-      "ticker": "HSPG.OL",
-      "market_data_as_of": "2026-09-30",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "TRSB.OL",
-      "market_data_as_of": "2026-09-30",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    }
-  ],
+  "excluded": [],
   "observation_dates": {
-    "2026-10-01": 200,
-    "2026-09-30": 2
+    "2026-10-01": 202
   },
   "calendar_verified_through": 2026,
   "session_policy": "Completed Oslo cash session plus 15-minute feed buffer; never intraday.",
   "artifacts": {
-    "latest.csv": "d13a33b85c1f652f0bda40e63f66c32257aee14c320d852b4e9ff5ceb83a45b6",
-    "report_2026-10-01T210207Z.csv": "a19e67dbe73bd35b8647e164fe3c07a25703531caeda732a91a7d2489aca175c",
-    "buy.csv": "25073564ebc38193088b989caec7ed92af041abff68d2303a7f73424c2898b37",
-    "sell.csv": "82006536228e1f725264443bde9886d92b618a7282f28c101dd3ca507f2f1499",
-    "watch_buy.csv": "2ba266c29ff785eda3868edae87df4e2516308f8eb0aff78aa17bc756b7c0c21",
-    "watch_sell.csv": "5218ab83a621b5856464341ddb8ec7cc3cfad9c67a03ec5b6a12de8142450fe0",
-    "signals_only.csv": "b4ccc3c07c2183d625f2b53ed4e25b28cac70be07843e75fd8ce53ff7be68b0b",
-    "summaries/daily_2026-10-01.md": "1fa3264c5d0714a0d8965874039197dfecabbe37d92a030cc464db14878bf72e",
-    "summaries/latest.md": "1fa3264c5d0714a0d8965874039197dfecabbe37d92a030cc464db14878bf72e",
-    "index.html": "51ccbccd1b2365e33941c2d8d8f456f837ed98d25264193d3952e92bac902e0e",
+    "latest.csv": "2be43ef14561192cb4a61146aaddd6432942f2891c98735bc776853432e08a2a",
+    "report_2026-10-02T122727Z.csv": "531d217e1569dda63addb66d26daf30d871a25b0c10b3e848eb3e508241ca648",
+    "buy.csv": "872ddbf128d4a0056d59ba58c9c59c531bc390342d55b4acadde436fa72ef3d1",
+    "sell.csv": "5aaa45729317ee53b5795b81eff4b86235ee56b347ff4b1d8d39f41c4b5166bf",
+    "watch_buy.csv": "3c32dcc5730f673fc2d0c689d45c864b7eb83083a8bca23b0654f96e57eabd4e",
+    "watch_sell.csv": "aacb34af0c961cf71b4f32590733b46bad0dda40b207d48a5a7a9a027cc0ee43",
+    "signals_only.csv": "fb8e171fa32398ea9d62007408c0cf6d9090ba38488dbf73c3ba7f58dad22064",
+    "summaries/daily_2026-10-01.md": "44c03bf8b3a1852fd96ea80cc2ac6acd5b01766bf08b73edc2be4b55c57bced1",
+    "summaries/latest.md": "44c03bf8b3a1852fd96ea80cc2ac6acd5b01766bf08b73edc2be4b55c57bced1",
+    "index.html": "88981d5e8073e7f0945cad0708a1fd2137039698c02386ef939034efbb4f22f5",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "signal_counts": {
@@ -261,8 +249,8 @@
     "SELL": 6,
     "BUY-watch": 27,
     "SELL-watch": 6,
-    "NEUTRAL": 158,
-    "WITHHELD": 2
+    "NEUTRAL": 160,
+    "WITHHELD": 0
   },
   "source": "Yahoo Finance adjusted daily OHLC via yfinance"
 }

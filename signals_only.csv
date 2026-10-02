@@ -1,12 +1,12 @@
-# oslo-screener report=signals_only.csv schema=oslo_screener.health.v1 snapshot_id=c4e4fede8e8e49e3b0bf2e91fa0bfa67 data_fetch_started=2026-10-01T21:01:16Z data_fetch_completed=2026-10-01T21:02:07Z generated_at=2026-10-01T21:02:07Z expected_session=2026-10-01 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=degraded market_data_as_of=2026-10-01
+# oslo-screener report=signals_only.csv schema=oslo_screener.health.v1 snapshot_id=219cee149b1344b49ebc8d2de0375d35 data_fetch_started=2026-10-02T12:26:32Z data_fetch_completed=2026-10-02T12:27:27Z generated_at=2026-10-02T12:27:27Z expected_session=2026-10-01 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=current market_data_as_of=2026-10-01
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-APR.OL,2026-10-01,2026-10-01,2026-10-01,current,,33.6,31.23,3.42,0.2467,39.82,-15.62,30.77,30.35,39.76,BUY,3.0,5.0,5.0,HIGH,c4e4fede8e8e49e3b0bf2e91fa0bfa67
-NOM.OL,2026-10-01,2026-10-01,2026-10-01,current,,1.15,33.88,8.11,-0.0284,2.7447,-58.1,27.14,60.99,40.1,BUY,2.0,3.0,3.0,MODERATE,c4e4fede8e8e49e3b0bf2e91fa0bfa67
-ARR.OL,2026-10-01,2026-10-01,2026-10-01,current,,5.26,34.39,1.35,-0.0301,5.7,-7.72,33.56,27.72,25.61,BUY,2.0,5.0,3.0,HIGH,c4e4fede8e8e49e3b0bf2e91fa0bfa67
-MPCC.OL,2026-10-01,2026-10-01,2026-10-01,current,,28.88,65.49,-3.37,0.0226,26.2335,10.09,32.85,72.97,64.76,SELL,2.0,5.0,3.0,HIGH,c4e4fede8e8e49e3b0bf2e91fa0bfa67
-HAUTO.OL,2026-10-01,2026-10-01,2026-10-01,current,,189.6,65.52,-0.44,0.4546,176.5368,7.4,21.14,50.34,74.57,SELL,2.0,3.0,3.0,MODERATE,c4e4fede8e8e49e3b0bf2e91fa0bfa67
-WAWI.OL,2026-10-01,2026-10-01,2026-10-01,current,,182.2,66.84,-1.24,-0.4688,163.722,11.29,31.73,45.18,67.03,SELL,3.0,5.0,5.0,HIGH,c4e4fede8e8e49e3b0bf2e91fa0bfa67
-VOW.OL,2026-10-01,2026-10-01,2026-10-01,current,,3.07,67.05,-3.52,0.0407,2.4896,23.31,43.96,66.12,59.59,SELL,2.0,5.0,3.0,HIGH,c4e4fede8e8e49e3b0bf2e91fa0bfa67
-GOD.OL,2026-10-01,2026-10-01,2026-10-01,current,,15.6,67.51,-3.72,0.1975,14.11,10.56,26.87,84.97,73.92,SELL,2.0,3.0,3.0,MODERATE,c4e4fede8e8e49e3b0bf2e91fa0bfa67
-WWI.OL,2026-10-01,2026-10-01,2026-10-01,current,,943.0,77.06,-2.68,5.0188,823.52,14.51,45.63,83.9,77.91,SELL,2.0,5.0,3.0,HIGH,c4e4fede8e8e49e3b0bf2e91fa0bfa67
+APR.OL,2026-10-01,2026-10-02,2026-10-01,current,,33.6,31.23,3.42,0.2467,39.82,-15.62,30.77,30.35,39.76,BUY,3,5.0,5.0,HIGH,219cee149b1344b49ebc8d2de0375d35
+NOM.OL,2026-10-01,2026-10-02,2026-10-01,current,,1.15,33.88,8.11,-0.0284,2.7447,-58.1,27.14,60.98,40.1,BUY,2,3.0,3.0,MODERATE,219cee149b1344b49ebc8d2de0375d35
+ARR.OL,2026-10-01,2026-10-02,2026-10-01,current,,5.26,34.39,1.35,-0.0301,5.7,-7.72,33.56,27.72,25.61,BUY,2,5.0,3.0,HIGH,219cee149b1344b49ebc8d2de0375d35
+MPCC.OL,2026-10-01,2026-10-02,2026-10-01,current,,28.88,65.49,-3.37,0.0226,26.2335,10.09,32.85,72.97,64.76,SELL,2,5.0,3.0,HIGH,219cee149b1344b49ebc8d2de0375d35
+HAUTO.OL,2026-10-01,2026-10-02,2026-10-01,current,,189.6,65.52,-0.44,0.4546,176.5368,7.4,21.14,50.34,74.57,SELL,2,3.0,3.0,MODERATE,219cee149b1344b49ebc8d2de0375d35
+WAWI.OL,2026-10-01,2026-10-02,2026-10-01,current,,182.2,66.84,-1.24,-0.4688,163.722,11.29,31.73,45.18,67.03,SELL,3,5.0,5.0,HIGH,219cee149b1344b49ebc8d2de0375d35
+VOW.OL,2026-10-01,2026-10-02,2026-10-01,current,,3.07,67.05,-3.52,0.0407,2.4896,23.31,43.96,66.12,59.59,SELL,2,5.0,3.0,HIGH,219cee149b1344b49ebc8d2de0375d35
+GOD.OL,2026-10-01,2026-10-02,2026-10-01,current,,15.6,67.51,-3.72,0.1975,14.11,10.56,26.87,84.97,73.92,SELL,2,3.0,3.0,MODERATE,219cee149b1344b49ebc8d2de0375d35
+WWI.OL,2026-10-01,2026-10-02,2026-10-01,current,,943.0,77.06,-2.68,5.0188,823.52,14.51,45.63,83.9,77.91,SELL,2,5.0,3.0,HIGH,219cee149b1344b49ebc8d2de0375d35
