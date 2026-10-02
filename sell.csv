@@ -1,9 +1,4 @@
-# oslo-screener report=sell.csv schema=oslo_screener.health.v1 snapshot_id=219cee149b1344b49ebc8d2de0375d35 data_fetch_started=2026-10-02T12:26:32Z data_fetch_completed=2026-10-02T12:27:27Z generated_at=2026-10-02T12:27:27Z expected_session=2026-10-01 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=current market_data_as_of=2026-10-01
+# oslo-screener report=sell.csv schema=oslo_screener.health.v1 snapshot_id=6255c6e7023e45979561b436f927f0ae data_fetch_started=2026-10-02T20:43:03Z data_fetch_completed=2026-10-02T20:43:35Z generated_at=2026-10-02T20:43:35Z expected_session=2026-10-02 universe_count=202 coverage_policy=per_stock min_coverage_ratio=0.0049504950495049506 status=degraded market_data_as_of=2026-10-02
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-MPCC.OL,2026-10-01,2026-10-02,2026-10-01,current,,28.88,65.49,-3.37,0.0226,26.2335,10.09,32.85,72.97,64.76,SELL,2,5.0,3.0,HIGH,219cee149b1344b49ebc8d2de0375d35
-HAUTO.OL,2026-10-01,2026-10-02,2026-10-01,current,,189.6,65.52,-0.44,0.4546,176.5368,7.4,21.14,50.34,74.57,SELL,2,3.0,3.0,MODERATE,219cee149b1344b49ebc8d2de0375d35
-WAWI.OL,2026-10-01,2026-10-02,2026-10-01,current,,182.2,66.84,-1.24,-0.4688,163.722,11.29,31.73,45.18,67.03,SELL,3,5.0,5.0,HIGH,219cee149b1344b49ebc8d2de0375d35
-VOW.OL,2026-10-01,2026-10-02,2026-10-01,current,,3.07,67.05,-3.52,0.0407,2.4896,23.31,43.96,66.12,59.59,SELL,2,5.0,3.0,HIGH,219cee149b1344b49ebc8d2de0375d35
-GOD.OL,2026-10-01,2026-10-02,2026-10-01,current,,15.6,67.51,-3.72,0.1975,14.11,10.56,26.87,84.97,73.92,SELL,2,3.0,3.0,MODERATE,219cee149b1344b49ebc8d2de0375d35
-WWI.OL,2026-10-01,2026-10-02,2026-10-01,current,,943.0,77.06,-2.68,5.0188,823.52,14.51,45.63,83.9,77.91,SELL,2,5.0,3.0,HIGH,219cee149b1344b49ebc8d2de0375d35
+WWI.OL,2026-10-02,2026-10-02,2026-10-02,current,,942.0,76.5,-0.55,4.6096,827.1,13.89,47.09,77.35,76.77,SELL,2.0,5.0,3.0,HIGH,6255c6e7023e45979561b436f927f0ae
