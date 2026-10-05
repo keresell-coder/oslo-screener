@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=6255c6e7023e45979561b436f927f0ae -->
+<!-- snapshot_id=2e255a4b818d4519954251deeac49318 -->
 
 **Forventet avsluttet handelssesjon:** 02.10.2026
 
-**Datastatus:** DEGRADED · 199/202 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-02T20:43:35Z · snapshot 6255c6e7023e45979561b436f927f0ae
+**Generert:** 2026-10-05T14:29:23Z · snapshot 2e255a4b818d4519954251deeac49318
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 8 | SELL 1 | BUY-watch 12 | SELL-watch 18
 
@@ -23,7 +23,7 @@
 | 2 | HPUR.OL | 4.35 | 25.89 | +5.66 | 0.07 ✅ | -40.01 ❌ | 37 🟢 | RSI6 37 ⚪ · MFI 29 🔴 |
 | 1 | PROT.OL | 422.00 | 31.58 | +5.18 | -1.32 ❌ | -9.96 ❌ | 40 🟢 | RSI6 33 ⚪ · MFI 19 🔴 |
 | 1 | GJF.OL | 256.60 | 30.68 | +6.77 | -1.68 ❌ | -7.36 ❌ | 34 🟢 | RSI6 30 ⚪ · MFI 29 🔴 |
-| 1 | NHY.OL | 80.10 | 30.52 | +2.97 | -0.53 ❌ | -9.66 ❌ | 30 🟢 | RSI6 24 ⚪ · MFI 40 🔴 |
+| 1 | NHY.OL | 80.10 | 30.52 | +2.97 | -0.53 ❌ | -9.66 ❌ | 30 🟢 | RSI6 24 ⚪ · MFI 39 🔴 |
 | 1 | VEND.OL | 208.40 | 30.67 | +1.36 | -1.85 ❌ | -12.83 ❌ | 29 🟢 | RSI6 31 ⚪ · MFI 38 🔴 |
 | 1 | PARB.OL | 52.90 | 29.53 | +3.64 | -0.05 ❌ | -9.39 ❌ | 28 🟢 | RSI6 26 ⚪ · MFI 17 🔴 |
 | 1 | ARCH.OL | 21.70 | 34.37 | +1.00 | -0.06 ❌ | -7.85 ❌ | 27 🟢 | RSI6 36 ⚪ · MFI 37 🔴 |
@@ -56,7 +56,7 @@ WWI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | MACD→0 (Δ=0.04) | CAPSL.OL | 4.20 | 34.72 | -2.19 | -0.04 ◻️ | -15.38 ❌ | 13 ⚠️ | RSI6 26 ⚪ · MFI 19 ⚪ |
 | MACD→0 (Δ=0.04) | IDEX.OL | 5.42 | 34.26 | -0.57 | 0.04 ◻️ | -23.10 ❌ | 44 🟢 | RSI6 34 ⚪ · MFI 47 ⚪ |
 | MACD→0 (Δ=0.05) | ENH.OL | 6.45 | 34.86 | -0.58 | -0.05 ◻️ | -13.03 ❌ | 42 🟢 | RSI6 40 ⚪ · MFI 24 ⚪ |
-| MACD→0 (Δ=0.06) | AGLX.OL | 15.00 | 29.68 | -4.68 | -0.06 ❌ | -13.98 ❌ | 16 ⚠️ | RSI6 18 ⚪ · MFI 33 ⚪ |
+| MACD→0 (Δ=0.06) | AGLX.OL | 15.00 | 29.68 | -4.68 | -0.06 ❌ | -13.98 ❌ | 17 ⚠️ | RSI6 18 ⚪ · MFI 33 ⚪ |
 | MACD→0 (Δ=0.07) | ACR.OL | 4.00 | 21.57 | -7.10 | -0.07 ❌ | -20.03 ❌ | 24 ⚪ | RSI6 10 ⚪ · MFI 22 ⚪ |
 | MACD→0 (Δ=0.08) | GSF.OL | 24.94 | 33.42 | -1.84 | 0.08 ✅ | -11.34 ❌ | 24 ⚪ | RSI6 32 ⚪ · MFI 26 ⚪ |
 | MACD→0 (Δ=0.21) | EPR.OL | 80.70 | 31.91 | -1.47 | -0.21 ❌ | -5.52 ❌ | 39 🟢 | RSI6 25 ⚪ · MFI 23 ⚪ |
@@ -93,15 +93,11 @@ WWI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| AKBM.OL | stale | 2026-10-01 | missing_expected_completed_session |
-| BINT.OL | stale | 2026-10-01 | missing_expected_completed_session |
-| PYRUM.OL | stale | 2026-10-01 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
