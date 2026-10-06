@@ -1,263 +1,114 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=73b73958905d46e2bb9aea08c7727abd -->
+<!-- snapshot_id=505fed4fda2c469592b2f42594f1288b -->
 
 **Forventet avsluttet handelssesjon:** 05.10.2026
 
-**Datastatus:** BLOCKED · 0/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-05T22:37:11Z · snapshot 73b73958905d46e2bb9aea08c7727abd
+**Generert:** 2026-10-06T13:15:17Z · snapshot 505fed4fda2c469592b2f42594f1288b
 
-**Signaler holdes tilbake: snapshotet består ikke datakontrollen.**
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 201. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
-**Telling:** BUY 0 | SELL 0 | BUY-watch 0 | SELL-watch 0
+**Telling:** BUY 3 | SELL 6 | BUY-watch 27 | SELL-watch 14
 
 
 ## BUY (rangert)
 
-_Ingen i dag._
+| Rk | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
+|---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
+| 2 | HPUR.OL | 4.49 | 29.65 | +3.76 | 0.10 ✅ | -37.24 ❌ | 37 🟢 | RSI6 46 ⚪ · MFI 35 🔴 |
+| 1 | NHY.OL | 81.10 | 34.87 | +4.35 | -0.40 ❌ | -8.45 ❌ | 31 🟢 | RSI6 36 ⚪ · MFI 45 ⚪ |
+| 1 | ACR.OL | 4.05 | 24.41 | +2.84 | -0.09 ❌ | -18.63 ❌ | 26 🟢 | RSI6 16 ⚠️ · MFI 21 🔴 |
 
 
 **Hvorfor toppnavn kvalifiserte**
 
-_Ingen BUY i dag._
+HPUR.OL kvalifiserte via gatekeeper (RSI≤35 & opp-dag). MACD støtter (✅). ADX≥25 (🟢).
 
 
 ## SELL (rangert)
 
-_Ingen i dag._
+| Rk | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
+|---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
+| 1 | WWIB.OL | 880.00 | 72.49 | -3.53 | 4.42 ❌ | 14.05 ❌ | 59 🟢 | RSI6 71 ⚪ · MFI 73 🔴 |
+| 1 | WWI.OL | 940.00 | 75.33 | -1.17 | 3.72 ❌ | 13.14 ❌ | 48 🟢 | RSI6 74 ⚪ · MFI 75 🔴 |
+| 1 | ZAP.OL | 64.30 | 70.26 | -6.01 | 0.15 ❌ | 20.99 ❌ | 46 🟢 | RSI6 69 ⚪ · MFI 75 🔴 |
+| 1 | GOD.OL | 15.70 | 66.34 | -3.70 | 0.18 ❌ | 10.66 ❌ | 30 🟢 | RSI6 69 ⚪ · MFI 85 🔴 |
+| 0 | HAUTO.OL | 190.40 | 65.13 | -2.59 | 0.46 ❌ | 7.15 ❌ | 23 ⚪ | RSI6 70 ⚪ · MFI 52 ⚪ |
+| 0 | NOD.OL | 188.50 | 65.15 | -0.73 | 0.58 ❌ | 10.52 ❌ | 17 ⚠️ | RSI6 71 ⚪ · MFI 78 🔴 |
 
 
 **Hvorfor toppnavn kvalifiserte**
 
-_Ingen SELL i dag._
+WWIB.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 
 ## BUY-watch (nærmest trigger)
 
-_Ingen i dag._
+| Closest | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
+|:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
+| MACD→0 (Δ=0.00) | NOM.OL | 0.98 | 31.27 | -1.94 | -0.00 ◻️ | -61.78 ❌ | 24 ⚪ | RSI6 32 ⚪ · MFI 55 ⚪ |
+| MACD→0 (Δ=0.00) | CLOUD.OL | 11.72 | 33.52 | -1.91 | -0.00 ◻️ | -8.86 ❌ | 29 🟢 | RSI6 38 ⚪ · MFI 29 ⚪ |
+| MACD→0 (Δ=0.00) | SALME.OL | 3.10 | 29.65 | -2.67 | 0.00 ◻️ | -15.77 ❌ | 32 🟢 | RSI6 21 ⚪ · MFI 64 ⚪ |
+| MACD→0 (Δ=0.01) | TRMED.OL | 4.42 | 34.63 | -2.18 | 0.01 ◻️ | -16.90 ❌ | 17 ⚠️ | RSI6 26 ⚪ · MFI 36 ⚪ |
+| MACD→0 (Δ=0.02) | ARR.OL | 5.24 | 34.78 | -2.35 | -0.02 ◻️ | -7.90 ❌ | 34 🟢 | RSI6 28 ⚪ · MFI 40 ⚪ |
+| MACD→0 (Δ=0.03) | ENH.OL | 6.43 | 34.46 | -0.40 | -0.03 ◻️ | -13.04 ❌ | 42 🟢 | RSI6 39 ⚪ · MFI 24 ⚪ |
+| MACD→0 (Δ=0.03) | IDEX.OL | 5.30 | 32.53 | -1.73 | 0.03 ◻️ | -24.20 ❌ | 44 🟢 | RSI6 29 ⚪ · MFI 43 ⚪ |
+| MACD→0 (Δ=0.03) | CAPSL.OL | 4.20 | 34.72 | +0.00 | -0.03 ◻️ | -15.06 ❌ | 13 ⚠️ | RSI6 26 ⚪ · MFI 20 ⚪ |
+| MACD→0 (Δ=0.04) | ARCH.OL | 21.60 | 33.29 | -1.08 | -0.04 ◻️ | -8.08 ❌ | 27 🟢 | RSI6 32 ⚪ · MFI 36 ⚪ |
+| MACD→0 (Δ=0.04) | NOL.OL | 6.58 | 23.81 | -26.06 | -0.04 ◻️ | -11.25 ❌ | 28 🟢 | RSI6 18 ⚪ · MFI 19 ⚪ |
+| MACD→0 (Δ=0.06) | GSF.OL | 23.02 | 23.61 | -9.81 | -0.06 ❌ | -17.70 ❌ | 26 🟢 | RSI6 15 ⚪ · MFI 24 ⚪ |
+| MACD→0 (Δ=0.07) | OTOVO.OL | 9.62 | 34.03 | -4.77 | -0.07 ❌ | -13.85 ❌ | 21 ⚪ | RSI6 32 ⚪ · MFI 18 ⚪ |
+| MACD→0 (Δ=0.08) | PARB.OL | 52.50 | 28.05 | -1.48 | -0.08 ❌ | -9.83 ❌ | 29 🟢 | RSI6 23 ⚪ · MFI 17 ⚪ |
+| MACD→0 (Δ=0.08) | NAVA.OL | 13.05 | 33.52 | -3.84 | 0.08 ✅ | -11.66 ❌ | 15 ⚠️ | RSI6 30 ⚪ · MFI 48 ⚪ |
+| MACD→0 (Δ=0.18) | ELO.OL | 34.15 | 34.14 | -9.17 | -0.18 ❌ | -5.35 ❌ | 11 ⚠️ | RSI6 17 ⚪ · MFI 41 ⚪ |
+| MACD→0 (Δ=0.18) | PUBLI.OL | 15.20 | 28.32 | -3.85 | -0.18 ❌ | -14.59 ❌ | 25 ⚪ | RSI6 24 ⚪ · MFI 15 ⚪ |
+| MACD→0 (Δ=0.20) | EPR.OL | 80.40 | 30.81 | -1.10 | -0.20 ❌ | -5.79 ❌ | 41 🟢 | RSI6 23 ⚪ · MFI 23 ⚪ |
+| MACD→0 (Δ=0.24) | PHO.OL | 48.10 | 32.11 | -3.18 | -0.24 ❌ | -8.65 ❌ | 23 ⚪ | RSI6 26 ⚪ · MFI 36 ⚪ |
+| MACD→0 (Δ=0.34) | APR.OL | 33.60 | 34.19 | -3.41 | 0.34 ✅ | -14.97 ❌ | 28 🟢 | RSI6 42 ⚪ · MFI 41 ⚪ |
+| MACD→0 (Δ=0.42) | SATS.OL | 39.50 | 24.76 | -6.84 | -0.42 ❌ | -8.57 ❌ | 17 ⚠️ | RSI6 9 ⚪ · MFI 30 ⚪ |
+| RSI→35 (Δ=0.43) | CADLR.OL | 52.50 | 34.57 | -1.95 | -0.79 ❌ | -7.16 ❌ | 28 🟢 | RSI6 29 ⚪ · MFI 58 ⚪ |
+| MACD→0 (Δ=0.62) | SOGN.OL | 299.00 | 31.43 | -7.47 | -0.62 ❌ | -6.39 ❌ | 34 🟢 | RSI6 24 ⚪ · MFI 18 ⚪ |
+| MACD→0 (Δ=0.67) | ENTRA.OL | 92.60 | 21.09 | -1.00 | -0.67 ❌ | -10.19 ❌ | 46 🟢 | RSI6 10 ⚪ · MFI 6 ⚪ |
+| MACD→0 (Δ=0.88) | PROT.OL | 422.00 | 31.58 | +0.00 | -0.88 ❌ | -9.73 ❌ | 41 🟢 | RSI6 33 ⚪ · MFI 23 ⚪ |
+| MACD→0 (Δ=0.94) | COSH.OL | 131.00 | 30.20 | -2.42 | -0.94 ❌ | -3.96 ❌ | 21 ⚪ | RSI6 9 ⚪ · MFI 0 ⚪ |
+| MACD→0 (Δ=1.56) | GJF.OL | 253.80 | 28.31 | -2.37 | -1.56 ❌ | -8.21 ❌ | 36 🟢 | RSI6 25 ⚪ · MFI 29 ⚪ |
+| MACD→0 (Δ=1.76) | VEND.OL | 202.20 | 27.17 | -3.49 | -1.76 ❌ | -15.25 ❌ | 31 🟢 | RSI6 23 ⚪ · MFI 38 ⚪ |
 
 
 ## SELL-watch (nærmest trigger)
 
-_Ingen i dag._
+| Closest | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
+|:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
+| MACD→0 (Δ=0.00) | OTEC.OL | 19.70 | 66.48 | +11.62 | 0.00 ◻️ | 9.67 ❌ | 12 ⚠️ | RSI6 73 ⚪ · MFI 69 ⚪ |
+| MACD→0 (Δ=0.01) | MPCC.OL | 29.08 | 67.10 | +0.49 | 0.01 ◻️ | 10.04 ❌ | 33 🟢 | RSI6 69 ⚪ · MFI 73 ⚪ |
+| MACD→0 (Δ=0.02) | VOW.OL | 3.09 | 67.74 | +0.00 | 0.02 ◻️ | 22.28 ❌ | 42 🟢 | RSI6 61 ⚪ · MFI 64 ⚪ |
+| MACD→0 (Δ=0.03) | HUNT.OL | 19.10 | 69.23 | +4.26 | -0.03 ◻️ | 55.74 ❌ | 51 🟢 | RSI6 69 ⚪ · MFI 47 ⚪ |
+| MACD→0 (Δ=0.17) | ODFB.OL | 132.60 | 68.17 | +2.22 | -0.17 ✅ | 14.38 ❌ | 41 🟢 | RSI6 70 ⚪ · MFI 75 ⚪ |
+| MACD→0 (Δ=0.27) | ODF.OL | 133.60 | 67.49 | +0.88 | -0.27 ✅ | 13.30 ❌ | 35 🟢 | RSI6 67 ⚪ · MFI 73 ⚪ |
+| MACD→0 (Δ=0.34) | IWS.OL | 60.80 | 69.39 | +0.74 | 0.34 ❌ | 8.07 ❌ | 21 ⚪ | RSI6 80 ⚪ · MFI 79 ⚪ |
+| MACD→0 (Δ=0.40) | HAFNI.OL | 96.70 | 66.08 | +1.11 | 0.40 ❌ | 20.30 ❌ | 27 🟢 | RSI6 71 ⚪ · MFI 26 ⚪ |
+| MACD→0 (Δ=0.48) | FRO.OL | 503.20 | 67.32 | +3.35 | 0.48 ❌ | 19.21 ❌ | 35 🟢 | RSI6 76 ⚪ · MFI 68 ⚪ |
+| MACD→0 (Δ=0.53) | ZAL.OL | 109.00 | 78.74 | +34.58 | 0.53 ❌ | 8.85 ❌ | 48 🟢 | RSI6 93 ⚪ · MFI 92 ⚪ |
+| MACD→0 (Δ=0.70) | KIT.OL | 106.60 | 73.43 | +2.77 | 0.70 ❌ | 14.40 ❌ | 25 ⚪ | RSI6 87 ⚪ · MFI 86 ⚪ |
+| MACD→0 (Δ=0.84) | AURG.OL | 267.95 | 78.94 | +6.11 | 0.84 ❌ | 4.51 ❌ | 20 ⚠️ | RSI6 90 ⚪ · MFI 78 ⚪ |
+| MACD→0 (Δ=1.14) | AKVA.OL | 157.00 | 75.02 | +0.00 | 1.14 ❌ | 13.26 ❌ | 23 ⚪ | RSI6 86 ⚪ · MFI 78 ⚪ |
+| MACD→0 (Δ=1.68) | OET.OL | 834.00 | 73.89 | +2.34 | 1.68 ❌ | 26.59 ❌ | 42 🟢 | RSI6 81 ⚪ · MFI 38 ⚪ |
 
 
 ## Aksjer uten nødvendige data
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| 2020.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ABG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ACR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AFG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AFK.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AGLX.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKAST.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKER.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKRBP.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKSO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKVA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| APR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AQUA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ARCH.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ARR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ASA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ATEA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AURG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AUSS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AUTO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AZT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| B2I.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BAKKA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BEWI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BIEN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BINT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BMA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BNOR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BOHUS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BONHR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BOR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BORR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BOUV.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BRG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BWE.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BWLPG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BWO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CADLR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CAPSL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CAVEN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CLOUD.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CMBTO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CONTX.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| COSH.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CRNA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DELIA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DFENS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DNB.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DNO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DOFG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| EIOF.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ELABS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ELK.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ELMRA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ELO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENDUR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENH.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENSU.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENTRA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENVIP.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| EPR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| EQNR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| EQVA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| FRO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GENO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GENT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GJF.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GOD.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GSF.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GYL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HAFNI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HAUTO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HAVI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HBC.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HELG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HERMA.OL | stale | 2026-10-02 | missing_expected_completed_session |
-| HEX.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HGSB.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HPUR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HSHP.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HSPG.OL | stale | 2026-10-02 | missing_expected_completed_session |
-| HUNT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HYPRO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| IDEX.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| INIFY.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ININ.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| IOX.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ITERA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| IWS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| JAREN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| JIN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KCC.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KID.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KIT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KMAR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KOA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KOG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KOMPL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| LIFE.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| LINK.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| LSG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MEDI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MELG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MGN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MING.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MORG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MORLD.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MOWI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MPCC.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MULTI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NAPA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NAS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NAVA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NEL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NEXT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NHY.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NKR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NOD.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NOL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NOM.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NONG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NORBT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NORCO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NRC.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NSKOG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NYKD.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ODF.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ODFB.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ODL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OET.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OKEA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ONCIN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ORK.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OTEC.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OTL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OTOVO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PARB.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PEN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PEXIP.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PHO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PLSV.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PLT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PNOR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| POL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PROT.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PRS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PSE.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PUBLI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PYRUM.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| QEC.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| REACH.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| RING.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ROGS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SAGA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SALM.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SALME.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SATS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SB1NO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SBNOR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SBO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SCANA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SCATC.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SDSD.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SKUE.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SMOP.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SNI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SNOR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SNTIA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SOAG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SOFF.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SOGN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SOMA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SPOG.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SPOL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| STB.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| STECH.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| STRO.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SUBC.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SWON.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TECH.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TEKNA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TEL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TGS.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TOM.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TRMED.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TRSB.OL | stale | 2026-10-02 | missing_expected_completed_session |
-| VAR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VEI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VEND.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VISTN.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VOIM.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VOW.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VVL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| WAWI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| WSTEP.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| WWI.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| WWIB.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| YAR.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ZAL.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ZAP.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ZLNA.OL | invalid | 2026-10-05 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus blocked; begrensninger: current_coverage_below_minimum.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
