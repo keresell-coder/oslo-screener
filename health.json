@@ -1,25 +1,25 @@
 {
   "schema": "oslo_screener.health.v1",
-  "snapshot_id": "2ca1f67513904e6bb5ac47aa8582fa11",
-  "generated_at": "2026-10-07T21:19:08Z",
-  "evaluated_at": "2026-10-07T21:19:08.812743+00:00",
+  "snapshot_id": "5eaaaa0878fc494a84c046333366eebf",
+  "generated_at": "2026-10-08T13:22:24Z",
+  "evaluated_at": "2026-10-08T13:22:24.122894+00:00",
   "market_data_as_of": "2026-10-07",
   "expected_session": "2026-10-07",
   "valid_until": "2026-10-08T16:45:00+02:00",
-  "status": "degraded",
+  "status": "current",
   "actionable": true,
   "reasons": [],
   "coverage_policy": "per_stock",
   "coverage": {
     "universe_count": 201,
     "received_count": 201,
-    "current": 198,
-    "stale": 3,
+    "current": 201,
+    "stale": 0,
     "missing": 0,
     "invalid": 0,
-    "current_ratio": 0.9850746268656716,
+    "current_ratio": 1.0,
     "min_current_ratio": 0.004975124378109453,
-    "actionable_count": 198
+    "actionable_count": 201
   },
   "eligible_tickers": [
     "VEND.OL",
@@ -146,6 +146,7 @@
     "BOUV.OL",
     "SOFF.OL",
     "BOHUS.OL",
+    "PYRUM.OL",
     "MORLD.OL",
     "AKAST.OL",
     "SALM.OL",
@@ -158,6 +159,7 @@
     "PEN.OL",
     "AQUA.OL",
     "BNOR.OL",
+    "INIFY.OL",
     "ODF.OL",
     "ASA.OL",
     "TECH.OL",
@@ -191,6 +193,7 @@
     "WWI.OL",
     "LINK.OL",
     "ELMRA.OL",
+    "TRSB.OL",
     "HSHP.OL",
     "MGN.OL",
     "BORR.OL",
@@ -221,43 +224,23 @@
     "VOW.OL",
     "KIT.OL"
   ],
-  "excluded": [
-    {
-      "ticker": "INIFY.OL",
-      "market_data_as_of": "2026-10-06",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "PYRUM.OL",
-      "market_data_as_of": "2026-10-06",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "TRSB.OL",
-      "market_data_as_of": "2026-10-06",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    }
-  ],
+  "excluded": [],
   "observation_dates": {
-    "2026-10-07": 198,
-    "2026-10-06": 3
+    "2026-10-07": 201
   },
   "calendar_verified_through": 2026,
   "session_policy": "Completed Oslo cash session plus 15-minute feed buffer; never intraday.",
   "artifacts": {
-    "latest.csv": "8160c7f8ee0b88f7738ca54e74f70562f26abcfcd2ee9e386251819d68351a39",
-    "report_2026-10-07T211908Z.csv": "1aaf9cee8eb0f3a514a5d05f7d425e1fa1ce24964045567c0de5b821926b4a4c",
-    "buy.csv": "c61659060268b49dc9376d1c56974548699dddfe8942abcc4811ff52bd88afce",
-    "sell.csv": "322e72e2dce8fd1ce826ae67d3d3efaef9f04d42c17ca4b1328bf4b0cdc6064e",
-    "watch_buy.csv": "b87af436c0b0234aad23d1320b99bf0238068229864b67e3ff8e39583abea5b3",
-    "watch_sell.csv": "76cf458a2d4ead56025009b1cbeab22aa3c9e588007092714ed1b19cd36b4cfe",
-    "signals_only.csv": "50869ef384d5ff610819a540e627fbf9cacaf4cc5dc85b78bf637ab5e1f5e815",
-    "summaries/daily_2026-10-07.md": "8aafe60918d2b854b10a38845e41a59d8dd1143a3cc2b6180ab867e41321cef8",
-    "summaries/latest.md": "8aafe60918d2b854b10a38845e41a59d8dd1143a3cc2b6180ab867e41321cef8",
-    "index.html": "187eb3ee4d326b7542e71856e8596fb1670b6063c513643cbd69c999d093fde9",
+    "latest.csv": "4c70eb6978eab6d5b5fe2bfea422dfb895ddc25dd45bde142cdc733c53990c96",
+    "report_2026-10-08T132224Z.csv": "268a8aa011b9eae9d7214c42430ca045878ec2655994a59204d1632c549825b3",
+    "buy.csv": "3c7e4cefa8c5f9309592b0c4b35292c058c52da3534a65ed22967bdad4111f2b",
+    "sell.csv": "4d0d4a90e371ff8764d1d3deeff6ed38266c6e72c60eac7e7eb37cf5065560e3",
+    "watch_buy.csv": "ea974ba9bdc3295f504342dd2cbd7c680ec006bc8a0e961b01dda53ac57b5505",
+    "watch_sell.csv": "62cb78e427f92166357560402d018c8eec048703184f5c2de82c8ff42d898401",
+    "signals_only.csv": "4e860a63aa268b63bae384511cc001d9fbcec7f1d8ac3dbdecc546f4ad795c84",
+    "summaries/daily_2026-10-07.md": "a6b36d1ffe1a1579a8118d3f55d6e190dece42d1b2ca88c2ea1e0df6ad5c04c2",
+    "summaries/latest.md": "a6b36d1ffe1a1579a8118d3f55d6e190dece42d1b2ca88c2ea1e0df6ad5c04c2",
+    "index.html": "1fc981afa91062f773d0756c79fc9ea586791f000ee2e43cb3925c05dd674004",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "signal_counts": {
@@ -265,8 +248,8 @@
     "SELL": 2,
     "BUY-watch": 21,
     "SELL-watch": 11,
-    "NEUTRAL": 158,
-    "WITHHELD": 3
+    "NEUTRAL": 161,
+    "WITHHELD": 0
   },
   "source": "Yahoo Finance adjusted daily OHLC via yfinance"
 }

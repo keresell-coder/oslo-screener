@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=2ca1f67513904e6bb5ac47aa8582fa11 -->
+<!-- snapshot_id=5eaaaa0878fc494a84c046333366eebf -->
 
 **Forventet avsluttet handelssesjon:** 07.10.2026
 
-**Datastatus:** DEGRADED · 198/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-07T21:19:08Z · snapshot 2ca1f67513904e6bb5ac47aa8582fa11
+**Generert:** 2026-10-08T13:22:24Z · snapshot 5eaaaa0878fc494a84c046333366eebf
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 6 | SELL 2 | BUY-watch 21 | SELL-watch 11
 
@@ -21,7 +21,7 @@
 | Rk | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
 | 2 | HPUR.OL | 4.50 | 33.50 | +6.39 | 0.14 ✅ | -35.10 ❌ | 38 🟢 | RSI6 50 ⚪ · MFI 43 ⚪ |
-| 1 | VEND.OL | 188.50 | 21.96 | +0.78 | -2.63 ❌ | -20.30 ❌ | 37 🟢 | RSI6 15 ⚠️ · MFI 31 🔴 |
+| 1 | VEND.OL | 188.50 | 21.96 | +0.78 | -2.63 ❌ | -20.30 ❌ | 37 🟢 | RSI6 15 ⚠️ · MFI 32 🔴 |
 | 1 | PUBLI.OL | 15.52 | 33.61 | +0.33 | -0.11 ❌ | -12.12 ❌ | 28 🟢 | RSI6 36 ⚪ · MFI 13 🔴 |
 | 0 | YAR.OL | 412.20 | 34.93 | +0.72 | -3.97 ❌ | -6.24 ❌ | 24 ⚪ | RSI6 23 ⚪ · MFI 12 🔴 |
 | 0 | OTOVO.OL | 9.56 | 34.09 | +1.42 | -0.05 ❌ | -13.69 ❌ | 23 ⚪ | RSI6 33 ⚪ · MFI 15 🔴 |
@@ -94,15 +94,11 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| INIFY.OL | stale | 2026-10-06 | missing_expected_completed_session |
-| PYRUM.OL | stale | 2026-10-06 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-10-06 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
