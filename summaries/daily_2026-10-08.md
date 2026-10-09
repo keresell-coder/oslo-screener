@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=1e012f1353b1475596db614feb1dd5bf -->
+<!-- snapshot_id=980ababddad54cd7a8cd785de3b2254c -->
 
 **Forventet avsluttet handelssesjon:** 08.10.2026
 
-**Datastatus:** DEGRADED · 199/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-08T21:18:52Z · snapshot 1e012f1353b1475596db614feb1dd5bf
+**Generert:** 2026-10-09T13:10:51Z · snapshot 980ababddad54cd7a8cd785de3b2254c
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 2. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 6 | SELL 2 | BUY-watch 26 | SELL-watch 13
 
@@ -87,7 +87,7 @@ IWS.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | MACD→0 (Δ=0.14) | NKR.OL | 16.00 | 74.09 | +13.33 | 0.14 ❌ | 9.80 ❌ | 17 ⚠️ | RSI6 89 ⚪ · MFI 81 ⚪ |
 | MACD→0 (Δ=0.15) | GOD.OL | 16.50 | 73.32 | +6.52 | 0.15 ❌ | 15.53 ❌ | 33 🟢 | RSI6 83 ⚪ · MFI 85 ⚪ |
 | MACD→0 (Δ=0.26) | CMBTO.OL | 196.40 | 69.48 | +4.18 | 0.26 ❌ | 12.54 ❌ | 36 🟢 | RSI6 81 ⚪ · MFI 63 ⚪ |
-| MACD→0 (Δ=0.26) | BWE.OL | 61.40 | 71.18 | +4.53 | 0.26 ❌ | 9.03 ❌ | 24 ⚪ | RSI6 84 ⚪ · MFI 57 ⚪ |
+| MACD→0 (Δ=0.26) | BWE.OL | 61.40 | 71.18 | +4.53 | 0.26 ❌ | 9.03 ❌ | 24 ⚪ | RSI6 84 ⚪ · MFI 60 ⚪ |
 | MACD→0 (Δ=0.67) | HAFNI.OL | 101.90 | 71.74 | +3.57 | 0.67 ❌ | 24.27 ❌ | 30 🟢 | RSI6 82 ⚪ · MFI 23 ⚪ |
 | MACD→0 (Δ=0.80) | AURG.OL | 267.00 | 66.88 | +6.89 | 0.80 ❌ | 3.87 ❌ | 18 ⚠️ | RSI6 67 ⚪ · MFI 65 ⚪ |
 | MACD→0 (Δ=0.92) | KID.OL | 129.00 | 67.65 | +17.10 | 0.92 ❌ | 3.83 ❌ | 21 ⚪ | RSI6 84 ⚪ · MFI 65 ⚪ |
@@ -101,14 +101,11 @@ IWS.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| GYL.OL | stale | 2026-10-07 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-10-07 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
