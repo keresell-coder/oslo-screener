@@ -2,12 +2,13 @@ name: Daily Screener
 
 on:
   schedule:
-    - cron: "15 16 * * 1-5"  # after the completed Oslo session in CET and CEST
-    - cron: "15 6 * * 1-5"   # 06:15 UTC = ca. 08:15 Oslo (CEST) / 07:15 Oslo (CET)
+    - cron: "37 19 * * 1-5"  # 20:37 CET / 21:37 CEST; allow EOD data to settle
+    - cron: "37 23 * * 1-5"  # overnight retry for the same completed session
+    - cron: "37 3 * * 2-6"   # 04:37 CET / 05:37 CEST; leave room for scheduler delays
   workflow_dispatch:
 
 concurrency:
-  group: daily-screener-main
+  group: daily-screener-${{ github.ref }}
   cancel-in-progress: false
 
 permissions:
@@ -20,10 +21,13 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       data_status: ${{ steps.health.outputs.status }}
+      publish: ${{ steps.publication.outputs.publish }}
     timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -42,6 +46,9 @@ jobs:
 
       - name: Regression tests
         run: python -m pytest -q
+
+      - name: Capture the committed report before fetching
+        run: python scripts/publication_policy.py --capture "$RUNNER_TEMP/published-snapshot"
 
       - name: Run screener
         env:
@@ -65,7 +72,12 @@ jobs:
               output.write("status=" + json.load(open("health.json"))["status"] + "\n")
           PYCODE
 
+      - name: Decide whether this attempt improves the published report
+        id: publication
+        run: python scripts/publication_policy.py --published "$RUNNER_TEMP/published-snapshot"
+
       - name: Commit the complete declared publication bundle to main
+        if: github.ref == 'refs/heads/main' && steps.publication.outputs.publish == 'true'
         run: |
           set -e
           git config user.name "github-actions[bot]"
@@ -74,23 +86,34 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "daily: complete screener publication [skip ci]"
           fi
-          git pull --rebase --autostash origin main
+          # If main moved during the fetch, fail the non-forced push. Do not
+          # combine a report with changed code or overwrite a newer report.
           python scripts/prepare_publication.py --verify
           git push origin HEAD:main
 
       - name: Upload artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: screener-and-summary
           path: site
           include-hidden-files: true
 
+      - name: Upload publication decision
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-decision
+          path: publication-decision.json
+
       - name: Upload site artifact
+        if: github.ref == 'refs/heads/main' && steps.publication.outputs.publish == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
+    if: github.ref == 'refs/heads/main' && needs.run.outputs.publish == 'true'
     needs: run
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -118,8 +141,12 @@ jobs:
             https://api.github.com/repos/keresell-coder/oslo-screener-dashboard/actions/workflows/daily.yml/dispatches \
             -d '{"ref":"main"}'
 
-      - name: Fail run when source health is blocked
-        if: needs.run.outputs.data_status == 'blocked'
+  source-health:
+    needs: run
+    if: needs.run.outputs.data_status == 'blocked'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report the failed data attempt even when an earlier report was retained
         run: |
-          echo "Published a safe blocked snapshot. No actionable output; source coverage needs attention."
+          echo "This fetch is blocked. See the publication-decision artifact for whether the previous report was retained."
           exit 1
