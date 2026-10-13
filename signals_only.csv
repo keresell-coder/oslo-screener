@@ -1,3 +1,18 @@
-# oslo-screener report=signals_only.csv schema=oslo_screener.health.v1 snapshot_id=7994d33241a948ad9f1dcc79a1bfe922 data_fetch_started=2026-10-13T14:05:26Z data_fetch_completed=2026-10-13T14:06:03Z generated_at=2026-10-13T14:06:03Z expected_session=2026-10-12 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=blocked market_data_as_of=2026-10-09
+# oslo-screener report=signals_only.csv schema=oslo_screener.health.v1 snapshot_id=f5d250af42d5453d9b5df9627fbb0702 data_fetch_started=2026-10-13T21:13:44Z data_fetch_completed=2026-10-13T21:14:56Z generated_at=2026-10-13T21:14:56Z expected_session=2026-10-13 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=degraded market_data_as_of=2026-10-13
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
+GSF.OL,2026-10-13,2026-10-13,2026-10-13,current,,22.84,27.54,1.93,-0.1069,27.094,-15.7,34.5,24.9,24.8,BUY,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+ENTRA.OL,2026-10-13,2026-10-13,2026-10-13,current,,92.0,29.23,6.19,-0.3701,101.316,-9.19,51.75,40.74,35.27,BUY,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+NOL.OL,2026-10-13,2026-10-13,2026-10-13,current,,6.6,29.24,3.63,-0.0669,7.3104,-9.72,34.0,0.18,29.3,BUY,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+ONCIN.OL,2026-10-13,2026-10-13,2026-10-13,current,,70.0,30.93,0.86,-2.6911,92.818,-24.58,30.89,23.7,14.66,BUY,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+NAS.OL,2026-10-13,2026-10-13,2026-10-13,current,,11.165,32.5,2.67,-0.0824,12.5189,-10.81,22.53,27.3,27.52,BUY,2.0,3.0,3.0,MODERATE,f5d250af42d5453d9b5df9627fbb0702
+YAR.OL,2026-10-13,2026-10-13,2026-10-13,current,,402.0,32.56,1.36,-2.6994,437.166,-8.04,26.82,12.24,23.35,BUY,2.0,3.0,3.0,MODERATE,f5d250af42d5453d9b5df9627fbb0702
+ACR.OL,2026-10-13,2026-10-13,2026-10-13,current,,4.1,32.62,4.23,-0.0388,4.878,-15.95,36.94,14.41,37.83,BUY,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+MULTI.OL,2026-10-13,2026-10-13,2026-10-13,current,,132.2,33.48,0.48,-1.1594,145.148,-8.92,29.28,7.9,29.77,BUY,2.0,3.0,3.0,MODERATE,f5d250af42d5453d9b5df9627fbb0702
+TEL.OL,2026-10-13,2026-10-13,2026-10-13,current,,124.5,34.9,1.19,-0.3017,132.198,-5.82,39.38,44.69,32.27,BUY,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+CMBTO.OL,2026-10-13,2026-10-13,2026-10-13,current,,198.0,67.71,-5.14,0.7744,177.182,11.75,38.36,85.71,70.9,SELL,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+GOD.OL,2026-10-13,2026-10-13,2026-10-13,current,,17.1,68.39,-12.69,0.2215,14.445,18.38,38.12,77.34,66.29,SELL,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+HAFNI.OL,2026-10-13,2026-10-13,2026-10-13,current,,103.0,69.8,-4.68,0.772,83.8978,22.77,33.82,26.54,72.52,SELL,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
+BORR.OL,2026-10-13,2026-10-13,2026-10-13,current,,47.255,70.95,-4.0,0.9437,40.9533,15.39,21.25,65.11,81.48,SELL,2.0,3.0,3.0,MODERATE,f5d250af42d5453d9b5df9627fbb0702
+OTEC.OL,2026-10-13,2026-10-13,2026-10-13,current,,21.35,76.61,-2.93,0.2231,18.371,16.22,18.61,86.48,83.57,SELL,2.0,1.75,3.0,LOW,f5d250af42d5453d9b5df9627fbb0702
+FRO.OL,2026-10-13,2026-10-13,2026-10-13,current,,565.4,78.32,-0.31,6.9009,441.9062,27.95,44.6,87.94,90.54,SELL,2.0,5.0,3.0,HIGH,f5d250af42d5453d9b5df9627fbb0702
