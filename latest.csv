@@ -1,204 +1,204 @@
-# oslo-screener report=latest.csv schema=oslo_screener.health.v1 snapshot_id=0299e73d9d8c4b90a139ac50259ef4bd data_fetch_started=2026-10-12T22:56:55Z data_fetch_completed=2026-10-12T22:57:32Z generated_at=2026-10-12T22:57:32Z expected_session=2026-10-12 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=blocked market_data_as_of=2026-10-09
+# oslo-screener report=latest.csv schema=oslo_screener.health.v1 snapshot_id=7994d33241a948ad9f1dcc79a1bfe922 data_fetch_started=2026-10-13T14:05:26Z data_fetch_completed=2026-10-13T14:06:03Z generated_at=2026-10-13T14:06:03Z expected_session=2026-10-12 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=blocked market_data_as_of=2026-10-09
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-2020.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ABG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ACR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AFG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AFK.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AGLX.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AKAST.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AKER.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AKRBP.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AKSO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AKVA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-APR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AQUA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ARCH.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ARR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ASA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ATEA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AURG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AUSS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AUTO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-AZT.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-B2I.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BAKKA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BEWI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BIEN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BINT.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BMA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BNOR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BOHUS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BONHR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BOR.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BORR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BOUV.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BRG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BWE.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BWLPG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-BWO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-CADLR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-CAPSL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-CAVEN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-CLOUD.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-CMBTO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-CONTX.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-COSH.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-CRNA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-DELIA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-DFENS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-DNB.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-DNO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-DOFG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-EIOF.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ELABS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ELK.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ELMRA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ELO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ENDUR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ENH.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ENSU.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ENTRA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ENVIP.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-EPR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-EQNR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-EQVA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-FRO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-GENO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-GENT.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-GJF.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-GOD.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-GSF.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-GYL.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HAFNI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HAUTO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HAVI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HBC.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HELG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HERMA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HEX.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HGSB.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HPUR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HSHP.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HSPG.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HUNT.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-HYPRO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-IDEX.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-INIFY.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ININ.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-IOX.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ITERA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-IWS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-JAREN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-JIN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-KCC.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-KID.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-KIT.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-KMAR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-KOA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-KOG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-KOMPL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-LIFE.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-LINK.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-LSG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MEDI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MELG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MGN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MING.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MORG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MORLD.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MOWI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MPCC.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-MULTI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NAPA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NAS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NAVA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NEL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NEXT.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NHY.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NKR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NOD.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NOL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NOM.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NONG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NORBT.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NORCO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NRC.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NSKOG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-NYKD.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ODF.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ODFB.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ODL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-OET.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-OKEA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ONCIN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ORK.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-OTEC.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-OTL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-OTOVO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PARB.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PEN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PEXIP.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PHO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PLSV.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PLT.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PNOR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-POL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PROT.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PRS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PSE.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PUBLI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-PYRUM.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-QEC.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-REACH.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-RING.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ROGS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SAGA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SALM.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SALME.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SATS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SB1NO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SBNOR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SBO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SCANA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SCATC.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SDSD.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SKUE.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SMOP.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SNI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SNOR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SNTIA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SOAG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SOFF.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SOGN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SOMA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SPOG.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SPOL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-STB.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-STECH.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-STRO.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SUBC.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-SWON.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-TECH.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-TEKNA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-TEL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-TGS.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-TOM.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-TRMED.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-TRSB.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-VAR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-VEI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-VEND.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-VISTN.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-VOIM.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-VOW.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-VVL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-WAWI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-WSTEP.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-WWI.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-WWIB.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-YAR.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ZAL.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ZAP.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
-ZLNA.OL,2026-10-12,2026-10-12,2026-10-09,invalid,"error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low",,,,,,,,,,WITHHELD,0.0,,0.0,,0299e73d9d8c4b90a139ac50259ef4bd
+2020.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ABG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ACR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AFG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AFK.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AGLX.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AKAST.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AKER.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AKRBP.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AKSO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AKVA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+APR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AQUA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ARCH.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ARR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ASA.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ATEA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AURG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AUSS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AUTO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+AZT.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+B2I.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BAKKA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BEWI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BIEN.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BINT.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BMA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BNOR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BOHUS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BONHR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BOR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BORR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BOUV.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BRG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BWE.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BWLPG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+BWO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+CADLR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+CAPSL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+CAVEN.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+CLOUD.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+CMBTO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+CONTX.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+COSH.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+CRNA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+DELIA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+DFENS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+DNB.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+DNO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+DOFG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+EIOF.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ELABS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ELK.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ELMRA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ELO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ENDUR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ENH.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ENSU.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ENTRA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ENVIP.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+EPR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+EQNR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+EQVA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+FRO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+GENO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+GENT.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+GJF.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+GOD.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+GSF.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+GYL.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HAFNI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HAUTO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HAVI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HBC.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HELG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HERMA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HEX.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HGSB.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HPUR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HSHP.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HSPG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HUNT.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+HYPRO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+IDEX.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+INIFY.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ININ.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+IOX.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ITERA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+IWS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+JAREN.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+JIN.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+KCC.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+KID.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+KIT.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+KMAR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+KOA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+KOG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+KOMPL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+LIFE.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+LINK.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+LSG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MEDI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MELG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MGN.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MING.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MORG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MORLD.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MOWI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MPCC.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+MULTI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NAPA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NAS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NAVA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NEL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NEXT.OL,2026-10-09,2026-10-09,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NHY.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NKR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NOD.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NOL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NOM.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NONG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NORBT.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NORCO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NRC.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NSKOG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+NYKD.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ODF.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ODFB.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ODL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+OET.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+OKEA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ONCIN.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ORK.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+OTEC.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+OTL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+OTOVO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PARB.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PEN.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PEXIP.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PHO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PLSV.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PLT.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PNOR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+POL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PROT.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PRS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PSE.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PUBLI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+PYRUM.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+QEC.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+REACH.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+RING.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ROGS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SAGA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SALM.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SALME.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SATS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SB1NO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SBNOR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SBO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SCANA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SCATC.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SDSD.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SKUE.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SMOP.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SNI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SNOR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SNTIA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SOAG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SOFF.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SOGN.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SOMA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SPOG.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SPOL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+STB.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+STECH.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+STRO.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SUBC.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+SWON.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+TECH.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+TEKNA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+TEL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+TGS.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+TOM.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+TRMED.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+TRSB.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+VAR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+VEI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+VEND.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+VISTN.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+VOIM.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+VOW.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+VVL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+WAWI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+WSTEP.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+WWI.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+WWIB.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+YAR.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ZAL.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ZAP.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922
+ZLNA.OL,2026-10-09,2026-10-13,2026-10-09,stale,missing_expected_completed_session,,,,,,,,,,WITHHELD,0.0,,0.0,,7994d33241a948ad9f1dcc79a1bfe922

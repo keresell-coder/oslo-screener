@@ -1,12 +1,12 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=0299e73d9d8c4b90a139ac50259ef4bd -->
+<!-- snapshot_id=7994d33241a948ad9f1dcc79a1bfe922 -->
 
 **Forventet avsluttet handelssesjon:** 12.10.2026
 
 **Datastatus:** BLOCKED · 0/201 aktuelle rader
 
-**Generert:** 2026-10-12T22:57:32Z · snapshot 0299e73d9d8c4b90a139ac50259ef4bd
+**Generert:** 2026-10-13T14:06:03Z · snapshot 7994d33241a948ad9f1dcc79a1bfe922
 
 **Signaler holdes tilbake: snapshotet består ikke datakontrollen.**
 
@@ -53,207 +53,207 @@ Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje
 
 | Aksje | Datastatus | Observasjonsdato | Årsak |
 |---|---|---|---|
-| 2020.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ABG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ACR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AFG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AFK.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AGLX.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKAST.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKER.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKRBP.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKSO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AKVA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| APR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AQUA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ARCH.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ARR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ASA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ATEA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AURG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AUSS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AUTO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| AZT.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| B2I.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BAKKA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BEWI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BIEN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BINT.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BMA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BNOR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BOHUS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BONHR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
+| 2020.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ABG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ACR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AFG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AFK.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AGLX.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AKAST.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AKER.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AKRBP.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AKSO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AKVA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| APR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AQUA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ARCH.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ARR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ASA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ATEA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AURG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AUSS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AUTO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| AZT.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| B2I.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BAKKA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BEWI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BIEN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BINT.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BMA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BNOR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BOHUS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BONHR.OL | stale | 2026-10-09 | missing_expected_completed_session |
 | BOR.OL | stale | 2026-10-09 | missing_expected_completed_session |
-| BORR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BOUV.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BRG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BWE.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BWLPG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| BWO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CADLR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CAPSL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CAVEN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CLOUD.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CMBTO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CONTX.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| COSH.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| CRNA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DELIA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DFENS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DNB.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DNO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| DOFG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| EIOF.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ELABS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ELK.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ELMRA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ELO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENDUR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENH.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENSU.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENTRA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ENVIP.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| EPR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| EQNR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| EQVA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| FRO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GENO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GENT.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GJF.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GOD.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| GSF.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
+| BORR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BOUV.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BRG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BWE.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BWLPG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| BWO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| CADLR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| CAPSL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| CAVEN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| CLOUD.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| CMBTO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| CONTX.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| COSH.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| CRNA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| DELIA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| DFENS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| DNB.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| DNO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| DOFG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| EIOF.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ELABS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ELK.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ELMRA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ELO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ENDUR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ENH.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ENSU.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ENTRA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ENVIP.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| EPR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| EQNR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| EQVA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| FRO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| GENO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| GENT.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| GJF.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| GOD.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| GSF.OL | stale | 2026-10-09 | missing_expected_completed_session |
 | GYL.OL | stale | 2026-10-09 | missing_expected_completed_session |
-| HAFNI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HAUTO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HAVI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HBC.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HELG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HERMA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HEX.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HGSB.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HPUR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HSHP.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
+| HAFNI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HAUTO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HAVI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HBC.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HELG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HERMA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HEX.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HGSB.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HPUR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HSHP.OL | stale | 2026-10-09 | missing_expected_completed_session |
 | HSPG.OL | stale | 2026-10-09 | missing_expected_completed_session |
-| HUNT.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| HYPRO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| IDEX.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| INIFY.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ININ.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| IOX.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ITERA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| IWS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| JAREN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| JIN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KCC.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KID.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KIT.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KMAR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KOA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KOG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| KOMPL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| LIFE.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| LINK.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| LSG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MEDI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MELG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MGN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MING.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MORG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MORLD.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MOWI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MPCC.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| MULTI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NAPA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NAS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NAVA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NEL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
+| HUNT.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| HYPRO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| IDEX.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| INIFY.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ININ.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| IOX.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ITERA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| IWS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| JAREN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| JIN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| KCC.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| KID.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| KIT.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| KMAR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| KOA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| KOG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| KOMPL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| LIFE.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| LINK.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| LSG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MEDI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MELG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MGN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MING.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MORG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MORLD.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MOWI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MPCC.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| MULTI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NAPA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NAS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NAVA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NEL.OL | stale | 2026-10-09 | missing_expected_completed_session |
 | NEXT.OL | stale | 2026-10-09 | missing_expected_completed_session |
-| NHY.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NKR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NOD.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NOL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NOM.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NONG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NORBT.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NORCO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NRC.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NSKOG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| NYKD.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ODF.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ODFB.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ODL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OET.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OKEA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ONCIN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ORK.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OTEC.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OTL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| OTOVO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PARB.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PEN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PEXIP.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PHO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PLSV.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PLT.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PNOR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| POL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PROT.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PRS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PSE.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PUBLI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| PYRUM.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| QEC.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| REACH.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| RING.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ROGS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SAGA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SALM.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SALME.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SATS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SB1NO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SBNOR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SBO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SCANA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SCATC.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SDSD.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SKUE.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SMOP.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SNI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SNOR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SNTIA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SOAG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SOFF.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SOGN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SOMA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SPOG.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SPOL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| STB.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| STECH.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| STRO.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SUBC.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| SWON.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TECH.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TEKNA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TEL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TGS.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TOM.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| TRMED.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
+| NHY.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NKR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NOD.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NOL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NOM.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NONG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NORBT.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NORCO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NRC.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NSKOG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| NYKD.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ODF.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ODFB.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ODL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| OET.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| OKEA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ONCIN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ORK.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| OTEC.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| OTL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| OTOVO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PARB.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PEN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PEXIP.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PHO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PLSV.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PLT.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PNOR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| POL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PROT.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PRS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PSE.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PUBLI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| PYRUM.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| QEC.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| REACH.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| RING.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ROGS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SAGA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SALM.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SALME.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SATS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SB1NO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SBNOR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SBO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SCANA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SCATC.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SDSD.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SKUE.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SMOP.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SNI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SNOR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SNTIA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SOAG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SOFF.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SOGN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SOMA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SPOG.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SPOL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| STB.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| STECH.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| STRO.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SUBC.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| SWON.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| TECH.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| TEKNA.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| TEL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| TGS.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| TOM.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| TRMED.OL | stale | 2026-10-09 | missing_expected_completed_session |
 | TRSB.OL | stale | 2026-10-09 | missing_expected_completed_session |
-| VAR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VEI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VEND.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VISTN.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VOIM.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VOW.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| VVL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| WAWI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| WSTEP.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| WWI.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| WWIB.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| YAR.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ZAL.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ZAP.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
-| ZLNA.OL | invalid | 2026-10-12 | error: ValueError: missing_or_invalid_required_session_ohlc:Close,High,Low |
+| VAR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| VEI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| VEND.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| VISTN.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| VOIM.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| VOW.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| VVL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| WAWI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| WSTEP.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| WWI.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| WWIB.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| YAR.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ZAL.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ZAP.OL | stale | 2026-10-09 | missing_expected_completed_session |
+| ZLNA.OL | stale | 2026-10-09 | missing_expected_completed_session |
 
 
 ---
