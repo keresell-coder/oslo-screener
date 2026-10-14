@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=f5d250af42d5453d9b5df9627fbb0702 -->
+<!-- snapshot_id=fdb4eaea8c9b4dc7acc2416232ed4aeb -->
 
 **Forventet avsluttet handelssesjon:** 13.10.2026
 
-**Datastatus:** DEGRADED · 198/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-13T21:14:56Z · snapshot f5d250af42d5453d9b5df9627fbb0702
+**Generert:** 2026-10-14T11:46:15Z · snapshot fdb4eaea8c9b4dc7acc2416232ed4aeb
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 9 | SELL 6 | BUY-watch 13 | SELL-watch 11
 
@@ -83,7 +83,7 @@ FRO.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | MACD→0 (Δ=0.45) | OKEA.OL | 46.00 | 77.10 | +6.66 | 0.45 ❌ | 17.29 ❌ | 18 ⚠️ | RSI6 92 ⚪ · MFI 76 ⚪ |
 | MACD→0 (Δ=0.90) | BWE.OL | 67.10 | 82.82 | +1.29 | 0.90 ❌ | 17.48 ❌ | 31 🟢 | RSI6 94 ⚪ · MFI 89 ⚪ |
 | MACD→0 (Δ=1.00) | AKVA.OL | 157.50 | 75.48 | +0.00 | 1.00 ❌ | 11.03 ❌ | 34 🟢 | RSI6 86 ⚪ · MFI 84 ⚪ |
-| MACD→0 (Δ=1.29) | ZAL.OL | 118.00 | 72.01 | +9.72 | 1.29 ❌ | 16.76 ❌ | 45 🟢 | RSI6 78 ⚪ · MFI 94 ⚪ |
+| MACD→0 (Δ=1.29) | ZAL.OL | 118.00 | 72.01 | +9.72 | 1.29 ❌ | 16.76 ❌ | 46 🟢 | RSI6 78 ⚪ · MFI 94 ⚪ |
 | MACD→0 (Δ=1.77) | KID.OL | 132.60 | 72.64 | +2.75 | 1.77 ❌ | 6.67 ❌ | 26 🟢 | RSI6 88 ⚪ · MFI 79 ⚪ |
 | MACD→0 (Δ=3.30) | MEDI.OL | 285.00 | 76.34 | +0.92 | 3.30 ❌ | 14.38 ❌ | 40 🟢 | RSI6 85 ⚪ · MFI 89 ⚪ |
 | MACD→0 (Δ=10.94) | OET.OL | 944.00 | 83.42 | +0.27 | 10.94 ❌ | 35.16 ❌ | 50 🟢 | RSI6 93 ⚪ · MFI 90 ⚪ |
@@ -93,15 +93,11 @@ FRO.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| ASA.OL | stale | 2026-10-12 | missing_expected_completed_session |
-| GYL.OL | stale | 2026-10-12 | missing_expected_completed_session |
-| NEXT.OL | stale | 2026-10-12 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
