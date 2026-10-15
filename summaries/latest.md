@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=c3bd4eddeb96485aa4269baeda86d5de -->
+<!-- snapshot_id=ff766be8d24645e88d3276059c4a56af -->
 
 **Forventet avsluttet handelssesjon:** 14.10.2026
 
-**Datastatus:** DEGRADED · 198/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-14T20:12:31Z · snapshot c3bd4eddeb96485aa4269baeda86d5de
+**Generert:** 2026-10-15T11:21:57Z · snapshot ff766be8d24645e88d3276059c4a56af
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 4 | SELL 4 | BUY-watch 11 | SELL-watch 15
 
@@ -88,15 +88,11 @@ OET.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| ASA.OL | stale | 2026-10-13 | missing_expected_completed_session |
-| HSPG.OL | stale | 2026-10-13 | missing_expected_completed_session |
-| NEXT.OL | stale | 2026-10-13 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
