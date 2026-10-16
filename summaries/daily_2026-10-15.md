@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=b4609b507dc44340893a0c9837e22457 -->
+<!-- snapshot_id=4128fba5f0354375b3af681320f43e22 -->
 
 **Forventet avsluttet handelssesjon:** 15.10.2026
 
-**Datastatus:** DEGRADED · 196/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-15T19:53:47Z · snapshot b4609b507dc44340893a0c9837e22457
+**Generert:** 2026-10-16T11:17:00Z · snapshot 4128fba5f0354375b3af681320f43e22
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 5. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 0 | SELL 5 | BUY-watch 25 | SELL-watch 7
 
@@ -65,7 +65,7 @@ IDEX.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | MACD→0 (Δ=0.21) | NHY.OL | 76.00 | 27.00 | -0.99 | -0.21 ❌ | -12.68 ❌ | 37 🟢 | RSI6 19 ⚪ · MFI 22 ⚪ |
 | MACD→0 (Δ=0.22) | BEWI.OL | 18.50 | 33.96 | -1.31 | -0.22 ❌ | -8.60 ❌ | 20 ⚠️ | RSI6 18 ⚪ · MFI 28 ⚪ |
 | MACD→0 (Δ=0.25) | CADLR.OL | 50.10 | 32.19 | -5.89 | -0.25 ❌ | -10.88 ❌ | 27 🟢 | RSI6 28 ⚪ · MFI 32 ⚪ |
-| MACD→0 (Δ=0.40) | MORG.OL | 104.04 | 32.90 | -12.78 | -0.40 ❌ | -5.78 ❌ | 18 ⚠️ | RSI6 26 ⚪ · MFI 35 ⚪ |
+| MACD→0 (Δ=0.40) | MORG.OL | 104.04 | 32.90 | -12.78 | -0.40 ❌ | -5.78 ❌ | 18 ⚠️ | RSI6 26 ⚪ · MFI 34 ⚪ |
 | MACD→0 (Δ=0.73) | SNTIA.OL | 79.40 | 32.04 | -2.25 | -0.73 ❌ | -4.34 ❌ | 26 🟢 | RSI6 20 ⚪ · MFI 13 ⚪ |
 | MACD→0 (Δ=1.02) | MULTI.OL | 128.20 | 28.96 | -5.02 | -1.02 ❌ | -11.14 ❌ | 28 🟢 | RSI6 21 ⚪ · MFI 9 ⚪ |
 | MACD→0 (Δ=1.94) | ONCIN.OL | 68.00 | 29.59 | -0.41 | -1.94 ❌ | -26.44 ❌ | 31 🟢 | RSI6 12 ⚪ · MFI 20 ⚪ |
@@ -78,8 +78,8 @@ IDEX.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | Closest | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
 | MACD→0 (Δ=0.10) | IWS.OL | 61.80 | 68.40 | +3.95 | 0.10 ❌ | 7.85 ❌ | 28 🟢 | RSI6 74 ⚪ · MFI 75 ⚪ |
+| MACD→0 (Δ=0.15) | GOD.OL | 15.40 | 70.27 | +0.00 | 0.15 ❌ | 19.42 ❌ | 36 🟢 | RSI6 70 ⚪ · MFI 75 ⚪ |
 | MACD→0 (Δ=0.16) | PLT.OL | 16.76 | 68.24 | +1.90 | 0.16 ❌ | 22.14 ❌ | 24 ⚪ | RSI6 78 ⚪ · MFI 71 ⚪ |
-| MACD→0 (Δ=0.17) | GOD.OL | 17.40 | 70.27 | +0.00 | 0.17 ❌ | 19.42 ❌ | 38 🟢 | RSI6 70 ⚪ · MFI 77 ⚪ |
 | MACD→0 (Δ=0.27) | BOHUS.OL | 40.10 | 67.13 | +0.90 | 0.27 ❌ | 8.29 ❌ | 32 🟢 | RSI6 77 ⚪ · MFI 58 ⚪ |
 | MACD→0 (Δ=0.61) | AKVA.OL | 158.00 | 76.12 | +0.00 | 0.61 ❌ | 10.58 ❌ | 36 🟢 | RSI6 87 ⚪ · MFI 90 ⚪ |
 | MACD→0 (Δ=1.71) | KID.OL | 133.00 | 71.63 | +1.73 | 1.71 ❌ | 6.95 ❌ | 26 🟢 | RSI6 84 ⚪ · MFI 81 ⚪ |
@@ -90,17 +90,11 @@ IDEX.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| ASA.OL | stale | 2026-10-14 | missing_expected_completed_session |
-| GYL.OL | stale | 2026-10-14 | missing_expected_completed_session |
-| JAREN.OL | stale | 2026-10-14 | missing_expected_completed_session |
-| NEXT.OL | stale | 2026-10-14 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-10-14 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._

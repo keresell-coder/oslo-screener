@@ -1,10 +1,10 @@
-# oslo-screener report=watch_sell.csv schema=oslo_screener.health.v1 snapshot_id=b4609b507dc44340893a0c9837e22457 data_fetch_started=2026-10-15T19:52:52Z data_fetch_completed=2026-10-15T19:53:47Z generated_at=2026-10-15T19:53:47Z expected_session=2026-10-15 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=degraded market_data_as_of=2026-10-15
+# oslo-screener report=watch_sell.csv schema=oslo_screener.health.v1 snapshot_id=4128fba5f0354375b3af681320f43e22 data_fetch_started=2026-10-16T11:16:02Z data_fetch_completed=2026-10-16T11:17:00Z generated_at=2026-10-16T11:17:00Z expected_session=2026-10-15 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=current market_data_as_of=2026-10-15
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-BOHUS.OL,2026-10-15,2026-10-15,2026-10-15,current,,40.1,67.13,0.9,0.2667,37.03,8.29,31.57,58.24,77.35,SELL-watch,1.0,5.0,1.5,HIGH,b4609b507dc44340893a0c9837e22457
-PLT.OL,2026-10-15,2026-10-15,2026-10-15,current,,16.76,68.24,1.9,0.158,13.7216,22.14,23.84,71.31,77.65,SELL-watch,1.0,3.0,1.5,MODERATE,b4609b507dc44340893a0c9837e22457
-IWS.OL,2026-10-15,2026-10-15,2026-10-15,current,,61.8,68.4,3.95,0.1023,57.3008,7.85,28.27,75.34,73.74,SELL-watch,1.0,3.0,1.5,MODERATE,b4609b507dc44340893a0c9837e22457
-GOD.OL,2026-10-15,2026-10-15,2026-10-15,current,,17.4,70.27,0.0,0.1748,14.571,19.42,37.57,77.08,70.0,SELL-watch,1.0,5.0,1.5,HIGH,b4609b507dc44340893a0c9837e22457
-KID.OL,2026-10-15,2026-10-15,2026-10-15,current,,133.0,71.63,1.73,1.7101,124.352,6.95,26.11,81.14,83.8,SELL-watch,1.0,3.0,1.5,MODERATE,b4609b507dc44340893a0c9837e22457
-AKVA.OL,2026-10-15,2026-10-15,2026-10-15,current,,158.0,76.12,0.0,0.6113,142.8784,10.58,36.35,89.7,87.41,SELL-watch,1.0,5.0,1.5,HIGH,b4609b507dc44340893a0c9837e22457
-ZAL.OL,2026-10-15,2026-10-15,2026-10-15,current,,129.5,79.33,0.0,2.8609,102.302,26.59,47.66,92.93,85.67,SELL-watch,1.0,5.0,1.5,HIGH,b4609b507dc44340893a0c9837e22457
+BOHUS.OL,2026-10-15,2026-10-16,2026-10-15,current,,40.1,67.13,0.9,0.2667,37.03,8.29,31.57,58.24,77.35,SELL-watch,1,5.0,1.5,HIGH,4128fba5f0354375b3af681320f43e22
+PLT.OL,2026-10-15,2026-10-16,2026-10-15,current,,16.76,68.24,1.9,0.158,13.7216,22.14,23.84,71.32,77.65,SELL-watch,1,3.0,1.5,MODERATE,4128fba5f0354375b3af681320f43e22
+IWS.OL,2026-10-15,2026-10-16,2026-10-15,current,,61.8,68.4,3.95,0.1023,57.3008,7.85,28.27,75.34,73.74,SELL-watch,1,3.0,1.5,MODERATE,4128fba5f0354375b3af681320f43e22
+GOD.OL,2026-10-15,2026-10-16,2026-10-15,current,,15.4,70.27,0.0,0.1547,12.8962,19.42,35.69,75.16,70.0,SELL-watch,1,5.0,1.5,HIGH,4128fba5f0354375b3af681320f43e22
+KID.OL,2026-10-15,2026-10-16,2026-10-15,current,,133.0,71.63,1.73,1.7101,124.352,6.95,26.11,81.12,83.8,SELL-watch,1,3.0,1.5,MODERATE,4128fba5f0354375b3af681320f43e22
+AKVA.OL,2026-10-15,2026-10-16,2026-10-15,current,,158.0,76.12,0.0,0.6113,142.8784,10.58,36.35,89.7,87.41,SELL-watch,1,5.0,1.5,HIGH,4128fba5f0354375b3af681320f43e22
+ZAL.OL,2026-10-15,2026-10-15,2026-10-15,current,,129.5,79.33,0.0,2.8609,102.302,26.59,47.66,92.93,85.67,SELL-watch,1,5.0,1.5,HIGH,4128fba5f0354375b3af681320f43e22
