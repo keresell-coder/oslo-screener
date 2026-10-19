@@ -1,11 +1,11 @@
-# oslo-screener report=watch_buy.csv schema=oslo_screener.health.v1 snapshot_id=c40dff979589425fa75417f0371aa729 data_fetch_started=2026-10-16T19:32:58Z data_fetch_completed=2026-10-16T19:33:59Z generated_at=2026-10-16T19:33:59Z expected_session=2026-10-16 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=degraded market_data_as_of=2026-10-16
+# oslo-screener report=watch_buy.csv schema=oslo_screener.health.v1 snapshot_id=119d6a9d6d144cceb0149a237b751e6f data_fetch_started=2026-10-19T13:02:44Z data_fetch_completed=2026-10-19T13:03:32Z generated_at=2026-10-19T13:03:32Z expected_session=2026-10-16 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=current market_data_as_of=2026-10-16
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-HYPRO.OL,2026-10-16,2026-10-16,2026-10-16,current,,0.416,26.01,-1.76,-0.0028,0.5138,-19.04,18.82,18.96,14.05,BUY-watch,1.0,1.75,1.5,LOW,c40dff979589425fa75417f0371aa729
-AKER.OL,2026-10-16,2026-10-16,2026-10-16,current,,1260.0,26.57,0.0,-16.2605,1468.04,-14.17,28.67,37.26,13.73,BUY-watch,1.0,3.0,1.5,MODERATE,c40dff979589425fa75417f0371aa729
-NOL.OL,2026-10-16,2026-10-16,2026-10-16,current,,6.54,27.74,0.0,-0.0377,7.2548,-9.85,34.51,0.24,25.97,BUY-watch,1.0,5.0,1.5,HIGH,c40dff979589425fa75417f0371aa729
-AGLX.OL,2026-10-16,2026-10-16,2026-10-16,current,,13.5,29.04,-5.92,-0.1087,16.67,-19.02,23.6,2.25,20.86,BUY-watch,1.0,3.0,1.5,MODERATE,c40dff979589425fa75417f0371aa729
-OTOVO.OL,2026-10-16,2026-10-16,2026-10-16,current,,8.58,29.47,-1.08,-0.0604,10.7266,-20.01,23.01,40.69,23.25,BUY-watch,1.0,3.0,1.5,MODERATE,c40dff979589425fa75417f0371aa729
-NYKD.OL,2026-10-16,2026-10-16,2026-10-16,current,,3.125,30.99,0.0,-0.0453,3.829,-18.39,25.12,21.87,15.75,BUY-watch,1.0,3.0,1.5,MODERATE,c40dff979589425fa75417f0371aa729
-HSHP.OL,2026-10-16,2026-10-16,2026-10-16,current,,150.0,33.46,-2.67,-2.7555,162.5309,-7.71,23.49,39.87,17.71,BUY-watch,1.0,3.0,1.5,MODERATE,c40dff979589425fa75417f0371aa729
-CMBTO.OL,2026-10-16,2026-10-16,2026-10-16,current,,167.4,34.75,-0.25,-2.968,177.6175,-5.75,33.83,55.78,18.85,BUY-watch,1.0,5.0,1.5,HIGH,c40dff979589425fa75417f0371aa729
+HYPRO.OL,2026-10-16,2026-10-19,2026-10-16,current,,0.416,26.01,-1.76,-0.0028,0.5138,-19.04,18.82,18.96,14.05,BUY-watch,1,1.75,1.5,LOW,119d6a9d6d144cceb0149a237b751e6f
+AKER.OL,2026-10-16,2026-10-19,2026-10-16,current,,1260.0,26.57,0.0,-16.2605,1468.04,-14.17,28.67,37.26,13.73,BUY-watch,1,3.0,1.5,MODERATE,119d6a9d6d144cceb0149a237b751e6f
+NOL.OL,2026-10-16,2026-10-19,2026-10-16,current,,6.54,27.74,0.0,-0.0377,7.2548,-9.85,34.51,0.24,25.97,BUY-watch,1,5.0,1.5,HIGH,119d6a9d6d144cceb0149a237b751e6f
+AGLX.OL,2026-10-16,2026-10-19,2026-10-16,current,,13.5,29.04,-5.92,-0.1087,16.67,-19.02,23.6,2.25,20.86,BUY-watch,1,3.0,1.5,MODERATE,119d6a9d6d144cceb0149a237b751e6f
+OTOVO.OL,2026-10-16,2026-10-19,2026-10-16,current,,8.58,29.47,-1.08,-0.0604,10.7266,-20.01,23.01,40.69,23.25,BUY-watch,1,3.0,1.5,MODERATE,119d6a9d6d144cceb0149a237b751e6f
+NYKD.OL,2026-10-16,2026-10-19,2026-10-16,current,,3.125,30.99,0.0,-0.0453,3.829,-18.39,25.12,21.87,15.75,BUY-watch,1,3.0,1.5,MODERATE,119d6a9d6d144cceb0149a237b751e6f
+HSHP.OL,2026-10-16,2026-10-19,2026-10-16,current,,150.0,33.46,-2.67,-2.7555,162.5309,-7.71,23.48,39.87,17.71,BUY-watch,1,3.0,1.5,MODERATE,119d6a9d6d144cceb0149a237b751e6f
+CMBTO.OL,2026-10-16,2026-10-19,2026-10-16,current,,167.4,34.75,-0.25,-2.968,177.6175,-5.75,33.83,59.77,18.85,BUY-watch,1,5.0,1.5,HIGH,119d6a9d6d144cceb0149a237b751e6f

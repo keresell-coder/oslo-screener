@@ -1,10 +1,10 @@
-# oslo-screener report=signals_only.csv schema=oslo_screener.health.v1 snapshot_id=c40dff979589425fa75417f0371aa729 data_fetch_started=2026-10-16T19:32:58Z data_fetch_completed=2026-10-16T19:33:59Z generated_at=2026-10-16T19:33:59Z expected_session=2026-10-16 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=degraded market_data_as_of=2026-10-16
+# oslo-screener report=signals_only.csv schema=oslo_screener.health.v1 snapshot_id=119d6a9d6d144cceb0149a237b751e6f data_fetch_started=2026-10-19T13:02:44Z data_fetch_completed=2026-10-19T13:03:32Z generated_at=2026-10-19T13:03:32Z expected_session=2026-10-16 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=current market_data_as_of=2026-10-16
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-NOM.OL,2026-10-16,2026-10-16,2026-10-16,current,,0.61,29.84,4.64,0.0147,1.7271,-64.68,17.46,53.41,30.34,BUY,3.0,1.75,3.0,LOW,c40dff979589425fa75417f0371aa729
-ONCIN.OL,2026-10-16,2026-10-16,2026-10-16,current,,68.2,29.94,0.34,-1.5351,92.17,-26.01,30.0,23.77,14.18,BUY,2.0,5.0,3.0,HIGH,c40dff979589425fa75417f0371aa729
-NHY.OL,2026-10-16,2026-10-16,2026-10-16,current,,76.86,31.48,4.48,-0.1202,86.7592,-11.41,37.2,25.9,32.74,BUY,2.0,5.0,3.0,HIGH,c40dff979589425fa75417f0371aa729
-PYRUM.OL,2026-10-16,2026-10-16,2026-10-16,current,,285.0,33.75,6.17,-4.1685,311.18,-8.41,37.15,45.72,28.83,BUY,2.0,5.0,3.0,HIGH,c40dff979589425fa75417f0371aa729
-GSF.OL,2026-10-16,2026-10-16,2026-10-16,current,,23.26,33.84,1.1,0.0341,26.7164,-12.94,35.03,51.43,40.69,BUY,3.0,5.0,5.0,HIGH,c40dff979589425fa75417f0371aa729
-NAS.OL,2026-10-16,2026-10-16,2026-10-16,current,,11.045,34.49,6.15,-0.0612,12.3706,-10.72,26.09,25.57,36.37,BUY,2.0,3.0,3.0,MODERATE,c40dff979589425fa75417f0371aa729
-GOD.OL,2026-10-16,2026-10-16,2026-10-16,current,,15.2,66.8,-3.47,0.1125,12.9462,17.41,34.32,67.06,62.52,SELL,2.0,5.0,3.0,HIGH,c40dff979589425fa75417f0371aa729
+NOM.OL,2026-10-16,2026-10-19,2026-10-16,current,,0.61,29.84,4.64,0.0147,1.7271,-64.68,17.46,53.41,30.34,BUY,3,1.75,3.0,LOW,119d6a9d6d144cceb0149a237b751e6f
+ONCIN.OL,2026-10-16,2026-10-19,2026-10-16,current,,68.2,29.94,0.34,-1.5351,92.17,-26.01,30.0,23.77,14.18,BUY,2,5.0,3.0,HIGH,119d6a9d6d144cceb0149a237b751e6f
+NHY.OL,2026-10-16,2026-10-19,2026-10-16,current,,76.86,31.48,4.48,-0.1202,86.7592,-11.41,37.2,25.9,32.74,BUY,2,5.0,3.0,HIGH,119d6a9d6d144cceb0149a237b751e6f
+PYRUM.OL,2026-10-16,2026-10-19,2026-10-16,current,,285.0,33.75,6.17,-4.1685,311.18,-8.41,37.15,45.72,28.83,BUY,2,5.0,3.0,HIGH,119d6a9d6d144cceb0149a237b751e6f
+GSF.OL,2026-10-16,2026-10-19,2026-10-16,current,,23.26,33.84,1.1,0.0341,26.7164,-12.94,35.03,51.43,40.69,BUY,3,5.0,5.0,HIGH,119d6a9d6d144cceb0149a237b751e6f
+NAS.OL,2026-10-16,2026-10-19,2026-10-16,current,,11.045,34.49,6.15,-0.0612,12.3706,-10.72,26.09,25.57,36.37,BUY,2,3.0,3.0,MODERATE,119d6a9d6d144cceb0149a237b751e6f
+GOD.OL,2026-10-16,2026-10-19,2026-10-16,current,,15.2,66.8,-3.47,0.1125,12.9462,17.41,34.32,67.06,62.52,SELL,2,5.0,3.0,HIGH,119d6a9d6d144cceb0149a237b751e6f
