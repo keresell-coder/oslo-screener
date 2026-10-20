@@ -1,19 +1,19 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=53852bd77b224c9e97ffca5ef6a06dc3 -->
+<!-- snapshot_id=39ba535504e84175961d586f66e6ae60 -->
 
 **Forventet avsluttet handelssesjon:** 19.10.2026
 
-**Datastatus:** DEGRADED · 197/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-19T21:03:05Z · snapshot 53852bd77b224c9e97ffca5ef6a06dc3
+**Generert:** 2026-10-20T11:29:44Z · snapshot 39ba535504e84175961d586f66e6ae60
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 4. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
-**Telling:** BUY 3 | SELL 2 | BUY-watch 11 | SELL-watch 15
+**Telling:** BUY 3 | SELL 2 | BUY-watch 11 | SELL-watch 16
 
 
 ## BUY (rangert)
@@ -64,9 +64,9 @@ KID.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 | Closest | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| MACD→0 (Δ=0.02) | AQUA.OL | 9.10 | 68.84 | +15.53 | 0.02 ◻️ | 3.39 ❌ | 30 🟢 | RSI6 87 ⚪ · MFI 47 ⚪ |
+| MACD→0 (Δ=0.02) | AQUA.OL | 9.10 | 68.84 | +15.53 | 0.02 ◻️ | 3.39 ❌ | 31 🟢 | RSI6 87 ⚪ · MFI 47 ⚪ |
 | MACD→0 (Δ=0.09) | IWS.OL | 62.40 | 71.18 | +2.78 | 0.09 ❌ | 8.26 ❌ | 29 🟢 | RSI6 80 ⚪ · MFI 79 ⚪ |
-| MACD→0 (Δ=0.11) | OTEC.OL | 21.25 | 73.35 | +0.41 | 0.11 ❌ | 13.71 ❌ | 22 ⚪ | RSI6 76 ⚪ · MFI 68 ⚪ |
+| MACD→0 (Δ=0.11) | OTEC.OL | 21.25 | 73.35 | +0.41 | 0.11 ❌ | 13.71 ❌ | 22 ⚪ | RSI6 76 ⚪ · MFI 79 ⚪ |
 | MACD→0 (Δ=0.12) | 2020.OL | 8.68 | 67.35 | +8.12 | 0.12 ❌ | 59.33 ❌ | 44 🟢 | RSI6 86 ⚪ · MFI 70 ⚪ |
 | MACD→0 (Δ=0.22) | PLT.OL | 17.30 | 70.93 | +0.59 | 0.22 ❌ | 24.37 ❌ | 27 🟢 | RSI6 82 ⚪ · MFI 66 ⚪ |
 | MACD→0 (Δ=0.23) | AKVA.OL | 158.00 | 76.12 | +0.00 | 0.23 ❌ | 9.76 ❌ | 38 🟢 | RSI6 87 ⚪ · MFI 92 ⚪ |
@@ -78,6 +78,7 @@ KID.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | RSI→65 (Δ=1.38) | AKRBP.OL | 375.70 | 66.38 | +1.92 | 3.36 ❌ | 6.18 ❌ | 20 ⚪ | RSI6 79 ⚪ · MFI 70 ⚪ |
 | MACD→0 (Δ=1.55) | MEDI.OL | 283.00 | 68.37 | +1.21 | 1.55 ❌ | 11.63 ❌ | 40 🟢 | RSI6 68 ⚪ · MFI 81 ⚪ |
 | RSI→65 (Δ=2.11) | EQNR.OL | 435.00 | 67.11 | +1.22 | 2.38 ❌ | 7.33 ❌ | 20 ⚪ | RSI6 79 ⚪ · MFI 77 ⚪ |
+| MACD→0 (Δ=2.92) | ZAL.OL | 129.50 | 79.33 | +0.00 | 2.92 ❌ | 24.97 ❌ | 49 🟢 | RSI6 86 ⚪ · MFI 93 ⚪ |
 | MACD→0 (Δ=2.96) | BNOR.OL | 615.00 | 69.40 | +1.79 | 2.96 ❌ | 8.14 ❌ | 19 ⚠️ | RSI6 83 ⚪ · MFI 74 ⚪ |
 
 
@@ -85,16 +86,11 @@ KID.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| ASA.OL | stale | 2026-10-16 | missing_expected_completed_session |
-| GYL.OL | stale | 2026-10-16 | missing_expected_completed_session |
-| NEXT.OL | stale | 2026-10-16 | missing_expected_completed_session |
-| ZAL.OL | stale | 2026-10-16 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
