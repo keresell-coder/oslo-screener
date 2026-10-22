@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=d2e961db95b04566b63b77abf1876c0f -->
+<!-- snapshot_id=0cb8208fe39b434c8992e00252a77f45 -->
 
 **Forventet avsluttet handelssesjon:** 21.10.2026
 
-**Datastatus:** DEGRADED · 195/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-21T20:09:18Z · snapshot d2e961db95b04566b63b77abf1876c0f
+**Generert:** 2026-10-22T11:44:57Z · snapshot 0cb8208fe39b434c8992e00252a77f45
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 6. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 3 | SELL 2 | BUY-watch 10 | SELL-watch 13
 
@@ -50,7 +50,7 @@ BWE.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | MACD→0 (Δ=0.01) | HYPRO.OL | 0.35 | 17.80 | -1.92 | -0.01 ◻️ | -29.87 ❌ | 23 ⚪ | RSI6 6 ⚪ · MFI 19 ⚪ |
 | MACD→0 (Δ=0.01) | B2I.OL | 22.60 | 34.50 | -0.85 | -0.01 ◻️ | -9.35 ❌ | 26 🟢 | RSI6 26 ⚪ · MFI 33 ⚪ |
 | MACD→0 (Δ=0.02) | OTOVO.OL | 8.80 | 34.08 | +0.00 | -0.02 ◻️ | -16.62 ❌ | 21 ⚪ | RSI6 34 ⚪ · MFI 37 ⚪ |
-| MACD→0 (Δ=0.04) | DELIA.OL | 17.94 | 34.71 | +0.00 | -0.04 ◻️ | -12.74 ❌ | 21 ⚪ | RSI6 28 ⚪ · MFI 53 ⚪ |
+| MACD→0 (Δ=0.04) | DELIA.OL | 17.94 | 34.71 | -0.00 | -0.04 ◻️ | -12.74 ❌ | 21 ⚪ | RSI6 28 ⚪ · MFI 53 ⚪ |
 | RSI→35 (Δ=0.07) | HPUR.OL | 4.10 | 34.93 | -9.28 | 0.11 ✅ | -33.03 ❌ | 27 🟢 | RSI6 26 ⚪ · MFI 62 ⚪ |
 | MACD→0 (Δ=0.13) | ARCH.OL | 18.44 | 22.56 | -22.29 | -0.13 ❌ | -19.43 ❌ | 20 ⚪ | RSI6 14 ⚪ · MFI 27 ⚪ |
 | MACD→0 (Δ=0.18) | AGLX.OL | 13.10 | 32.94 | -4.87 | -0.18 ❌ | -20.00 ❌ | 29 🟢 | RSI6 31 ⚪ · MFI 4 ⚪ |
@@ -82,18 +82,11 @@ BWE.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| ASA.OL | stale | 2026-10-20 | missing_expected_completed_session |
-| GYL.OL | stale | 2026-10-20 | missing_expected_completed_session |
-| HSPG.OL | stale | 2026-10-20 | missing_expected_completed_session |
-| INIFY.OL | stale | 2026-10-20 | missing_expected_completed_session |
-| NEXT.OL | stale | 2026-10-20 | missing_expected_completed_session |
-| PYRUM.OL | stale | 2026-10-20 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
