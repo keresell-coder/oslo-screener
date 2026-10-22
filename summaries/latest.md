@@ -1,92 +1,107 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=0cb8208fe39b434c8992e00252a77f45 -->
+<!-- snapshot_id=d44e60f009564fca8cbd72bfe0c48c80 -->
 
-**Forventet avsluttet handelssesjon:** 21.10.2026
+**Forventet avsluttet handelssesjon:** 22.10.2026
 
-**Datastatus:** CURRENT · 201/201 aktuelle rader
+**Datastatus:** DEGRADED · 191/201 aktuelle rader
 
-**Generert:** 2026-10-22T11:44:57Z · snapshot 0cb8208fe39b434c8992e00252a77f45
+**Generert:** 2026-10-22T20:06:16Z · snapshot d44e60f009564fca8cbd72bfe0c48c80
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 10. Full liste med årsaker står nedenfor.
 
-**Telling:** BUY 3 | SELL 2 | BUY-watch 10 | SELL-watch 13
+**Telling:** BUY 0 | SELL 5 | BUY-watch 23 | SELL-watch 5
 
 
 ## BUY (rangert)
 
-| Rk | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
-|---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| 1 | AKER.OL | 1198.00 | 26.29 | +2.11 | -18.62 ❌ | -17.70 ❌ | 33 🟢 | RSI6 22 ⚪ · MFI 44 ⚪ |
-| 0 | HAVI.OL | 0.91 | 34.67 | +1.16 | -0.02 ◻️ | -17.08 ❌ | 23 ⚪ | RSI6 26 ⚪ · MFI 41 ⚪ |
-| 0 | NOM.OL | 0.59 | 30.86 | +2.16 | 0.03 ◻️ | -62.97 ❌ | 16 ⚠️ | RSI6 34 ⚪ · MFI 37 🔴 |
+_Ingen i dag._
 
 
 **Hvorfor toppnavn kvalifiserte**
 
-AKER.OL kvalifiserte via gatekeeper (RSI≤35 & opp-dag). ADX≥25 (🟢).
+_Ingen BUY i dag._
 
 
 ## SELL (rangert)
 
 | Rk | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| 1 | BWE.OL | 67.30 | 67.31 | -4.77 | 0.53 ❌ | 14.54 ❌ | 38 🟢 | RSI6 61 ⚪ · MFI 80 🔴 |
-| 1 | PLT.OL | 17.40 | 70.01 | -2.31 | 0.21 ❌ | 23.49 ❌ | 30 🟢 | RSI6 77 ⚪ · MFI 75 🔴 |
+| 1 | 2020.OL | 9.64 | 65.82 | -9.35 | 0.36 ❌ | 65.73 ❌ | 50 🟢 | RSI6 70 ⚪ · MFI 70 🔴 |
+| 1 | DNO.OL | 23.30 | 79.76 | -3.98 | 0.37 ❌ | 20.68 ❌ | 34 🟢 | RSI6 85 ⚠️ · MFI 96 🔴 |
+| 1 | KID.OL | 136.80 | 69.43 | -3.91 | 1.32 ❌ | 9.32 ❌ | 28 🟢 | RSI6 70 ⚪ · MFI 85 🔴 |
+| 1 | MOWI.OL | 215.80 | 67.16 | -2.31 | 1.41 ❌ | 5.95 ❌ | 27 🟢 | RSI6 78 ⚪ · MFI 57 ⚪ |
+| 1 | AKRBP.OL | 380.90 | 67.63 | -2.59 | 3.54 ❌ | 6.95 ❌ | 25 🟢 | RSI6 77 ⚪ · MFI 85 🔴 |
 
 
 **Hvorfor toppnavn kvalifiserte**
 
-BWE.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
+2020.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 
 ## BUY-watch (nærmest trigger)
 
 | Closest | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| MACD→0 (Δ=0.01) | HYPRO.OL | 0.35 | 17.80 | -1.92 | -0.01 ◻️ | -29.87 ❌ | 23 ⚪ | RSI6 6 ⚪ · MFI 19 ⚪ |
-| MACD→0 (Δ=0.01) | B2I.OL | 22.60 | 34.50 | -0.85 | -0.01 ◻️ | -9.35 ❌ | 26 🟢 | RSI6 26 ⚪ · MFI 33 ⚪ |
-| MACD→0 (Δ=0.02) | OTOVO.OL | 8.80 | 34.08 | +0.00 | -0.02 ◻️ | -16.62 ❌ | 21 ⚪ | RSI6 34 ⚪ · MFI 37 ⚪ |
-| MACD→0 (Δ=0.04) | DELIA.OL | 17.94 | 34.71 | -0.00 | -0.04 ◻️ | -12.74 ❌ | 21 ⚪ | RSI6 28 ⚪ · MFI 53 ⚪ |
-| RSI→35 (Δ=0.07) | HPUR.OL | 4.10 | 34.93 | -9.28 | 0.11 ✅ | -33.03 ❌ | 27 🟢 | RSI6 26 ⚪ · MFI 62 ⚪ |
-| MACD→0 (Δ=0.13) | ARCH.OL | 18.44 | 22.56 | -22.29 | -0.13 ❌ | -19.43 ❌ | 20 ⚪ | RSI6 14 ⚪ · MFI 27 ⚪ |
-| MACD→0 (Δ=0.18) | AGLX.OL | 13.10 | 32.94 | -4.87 | -0.18 ❌ | -20.00 ❌ | 29 🟢 | RSI6 31 ⚪ · MFI 4 ⚪ |
-| MACD→0 (Δ=0.19) | NHY.OL | 73.82 | 25.27 | -0.71 | -0.19 ❌ | -13.83 ❌ | 40 🟢 | RSI6 18 ⚪ · MFI 22 ⚪ |
-| MACD→0 (Δ=0.50) | ONCIN.OL | 67.00 | 29.81 | -1.04 | -0.50 ❌ | -26.54 ❌ | 29 🟢 | RSI6 18 ⚪ · MFI 16 ⚪ |
-| MACD→0 (Δ=2.09) | JAREN.OL | 320.00 | 24.53 | -12.48 | -2.09 ❌ | -5.19 ❌ | 46 🟢 | RSI6 10 ⚪ · MFI 25 ⚪ |
+| MACD→0 (Δ=0.01) | HYPRO.OL | 0.35 | 17.59 | -0.21 | -0.01 ◻️ | -29.57 ❌ | 25 🟢 | RSI6 6 ⚪ · MFI 5 ⚪ |
+| MACD→0 (Δ=0.02) | HAVI.OL | 0.89 | 33.29 | -1.38 | -0.02 ◻️ | -18.76 ❌ | 26 🟢 | RSI6 24 ⚪ · MFI 37 ⚪ |
+| MACD→0 (Δ=0.03) | KOMPL.OL | 6.16 | 33.03 | -23.48 | -0.03 ◻️ | -11.75 ❌ | 15 ⚠️ | RSI6 25 ⚪ · MFI 33 ⚪ |
+| MACD→0 (Δ=0.04) | HPUR.OL | 4.04 | 34.42 | -0.52 | 0.04 ◻️ | -33.01 ❌ | 28 🟢 | RSI6 25 ⚪ · MFI 53 ⚪ |
+| MACD→0 (Δ=0.05) | DELIA.OL | 17.72 | 33.52 | -1.20 | -0.05 ◻️ | -13.69 ❌ | 22 ⚪ | RSI6 25 ⚪ · MFI 50 ⚪ |
+| MACD→0 (Δ=0.06) | APR.OL | 30.80 | 30.66 | -7.93 | 0.06 ✅ | -16.24 ❌ | 18 ⚠️ | RSI6 23 ⚪ · MFI 30 ⚪ |
+| MACD→0 (Δ=0.10) | PARB.OL | 49.80 | 34.26 | -5.33 | 0.10 ✅ | -10.04 ❌ | 23 ⚪ | RSI6 35 ⚪ · MFI 29 ⚪ |
+| MACD→0 (Δ=0.11) | GSF.OL | 22.84 | 32.30 | -3.82 | 0.11 ✅ | -12.77 ❌ | 35 🟢 | RSI6 32 ⚪ · MFI 56 ⚪ |
+| MACD→0 (Δ=0.14) | BEWI.OL | 17.80 | 31.41 | -6.30 | -0.14 ❌ | -11.84 ❌ | 20 ⚪ | RSI6 20 ⚪ · MFI 33 ⚪ |
+| MACD→0 (Δ=0.18) | AGLX.OL | 13.10 | 32.94 | +0.00 | -0.18 ❌ | -19.53 ❌ | 31 🟢 | RSI6 31 ⚪ · MFI 5 ⚪ |
+| MACD→0 (Δ=0.19) | YAR.OL | 399.40 | 34.34 | -1.38 | -0.19 ❌ | -8.17 ❌ | 30 🟢 | RSI6 28 ⚪ · MFI 34 ⚪ |
+| MACD→0 (Δ=0.23) | ONCIN.OL | 67.00 | 29.81 | +0.00 | -0.23 ❌ | -26.20 ❌ | 28 🟢 | RSI6 18 ⚪ · MFI 16 ⚪ |
+| MACD→0 (Δ=0.24) | ELK.OL | 30.90 | 33.05 | -3.50 | -0.24 ❌ | -8.82 ❌ | 22 ⚪ | RSI6 20 ⚪ · MFI 37 ⚪ |
+| MACD→0 (Δ=0.25) | MGN.OL | 19.00 | 31.72 | -5.89 | -0.25 ❌ | -12.44 ❌ | 16 ⚠️ | RSI6 21 ⚪ · MFI 39 ⚪ |
+| MACD→0 (Δ=0.30) | NHY.OL | 71.76 | 21.81 | -3.46 | -0.30 ❌ | -15.87 ❌ | 41 🟢 | RSI6 12 ⚪ · MFI 22 ⚪ |
+| MACD→0 (Δ=0.32) | ARCH.OL | 17.60 | 19.96 | -2.59 | -0.32 ❌ | -22.67 ❌ | 22 ⚪ | RSI6 11 ⚪ · MFI 22 ⚪ |
+| MACD→0 (Δ=0.35) | NSKOG.OL | 38.00 | 28.95 | -11.21 | -0.35 ❌ | -18.53 ❌ | 22 ⚪ | RSI6 15 ⚪ · MFI 44 ⚪ |
+| MACD→0 (Δ=0.35) | AKSO.OL | 36.64 | 28.91 | -6.54 | -0.35 ❌ | -11.93 ❌ | 20 ⚠️ | RSI6 20 ⚪ · MFI 36 ⚪ |
+| RSI→35 (Δ=0.40) | PEXIP.OL | 70.80 | 34.60 | -8.40 | -0.47 ❌ | -6.11 ❌ | 14 ⚠️ | RSI6 18 ⚪ · MFI 29 ⚪ |
+| MACD→0 (Δ=0.81) | ENVIP.OL | 31.80 | 33.10 | -3.66 | -0.81 ❌ | -16.82 ❌ | 22 ⚪ | RSI6 20 ⚪ · MFI 33 ⚪ |
+| MACD→0 (Δ=1.89) | KIT.OL | 85.45 | 27.78 | -12.41 | -1.89 ❌ | -11.08 ❌ | 23 ⚪ | RSI6 13 ⚪ · MFI 27 ⚪ |
+| MACD→0 (Δ=1.91) | SCATC.OL | 76.85 | 26.37 | -24.21 | -1.91 ❌ | -22.48 ❌ | 17 ⚠️ | RSI6 16 ⚪ · MFI 22 ⚪ |
+| RSI→35 (Δ=11.90) | AKER.OL | 1152.00 | 23.10 | -3.19 | -18.76 ❌ | -20.56 ❌ | 35 🟢 | RSI6 16 ⚪ · MFI 38 ⚪ |
 
 
 ## SELL-watch (nærmest trigger)
 
 | Closest | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| MACD→0 (Δ=0.10) | OTEC.OL | 21.95 | 78.58 | +4.39 | 0.10 ❌ | 16.44 ❌ | 24 ⚪ | RSI6 87 ⚪ · MFI 83 ⚪ |
-| MACD→0 (Δ=0.11) | AKVA.OL | 158.00 | 74.47 | +0.93 | -0.11 ✅ | 9.09 ❌ | 40 🟢 | RSI6 78 ⚪ · MFI 93 ⚪ |
-| MACD→0 (Δ=0.22) | IWS.OL | 64.40 | 78.34 | +3.93 | 0.22 ❌ | 11.01 ❌ | 33 🟢 | RSI6 91 ⚪ · MFI 64 ⚪ |
-| MACD→0 (Δ=0.32) | BOHUS.OL | 41.90 | 66.12 | +6.24 | 0.32 ❌ | 12.49 ❌ | 34 🟢 | RSI6 70 ⚪ · MFI 56 ⚪ |
-| MACD→0 (Δ=0.37) | 2020.OL | 10.74 | 75.17 | +3.87 | 0.37 ❌ | 88.30 ❌ | 48 🟢 | RSI6 92 ⚪ · MFI 88 ⚪ |
-| MACD→0 (Δ=0.38) | VAR.OL | 56.84 | 69.92 | +2.07 | 0.38 ❌ | 10.03 ❌ | 24 ⚪ | RSI6 78 ⚪ · MFI 78 ⚪ |
-| MACD→0 (Δ=0.39) | DNO.OL | 23.54 | 83.74 | +1.00 | 0.39 ❌ | 22.65 ❌ | 31 🟢 | RSI6 94 ⚪ · MFI 96 ⚪ |
-| MACD→0 (Δ=0.40) | ODL.OL | 108.00 | 66.38 | +4.33 | 0.40 ❌ | 9.94 ❌ | 24 ⚪ | RSI6 74 ⚪ · MFI 70 ⚪ |
-| MACD→0 (Δ=1.16) | MEDI.OL | 287.00 | 70.83 | +1.84 | 1.16 ❌ | 12.21 ❌ | 41 🟢 | RSI6 74 ⚪ · MFI 85 ⚪ |
-| MACD→0 (Δ=1.38) | MOWI.OL | 216.80 | 69.47 | +3.24 | 1.38 ❌ | 6.59 ❌ | 25 🟢 | RSI6 85 ⚪ · MFI 66 ⚪ |
-| MACD→0 (Δ=1.61) | KID.OL | 138.00 | 73.34 | +0.47 | 1.61 ❌ | 10.42 ❌ | 27 🟢 | RSI6 79 ⚪ · MFI 87 ⚪ |
-| MACD→0 (Δ=2.99) | BNOR.OL | 617.00 | 69.33 | +1.54 | 2.99 ❌ | 7.84 ❌ | 21 ⚪ | RSI6 81 ⚪ · MFI 80 ⚪ |
-| MACD→0 (Δ=3.75) | AKRBP.OL | 383.20 | 70.22 | +3.04 | 3.75 ❌ | 7.86 ❌ | 23 ⚪ | RSI6 84 ⚪ · MFI 86 ⚪ |
+| MACD→0 (Δ=0.10) | OTEC.OL | 22.10 | 79.52 | +0.94 | 0.10 ❌ | 16.71 ❌ | 25 ⚪ | RSI6 88 ⚪ · MFI 81 ⚪ |
+| MACD→0 (Δ=0.23) | AKVA.OL | 158.00 | 74.47 | +0.00 | -0.23 ✅ | 8.78 ❌ | 41 🟢 | RSI6 78 ⚪ · MFI 90 ⚪ |
+| MACD→0 (Δ=0.25) | IWS.OL | 64.40 | 78.34 | +0.00 | 0.25 ❌ | 10.65 ❌ | 35 🟢 | RSI6 91 ⚪ · MFI 70 ⚪ |
+| MACD→0 (Δ=0.36) | VAR.OL | 56.96 | 70.32 | +0.40 | 0.36 ❌ | 9.81 ❌ | 25 🟢 | RSI6 79 ⚪ · MFI 79 ⚪ |
+| MACD→0 (Δ=2.77) | BNOR.OL | 617.00 | 69.33 | +0.00 | 2.77 ❌ | 7.47 ❌ | 22 ⚪ | RSI6 81 ⚪ · MFI 81 ⚪ |
 
 
 ## Aksjer uten nødvendige data
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-Ingen aksjer er utelatt.
+| Aksje | Datastatus | Observasjonsdato | Årsak |
+|---|---|---|---|
+| ASA.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| BIEN.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| BINT.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| GYL.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| INIFY.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| ININ.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| MELG.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| NEXT.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| PYRUM.OL | stale | 2026-10-21 | missing_expected_completed_session |
+| SOAG.OL | stale | 2026-10-21 | missing_expected_completed_session |
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
