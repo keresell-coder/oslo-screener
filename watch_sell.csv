@@ -1,8 +1,17 @@
-# oslo-screener report=watch_sell.csv schema=oslo_screener.health.v1 snapshot_id=d7bc8690def9454a8c6dfe59e09a38ca data_fetch_started=2026-10-23T11:31:53Z data_fetch_completed=2026-10-23T11:32:26Z generated_at=2026-10-23T11:32:26Z expected_session=2026-10-22 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=current market_data_as_of=2026-10-22
+# oslo-screener report=watch_sell.csv schema=oslo_screener.health.v1 snapshot_id=36af7fc30d2643f3b45a35212a5e8ca9 data_fetch_started=2026-10-23T19:56:55Z data_fetch_completed=2026-10-23T19:57:37Z generated_at=2026-10-23T19:57:37Z expected_session=2026-10-23 universe_count=201 coverage_policy=per_stock min_coverage_ratio=0.004975124378109453 status=degraded market_data_as_of=2026-10-23
 # columns=ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
 ticker,date,source_latest_date,last_valid_ohlc_date,data_status,note,close,rsi14,rsi_dir,macd_hist,sma50,pct_above_sma50,adx14,mfi14,rsi6,signal,primary_count,stop_loss_pct,position_pct,risk,snapshot_id
-BNOR.OL,2026-10-22,2026-10-23,2026-10-22,current,,617.0,69.33,0.0,2.7713,574.1,7.47,22.03,80.51,80.98,SELL-watch,1,3.0,1.5,MODERATE,d7bc8690def9454a8c6dfe59e09a38ca
-VAR.OL,2026-10-22,2026-10-23,2026-10-22,current,,56.96,70.32,0.4,0.3613,51.8695,9.81,25.29,78.85,79.14,SELL-watch,1,3.0,1.5,MODERATE,d7bc8690def9454a8c6dfe59e09a38ca
-AKVA.OL,2026-10-22,2026-10-23,2026-10-22,current,,158.0,74.47,0.0,-0.2301,145.2506,8.78,41.26,90.01,78.06,SELL-watch,2,5.0,3.0,HIGH,d7bc8690def9454a8c6dfe59e09a38ca
-IWS.OL,2026-10-22,2026-10-23,2026-10-22,current,,64.4,78.34,0.0,0.2505,58.202,10.65,34.8,69.88,90.56,SELL-watch,1,5.0,1.5,HIGH,d7bc8690def9454a8c6dfe59e09a38ca
-OTEC.OL,2026-10-22,2026-10-23,2026-10-22,current,,22.1,79.52,0.94,0.1012,18.9362,16.71,24.59,81.26,87.98,SELL-watch,1,3.0,1.5,MODERATE,d7bc8690def9454a8c6dfe59e09a38ca
+KOA.OL,2026-10-23,2026-10-23,2026-10-23,current,,2.06,65.38,6.37,0.0135,1.9828,3.89,14.32,67.86,83.04,SELL-watch,1.0,1.75,1.5,LOW,36af7fc30d2643f3b45a35212a5e8ca9
+CADLR.OL,2026-10-23,2026-10-23,2026-10-23,current,,59.35,65.77,2.72,0.9856,56.261,5.49,24.4,70.01,82.95,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+MOWI.OL,2026-10-23,2026-10-23,2026-10-23,current,,216.0,67.4,0.23,1.3471,204.0014,5.88,29.16,63.82,78.62,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+PEN.OL,2026-10-23,2026-10-23,2026-10-23,current,,33.9,68.02,4.6,0.2684,30.4777,11.23,26.9,81.61,77.11,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+EQNR.OL,2026-10-23,2026-10-23,2026-10-23,current,,453.8,71.2,9.86,2.3722,409.554,10.8,22.98,75.36,79.96,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+OKEA.OL,2026-10-23,2026-10-23,2026-10-23,current,,48.65,72.03,7.43,0.2792,40.824,19.17,26.98,76.04,77.27,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+BOUV.OL,2026-10-23,2026-10-23,2026-10-23,current,,51.9,72.16,16.19,0.3616,48.118,7.86,20.91,73.44,84.81,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+MEDI.OL,2026-10-23,2026-10-23,2026-10-23,current,,300.0,73.17,10.37,1.2872,258.06,16.25,41.39,87.78,77.14,SELL-watch,1.0,5.0,1.5,HIGH,36af7fc30d2643f3b45a35212a5e8ca9
+AKRBP.OL,2026-10-23,2026-10-23,2026-10-23,current,,393.1,73.26,5.63,3.9652,357.088,10.08,27.03,86.12,85.21,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+BNOR.OL,2026-10-23,2026-10-23,2026-10-23,current,,630.0,74.01,4.68,3.2267,576.14,9.35,23.17,81.49,88.16,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+AKVA.OL,2026-10-23,2026-10-23,2026-10-23,current,,158.0,74.47,0.0,-0.334,145.6397,8.49,42.14,88.17,78.06,SELL-watch,2.0,5.0,3.0,HIGH,36af7fc30d2643f3b45a35212a5e8ca9
+VAR.OL,2026-10-23,2026-10-23,2026-10-23,current,,58.94,75.98,5.66,0.4488,52.1026,13.12,26.81,79.69,87.5,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
+DNO.OL,2026-10-23,2026-10-23,2026-10-23,current,,23.38,80.1,0.34,0.3372,19.4175,20.41,36.87,96.13,85.65,SELL-watch,1.0,5.0,1.5,HIGH,36af7fc30d2643f3b45a35212a5e8ca9
+OTEC.OL,2026-10-23,2026-10-23,2026-10-23,current,,22.55,82.06,2.54,0.121,19.0432,18.41,25.52,81.9,91.29,SELL-watch,1.0,3.0,1.5,MODERATE,36af7fc30d2643f3b45a35212a5e8ca9
