@@ -1,17 +1,17 @@
 # Oslo Børs – Teknisk dagsrapport
 
-<!-- snapshot_id=d44e60f009564fca8cbd72bfe0c48c80 -->
+<!-- snapshot_id=d7bc8690def9454a8c6dfe59e09a38ca -->
 
 **Forventet avsluttet handelssesjon:** 22.10.2026
 
-**Datastatus:** DEGRADED · 191/201 aktuelle rader
+**Datastatus:** CURRENT · 201/201 aktuelle rader
 
-**Generert:** 2026-10-22T20:06:16Z · snapshot d44e60f009564fca8cbd72bfe0c48c80
+**Generert:** 2026-10-23T11:32:26Z · snapshot d7bc8690def9454a8c6dfe59e09a38ca
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 10. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 0 | SELL 5 | BUY-watch 23 | SELL-watch 5
 
@@ -86,22 +86,11 @@ _Ingen BUY i dag._
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| ASA.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| BIEN.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| BINT.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| GYL.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| INIFY.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| ININ.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| MELG.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| NEXT.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| PYRUM.OL | stale | 2026-10-21 | missing_expected_completed_session |
-| SOAG.OL | stale | 2026-10-21 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
