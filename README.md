@@ -76,3 +76,10 @@ python scripts/prepare_publication.py --verify
 Kalenderen er kontrollert mot Euronexts 2026-kalender og gjeldende kontanthandelstider: slutt på trading-at-last 16:30 Oslo, 13:10 på onsdag før påske. En konservativ **15 minutters datamargin** kommer i tillegg. 24. og 31. desember er stengt. Primærkildene står i `market_health.py`. **Neste års offisielle kalender må kontrolleres før 2027; ukjente fremtidige år blokkerer oppsett.**
 
 BUY/SELL-reglene er fortsatt RSI-terskel og dagsretning. SMA50/MACD-støtte endrer primærantall, ikke selve merkelappen. ADX-bånd og prosentvise stopp/posisjoner er heuristikker, og nyhets-/fundamentaldekning inngår ikke. Dette er tekniske forskningskandidater, ikke en empirisk validert handelsstrategi.
+
+## Sprint 3 manual observation pilot
+
+The isolated [validation pilot](validation/README.md) imports frozen daily CSV and
+weekly case/report evidence into an append-only ledger. It is manually invoked,
+not part of production screening or scheduled capture. It makes no execution or
+performance claim and preserves unknown availability and missing evidence.
