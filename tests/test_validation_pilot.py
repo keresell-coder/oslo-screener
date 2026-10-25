@@ -220,3 +220,11 @@ def test_frozen_real_producer_fixture_unknown_availability(tmp_path):
     assert sum(r["role"] == "withheld" for r in records) == 2
     assert not any(r["role"] == "original" for r in records)
     assert append(tmp_path, m, artifact)["appended"] == 0
+
+
+def test_missing_provenance_parent_rejected(tmp_path):
+    m, a = daily()
+    m.update(provenance_revisions={"NOD.OL": "not-a-prior-observation"}, revision_reason="invalid parent")
+    with pytest.raises(IntegrityError, match="revision link"):
+        append(tmp_path, m, a)
+    assert not (tmp_path / "observations.jsonl").exists()

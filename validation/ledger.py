@@ -186,6 +186,10 @@ def append(ledger, manifest, artifact, report=None):
             group = [manifest["kind"], security_key, scope, manifest["economic_method"]]
             obs_id = digest(canonical([group, manifest["artifact_sha256"], security, manifest.get("run_date")]))
             provenance_parent = None
+            links = manifest.get("provenance_revisions", {})
+            require(isinstance(links, dict), "provenance_revisions must be a mapping")
+            if security in links:
+                require(obs_id in old and links[security] == obs_id and manifest.get("revision_reason"), "invalid provenance revision link")
             if obs_id in old:
                 if old[obs_id]["manifest_sha256"] == manifest_sha:
                     continue
