@@ -70,6 +70,9 @@ def read(ledger):
     raw = journal.read_bytes()
     require(not raw or raw.endswith(b"\n"), "truncated journal")
     previous = None
+    batch_remaining = 0
+    batch_manifest = None
+    expected_batch_index = 1
     for index, line in enumerate(raw.splitlines(), 1):
         try:
             record = json.loads(line)
@@ -77,6 +80,15 @@ def read(ledger):
         except (ValueError, KeyError, TypeError) as exc:
             raise IntegrityError("invalid journal record") from exc
         require(record["sequence"] == index and record["previous_hash"] == previous, "broken journal order")
+        if batch_remaining == 0:
+            size = record.get("batch_size")
+            require(type(size) is int and size > 0, "invalid import batch size")
+            batch_remaining = size
+            batch_manifest = record["manifest_sha256"]
+            expected_batch_index = 1
+        require(record.get("batch_index") == expected_batch_index and record.get("batch_size") == size and record["manifest_sha256"] == batch_manifest, "interrupted import batch")
+        expected_batch_index += 1
+        batch_remaining -= 1
         require(digest(canonical(record)) == checksum, "journal checksum mismatch")
         for key in ("artifact_sha256", "manifest_sha256", "report_sha256"):
             if record.get(key) is None:
@@ -88,6 +100,7 @@ def read(ledger):
         record["record_hash"] = checksum
         records.append(record)
         previous = checksum
+    require(batch_remaining == 0, "incomplete import batch")
     return records
 
 
@@ -255,7 +268,9 @@ def append(ledger, manifest, artifact, report=None):
                     stream.flush()
                     os.fsync(stream.fileno())
         previous = records[-1]["record_hash"] if records else None
-        for record in pending:
+        for batch_index, record in enumerate(pending, 1):
+            record["batch_index"] = batch_index
+            record["batch_size"] = len(pending)
             record["sequence"] = len(records) + 1
             record["previous_hash"] = previous
             record["record_hash"] = digest(canonical(record))

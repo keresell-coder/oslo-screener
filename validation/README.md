@@ -103,13 +103,16 @@ return evaluation remain future scope; the observations are not yet a backtest.
 Use one operator/process. An exclusive lock file rejects overlapping writers; a
 crashed lock requires manual inspection, not automatic deletion. Immutable blobs
 hold exact source bytes and canonical manifest bytes, named by SHA256. Every JSONL
-record has sequence/previous-hash/checksum. Audit verifies blobs, journal chain and
+record has sequence/previous-hash/checksum and import-batch position/size.
+A partial batch is detected even if interruption leaves a complete newline. Audit verifies blobs, journal chain and
 replays the immutable imports to reproduce all roles/links/rows. All validation
 precedes journal writes. An interrupted write is detected and blocks further
 import. Orphan blobs can remain after interruption and are not observations.
 Back up the complete directory, including blobs, manifest and journal. A hash
 chain detects accidental mutation but is not a signature or external trust anchor;
-a privileged person could rewrite everything. It cannot prove a caller's source
+a privileged person could rewrite everything or remove a whole final batch.
+Batch markers detect partial imports; detecting deletion of complete batches needs
+an independent saved journal hash/checkpoint. It cannot prove a caller's source
 attestation. Preserve an independently hashed/exported evidence copy for review.
 
 ## Research conventions only

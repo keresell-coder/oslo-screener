@@ -250,3 +250,23 @@ def test_alias_tickers_same_resolved_security_rejected_atomically(tmp_path):
     with pytest.raises(IntegrityError, match="duplicate resolved security"):
         append(tmp_path, m, a)
     assert not (tmp_path / "observations.jsonl").exists()
+
+
+def test_complete_newline_truncation_inside_batch_blocks_append(tmp_path):
+    from pathlib import Path
+    base = Path(__file__).parent / "fixtures" / "validation" / "producer_2026-10-25"
+    m = json.loads(base.with_suffix(".manifest.json").read_text())
+    a = base.with_suffix(".csv").read_bytes()
+    append(tmp_path, m, a)
+    journal = tmp_path / "observations.jsonl"
+    first_hundred = b"".join(journal.read_bytes().splitlines(keepends=True)[:100])
+    assert first_hundred.endswith(b"\n")
+    journal.write_bytes(first_hundred)
+    with pytest.raises(IntegrityError, match="incomplete import batch"):
+        read(tmp_path)
+    with pytest.raises(IntegrityError, match="incomplete import batch"):
+        audit(tmp_path)
+    m2, a2 = daily()
+    with pytest.raises(IntegrityError, match="incomplete import batch"):
+        append(tmp_path, m2, a2)
+    assert journal.read_bytes() == first_hundred
