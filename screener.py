@@ -15,6 +15,7 @@ from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
 from setup_semantics import VERSION, LABELS
+from liquidity import assess_liquidity, COLUMNS as LIQUIDITY_COLUMNS
 from market_health import SCHEMA, evaluate_snapshot, last_ose_trading_day, finite
 
 VALID_TICKERS_FILE = os.getenv("VALID_TICKERS_FILE", "valid_tickers.txt")
@@ -79,15 +80,28 @@ def fetch_ohlc_single(ticker: str, tries: int = 3) -> pd.DataFrame | None:
         try:
             df = yf.download(
                 ticker, period="9mo", interval="1d",
-                auto_adjust=True, progress=False, threads=False, timeout=12
+                auto_adjust=False, progress=False, threads=False, timeout=12
             )
             df = flatten(df)
             if df is not None and not df.empty:
+                raw_close = df['Close'].copy()
+                # Same pinned yfinance adjustment routine formerly applied by
+                # download(auto_adjust=True); retain raw price for turnover only.
+                df = yf.utils.auto_adjust(df)
+                df['RawClose'] = raw_close
                 return df
         except Exception as e:
             last_exc = e
         time.sleep(YF_PAUSE * attempt)
     return None
+
+def fetch_quote_currency(ticker):
+    """Currency metadata is required before comparing NOK orders to turnover."""
+    try:
+        return yf.Ticker(ticker).fast_info['currency']
+    except Exception:
+        return None
+
 
 def adx_band_with_cfg(adx_val: float, cfg: dict):
     if pd.isna(adx_val): return ("UNKNOWN", np.nan, "UNKNOWN")
@@ -138,7 +152,7 @@ def classify(long_gate: bool, short_gate: bool, day_up: bool, day_down: bool,
 OUTPUT_COLUMNS = ["ticker", "date", "source_latest_date", "last_valid_ohlc_date", "data_status", "note", "close", "rsi14",
                   "rsi_dir", "macd_hist", "sma50", "pct_above_sma50", "adx14", "mfi14", "rsi6",
                   "signal", "primary_count", "stop_loss_pct", "position_pct", "risk", "snapshot_id",
-                  "previous_close", "day_direction", "signal_label", "stop_sizing_policy"]
+                  "previous_close", "day_direction", "signal_label", "stop_sizing_policy"] + LIQUIDITY_COLUMNS
 
 
 def completed_history(df, expected_session):
@@ -232,6 +246,7 @@ def run():
                 continue
             observed = df.index[-1].date()
             context.update(date=observed.isoformat(), source_latest_date=source_latest_date)
+            context.update(assess_liquidity(df, expected_session))
             if not all(col in df for col in ("Close", "High", "Low")):
                 raise ValueError("missing_ohlc_columns")
             valid_prices = pd.Series(True, index=df.index)
@@ -292,6 +307,11 @@ def run():
                 long_gate, short_gate, day_up, day_down,
                 price=float(c0), sma50=sma50_now, macd_hist=macd_hist_now, cfg=cfg
             )
+
+            # Currency metadata is needed only for displayed research candidates,
+            # not every neutral name. Failure leaves capacity unknown.
+            if label != 'NEUTRAL':
+                context.update(assess_liquidity(df, expected_session, fetch_quote_currency(t)))
 
             risk_text, stop_loss_pct, risk_label = adx_band_with_cfg(adx_now, cfg)
             pos_pct = position_from_primary_and_adx(primary_count, adx_now if not np.isnan(adx_now) else 0.0, cfg)

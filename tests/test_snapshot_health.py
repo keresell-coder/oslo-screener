@@ -190,6 +190,7 @@ def test_run_excludes_provisional_bar_before_calculating_indicators(tmp_path, mo
     monkeypatch.setattr(screener, 'datetime', Frozen)
     monkeypatch.setattr(screener, 'load_tickers', lambda: ['A.OL'])
     monkeypatch.setattr(screener, 'fetch_ohlc_single', lambda ticker: frame)
+    monkeypatch.setattr(screener, "fetch_quote_currency", lambda ticker: "NOK")
     health = screener.run()
     result = read_csv('latest.csv')[0][0]
     assert result['date'] == '2026-09-08' and result['source_latest_date'] == '2026-09-09'
@@ -224,6 +225,7 @@ def test_zero_volume_quotes_are_valid_but_live_missing_close_is_blocked(tmp_path
     monkeypatch.setattr(screener, 'datetime', Frozen)
     monkeypatch.setattr(screener, 'load_tickers', lambda: ['EQNR.OL'])
     monkeypatch.setattr(screener, 'fetch_ohlc_single', lambda ticker: frame)
+    monkeypatch.setattr(screener, "fetch_quote_currency", lambda ticker: "NOK")
     health = screener.run()
     result = read_csv('latest.csv')[0][0]
     assert health['status'] == ('blocked' if missing_close else 'current')
