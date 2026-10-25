@@ -83,3 +83,9 @@ The isolated [validation pilot](validation/README.md) imports frozen daily CSV a
 weekly case/report evidence into an append-only ledger. It is manually invoked,
 not part of production screening or scheduled capture. It makes no execution or
 performance claim and preserves unknown availability and missing evidence.
+
+
+## Separate KE activity and order-size evidence
+Technical BUY/SELL/watch classifications are unchanged. `liquidity.py` reports the last 60 expected completed Oslo open sessions, not the last 60 available bars. Explicit vendor zero volume means ineligible under the daily-trading requirement; absent, negative/nonfinite volume, duplicate dates or unverified calendars remain unknown. Positive volume on all sessions is vendor evidence, not independent exchange verification. The existing annual calendar validity boundary is preserved.
+
+Capacity is a separate descriptive comparison: NOK 100,000 and NOK 500,000 divided by the median of unadjusted close × volume on all 20 expected sessions. Confirmed NOK quote currency is required; otherwise no NOK ratio is emitted. This is a price-volume turnover proxy, not actual exchange turnover, order-book depth, execution cost or guaranteed fills. No safe participation threshold is invented, and passing activity never certifies executable capacity. Legacy snapshots show unknown evidence. No schedule, signal threshold or capture job changes.

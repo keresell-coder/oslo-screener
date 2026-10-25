@@ -24,6 +24,7 @@ if str(ROOT) not in sys.path:
 from scripts.validate_snapshot import validate_snapshot
 from market_health import parse_metadata
 from setup_semantics import describe_gates, LABELS
+from liquidity import describe_liquidity
 
 OUT_DIR = pl.Path("summaries")
 
@@ -142,7 +143,7 @@ def _enrich(r: pd.Series, metadata=None) -> dict:
     missing_gates = describe_gates(r,metadata)
 
     return dict(
-        bucket=bucket, rank=rank,
+        bucket=bucket, rank=rank, suitability_summary=describe_liquidity(r),
         ticker=str(r.get("ticker", "")), close=close,
         rsi14=r14, rdir=rdir, macd=macd, pct=pct,
         adx=adx, rsi6=r6, mfi=mfi,
@@ -169,7 +170,7 @@ def _main_table(sub: pd.DataFrame) -> str:
             f"{delta} | {_fmt(r['macd'])} {r['macd_ic']} | {_fmt(r['pct'])} {r['sma_ic']} | "
             f"{adx_cel} | {sec} |"
         )
-    return "\n".join(lines)
+    return "\n".join(lines) + "\n\n" + "\n\n".join(f"**{r['ticker']}**: {r['suitability_summary']}" for _, r in sub.head(40).iterrows())
 
 
 def _watch_table(sub: pd.DataFrame) -> str:
@@ -188,7 +189,7 @@ def _watch_table(sub: pd.DataFrame) -> str:
             f"{delta} | {_fmt(r['macd'])} {r['macd_ic']} | {_fmt(r['pct'])} {r['sma_ic']} | "
             f"{adx_cel} | {sec} |"
         )
-    return "\n".join(lines)
+    return "\n".join(lines) + "\n\n" + "\n\n".join(f"**{r['ticker']}**: {r['suitability_summary']}" for _, r in sub.head(40).iterrows())
 
 
 def _reason_top(sub: pd.DataFrame, side: str) -> str:
@@ -259,7 +260,7 @@ def main() -> int:
 
     md = [
         "# Oslo Børs – Teknisk dagsrapport\n",
-        "Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Daily liquidity/order capacity is unassessed; no new liquidity cutoff is introduced.\n",
+        "Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Separate KE activity/capacity evidence follows each list. Execution suitability remains unverified; no new liquidity cutoff is introduced.\n",
         f"<!-- snapshot_id={health['snapshot_id']} -->\n",
         f"**Forventet avsluttet handelssesjon:** {csv_last.strftime('%d.%m.%Y')}\n",
         f"**Datastatus:** {health['status'].upper()} · {coverage['current']}/{coverage['universe_count']} aktuelle rader\n",

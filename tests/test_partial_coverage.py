@@ -116,6 +116,7 @@ def test_runtime_uses_requested_policy_from_config(tmp_path, monkeypatch):
     monkeypatch.setattr(screener, "datetime", Frozen)
     monkeypatch.setattr(screener, "load_tickers", lambda: ["GOOD.OL", "MISSING.OL"])
     monkeypatch.setattr(screener, "fetch_ohlc_single", lambda symbol: frame if symbol == "GOOD.OL" else None)
+    monkeypatch.setattr(screener, "fetch_quote_currency", lambda ticker: "NOK")
     health = screener.run()
     assert health["status"] == "degraded" and health["eligible_tickers"] == ["GOOD.OL"]
     assert validate_snapshot(now=NOW)["coverage_policy"] == "per_stock"
