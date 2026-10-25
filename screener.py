@@ -14,6 +14,7 @@ import yaml
 from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
+from setup_semantics import VERSION, LABELS
 from market_health import SCHEMA, evaluate_snapshot, last_ose_trading_day, finite
 
 VALID_TICKERS_FILE = os.getenv("VALID_TICKERS_FILE", "valid_tickers.txt")
@@ -97,7 +98,7 @@ def adx_band_with_cfg(adx_val: float, cfg: dict):
     return ("HIGH", cfg["stop_loss_high"], "HIGH")
 
 def position_from_primary_and_adx(primary_count: int, adx_val: float, cfg: dict):
-    # High conviction hvis 3/3 + ADX >= 25 (terskel kan evt. gjøres konfigurerbar senere)
+    # Legacy research heuristic only; no calibrated conviction or portfolio loss budget.
     if primary_count >= 3 and adx_val >= 25:
         return cfg["position_high_conviction"]
     elif primary_count >= 2:
@@ -136,7 +137,8 @@ def classify(long_gate: bool, short_gate: bool, day_up: bool, day_down: bool,
 
 OUTPUT_COLUMNS = ["ticker", "date", "source_latest_date", "last_valid_ohlc_date", "data_status", "note", "close", "rsi14",
                   "rsi_dir", "macd_hist", "sma50", "pct_above_sma50", "adx14", "mfi14", "rsi6",
-                  "signal", "primary_count", "stop_loss_pct", "position_pct", "risk", "snapshot_id"]
+                  "signal", "primary_count", "stop_loss_pct", "position_pct", "risk", "snapshot_id",
+                  "previous_close", "day_direction", "signal_label", "stop_sizing_policy"]
 
 
 def completed_history(df, expected_session):
@@ -148,7 +150,7 @@ def completed_history(df, expected_session):
 
 
 def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
-                     generated_at=None, snapshot_id=None, *, coverage_policy="minimum"):
+                     generated_at=None, snapshot_id=None, *, coverage_policy="minimum", methodology_config=None):
     if coverage_policy not in ("minimum", "per_stock"):
         raise ValueError("coverage_policy must be minimum or per_stock")
     generated_at = generated_at or datetime.now(timezone.utc)
@@ -174,6 +176,12 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
     for excluded in health["excluded"]:
         out.loc[out["ticker"] == excluded["ticker"], ["data_status", "note"]] = [excluded["data_status"], excluded["reason"]]
     out.loc[~out["ticker"].isin(allowed), ["signal", "primary_count", "position_pct"]] = ["WITHHELD", 0, 0.0]
+    rules=methodology_config or load_config()
+    metadata.update(methodology_version=VERSION, signal_semantics="research_setups_not_orders", stop_sizing_policy="research_heuristics_not_loss_budget")
+    for key in ("rsi14_buy_max","rsi14_sell_min","require_day_up_for_buy","require_day_down_for_sell"):
+        metadata[key]=str(rules[key]).lower()
+    out["signal_label"]=out["signal"].map(LABELS)
+    out["stop_sizing_policy"]="research_only_not_allocation_or_executable_stop"
     metadata.update(status=health["status"], market_data_as_of=health["market_data_as_of"] or "unavailable")
     order = {"BUY": 0, "SELL": 1, "BUY-watch": 2, "SELL-watch": 3, "NEUTRAL": 4, "WITHHELD": 5}
     out = out.assign(_rank=out["signal"].map(order)).sort_values(["_rank", "rsi14"], na_position="last").drop(columns="_rank")
@@ -296,6 +304,8 @@ def run():
                 "data_status": "current",
                 "note": "mfi_unavailable" if not finite(mfi_now) else "",
                 "close": round(float(c0), 4),
+                "previous_close": round(float(c1), 4),
+                "day_direction": "up" if day_up else "down" if day_down else "flat",
                 "rsi14": round(rsi14_now, 2),
                 "rsi_dir": round(rsi_dir, 2),
                 "macd_hist": round(macd_hist_now, 4) if not np.isnan(macd_hist_now) else np.nan,
@@ -315,7 +325,7 @@ def run():
             rows.append({**context, "data_status": "invalid", "note": f"error: {type(e).__name__}: {e}"})
 
     return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc),
-                            coverage_policy=cfg["coverage_policy"])
+                            coverage_policy=cfg["coverage_policy"], methodology_config=cfg)
 
 if __name__ == "__main__":
     run()
