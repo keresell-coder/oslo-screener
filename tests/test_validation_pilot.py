@@ -228,3 +228,25 @@ def test_missing_provenance_parent_rejected(tmp_path):
     with pytest.raises(IntegrityError, match="revision link"):
         append(tmp_path, m, a)
     assert not (tmp_path / "observations.jsonl").exists()
+
+
+def test_equal_instants_with_different_offsets_rejected(tmp_path):
+    m, a = daily(available="2026-10-23T15:00:00Z")
+    append(tmp_path, m, a)
+    before = (tmp_path / "observations.jsonl").read_bytes()
+    m, a = daily("BUY", available="2026-10-23T17:00:00+02:00")
+    m["revision_reason"] = "same instant with another offset"
+    with pytest.raises(IntegrityError, match="equal-time"):
+        append(tmp_path, m, a)
+    assert (tmp_path / "observations.jsonl").read_bytes() == before
+
+
+def test_alias_tickers_same_resolved_security_rejected_atomically(tmp_path):
+    m, a = daily()
+    a += b"ALIAS.OL,2026-10-23,current,BUY,100,40\n"
+    m["artifact_sha256"] = digest(a)
+    m["identities"] = {"NOD.OL": {"isin": "synthetic-shared-isin", "share_class": "ordinary", "name": "name one"},
+                       "ALIAS.OL": {"isin": "synthetic-shared-isin", "share_class": "ordinary", "name": "name two"}}
+    with pytest.raises(IntegrityError, match="duplicate resolved security"):
+        append(tmp_path, m, a)
+    assert not (tmp_path / "observations.jsonl").exists()

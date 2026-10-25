@@ -176,14 +176,18 @@ def append(ledger, manifest, artifact, report=None):
         manifest_sha = digest(manifest_bytes)
         old = {r["observation_id"]: r for r in records}
         pending = []
+        resolved_groups = set()
         for row in rows:
             security = row.pop("_security")
             usable = row.pop("_usable")
             identity = manifest["identities"].get(security)
             require(identity is None or (identity.get("isin") and identity.get("share_class")), "partial security identity")
-            security_key = canonical(identity).decode() if identity else "unverified-symbol:" + security
+            security_key = canonical({"isin": identity["isin"], "share_class": identity["share_class"]}).decode() if identity else "unverified-symbol:" + security
             scope = manifest.get("source_session") if manifest["kind"] == "daily" else manifest.get("episode", "first")
             group = [manifest["kind"], security_key, scope, manifest["economic_method"]]
+            group_key = canonical(group)
+            require(group_key not in resolved_groups, "duplicate resolved security group in one artifact")
+            resolved_groups.add(group_key)
             obs_id = digest(canonical([group, manifest["artifact_sha256"], security, manifest.get("run_date")]))
             provenance_parent = None
             links = manifest.get("provenance_revisions", {})
@@ -209,7 +213,7 @@ def append(ledger, manifest, artifact, report=None):
                 require(timestamp(availability) >= max(known), "out-of-order publication: rebuild a separate ledger chronologically; original unchanged")
             if siblings:
                 require(manifest.get("revision_reason"), "same-group follow-up requires revision reason")
-                require(availability is None or not any(r["available_at"] == availability and r["artifact_sha256"] != manifest["artifact_sha256"] for r in siblings), "ambiguous equal-time publications")
+                require(availability is None or not any(r["available_at"] is not None and timestamp(r["available_at"]) == timestamp(availability) and r["artifact_sha256"] != manifest["artifact_sha256"] for r in siblings), "ambiguous equal-time publications")
             original = next((r for r in siblings if r["role"] == "original"), None)
             timing_ambiguous = any(r["usable"] and r["available_at"] is None for r in siblings)
             if provenance_parent:
