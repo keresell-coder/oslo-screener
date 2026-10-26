@@ -2,13 +2,13 @@
 
 Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Separate KE activity/capacity evidence follows each list. Execution suitability remains unverified; no new liquidity cutoff is introduced.
 
-<!-- snapshot_id=5048ff5e90f343b3ba965f38909338e4 -->
+<!-- snapshot_id=35a7e10e1e1f4912aea8ce95dd17e609 -->
 
 **Forventet avsluttet handelssesjon:** 23.10.2026
 
 **Datastatus:** CURRENT · 199/199 aktuelle rader
 
-**Generert:** 2026-10-26T11:48:56Z · snapshot 5048ff5e90f343b3ba965f38909338e4
+**Generert:** 2026-10-26T12:53:04Z · snapshot 35a7e10e1e1f4912aea8ce95dd17e609
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
