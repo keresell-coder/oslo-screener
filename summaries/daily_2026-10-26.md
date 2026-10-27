@@ -2,18 +2,18 @@
 
 Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Separate KE activity/capacity evidence follows each list. Execution suitability remains unverified; no new liquidity cutoff is introduced.
 
-<!-- snapshot_id=827e0842eb4441288ae4c35c313fed41 -->
+<!-- snapshot_id=9815808c48ff40df9ff4f253e34cb96c -->
 
 **Forventet avsluttet handelssesjon:** 26.10.2026
 
-**Datastatus:** DEGRADED · 195/199 aktuelle rader
+**Datastatus:** CURRENT · 199/199 aktuelle rader
 
-**Generert:** 2026-10-26T21:01:10Z · snapshot 827e0842eb4441288ae4c35c313fed41
+**Generert:** 2026-10-27T12:05:10Z · snapshot 9815808c48ff40df9ff4f253e34cb96c
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 4. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 9 | SELL 5 | BUY-watch 11 | SELL-watch 9
 
@@ -27,10 +27,10 @@ Research-only rebound setups. SELL denotes an existing-holder reduction/exit rev
 | 1 | AKER.OL | 1158.00 | 24.80 | +1.83 | -14.63 ❌ | -19.49 ❌ | 38 🟢 | RSI6 21 ⚪ · MFI 33 🔴 |
 | 1 | AGLX.OL | 13.15 | 33.53 | +0.59 | -0.14 ❌ | -18.28 ❌ | 33 🟢 | RSI6 32 ⚪ · MFI 6 🔴 |
 | 1 | KIT.OL | 85.70 | 31.68 | +5.91 | -2.40 ❌ | -10.47 ❌ | 27 🟢 | RSI6 24 ⚪ · MFI 24 🔴 |
-| 1 | ELK.OL | 30.24 | 33.87 | +6.75 | -0.31 ❌ | -10.34 ❌ | 26 🟢 | RSI6 30 ⚪ · MFI 26 🔴 |
+| 1 | ELK.OL | 30.24 | 33.87 | +6.75 | -0.31 ❌ | -10.34 ❌ | 26 🟢 | RSI6 30 ⚪ · MFI 27 🔴 |
 | 0 | ARCH.OL | 19.00 | 34.22 | +8.97 | -0.35 ❌ | -15.67 ❌ | 25 ⚪ | RSI6 36 ⚪ · MFI 25 🔴 |
 | 0 | HYPRO.OL | 0.38 | 32.43 | +7.40 | -0.01 ◻️ | -21.18 ❌ | 24 ⚪ | RSI6 41 ⚪ · MFI 11 🔴 |
-| 0 | SCATC.OL | 80.60 | 32.19 | +5.51 | -2.89 ❌ | -18.05 ❌ | 22 ⚪ | RSI6 27 ⚪ · MFI 25 🔴 |
+| 0 | SCATC.OL | 80.60 | 32.19 | +5.51 | -2.89 ❌ | -18.05 ❌ | 22 ⚪ | RSI6 27 ⚪ · MFI 24 🔴 |
 
 **ONCIN.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-04 to 2026-10-26, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 1,671,042; NOK 100k / 500k orders = 5.98% / 29.92% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
@@ -90,7 +90,7 @@ DNO.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | ELABS.OL | 2.69 | 33.28 | -0.12 | -0.08 ❌ | -15.35 ❌ | 18 ⚠️ | RSI6 20 ⚪ · MFI 39 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | HAVI.OL | 0.84 | 30.43 | -1.73 | -0.03 ◻️ | -22.07 ❌ | 30 🟢 | RSI6 20 ⚪ · MFI 30 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | HEX.OL | 11.28 | 34.45 | -0.43 | -0.10 ❌ | -11.55 ❌ | 21 ⚪ | RSI6 24 ⚪ · MFI 31 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | KOMPL.OL | 5.84 | 28.48 | -2.76 | -0.10 ❌ | -15.67 ❌ | 20 ⚠️ | RSI6 19 ⚪ · MFI 27 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | KOMPL.OL | 5.84 | 28.48 | -2.76 | -0.10 ❌ | -15.67 ❌ | 20 ⚪ | RSI6 19 ⚪ · MFI 27 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | MGN.OL | 18.86 | 30.93 | -0.69 | -0.27 ❌ | -12.39 ❌ | 18 ⚠️ | RSI6 20 ⚪ · MFI 16 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | NOM.OL | 0.53 | 32.08 | -1.40 | 0.04 ◻️ | -64.42 ❌ | 14 ⚠️ | RSI6 34 ⚪ · MFI 46 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | NSKOG.OL | 36.45 | 26.26 | -0.34 | -0.70 ❌ | -21.04 ❌ | 26 🟢 | RSI6 13 ⚪ · MFI 41 ⚪ |
@@ -130,7 +130,7 @@ DNO.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | BNOR.OL | 633.00 | 74.96 | +0.95 | 3.44 ❌ | 9.47 ❌ | 24 ⚪ | RSI6 89 ⚪ · MFI 85 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | KID.OL | 137.80 | 70.23 | +2.11 | 0.83 ❌ | 9.81 ❌ | 28 🟢 | RSI6 72 ⚪ · MFI 78 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | KOA.OL | 2.08 | 68.05 | +2.67 | 0.02 ◻️ | 5.20 ❌ | 17 ⚠️ | RSI6 86 ⚪ · MFI 69 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | MEDI.OL | 308.00 | 76.18 | +3.01 | 2.10 ❌ | 18.69 ❌ | 43 🟢 | RSI6 82 ⚪ · MFI 86 ⚪ |
+| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | MEDI.OL | 305.50 | 76.18 | +3.01 | 2.09 ❌ | 18.69 ❌ | 43 🟢 | RSI6 82 ⚪ · MFI 88 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | MOWI.OL | 216.60 | 68.13 | +0.73 | 1.26 ❌ | 5.99 ❌ | 30 🟢 | RSI6 80 ⚪ · MFI 58 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | OET.OL | 901.00 | 66.39 | +3.67 | -6.77 ✅ | 20.25 ❌ | 35 🟢 | RSI6 70 ⚪ · MFI 55 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | ORK.OL | 97.80 | 65.93 | +3.45 | 0.61 ❌ | 4.03 ❌ | 28 🟢 | RSI6 81 ⚪ · MFI 78 ⚪ |
@@ -158,16 +158,11 @@ DNO.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| HGSB.OL | stale | 2026-10-23 | missing_expected_completed_session |
-| HSPG.OL | stale | 2026-10-23 | missing_expected_completed_session |
-| POL.OL | stale | 2026-10-23 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-10-23 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
