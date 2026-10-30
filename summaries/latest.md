@@ -2,18 +2,18 @@
 
 Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Separate KE activity/capacity evidence follows each list. Execution suitability remains unverified; no new liquidity cutoff is introduced.
 
-<!-- snapshot_id=18fdaef1d47c4f80aa9516f84588b859 -->
+<!-- snapshot_id=f193be38aea74119bc3232dd758a4a0e -->
 
 **Forventet avsluttet handelssesjon:** 29.10.2026
 
-**Datastatus:** DEGRADED · 196/199 aktuelle rader
+**Datastatus:** CURRENT · 199/199 aktuelle rader
 
-**Generert:** 2026-10-29T21:07:43Z · snapshot 18fdaef1d47c4f80aa9516f84588b859
+**Generert:** 2026-10-30T12:47:38Z · snapshot f193be38aea74119bc3232dd758a4a0e
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 3 | SELL 5 | BUY-watch 18 | SELL-watch 9
 
@@ -79,7 +79,7 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | OTEC.OL | 17.62 | 32.91 | -0.20 | -0.53 ❌ | -7.74 ❌ | 28 🟢 | RSI6 19 ⚪ · MFI 43 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | OTOVO.OL | 7.86 | 33.59 | -1.07 | -0.07 ❌ | -22.14 ❌ | 24 ⚪ | RSI6 36 ⚪ · MFI 5 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PARB.OL | 49.00 | 33.59 | -8.44 | 0.16 ✅ | -9.82 ❌ | 19 ⚠️ | RSI6 30 ⚪ · MFI 38 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PHO.OL | 46.70 | 33.92 | -2.93 | -0.10 ❌ | -8.75 ❌ | 17 ⚠️ | RSI6 24 ⚪ · MFI 37 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PHO.OL | 46.70 | 33.92 | -2.93 | -0.10 ❌ | -8.75 ❌ | 17 ⚠️ | RSI6 24 ⚪ · MFI 36 ⚪ |
 | RSI <=35 met; Needs up-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | PYRUM.OL | 272.00 | 30.94 | +0.00 | -2.22 ❌ | -11.76 ❌ | 35 🟢 | RSI6 23 ⚪ · MFI 47 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | SALME.OL | 2.65 | 23.85 | -6.07 | -0.02 ◻️ | -20.73 ❌ | 20 ⚠️ | RSI6 11 ⚪ · MFI 24 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | SOGN.OL | 282.00 | 27.17 | -14.19 | -0.54 ❌ | -9.59 ❌ | 35 🟢 | RSI6 15 ⚪ · MFI 24 ⚪ |
@@ -161,15 +161,11 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| GYL.OL | stale | 2026-10-28 | missing_expected_completed_session |
-| HGSB.OL | stale | 2026-10-28 | missing_expected_completed_session |
-| ININ.OL | stale | 2026-10-28 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
