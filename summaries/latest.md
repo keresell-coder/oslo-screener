@@ -2,20 +2,20 @@
 
 Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Separate KE activity/capacity evidence follows each list. Execution suitability remains unverified; no new liquidity cutoff is introduced.
 
-<!-- snapshot_id=14a8283a6a104ca681e6e8aa1b905381 -->
+<!-- snapshot_id=c5bf8cf483ee42a3916320b6165043bc -->
 
 **Forventet avsluttet handelssesjon:** 30.10.2026
 
-**Datastatus:** DEGRADED · 195/199 aktuelle rader
+**Datastatus:** CURRENT · 199/199 aktuelle rader
 
-**Generert:** 2026-10-30T20:47:42Z · snapshot 14a8283a6a104ca681e6e8aa1b905381
+**Generert:** 2026-11-02T15:41:20Z · snapshot c5bf8cf483ee42a3916320b6165043bc
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 4. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
-**Telling:** BUY 2 | SELL 2 | BUY-watch 22 | SELL-watch 13
+**Telling:** BUY 2 | SELL 2 | BUY-watch 22 | SELL-watch 14
 
 
 ## Rebound setups — review (legacy BUY codes)
@@ -39,8 +39,8 @@ YAR.OL kvalifiserte via gatekeeper (RSI≤35 & opp-dag). ADX≥25 (🟢).
 
 | Context count (heuristic) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| 1 | MEDI.OL | 305.00 | 73.19 | -2.63 | 1.85 ❌ | 15.96 ❌ | 47 🟢 | RSI6 73 ⚪ · MFI 83 🔴 |
-| 0 | KCC.OL | 114.60 | 67.67 | -1.59 | 1.09 ❌ | 10.62 ❌ | 20 ⚪ | RSI6 76 ⚪ · MFI 52 ⚪ |
+| 1 | MEDI.OL | 305.00 | 73.19 | -2.63 | 1.85 ❌ | 15.96 ❌ | 47 🟢 | RSI6 73 ⚪ · MFI 82 🔴 |
+| 0 | KCC.OL | 114.24 | 67.67 | -1.59 | 1.08 ❌ | 10.62 ❌ | 20 ⚪ | RSI6 76 ⚪ · MFI 52 ⚪ |
 
 **MEDI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,051,898; NOK 100k / 500k orders = 2.47% / 12.34% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
@@ -83,7 +83,7 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 **AKSO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 19,899,044; NOK 100k / 500k orders = 0.50% / 2.51% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**ARCH.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,129,538; NOK 100k / 500k orders = 2.42% / 12.11% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**ARCH.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,133,497; NOK 100k / 500k orders = 2.42% / 12.10% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
 **BWE.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 8,477,974; NOK 100k / 500k orders = 1.18% / 5.90% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
@@ -93,7 +93,7 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 **HEX.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 11,536,500; NOK 100k / 500k orders = 0.87% / 4.33% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**HYPRO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 173,822; NOK 100k / 500k orders = 57.53% / 287.65% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**HYPRO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 174,324; NOK 100k / 500k orders = 57.36% / 286.82% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
 **KOMPL.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 382,892; NOK 100k / 500k orders = 26.12% / 130.59% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
@@ -129,7 +129,7 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | Missing setup conditions (not ranked) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | AKRBP.OL | 392.30 | 68.17 | +2.13 | 1.85 ❌ | 8.74 ❌ | 31 🟢 | RSI6 72 ⚪ · MFI 77 ⚪ |
-| RSI >=65 met; Needs down-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | AKVA.OL | 158.00 | 72.12 | +0.00 | -0.62 ✅ | 6.92 ❌ | 47 🟢 | RSI6 65 ⚪ · MFI 47 ⚪ |
+| RSI >=65 met; Needs down-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | AKVA.OL | 158.00 | 72.12 | -0.00 | -0.62 ✅ | 6.92 ❌ | 47 🟢 | RSI6 65 ⚪ · MFI 47 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | BNOR.OL | 633.00 | 68.22 | +5.56 | 1.28 ❌ | 8.27 ❌ | 27 🟢 | RSI6 69 ⚪ · MFI 75 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | BOUV.OL | 54.20 | 76.83 | +8.00 | 0.57 ❌ | 11.46 ❌ | 34 🟢 | RSI6 87 ⚪ · MFI 74 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | CADLR.OL | 64.70 | 73.95 | +11.52 | 1.15 ❌ | 14.12 ❌ | 26 🟢 | RSI6 87 ⚪ · MFI 79 ⚪ |
@@ -140,6 +140,7 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | OKEA.OL | 49.90 | 67.71 | +3.51 | 0.27 ❌ | 19.50 ❌ | 31 🟢 | RSI6 70 ⚪ · MFI 63 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | STECH.OL | 89.00 | 65.88 | +7.85 | 0.56 ❌ | 5.67 ❌ | 27 🟢 | RSI6 77 ⚪ · MFI 86 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | TEL.OL | 131.70 | 66.79 | +3.16 | 1.01 ❌ | 3.95 ❌ | 28 🟢 | RSI6 82 ⚪ · MFI 83 ⚪ |
+| RSI >=65 met; Needs down-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | TRSB.OL | 114.48 | 79.21 | +0.00 | 0.63 ❌ | 4.54 ❌ | 23 ⚪ | RSI6 94 ⚪ · MFI 29 ⚪ |
 | RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | VAR.OL | 59.10 | 70.68 | +5.27 | 0.20 ❌ | 11.39 ❌ | 32 🟢 | RSI6 73 ⚪ · MFI 75 ⚪ |
 
 **AKRBP.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 355,928,730; NOK 100k / 500k orders = 0.03% / 0.14% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
@@ -166,6 +167,8 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 **TEL.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 246,290,595; NOK 100k / 500k orders = 0.04% / 0.20% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
+**TRSB.OL**: KE suitability: Ineligible under daily-trading requirement: vendor reports 34/60 zero-volume sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). Order-size comparison unavailable. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
 **VAR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-10 to 2026-10-30, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 234,452,014; NOK 100k / 500k orders = 0.04% / 0.21% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
 
@@ -173,16 +176,11 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| BIEN.OL | stale | 2026-10-29 | missing_expected_completed_session |
-| HSPG.OL | stale | 2026-10-29 | missing_expected_completed_session |
-| INIFY.OL | stale | 2026-10-29 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-10-29 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
