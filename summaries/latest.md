@@ -2,18 +2,18 @@
 
 Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Separate KE activity/capacity evidence follows each list. Execution suitability remains unverified; no new liquidity cutoff is introduced.
 
-<!-- snapshot_id=1dd85a002d244a69a99e5d5d677041e0 -->
+<!-- snapshot_id=81869e318c4d49af9d1ea16319bcffd5 -->
 
 **Forventet avsluttet handelssesjon:** 03.11.2026
 
-**Datastatus:** DEGRADED · 196/199 aktuelle rader
+**Datastatus:** CURRENT · 199/199 aktuelle rader
 
-**Generert:** 2026-11-03T21:46:44Z · snapshot 1dd85a002d244a69a99e5d5d677041e0
+**Generert:** 2026-11-04T14:25:08Z · snapshot 81869e318c4d49af9d1ea16319bcffd5
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 3. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
 
 **Telling:** BUY 4 | SELL 2 | BUY-watch 21 | SELL-watch 6
 
@@ -62,7 +62,7 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 | Missing setup conditions (not ranked) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AGLX.OL | 13.00 | 34.24 | -1.21 | 0.04 ◻️ | -16.61 ❌ | 32 🟢 | RSI6 33 ⚪ · MFI 35 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AGLX.OL | 13.00 | 34.24 | -1.21 | 0.04 ◻️ | -16.61 ❌ | 33 🟢 | RSI6 33 ⚪ · MFI 35 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | ARCH.OL | 17.20 | 25.67 | -2.21 | -0.23 ❌ | -21.22 ❌ | 29 🟢 | RSI6 19 ⚪ · MFI 17 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | ARR.OL | 4.84 | 32.24 | -3.85 | -0.04 ◻️ | -11.18 ❌ | 33 🟢 | RSI6 20 ⚪ · MFI 36 ⚪ |
 | RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | BORR.OL | 33.53 | 31.65 | -5.01 | -0.75 ❌ | -17.89 ❌ | 17 ⚠️ | RSI6 20 ⚪ · MFI 19 ⚪ |
@@ -142,7 +142,7 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 **AZT.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-12 to 2026-11-03, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 675,276; NOK 100k / 500k orders = 14.81% / 74.04% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**BOUV.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-12 to 2026-11-03, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,725,780; NOK 100k / 500k orders = 2.12% / 10.58% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**BOUV.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-12 to 2026-11-03, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,756,557; NOK 100k / 500k orders = 2.10% / 10.51% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
 **ENDUR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-12 to 2026-11-03, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 16,435,245; NOK 100k / 500k orders = 0.61% / 3.04% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
@@ -155,15 +155,11 @@ MEDI.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-| Aksje | Datastatus | Observasjonsdato | Årsak |
-|---|---|---|---|
-| ELMRA.OL | stale | 2026-11-02 | missing_expected_completed_session |
-| INIFY.OL | stale | 2026-11-02 | missing_expected_completed_session |
-| TRSB.OL | stale | 2026-11-02 | missing_expected_completed_session |
+Ingen aksjer er utelatt.
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
