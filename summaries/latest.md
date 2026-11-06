@@ -2,200 +2,204 @@
 
 Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Separate KE activity/capacity evidence follows each list. Execution suitability remains unverified; no new liquidity cutoff is introduced.
 
-<!-- snapshot_id=eb7abd2cfbbf4fbebcf910d051fd896e -->
+<!-- snapshot_id=244a8e550d544729a6ff7abaaaf55e20 -->
 
-**Forventet avsluttet handelssesjon:** 05.11.2026
+**Forventet avsluttet handelssesjon:** 06.11.2026
 
-**Datastatus:** CURRENT · 199/199 aktuelle rader
+**Datastatus:** DEGRADED · 193/199 aktuelle rader
 
-**Generert:** 2026-11-06T14:11:23Z · snapshot eb7abd2cfbbf4fbebcf910d051fd896e
+**Generert:** 2026-11-06T21:29:45Z · snapshot 244a8e550d544729a6ff7abaaaf55e20
 
 
 **Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**
 
-**Utelatte aksjer:** 0. Full liste med årsaker står nedenfor.
+**Utelatte aksjer:** 6. Full liste med årsaker står nedenfor.
 
-**Telling:** BUY 2 | SELL 1 | BUY-watch 27 | SELL-watch 15
+**Telling:** BUY 8 | SELL 3 | BUY-watch 26 | SELL-watch 7
 
 
 ## Rebound setups — review (legacy BUY codes)
 
 | Context count (heuristic) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| 1 | ARCH.OL | 17.00 | 25.72 | +1.25 | -0.21 ❌ | -21.15 ❌ | 32 🟢 | RSI6 20 ⚪ · MFI 14 🔴 |
-| 0 | NORCO.OL | 35.30 | 33.07 | +0.47 | -0.26 ❌ | -7.13 ❌ | 23 ⚪ | RSI6 21 ⚪ · MFI 40 ⚪ |
+| 2 | AKER.OL | 1074.00 | 30.00 | +3.37 | 0.73 ✅ | -19.84 ❌ | 44 🟢 | RSI6 33 ⚪ · MFI 47 ⚪ |
+| 1 | SALME.OL | 2.20 | 22.07 | +7.75 | -0.08 ❌ | -30.17 ❌ | 35 🟢 | RSI6 21 ⚪ · MFI 14 🔴 |
+| 1 | PHO.OL | 44.60 | 28.05 | +1.73 | -0.38 ❌ | -10.86 ❌ | 26 🟢 | RSI6 19 ⚠️ · MFI 19 🔴 |
+| 1 | VOIM.OL | 0.12 | 28.79 | +2.85 | -0.01 ◻️ | -57.47 ❌ | 25 🟢 | RSI6 28 ⚪ · MFI 28 🔴 |
+| 0 | NOL.OL | 6.48 | 34.11 | +1.56 | 0.00 ◻️ | -7.58 ❌ | 23 ⚪ | RSI6 28 ⚪ · MFI 40 🔴 |
+| 0 | HBC.OL | 1.10 | 28.69 | +1.85 | -0.03 ◻️ | -16.41 ❌ | 22 ⚪ | RSI6 19 ⚠️ · MFI 27 🔴 |
+| 0 | BORR.OL | 31.29 | 30.40 | +3.97 | -1.05 ❌ | -22.19 ❌ | 22 ⚪ | RSI6 24 ⚪ · MFI 18 🔴 |
+| 0 | GENO.OL | 17.74 | 34.93 | +1.30 | -0.36 ❌ | -9.39 ❌ | 16 ⚠️ | RSI6 22 ⚪ · MFI 32 🔴 |
 
-**ARCH.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,759,464; NOK 100k / 500k orders = 2.10% / 10.51% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**AKER.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 168,847,533; NOK 100k / 500k orders = 0.06% / 0.30% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**NORCO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 9,106,470; NOK 100k / 500k orders = 1.10% / 5.49% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**SALME.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 2,665,059; NOK 100k / 500k orders = 3.75% / 18.76% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
+**PHO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 1,817,960; NOK 100k / 500k orders = 5.50% / 27.50% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
+**VOIM.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 91,975; NOK 100k / 500k orders = 108.72% / 543.62% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
+**NOL.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 198,626; NOK 100k / 500k orders = 50.35% / 251.73% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
+**HBC.OL**: KE suitability: Ineligible under daily-trading requirement: vendor reports 1/60 zero-volume sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 120,876; NOK 100k / 500k orders = 82.73% / 413.65% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
+**BORR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 15,867,207; NOK 100k / 500k orders = 0.63% / 3.15% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
+**GENO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 2,236,414; NOK 100k / 500k orders = 4.47% / 22.36% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
 
 **Example rule qualification (not a validated priority)**
 
-ARCH.OL kvalifiserte via gatekeeper (RSI≤35 & opp-dag). ADX≥25 (🟢).
+AKER.OL kvalifiserte via gatekeeper (RSI≤35 & opp-dag). MACD støtter (✅). ADX≥25 (🟢).
 
 
 ## Reduction/exit review setups — not short (legacy SELL codes)
 
 | Context count (heuristic) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| 1 | ENDUR.OL | 129.40 | 70.89 | -1.83 | 0.87 ❌ | 13.98 ❌ | 32 🟢 | RSI6 78 ⚪ · MFI 71 🔴 |
+| 2 | AKVA.OL | 158.00 | 68.72 | -5.04 | -0.62 ✅ | 5.28 ❌ | 50 🟢 | RSI6 49 ⚪ · MFI 25 🟢 |
+| 1 | ENTRA.OL | 99.60 | 66.60 | -1.23 | 0.99 ❌ | 2.24 ❌ | 39 🟢 | RSI6 86 ⚠️ · MFI 88 🔴 |
+| 1 | TEL.OL | 134.50 | 67.06 | -8.22 | 1.00 ❌ | 5.87 ❌ | 35 🟢 | RSI6 70 ⚪ · MFI 83 🔴 |
 
-**ENDUR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 15,844,456; NOK 100k / 500k orders = 0.63% / 3.16% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**AKVA.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 619,051; NOK 100k / 500k orders = 16.15% / 80.77% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
+**ENTRA.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 9,293,704; NOK 100k / 500k orders = 1.08% / 5.38% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+
+**TEL.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 222,786,532; NOK 100k / 500k orders = 0.04% / 0.22% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
 
 **Example rule qualification (not a validated priority)**
 
-ENDUR.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). ADX≥25 (🟢).
+AKVA.OL kvalifiserte via gatekeeper (RSI≥65 & ned-dag). MACD støtter (✅). ADX≥25 (🟢).
 
 
 ## BUY-watch — rebound review (alphabetical, not proximity-ranked)
 
 | Missing setup conditions (not ranked) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AKAST.OL | 11.34 | 25.13 | -18.59 | -0.14 ❌ | -13.79 ❌ | 17 ⚠️ | RSI6 10 ⚪ · MFI 24 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AKER.OL | 1059.00 | 26.63 | -6.08 | 0.12 ✅ | -21.46 ❌ | 44 🟢 | RSI6 25 ⚪ · MFI 43 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AKRBP.OL | 319.30 | 29.28 | -13.70 | -5.34 ❌ | -10.23 ❌ | 29 🟢 | RSI6 13 ⚪ · MFI 41 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | ARR.OL | 4.68 | 30.37 | -6.05 | -0.05 ◻️ | -13.37 ❌ | 34 🟢 | RSI6 21 ⚪ · MFI 31 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AUTO.OL | 14.16 | 33.46 | -8.12 | -0.06 ❌ | -8.57 ❌ | 21 ⚪ | RSI6 21 ⚪ · MFI 30 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | BNOR.OL | 546.00 | 31.18 | -6.66 | -8.94 ❌ | -7.02 ❌ | 26 🟢 | RSI6 16 ⚪ · MFI 48 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | BORR.OL | 30.30 | 26.43 | -1.73 | -1.09 ❌ | -25.03 ❌ | 20 ⚪ | RSI6 14 ⚪ · MFI 17 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | BWE.OL | 47.50 | 21.51 | -0.91 | -2.31 ❌ | -19.52 ❌ | 38 🟢 | RSI6 6 ⚪ · MFI 7 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | BWLPG.OL | 210.20 | 30.14 | -6.23 | -3.04 ❌ | -9.95 ❌ | 18 ⚠️ | RSI6 14 ⚪ · MFI 32 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | COSH.OL | 129.00 | 34.98 | -2.93 | -0.27 ❌ | -4.37 ❌ | 14 ⚠️ | RSI6 19 ⚪ · MFI 12 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | DELIA.OL | 17.10 | 34.62 | -0.90 | 0.06 ✅ | -15.18 ❌ | 30 🟢 | RSI6 33 ⚪ · MFI 26 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | GENO.OL | 17.60 | 33.64 | -3.43 | -0.31 ❌ | -10.33 ❌ | 14 ⚠️ | RSI6 18 ⚪ · MFI 32 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | HBC.OL | 1.09 | 26.84 | -0.66 | -0.03 ◻️ | -17.59 ❌ | 21 ⚪ | RSI6 14 ⚪ · MFI 19 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | HEX.OL | 10.57 | 27.18 | -5.37 | -0.06 ❌ | -14.46 ❌ | 29 🟢 | RSI6 13 ⚪ · MFI 28 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | MPCC.OL | 24.93 | 27.94 | -2.21 | -0.40 ❌ | -10.30 ❌ | 25 🟢 | RSI6 14 ⚪ · MFI 22 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | NAPA.OL | 35.00 | 32.73 | -0.70 | -0.65 ❌ | -17.39 ❌ | 29 🟢 | RSI6 22 ⚪ · MFI 26 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | NAVA.OL | 10.25 | 28.19 | -2.04 | -0.26 ❌ | -21.49 ❌ | 27 🟢 | RSI6 21 ⚪ · MFI 21 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | NOL.OL | 6.46 | 32.55 | -3.13 | 0.01 ◻️ | -8.12 ❌ | 22 ⚪ | RSI6 24 ⚪ · MFI 43 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | ONCIN.OL | 62.80 | 30.43 | -5.08 | 0.74 ✅ | -27.70 ❌ | 21 ⚪ | RSI6 25 ⚪ · MFI 39 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | OTEC.OL | 17.12 | 31.62 | -0.48 | -0.45 ❌ | -10.39 ❌ | 32 🟢 | RSI6 20 ⚪ · MFI 33 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PHO.OL | 44.40 | 26.32 | -1.72 | -0.41 ❌ | -11.66 ❌ | 24 ⚪ | RSI6 13 ⚪ · MFI 21 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PLT.OL | 13.02 | 34.43 | -1.02 | -0.49 ❌ | -10.77 ❌ | 27 🟢 | RSI6 19 ⚪ · MFI 28 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PRS.OL | 4.20 | 31.17 | -4.25 | -0.04 ◻️ | -14.44 ❌ | 23 ⚪ | RSI6 17 ⚪ · MFI 23 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PYRUM.OL | 274.00 | 34.97 | -4.21 | 0.14 ✅ | -10.45 ❌ | 35 🟢 | RSI6 31 ⚪ · MFI 49 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | SALME.OL | 2.09 | 14.32 | -0.76 | -0.09 ❌ | -34.37 ❌ | 33 🟢 | RSI6 4 ⚪ · MFI 7 ⚪ |
-| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | VAR.OL | 50.66 | 34.82 | -6.97 | -0.82 ❌ | -5.24 ❌ | 29 🟢 | RSI6 18 ⚪ · MFI 46 ⚪ |
-| RSI <=35 met; Needs up-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | VOIM.OL | 0.11 | 25.94 | +0.00 | -0.01 ◻️ | -61.63 ❌ | 24 ⚪ | RSI6 21 ⚪ · MFI 26 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AKAST.OL | 10.80 | 21.66 | -3.48 | -0.23 ❌ | -17.55 ❌ | 21 ⚪ | RSI6 7 ⚪ · MFI 22 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AKRBP.OL | 316.80 | 28.57 | -0.71 | -7.24 ❌ | -10.79 ❌ | 30 🟢 | RSI6 13 ⚪ · MFI 33 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | ARCH.OL | 16.90 | 25.27 | -0.45 | -0.19 ❌ | -21.11 ❌ | 32 🟢 | RSI6 19 ⚪ · MFI 17 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | AUTO.OL | 14.15 | 33.34 | -0.12 | -0.08 ❌ | -8.37 ❌ | 22 ⚪ | RSI6 21 ⚪ · MFI 28 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | BNOR.OL | 540.00 | 29.83 | -1.36 | -10.69 ❌ | -8.04 ❌ | 27 🟢 | RSI6 14 ⚪ · MFI 41 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | BWE.OL | 46.80 | 20.76 | -0.75 | -2.24 ❌ | -20.50 ❌ | 40 🟢 | RSI6 5 ⚪ · MFI 4 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | BWLPG.OL | 203.60 | 26.87 | -3.27 | -3.73 ❌ | -12.68 ❌ | 19 ⚠️ | RSI6 11 ⚪ · MFI 25 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | CMBTO.OL | 156.80 | 32.81 | -3.62 | -1.44 ❌ | -12.12 ❌ | 29 🟢 | RSI6 24 ⚪ · MFI 52 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | COSH.OL | 127.00 | 29.99 | -4.99 | -0.44 ❌ | -5.67 ❌ | 16 ⚠️ | RSI6 13 ⚪ · MFI 9 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | FRO.OL | 424.70 | 32.41 | -3.60 | -10.73 ❌ | -11.31 ❌ | 25 ⚪ | RSI6 15 ⚪ · MFI 40 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | GSF.OL | 22.38 | 33.68 | -1.39 | 0.08 ✅ | -9.24 ❌ | 39 🟢 | RSI6 31 ⚪ · MFI 44 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | HAFNI.OL | 87.45 | 34.98 | -5.30 | -1.64 ❌ | -5.33 ❌ | 20 ⚪ | RSI6 15 ⚪ · MFI 44 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | HAUTO.OL | 169.60 | 33.29 | -6.49 | -1.34 ❌ | -6.42 ❌ | 21 ⚪ | RSI6 18 ⚪ · MFI 22 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | HAVI.OL | 0.76 | 28.62 | -6.55 | -0.01 ◻️ | -25.96 ❌ | 41 🟢 | RSI6 23 ⚪ · MFI 21 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | HSHP.OL | 143.20 | 33.14 | -3.58 | -1.05 ❌ | -12.16 ❌ | 21 ⚪ | RSI6 26 ⚪ · MFI 24 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | MPCC.OL | 23.90 | 23.74 | -4.20 | -0.47 ❌ | -13.85 ❌ | 27 🟢 | RSI6 10 ⚪ · MFI 22 ⚪ |
+| RSI <=35 met; Needs up-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | NAVA.OL | 10.25 | 28.19 | +0.00 | -0.25 ❌ | -20.95 ❌ | 29 🟢 | RSI6 21 ⚪ · MFI 20 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | NHY.OL | 68.38 | 34.52 | -0.86 | 0.29 ✅ | -14.57 ❌ | 46 🟢 | RSI6 47 ⚪ · MFI 40 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | NSKOG.OL | 35.90 | 34.29 | -1.02 | -0.04 ◻️ | -19.22 ❌ | 34 🟢 | RSI6 36 ⚪ · MFI 24 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | ONCIN.OL | 62.60 | 30.20 | -0.23 | 0.57 ✅ | -27.53 ❌ | 22 ⚪ | RSI6 25 ⚪ · MFI 39 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PEXIP.OL | 65.70 | 31.23 | -4.24 | -0.61 ❌ | -11.06 ❌ | 23 ⚪ | RSI6 24 ⚪ · MFI 29 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PLT.OL | 12.12 | 29.79 | -4.64 | -0.52 ❌ | -16.93 ❌ | 28 🟢 | RSI6 14 ⚪ · MFI 25 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | PNOR.OL | 11.26 | 34.99 | -3.08 | -0.16 ❌ | -7.87 ❌ | 18 ⚠️ | RSI6 18 ⚪ · MFI 52 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | SNI.OL | 316.00 | 31.66 | -4.78 | -2.88 ❌ | -9.10 ❌ | 20 ⚠️ | RSI6 19 ⚪ · MFI 36 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | VAR.OL | 49.53 | 32.18 | -2.63 | -1.04 ❌ | -7.39 ❌ | 30 🟢 | RSI6 16 ⚪ · MFI 40 ⚪ |
+| RSI <=35 met; Needs up-close (current down); SMA50/MACD are confirmations only, not missing hard gates | WAWI.OL | 160.10 | 34.07 | -2.16 | -1.28 ❌ | -7.48 ❌ | 22 ⚪ | RSI6 19 ⚪ · MFI 31 ⚪ |
 
-**AKAST.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 6,503,508; NOK 100k / 500k orders = 1.54% / 7.69% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**AKAST.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 6,503,508; NOK 100k / 500k orders = 1.54% / 7.69% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**AKER.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 175,201,480; NOK 100k / 500k orders = 0.06% / 0.29% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**AKRBP.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 418,229,100; NOK 100k / 500k orders = 0.02% / 0.12% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**AKRBP.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 399,979,445; NOK 100k / 500k orders = 0.03% / 0.13% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**ARCH.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,456,278; NOK 100k / 500k orders = 2.24% / 11.22% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**ARR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 1,039,992; NOK 100k / 500k orders = 9.62% / 48.08% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**AUTO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 57,831,739; NOK 100k / 500k orders = 0.17% / 0.86% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**AUTO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 57,646,629; NOK 100k / 500k orders = 0.17% / 0.87% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**BNOR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 78,667,146; NOK 100k / 500k orders = 0.13% / 0.64% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**BNOR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 78,667,146; NOK 100k / 500k orders = 0.13% / 0.64% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**BWE.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 10,292,885; NOK 100k / 500k orders = 0.97% / 4.86% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**BORR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 15,867,207; NOK 100k / 500k orders = 0.63% / 3.15% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**BWLPG.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 66,657,152; NOK 100k / 500k orders = 0.15% / 0.75% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**BWE.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 10,292,885; NOK 100k / 500k orders = 0.97% / 4.86% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**CMBTO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 54,095,514; NOK 100k / 500k orders = 0.18% / 0.92% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**BWLPG.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 66,657,152; NOK 100k / 500k orders = 0.15% / 0.75% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**COSH.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 12,956,344; NOK 100k / 500k orders = 0.77% / 3.86% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**COSH.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 12,956,344; NOK 100k / 500k orders = 0.77% / 3.86% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**FRO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 443,026,844; NOK 100k / 500k orders = 0.02% / 0.11% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**DELIA.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 762,811; NOK 100k / 500k orders = 13.11% / 65.55% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**GSF.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,810,963; NOK 100k / 500k orders = 2.08% / 10.39% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**GENO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 2,371,784; NOK 100k / 500k orders = 4.22% / 21.08% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**HAFNI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 65,176,427; NOK 100k / 500k orders = 0.15% / 0.77% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**HBC.OL**: KE suitability: Ineligible under daily-trading requirement: vendor reports 1/60 zero-volume sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 120,876; NOK 100k / 500k orders = 82.73% / 413.65% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**HAUTO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 61,621,138; NOK 100k / 500k orders = 0.16% / 0.81% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**HEX.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 11,536,500; NOK 100k / 500k orders = 0.87% / 4.33% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**HAVI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 190,073; NOK 100k / 500k orders = 52.61% / 263.06% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**MPCC.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 35,408,865; NOK 100k / 500k orders = 0.28% / 1.41% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**HSHP.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 19,593,951; NOK 100k / 500k orders = 0.51% / 2.55% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**NAPA.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 10,441,768; NOK 100k / 500k orders = 0.96% / 4.79% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**MPCC.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 37,539,423; NOK 100k / 500k orders = 0.27% / 1.33% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**NAVA.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 339,231; NOK 100k / 500k orders = 29.48% / 147.39% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**NAVA.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 339,231; NOK 100k / 500k orders = 29.48% / 147.39% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**NOL.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 169,437; NOK 100k / 500k orders = 59.02% / 295.09% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**NHY.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 290,482,874; NOK 100k / 500k orders = 0.03% / 0.17% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**ONCIN.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 1,131,554; NOK 100k / 500k orders = 8.84% / 44.19% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**NSKOG.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 9,920,830; NOK 100k / 500k orders = 1.01% / 5.04% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**OTEC.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 2,577,194; NOK 100k / 500k orders = 3.88% / 19.40% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**ONCIN.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 1,080,380; NOK 100k / 500k orders = 9.26% / 46.28% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**PHO.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 1,817,960; NOK 100k / 500k orders = 5.50% / 27.50% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**PEXIP.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 9,625,379; NOK 100k / 500k orders = 1.04% / 5.19% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**PLT.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 12,754,599; NOK 100k / 500k orders = 0.78% / 3.92% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**PLT.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 13,360,515; NOK 100k / 500k orders = 0.75% / 3.74% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**PRS.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 5,344,557; NOK 100k / 500k orders = 1.87% / 9.36% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**PNOR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 4,562,553; NOK 100k / 500k orders = 2.19% / 10.96% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**PYRUM.OL**: KE suitability: Ineligible under daily-trading requirement: vendor reports 29/60 zero-volume sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 2,496; NOK 100k / 500k orders = 4006.41% / 20032.05% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**SNI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 9,201,928; NOK 100k / 500k orders = 1.09% / 5.43% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**SALME.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 2,587,493; NOK 100k / 500k orders = 3.86% / 19.32% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**VAR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 265,482,293; NOK 100k / 500k orders = 0.04% / 0.19% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**VAR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 260,121,305; NOK 100k / 500k orders = 0.04% / 0.19% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**VOIM.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 82,077; NOK 100k / 500k orders = 121.84% / 609.18% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**WAWI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 47,129,400; NOK 100k / 500k orders = 0.21% / 1.06% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
 
 ## SELL-watch — reduction/exit review, not short (alphabetical)
 
 | Missing setup conditions (not ranked) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |
 |:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|
-| RSI >=65 met; Needs down-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | AKVA.OL | 158.50 | 73.76 | +0.00 | -0.60 ✅ | 5.96 ❌ | 50 🟢 | RSI6 76 ⚪ · MFI 41 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | ENTRA.OL | 99.80 | 67.83 | +1.74 | 1.00 ❌ | 2.33 ❌ | 39 🟢 | RSI6 90 ⚪ · MFI 90 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | GJF.OL | 279.60 | 67.59 | +4.51 | 2.07 ❌ | 4.63 ❌ | 21 ⚪ | RSI6 83 ⚪ · MFI 55 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | KID.OL | 143.20 | 71.87 | +8.45 | 0.01 ◻️ | 12.80 ❌ | 27 🟢 | RSI6 78 ⚪ · MFI 55 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | MEDI.OL | 306.00 | 67.81 | +4.91 | -0.31 ✅ | 14.77 ❌ | 45 🟢 | RSI6 64 ⚪ · MFI 80 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | MOWI.OL | 219.40 | 67.48 | +2.18 | 0.23 ❌ | 6.04 ❌ | 38 🟢 | RSI6 72 ⚪ · MFI 65 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | NAS.OL | 12.49 | 66.04 | +1.09 | 0.20 ❌ | 4.89 ❌ | 27 🟢 | RSI6 83 ⚪ · MFI 77 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | NKR.OL | 18.40 | 74.04 | +11.00 | 0.23 ❌ | 22.65 ❌ | 32 🟢 | RSI6 86 ⚪ · MFI 80 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | ORK.OL | 101.90 | 76.11 | +4.81 | 0.50 ❌ | 8.30 ❌ | 39 🟢 | RSI6 90 ⚪ · MFI 79 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | PROT.OL | 472.40 | 72.95 | +2.58 | 4.84 ❌ | 7.61 ❌ | 34 🟢 | RSI6 92 ⚪ · MFI 62 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | PUBLI.OL | 17.80 | 68.75 | +4.55 | 0.20 ❌ | 5.90 ❌ | 22 ⚪ | RSI6 87 ⚪ · MFI 77 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | SKUE.OL | 359.00 | 71.13 | +8.35 | 0.56 ❌ | 6.51 ❌ | 19 ⚠️ | RSI6 86 ⚪ · MFI 42 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | STB.OL | 202.60 | 65.87 | +1.76 | 1.52 ❌ | 3.52 ❌ | 23 ⚪ | RSI6 81 ⚪ · MFI 62 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | TEL.OL | 136.50 | 75.28 | +4.10 | 1.13 ❌ | 7.49 ❌ | 34 🟢 | RSI6 91 ⚪ · MFI 83 ⚪ |
-| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | VEND.OL | 235.00 | 65.92 | +2.37 | 2.40 ❌ | 5.07 ❌ | 19 ⚠️ | RSI6 85 ⚪ · MFI 65 ⚪ |
+| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | KID.OL | 146.20 | 75.28 | +3.42 | 0.34 ❌ | 14.82 ❌ | 29 🟢 | RSI6 84 ⚪ · MFI 61 ⚪ |
+| RSI >=65 met; Needs down-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | MEDI.OL | 306.00 | 67.81 | -0.00 | -0.48 ✅ | 14.34 ❌ | 44 🟢 | RSI6 64 ⚪ · MFI 83 ⚪ |
+| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | MORLD.OL | 26.50 | 69.82 | +5.73 | 0.28 ❌ | 10.76 ❌ | 14 ⚠️ | RSI6 84 ⚪ · MFI 83 ⚪ |
+| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | NAS.OL | 12.93 | 70.80 | +4.76 | 0.24 ❌ | 8.64 ❌ | 29 🟢 | RSI6 88 ⚪ · MFI 85 ⚪ |
+| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | NKR.OL | 18.60 | 74.93 | +0.89 | 0.29 ❌ | 23.32 ❌ | 34 🟢 | RSI6 87 ⚪ · MFI 89 ⚪ |
+| RSI >=65 met; Needs down-close (current up); SMA50/MACD are confirmations only, not missing hard gates | ORK.OL | 102.60 | 77.60 | +1.49 | 0.60 ❌ | 8.87 ❌ | 41 🟢 | RSI6 91 ⚪ · MFI 80 ⚪ |
+| RSI >=65 met; Needs down-close (current flat); SMA50/MACD are confirmations only, not missing hard gates | PROT.OL | 472.40 | 72.95 | +0.00 | 4.85 ❌ | 7.65 ❌ | 35 🟢 | RSI6 92 ⚪ · MFI 62 ⚪ |
 
-**AKVA.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 619,051; NOK 100k / 500k orders = 16.15% / 80.77% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**KID.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 5,466,795; NOK 100k / 500k orders = 1.83% / 9.15% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**ENTRA.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 9,364,747; NOK 100k / 500k orders = 1.07% / 5.34% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**MEDI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 3,441,794; NOK 100k / 500k orders = 2.91% / 14.53% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**GJF.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 88,697,995; NOK 100k / 500k orders = 0.11% / 0.56% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**MORLD.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 5,112,650; NOK 100k / 500k orders = 1.96% / 9.78% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**KID.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 5,466,795; NOK 100k / 500k orders = 1.83% / 9.15% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**NAS.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 84,540,100; NOK 100k / 500k orders = 0.12% / 0.59% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**MEDI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 3,441,794; NOK 100k / 500k orders = 2.91% / 14.53% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**NKR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 1,895,789; NOK 100k / 500k orders = 5.27% / 26.37% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**MOWI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 238,824,612; NOK 100k / 500k orders = 0.04% / 0.21% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**ORK.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 147,558,801; NOK 100k / 500k orders = 0.07% / 0.34% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
-**NAS.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 80,907,607; NOK 100k / 500k orders = 0.12% / 0.62% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**NKR.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 1,895,789; NOK 100k / 500k orders = 5.27% / 26.37% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**ORK.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 145,201,822; NOK 100k / 500k orders = 0.07% / 0.34% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**PROT.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 41,317,981; NOK 100k / 500k orders = 0.24% / 1.21% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**PUBLI.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 5,495,912; NOK 100k / 500k orders = 1.82% / 9.10% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**SKUE.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 198,200; NOK 100k / 500k orders = 50.45% / 252.27% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**STB.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 116,915,591; NOK 100k / 500k orders = 0.09% / 0.43% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**TEL.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 229,238,688; NOK 100k / 500k orders = 0.04% / 0.22% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
-
-**VEND.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-14 to 2026-11-05, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 178,899,740; NOK 100k / 500k orders = 0.06% / 0.28% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
+**PROT.OL**: KE suitability: Daily activity: vendor reports positive volume on 60/60 expected open sessions (window 2026-08-17 to 2026-11-06, Yahoo Finance). 20-session median unadjusted-close × volume proxy NOK 40,157,029; NOK 100k / 500k orders = 0.25% / 1.25% of proxy. Execution suitability unverified; not exchange-confirmed turnover, depth or guaranteed fills. No safe participation cutoff assumed.
 
 
 ## Aksjer uten nødvendige data
 
 Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.
 
-Ingen aksjer er utelatt.
+| Aksje | Datastatus | Observasjonsdato | Årsak |
+|---|---|---|---|
+| CADLR.OL | stale | 2026-11-05 | missing_expected_completed_session |
+| ELMRA.OL | stale | 2026-11-05 | missing_expected_completed_session |
+| HERMA.OL | stale | 2026-11-05 | missing_expected_completed_session |
+| HSPG.OL | stale | 2026-11-05 | missing_expected_completed_session |
+| PYRUM.OL | stale | 2026-11-05 | missing_expected_completed_session |
+| TRSB.OL | stale | 2026-11-05 | missing_expected_completed_session |
 
 
 ---
 
-**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus current; begrensninger: ingen strukturelle avvik.
+**Kontroller:** Datakontroll: avsluttet handelssesjon, raddekning og snapshot-integritet verifisert. Datastatus degraded; begrensninger: ingen strukturelle avvik.
 
 _Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._
