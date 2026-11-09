@@ -22,18 +22,18 @@
 <main>
   <h1>Oslo Screener</h1>
   <p>Daily technical research candidates from completed Oslo market sessions.</p>
-  <!-- snapshot_id=244a8e550d544729a6ff7abaaaf55e20 -->
+  <!-- snapshot_id=023fd342e3bd48b5a7ae16a86b06fee5 -->
   <section id="health-panel" class="status" data-status="unavailable" aria-live="polite">
     <strong id="health-status">Not verified</strong>
     <p id="health-reason">Checking the published source health. Do not treat this snapshot as current until verification succeeds.</p>
   </section>
   <dl>
-    <dt>Latest usable market observation</dt><dd id="observation">2026-11-06</dd>
-    <dt>Expected completed session at generation</dt><dd id="expected-session">2026-11-06</dd>
-    <dt>Snapshot generated</dt><dd>2026-11-06T21:29:45Z</dd>
-    <dt>Coverage at publication</dt><dd id="coverage">193 / 199 current · 6 stale · 0 missing · 0 invalid</dd>
-    <dt>Validity deadline</dt><dd id="valid-until">2026-11-09T16:45:00+01:00</dd>
-    <dt>Snapshot ID</dt><dd>244a8e550d544729a6ff7abaaaf55e20</dd>
+    <dt>Latest usable market observation</dt><dd id="observation">2026-11-09</dd>
+    <dt>Expected completed session at generation</dt><dd id="expected-session">2026-11-09</dd>
+    <dt>Snapshot generated</dt><dd>2026-11-09T16:08:04Z</dd>
+    <dt>Coverage at publication</dt><dd id="coverage">194 / 200 current · 5 stale · 0 missing · 1 invalid</dd>
+    <dt>Validity deadline</dt><dd id="valid-until">2026-11-10T16:45:00+01:00</dd>
+    <dt>Snapshot ID</dt><dd>023fd342e3bd48b5a7ae16a86b06fee5</dd>
   </dl>
   
   <p class="status" id="coverage-policy">The overall percentage requirement is temporarily suspended. Only stocks passing the individual data checks can produce signals.</p>
@@ -52,15 +52,15 @@
       <tbody>
       <tr><td>CADLR.OL</td><td>stale</td><td>2026-11-05</td><td>missing_expected_completed_session</td></tr>
       
-      <tr><td>ELMRA.OL</td><td>stale</td><td>2026-11-05</td><td>missing_expected_completed_session</td></tr>
+      <tr><td>ELMRA.OL</td><td>stale</td><td>2026-11-06</td><td>missing_expected_completed_session</td></tr>
       
-      <tr><td>HERMA.OL</td><td>stale</td><td>2026-11-05</td><td>missing_expected_completed_session</td></tr>
+      <tr><td>GYL.OL</td><td>stale</td><td>2026-11-06</td><td>missing_expected_completed_session</td></tr>
       
-      <tr><td>HSPG.OL</td><td>stale</td><td>2026-11-05</td><td>missing_expected_completed_session</td></tr>
+      <tr><td>OUTLT.OL</td><td>invalid</td><td>2026-11-09</td><td>insufficient_indicator_warmup</td></tr>
       
-      <tr><td>PYRUM.OL</td><td>stale</td><td>2026-11-05</td><td>missing_expected_completed_session</td></tr>
+      <tr><td>PYRUM.OL</td><td>stale</td><td>2026-11-06</td><td>missing_expected_completed_session</td></tr>
       
-      <tr><td>TRSB.OL</td><td>stale</td><td>2026-11-05</td><td>missing_expected_completed_session</td></tr>
+      <tr><td>TRSB.OL</td><td>stale</td><td>2026-11-06</td><td>missing_expected_completed_session</td></tr>
       </tbody>
     </table></div>
     
@@ -71,7 +71,7 @@
 <script>
 (() => {
   "use strict";
-  const snapshotId = "244a8e550d544729a6ff7abaaaf55e20";
+  const snapshotId = "023fd342e3bd48b5a7ae16a86b06fee5";
   const schema = "oslo_screener.health.v1";
   const byId = (id) => document.getElementById(id);
   const labels = {current: "Source checks passed", degraded: "Limited coverage", blocked: "Checks blocked", unavailable: "Not verified"};
