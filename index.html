@@ -22,7 +22,7 @@
 <main>
   <h1>Oslo Screener</h1>
   <p>Daily technical research candidates from completed Oslo market sessions.</p>
-  <!-- snapshot_id=450df40520a44fdc8ae23af32b662d43 -->
+  <!-- snapshot_id=49c31a61870846679b08b579578c98f7 -->
   <section id="health-panel" class="status" data-status="unavailable" aria-live="polite">
     <strong id="health-status">Not verified</strong>
     <p id="health-reason">Checking the published source health. Do not treat this snapshot as current until verification succeeds.</p>
@@ -30,10 +30,10 @@
   <dl>
     <dt>Latest usable market observation</dt><dd id="observation">2026-11-11</dd>
     <dt>Expected completed session at generation</dt><dd id="expected-session">2026-11-11</dd>
-    <dt>Snapshot generated</dt><dd>2026-11-11T22:41:48Z</dd>
-    <dt>Coverage at publication</dt><dd id="coverage">191 / 200 current · 8 stale · 0 missing · 1 invalid</dd>
+    <dt>Snapshot generated</dt><dd>2026-11-12T15:04:51Z</dd>
+    <dt>Coverage at publication</dt><dd id="coverage">197 / 200 current · 2 stale · 0 missing · 1 invalid</dd>
     <dt>Validity deadline</dt><dd id="valid-until">2026-11-12T16:45:00+01:00</dd>
-    <dt>Snapshot ID</dt><dd>450df40520a44fdc8ae23af32b662d43</dd>
+    <dt>Snapshot ID</dt><dd>49c31a61870846679b08b579578c98f7</dd>
   </dl>
   
   <p class="status" id="coverage-policy">The overall percentage requirement is temporarily suspended. Only stocks passing the individual data checks can produce signals.</p>
@@ -44,7 +44,7 @@
     <li><a href="health.json">Inspect observation dates, excluded rows and file checksums</a></li>
   </ul>
   <section aria-labelledby="excluded-heading">
-    <h2 id="excluded-heading">Stocks without required data (9)</h2>
+    <h2 id="excluded-heading">Stocks without required data (3)</h2>
     <p>These stocks are excluded from signal lists. Missing data does not establish delisting.</p>
     
     <div class="table-scroll"><table>
@@ -54,19 +54,7 @@
       
       <tr><td>ELMRA.OL</td><td>stale</td><td>2026-11-06</td><td>missing_expected_completed_session</td></tr>
       
-      <tr><td>GYL.OL</td><td>stale</td><td>2026-11-10</td><td>missing_expected_completed_session</td></tr>
-      
-      <tr><td>HSPG.OL</td><td>stale</td><td>2026-11-10</td><td>missing_expected_completed_session</td></tr>
-      
-      <tr><td>ININ.OL</td><td>stale</td><td>2026-11-10</td><td>missing_expected_completed_session</td></tr>
-      
       <tr><td>OUTLT.OL</td><td>invalid</td><td>2026-11-11</td><td>insufficient_indicator_warmup</td></tr>
-      
-      <tr><td>PYRUM.OL</td><td>stale</td><td>2026-11-10</td><td>missing_expected_completed_session</td></tr>
-      
-      <tr><td>TRSB.OL</td><td>stale</td><td>2026-11-10</td><td>missing_expected_completed_session</td></tr>
-      
-      <tr><td>ZAL.OL</td><td>stale</td><td>2026-11-10</td><td>missing_expected_completed_session</td></tr>
       </tbody>
     </table></div>
     
@@ -77,7 +65,7 @@
 <script>
 (() => {
   "use strict";
-  const snapshotId = "450df40520a44fdc8ae23af32b662d43";
+  const snapshotId = "49c31a61870846679b08b579578c98f7";
   const schema = "oslo_screener.health.v1";
   const byId = (id) => document.getElementById(id);
   const labels = {current: "Source checks passed", degraded: "Limited coverage", blocked: "Checks blocked", unavailable: "Not verified"};
