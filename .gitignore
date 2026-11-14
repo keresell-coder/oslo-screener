@@ -1,6 +1,8 @@
 # Local historical CSVs stay ignored. The publication script force-stages only
 # the exact timestamp CSV declared by the current health manifest.
 report_*.csv
+fetch_diagnostics.json
+mifid-audit/
 .DS_Store
 
 # Byte-compiled / optimized / DLL files

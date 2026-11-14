@@ -115,34 +115,39 @@ def test_raw_close_is_required_not_adjusted_price_substitution():
 
 def test_download_preserves_original_adjusted_technicals_and_raw_capacity(monkeypatch):
     import screener
+    from yahoo_history import YahooHistoryFetcher
     raw=pd.DataFrame({'Open':[100.,110.], 'High':[102.,112.], 'Low':[98.,108.],
                       'Close':[100.,110.], 'Adj Close':[50.,110.], 'Volume':[1000.,2000.]},
                      index=pd.to_datetime(['2026-10-22','2026-10-23']))
     expected=screener.yf.utils.auto_adjust(raw)
-    def download(*args,**kwargs):
-        assert kwargs['auto_adjust'] is False
-        return raw.copy()
-    monkeypatch.setattr(screener.yf,'download',download)
+    class Client:
+        def history(self, **kwargs):
+            assert kwargs['auto_adjust'] is False
+            return raw.copy()
+    reader = YahooHistoryFetcher(END, ticker_factory=lambda _: Client(), pause=0)
+    monkeypatch.setattr(screener, '_history_fetcher', reader)
     actual=screener.fetch_ohlc_single('X.OL')
-    pd.testing.assert_frame_equal(actual.drop(columns='RawClose'),expected)
+    pd.testing.assert_frame_equal(actual.drop(columns='RawClose'),expected,check_freq=False)
     assert actual['RawClose'].tolist()==[100.,110.]
     assert actual['Close'].tolist()==[50.,110.]
 
 @pytest.mark.parametrize('ticker_first', [False, True])
-def test_download_flatten_preserves_both_multiindex_orders(monkeypatch,ticker_first):
+def test_flatten_preserves_both_multiindex_orders(ticker_first):
     import screener
     raw=pd.DataFrame({'Open':[100.], 'High':[102.], 'Low':[98.], 'Close':[100.], 'Adj Close':[50.], 'Volume':[1000.]},index=pd.to_datetime(['2026-10-23']))
     nested=raw.copy()
     nested.columns=pd.MultiIndex.from_tuples([( 'X.OL', col) if ticker_first else (col,'X.OL') for col in raw.columns])
-    monkeypatch.setattr(screener.yf,'download',lambda *a,**kw:nested.copy())
-    actual=screener.fetch_ohlc_single('X.OL')
-    pd.testing.assert_frame_equal(actual.drop(columns='RawClose'),screener.yf.utils.auto_adjust(raw))
-    assert actual['RawClose'].iloc[0]==100
+    pd.testing.assert_frame_equal(screener.flatten(nested),raw)
 
 
 def test_missing_adjustment_column_is_not_raw_technical_fallback(monkeypatch):
     import screener
+    from yahoo_history import HistoryUnavailable, YahooHistoryFetcher
     raw=pd.DataFrame({'Open':[100.], 'High':[102.], 'Low':[98.], 'Close':[100.], 'Volume':[1000.]},index=pd.to_datetime(['2026-10-23']))
-    monkeypatch.setattr(screener.yf,'download',lambda *a,**kw:raw.copy())
-    monkeypatch.setattr(screener.time,'sleep',lambda _:None)
-    assert screener.fetch_ohlc_single('X.OL') is None
+    class Client:
+        def history(self, **kwargs):
+            return raw.copy()
+    reader = YahooHistoryFetcher(END, ticker_factory=lambda _: Client(), pause=0)
+    monkeypatch.setattr(screener, '_history_fetcher', reader)
+    with pytest.raises(HistoryUnavailable, match='incomplete_historical_ohlc'):
+        screener.fetch_ohlc_single('X.OL')

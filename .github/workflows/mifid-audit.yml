@@ -1,0 +1,33 @@
+name: Free MiFID source audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/audit_mifid.py'
+      - 'tests/test_mifid_audit.py'
+      - 'instruments.csv'
+      - '.github/workflows/mifid-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Download and audit the free Oslo trade file
+        run: python scripts/audit_mifid.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mifid-source-audit
+          # Publish counts and provenance only; raw and provisional prices stay
+          # outside the public report while source acceptance is unfinished.
+          path: mifid-audit/audit.json
+          retention-days: 90

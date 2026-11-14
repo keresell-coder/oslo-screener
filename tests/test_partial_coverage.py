@@ -132,6 +132,67 @@ def test_temporary_configuration_is_explicit_and_default_is_unchanged(tmp_path, 
         screener.load_config()
 
 
+def test_recovered_history_and_rejected_stocks_build_valid_partial_bundle(tmp_path, monkeypatch):
+    """Exercise the recovery fetcher through the merged producer and report."""
+    from liquidity import session_window
+    from yahoo_history import YahooHistoryFetcher
+
+    class Frozen(dt.datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return NOW.astimezone(tz) if tz else NOW
+
+    dates = pd.to_datetime(session_window(NOW.date(), count=100))
+    prices = pd.Series([100 + i * .1 for i in range(len(dates))], index=dates)
+    good = pd.DataFrame(dict(Open=prices, High=prices + 1, Low=prices - 1,
+                             Close=prices, **{"Adj Close": prices / 2}, Volume=1000))
+
+    class Client:
+        def __init__(self, symbol):
+            self.symbol = symbol
+
+        def history(self, **params):
+            result = good.copy()
+            if self.symbol == "RECOVERED.OL" and params["start"] < str(dates[0].date()):
+                result.loc[dates[-1], ["Close", "Adj Close"]] = float("nan")
+            elif self.symbol == "BAD.OL":
+                result.loc[dates[-4], "High"] = prices.iloc[-4] - 5
+            elif self.symbol == "IPO.OL":
+                result = result.tail(10)
+            return result
+
+    reader = YahooHistoryFetcher(NOW.date(), ticker_factory=Client, pause=0)
+    monkeypatch.chdir(tmp_path)
+    Path("config.yaml").write_text("coverage_policy: per_stock\n")
+    monkeypatch.setattr(screener, "datetime", Frozen)
+    monkeypatch.setattr(screener, "_history_fetcher", None)
+    monkeypatch.setattr(screener, "YahooHistoryFetcher", lambda *a, **k: reader)
+    monkeypatch.setattr(screener, "load_tickers", lambda: ["RECOVERED.OL", "BAD.OL", "IPO.OL"])
+    monkeypatch.setattr(screener, "fetch_quote_currency", lambda _: "NOK")
+
+    health = screener.run()
+    assert health["coverage_policy"] == "per_stock" and health["status"] == "degraded"
+    assert health["eligible_tickers"] == ["RECOVERED.OL"]
+    rejected = {r["ticker"]: r["reason"] for r in health["excluded"]}
+    assert "incomplete_historical_ohlc" in rejected["BAD.OL"]
+    assert rejected["IPO.OL"] == "insufficient_indicator_warmup"
+    records = {r["ticker"]: r for r in read_csv("latest.csv")[0]}
+    assert records["RECOVERED.OL"]["signal"] != "WITHHELD"
+    assert float(records["RECOVERED.OL"]["close"]) == pytest.approx(prices.iloc[-1] / 2)
+    assert float(records["RECOVERED.OL"]["turnover_proxy_median20_nok"]) == pytest.approx(prices.tail(20).median() * 1000)
+    assert all(records[t]["signal"] == "WITHHELD" for t in rejected)
+    diagnostic = next(r for r in reader.diagnostics if r["ticker"] == "RECOVERED.OL")
+    assert diagnostic["recovered_sessions"] == [NOW.date().isoformat()]
+
+    monkeypatch.setattr(build_report, "validate_snapshot", lambda: validate_snapshot(now=NOW))
+    assert build_report.main() == 0
+    prepare_publication(now=NOW)
+    assert validate_publication(now=NOW)["coverage_policy"] == "per_stock"
+    for ticker, reason in rejected.items():
+        assert ticker in Path("summaries/latest.md").read_text()
+        assert reason in Path("index.html").read_text()
+
+
 @pytest.mark.parametrize("policy,expected", [("per_stock", "degraded"), ("minimum", "degraded"), ("unknown", "blocked")])
 def test_rendered_reader_accepts_partial_contract_and_rejects_unknown_policy(tmp_path, monkeypatch, policy, expected):
     node = shutil.which("node")

@@ -1,3 +1,4 @@
+import csv
 import sys
 from pathlib import Path
 
@@ -8,6 +9,16 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 import sync_universe
+
+
+def test_committed_full_universe_has_one_exchange_identity_per_ticker():
+    tickers = sync_universe.read_current(ROOT / "tickers.txt")
+    with (ROOT / "instruments.csv").open() as source:
+        instruments = list(csv.DictReader(source))
+    assert len(instruments) == len(tickers) == len(set(tickers))
+    assert {r["ticker"] for r in instruments} == set(tickers)
+    assert {r["mic"] for r in instruments} == {"XOSL", "XOAS", "MERK"}
+    assert all(r["isin"] and r["name"] for r in instruments)
 
 
 def make_cfg(**overrides):

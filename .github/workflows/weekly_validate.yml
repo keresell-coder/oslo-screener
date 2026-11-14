@@ -61,7 +61,7 @@ jobs:
           GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
         run: |
           set -e
-          git add tickers.txt valid_tickers.txt invalid_tickers.csv
+          git add tickers.txt instruments.csv valid_tickers.txt invalid_tickers.csv
           if git diff --cached --quiet; then
             echo "No ticker changes to commit"
             exit 0
@@ -78,5 +78,6 @@ jobs:
           name: weekly-validation
           path: |
             tickers.txt
+            instruments.csv
             valid_tickers.txt
             invalid_tickers.csv
