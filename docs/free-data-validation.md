@@ -1,9 +1,31 @@
-# Free-data acceptance — 19 September 2026
+# Free-data acceptance
 
 The code and report-builder fixes are tested. A reliable, unattended free-data
-replacement is **not yet accepted for production**. Main is unchanged.
+replacement is **not yet accepted for production**.
 
-## Completed live tests
+## Current acceptance policy — 14 November 2026
+
+PR #16 incorporates current main and the temporary `coverage_policy: per_stock`
+implementation from PR #18. Every included stock must pass its own history,
+session, price and indicator checks. List every excluded instrument and its
+reason; exclusions and coverage below 90% do not block the remaining valid
+stocks. Zero eligible stocks and failed snapshot integrity still block a report.
+The percentage gate is restored only by explicitly selecting `minimum`.
+
+The refreshed exchange directory contains 290 mapped stocks: 194 Oslo Børs,
+10 Expand and 86 Growth. This is the attempted universe, not a claim of complete
+price coverage. The recovery fetcher retains unadjusted closes for main's
+turnover proxy while technical indicators continue to use adjusted prices.
+
+Before recommending a merge, obtain validated previous-session report bundles
+and complete exclusion lists before the next Oslo opening for three consecutive
+trading sessions. Independently check prices, volume and corporate actions across
+all three markets. Current-head software tests must pass and current main must
+merge cleanly. Repeated attempts for one session do not extend the streak.
+The historical-website backup remains disabled; the MiFID service remains an
+audit source until the additional source requirements below are satisfied.
+
+## Historical live tests — September 2026
 
 | Test | Result for the 18 September session | Meaning |
 | --- | --- | --- |
@@ -52,18 +74,20 @@ volume series. The audit deliberately calls its quantity `lit_volume`.
 
 ## Remaining work before production acceptance
 
-1. Obtain a complete historical seed with an appropriate right of use, or wait
-   for Yahoo to restore the missing sessions. Repeating requests cannot create
-   observations the provider does not return.
+1. Require complete, valid history with an appropriate right of use for every
+   included stock. Keep unresolved stocks excluded with reasons; they do not
+   block the other stocks under the owner's temporary policy. Repeating requests
+   cannot create observations the provider does not return.
 2. Validate official closing-price and volume definitions, corporate actions,
    illiquid/no-trade sessions and corrections across multiple sessions.
 3. Establish a persistent daily archive for the short-lived free trade files.
    The current GitHub job is a source audit, not an operating historical store.
-4. Pass full-universe GitHub acceptance with the intended production source,
-   then review and merge the branch. The current default still correctly blocks
-   incomplete Yahoo history.
+4. Pass full-universe GitHub attempts under the current per-stock policy and the
+   three-session acceptance rule above, then review the branch. Incomplete Yahoo
+   histories remain excluded; a successful partial report is not full coverage.
 
 The branch adds paced retries, bounded parallel downloads, three overnight
 attempts, complete-universe mapping, retained diagnostics and the original
-sorted-CSV/health ordering fix. It does not lower the coverage threshold,
-fabricate observations or silently enable the historical-website backup.
+sorted-CSV/health ordering fix. It applies the owner's temporary per-stock policy
+without weakening individual checks, fabricating observations or enabling the
+historical-website backup.

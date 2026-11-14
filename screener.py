@@ -2,18 +2,21 @@
 # Output: latest.csv + report_*.csv + buy/sell/watch_*.csv + konsollsummary
 
 import os, time
-import hashlib, json, uuid
+import csv, hashlib, json, uuid
 from pathlib import Path
 from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor
 
 import numpy as np
 import pandas as pd
+import yfinance as yf
 import yaml
 
 from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD, ADXIndicator
 from ta.volume import MFIIndicator
+from setup_semantics import VERSION, LABELS
+from liquidity import assess_liquidity, COLUMNS as LIQUIDITY_COLUMNS
 from market_health import SCHEMA, evaluate_snapshot, last_ose_trading_day, finite
 from yahoo_history import YahooHistoryFetcher
 from euronext_daily import EuronextDailySource
@@ -33,7 +36,7 @@ def load_config(path: str = "config.yaml") -> dict:
         "position_high_conviction": 5.0, "position_moderate": 3.0, "position_low": 1.5,
         "min_history_days": 60, "rsi6_length": 6, "sma50_length": 50,
         "macd_fast": 12, "macd_slow": 26, "macd_signal": 9,
-        "adx_length": 14, "mfi_length": 14,
+        "adx_length": 14, "mfi_length": 14, "coverage_policy": "minimum",
     }
     try:
         with open(path, "r") as f:
@@ -43,6 +46,8 @@ def load_config(path: str = "config.yaml") -> dict:
                 defaults[k] = data[k]
     except FileNotFoundError:
         pass
+    if defaults["coverage_policy"] not in ("minimum", "per_stock"):
+        raise ValueError("coverage_policy must be minimum or per_stock")
     return defaults
 
 # ---------- Hjelp ----------
@@ -88,6 +93,14 @@ def fetch_jobs(tickers):
     finally:
         pool.shutdown(wait=True, cancel_futures=True)
 
+def fetch_quote_currency(ticker):
+    """Currency metadata is required before comparing NOK orders to turnover."""
+    try:
+        return yf.Ticker(ticker).fast_info['currency']
+    except Exception:
+        return None
+
+
 def adx_band_with_cfg(adx_val: float, cfg: dict):
     if pd.isna(adx_val): return ("UNKNOWN", np.nan, "UNKNOWN")
     if adx_val < cfg["adx_low_max"]:
@@ -97,7 +110,7 @@ def adx_band_with_cfg(adx_val: float, cfg: dict):
     return ("HIGH", cfg["stop_loss_high"], "HIGH")
 
 def position_from_primary_and_adx(primary_count: int, adx_val: float, cfg: dict):
-    # High conviction hvis 3/3 + ADX >= 25 (terskel kan evt. gjøres konfigurerbar senere)
+    # Legacy research heuristic only; no calibrated conviction or portfolio loss budget.
     if primary_count >= 3 and adx_val >= 25:
         return cfg["position_high_conviction"]
     elif primary_count >= 2:
@@ -136,7 +149,8 @@ def classify(long_gate: bool, short_gate: bool, day_up: bool, day_down: bool,
 
 OUTPUT_COLUMNS = ["ticker", "date", "source_latest_date", "last_valid_ohlc_date", "data_status", "note", "close", "rsi14",
                   "rsi_dir", "macd_hist", "sma50", "pct_above_sma50", "adx14", "mfi14", "rsi6",
-                  "signal", "primary_count", "stop_loss_pct", "position_pct", "risk", "snapshot_id"]
+                  "signal", "primary_count", "stop_loss_pct", "position_pct", "risk", "snapshot_id",
+                  "previous_close", "day_direction", "signal_label", "stop_sizing_policy"] + LIQUIDITY_COLUMNS
 
 
 def completed_history(df, expected_session):
@@ -148,30 +162,42 @@ def completed_history(df, expected_session):
 
 
 def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
-                     generated_at=None, snapshot_id=None, source=None):
+                     generated_at=None, snapshot_id=None, source=None, *,
+                     coverage_policy="minimum", methodology_config=None):
+    if coverage_policy not in ("minimum", "per_stock"):
+        raise ValueError("coverage_policy must be minimum or per_stock")
     generated_at = generated_at or datetime.now(timezone.utc)
     snapshot_id = snapshot_id or uuid.uuid4().hex
     out = pd.DataFrame(rows).reindex(columns=OUTPUT_COLUMNS)
     out["snapshot_id"] = snapshot_id
     out["signal"] = out["signal"].fillna("WITHHELD")
     out["data_status"] = out["data_status"].fillna("missing")
+    out["note"] = out["note"].fillna("")
     expected = last_ose_trading_day(generated_at).isoformat()
     def iso(value):
         return value.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     metadata = dict(schema=SCHEMA, snapshot_id=snapshot_id, data_fetch_started=iso(fetch_started_at),
                     data_fetch_completed=iso(fetch_completed_at), generated_at=iso(generated_at),
                     expected_session=expected, universe_count=str(universe_count),
-                    min_coverage_ratio=os.getenv("MIN_CURRENT_COVERAGE", "0.9"))
+                    coverage_policy=coverage_policy,
+                    # One eligible row is sufficient in per-stock mode. Express
+                    # this in the existing ratio contract for older readers.
+                    min_coverage_ratio=(str(1 / universe_count) if coverage_policy == "per_stock" and universe_count > 0
+                                        else os.getenv("MIN_CURRENT_COVERAGE", "0.9")))
     health = evaluate_snapshot(out.to_dict("records"), metadata, generated_at)
     allowed = set(health["eligible_tickers"])
     for excluded in health["excluded"]:
         out.loc[out["ticker"] == excluded["ticker"], ["data_status", "note"]] = [excluded["data_status"], excluded["reason"]]
     out.loc[~out["ticker"].isin(allowed), ["signal", "primary_count", "position_pct"]] = ["WITHHELD", 0, 0.0]
+    rules=methodology_config or load_config()
+    metadata.update(methodology_version=VERSION, signal_semantics="research_setups_not_orders", stop_sizing_policy="research_heuristics_not_loss_budget")
+    for key in ("rsi14_buy_max","rsi14_sell_min","require_day_up_for_buy","require_day_down_for_sell"):
+        metadata[key]=str(rules[key]).lower()
+    out["signal_label"]=out["signal"].map(LABELS)
+    out["stop_sizing_policy"]="research_only_not_allocation_or_executable_stop"
     metadata.update(status=health["status"], market_data_as_of=health["market_data_as_of"] or "unavailable")
     order = {"BUY": 0, "SELL": 1, "BUY-watch": 2, "SELL-watch": 3, "NEUTRAL": 4, "WITHHELD": 5}
     out = out.assign(_rank=out["signal"].map(order)).sort_values(["_rank", "rsi14"], na_position="last").drop(columns="_rank")
-    # The validator recomputes eligibility in CSV row order, after signal/RSI sorting.
-    health["eligible_tickers"] = out.loc[out["ticker"].isin(allowed), "ticker"].tolist()
     def write(frame, path):
         header = "# oslo-screener report=" + path + " " + " ".join(f"{k}={v}" for k, v in metadata.items())
         content = header + "\n# columns=" + ",".join(frame.columns) + "\n" + frame.to_csv(index=False, lineterminator="\n")
@@ -182,7 +208,13 @@ def publish_snapshot(rows, universe_count, fetch_started_at, fetch_completed_at,
                  "buy.csv": out[out.signal == "BUY"], "sell.csv": out[out.signal == "SELL"],
                  "watch_buy.csv": out[out.signal == "BUY-watch"], "watch_sell.csv": out[out.signal == "SELL-watch"],
                  "signals_only.csv": out[out.signal.isin(["BUY", "SELL"])]}
-    health["artifacts"] = {name: write(frame, name) for name, frame in artifacts.items()}
+    hashes = {name: write(frame, name) for name, frame in artifacts.items()}
+    # Eligibility and exclusions must describe the final serialized row order,
+    # including empty dates as read by the independent bundle validator.
+    published = csv.DictReader(line for line in Path("latest.csv").read_text().splitlines()
+                               if not line.startswith("#"))
+    health = evaluate_snapshot(list(published), metadata, generated_at)
+    health["artifacts"] = hashes
     health["signal_counts"] = {label: int((out.signal == label).sum()) for label in order}
     health["source"] = source or "Yahoo Finance adjusted daily OHLC via yfinance"
     Path("health.json").write_text(json.dumps(health, indent=2, allow_nan=False) + "\n", encoding="utf-8")
@@ -226,6 +258,7 @@ def run():
                 continue
             observed = df.index[-1].date()
             context.update(date=observed.isoformat(), source_latest_date=source_latest_date)
+            context.update(assess_liquidity(df, expected_session))
             if not all(col in df for col in ("Close", "High", "Low")):
                 raise ValueError("missing_ohlc_columns")
             valid_prices = pd.Series(True, index=df.index)
@@ -291,6 +324,11 @@ def run():
                 price=float(c0), sma50=sma50_now, macd_hist=macd_hist_now, cfg=cfg
             )
 
+            # Currency metadata is needed only for displayed research candidates,
+            # not every neutral name. Failure leaves capacity unknown.
+            if label != 'NEUTRAL':
+                context.update(assess_liquidity(df, expected_session, fetch_quote_currency(t)))
+
             risk_text, stop_loss_pct, risk_label = adx_band_with_cfg(adx_now, cfg)
             pos_pct = position_from_primary_and_adx(primary_count, adx_now if not np.isnan(adx_now) else 0.0, cfg)
 
@@ -303,6 +341,8 @@ def run():
                 "note": "; ".join(n for n in (df.attrs.get('source_note', ''),
                                                 'mfi_unavailable' if not finite(mfi_now) else '') if n),
                 "close": round(float(c0), 4),
+                "previous_close": round(float(c1), 4),
+                "day_direction": "up" if day_up else "down" if day_down else "flat",
                 "rsi14": round(rsi14_now, 2),
                 "rsi_dir": round(rsi_dir, 2),
                 "macd_hist": round(macd_hist_now, 4) if not np.isnan(macd_hist_now) else np.nan,
@@ -332,7 +372,8 @@ def run():
     mixed = any(r.get('euronext_recovered_sessions') for r in _history_fetcher.diagnostics)
     source = ('Yahoo Finance adjusted history with reconciled Euronext daily observations; '
               'MFI uses one consistent provider per ticker') if mixed else None
-    return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc), source=source)
+    return publish_snapshot(rows, len(tickers), fetch_started_at, datetime.now(timezone.utc),
+                            source=source, coverage_policy=cfg["coverage_policy"], methodology_config=cfg)
 
 if __name__ == "__main__":
     run()

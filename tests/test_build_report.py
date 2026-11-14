@@ -1,85 +1,48 @@
-"""Tests for build_report._enrich closest-trigger calculations."""
-
-import sys
-from pathlib import Path
-
-import numpy as np
+"""Near-trigger contract: actual RSI/day gates, never mixed-unit ranking."""
 import pandas as pd
 import pytest
-
-ROOT = Path(__file__).resolve().parent.parent
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
-
-from scripts.build_report import _enrich
+from scripts.build_report import _enrich,_watch_table
+from setup_semantics import describe_gates
 
 
-def _row(**kwargs) -> pd.Series:
-    defaults = dict(
-        ticker="X.OL", signal="NEUTRAL", close=100.0,
-        rsi14=50.0, rsi_dir=0.0, macd_hist=0.0,
-        pct_above_sma50=0.0, adx14=20.0, rsi6=50.0, mfi14=50.0,
-    )
-    defaults.update(kwargs)
-    return pd.Series(defaults)
+def row(**changes):
+    value=dict(ticker='X.OL',signal='BUY-watch',close=100,previous_close=100,day_direction='flat',data_status='current',rsi14=35,rsi_dir=5,macd_hist=-.001,pct_above_sma50=20,adx14=25,rsi6=30,mfi14=30)
+    value.update(changes);return pd.Series(value)
 
 
-class TestClosestTrigger:
-    def test_buy_watch_sma_does_not_dominate_when_far_below(self):
-        # Price 97% below SMA50 → SMA distance must not collapse to 0.
-        r = _row(signal="BUY-watch", rsi14=4.62, macd_hist=-11.34, pct_above_sma50=-97.36)
-        e = _enrich(r)
-        # MACD (11.34) is much closer to 0 than SMA (97.56)
-        assert e["closest"].startswith("MACD→0"), (
-            f"Expected MACD closest, got: {e['closest']}"
-        )
-        assert e["closest_delta"] == pytest.approx(11.34, abs=0.01)
+@pytest.mark.parametrize('signal,rsi,direction,needed',[('BUY-watch',35,'flat','up-close'),('BUY-watch',34,'down','up-close'),('SELL-watch',65,'flat','down-close'),('SELL-watch',66,'up','down-close')])
+def test_equality_and_flat_describe_missing_day_gate(signal,rsi,direction,needed):
+    previous={'flat':100,'up':99,'down':101}[direction]
+    value=_enrich(row(signal=signal,rsi14=rsi,day_direction=direction,previous_close=previous))
+    assert 'Needs '+needed in value['missing_gates']
+    assert 'RSI' in value['missing_gates'] and 'met' in value['missing_gates']
+    assert 'confirmations only' in value['missing_gates']
+    assert 'closest' not in value and 'closest_delta' not in value
 
-    def test_buy_watch_macd_nearest_small_value(self):
-        # MACD almost at 0 beats a barely-oversold RSI and distant SMA
-        r = _row(signal="BUY-watch", rsi14=33.77, macd_hist=-0.2131, pct_above_sma50=-3.59)
-        e = _enrich(r)
-        assert e["closest"].startswith("MACD→0")
-        assert e["closest_delta"] == pytest.approx(0.2131, abs=0.001)
 
-    def test_buy_watch_rsi_nearest(self):
-        # RSI near 35 threshold beats MACD and SMA
-        r = _row(signal="BUY-watch", rsi14=32.13, macd_hist=-3.10, pct_above_sma50=-16.61)
-        e = _enrich(r)
-        assert e["closest"].startswith("RSI→35")
-        assert e["closest_delta"] == pytest.approx(2.87, abs=0.01)
+def test_macd_currency_and_sma_percentage_never_rank_missing_gates():
+    a=_enrich(row(macd_hist=-.00001,pct_above_sma50=-97))
+    b=_enrich(row(macd_hist=-1000,pct_above_sma50=80))
+    assert a['missing_gates']==b['missing_gates']
+    table=_watch_table(pd.DataFrame([a,b]))
+    assert 'not ranked' in table and 'Δ=' not in table
 
-    def test_sell_watch_rsi_near_threshold(self):
-        # RSI just above 65 → delta 0.05, beats MACD and SMA
-        r = _row(signal="SELL-watch", rsi14=65.05, macd_hist=0.1517, pct_above_sma50=17.80)
-        e = _enrich(r)
-        assert e["closest"].startswith("RSI→65")
-        assert e["closest_delta"] == pytest.approx(0.05, abs=0.001)
 
-    def test_sell_watch_sma_does_not_dominate_when_above(self):
-        # Price 18% above SMA50 → SMA distance is 18.2, not 0
-        r = _row(signal="SELL-watch", rsi14=65.23, macd_hist=0.1898, pct_above_sma50=4.85)
-        e = _enrich(r)
-        # MACD (0.19) < RSI (0.23) < SMA (5.05)
-        assert e["closest"].startswith("MACD→0")
+def test_delta_rsi_cannot_replace_missing_day_direction():
+    value=describe_gates(row(previous_close=None,day_direction=None,rsi_dir=100))
+    assert 'Day direction unavailable' in value
 
-    def test_sma_delta_zero_when_already_triggered_buy(self):
-        # pct_above_sma50 = +5 (price already well above SMA50) → SMA dist = 0
-        r = _row(signal="BUY-watch", rsi14=32.0, macd_hist=-1.0, pct_above_sma50=5.0)
-        e = _enrich(r)
-        sma_dist = max(0.0, 0.2 - 5.0)
-        assert sma_dist == 0.0
-        # SMA is triggered (dist=0), so SMA should win
-        assert e["closest"].startswith("SMA50")
-        assert e["closest_delta"] == pytest.approx(0.0, abs=1e-9)
 
-    def test_closest_delta_nan_for_non_watch(self):
-        r = _row(signal="BUY", rsi14=20.0, macd_hist=1.0, pct_above_sma50=5.0)
-        e = _enrich(r)
-        assert np.isnan(e["closest_delta"])
-        assert e["closest"] == "—"
+@pytest.mark.parametrize('status',['stale','missing','invalid'])
+def test_bad_source_never_describes_usable_trigger(status):
+    assert describe_gates(row(data_status=status)).startswith('Withheld:')
 
-    def test_closest_delta_nan_for_neutral(self):
-        r = _row(signal="NEUTRAL")
-        e = _enrich(r)
-        assert np.isnan(e["closest_delta"])
+
+def test_wrong_rsi_and_unknown_rsi_are_explicit():
+    assert 'Needs RSI <=35' in describe_gates(row(rsi14=36))
+    assert 'RSI condition unavailable' in describe_gates(row(rsi14=None))
+
+
+def test_snapshot_configuration_is_used_not_new_thresholds():
+    assert 'RSI <=30 met' in describe_gates(row(rsi14=30),{'rsi14_buy_max':'30'})
+    assert 'disabled' in describe_gates(row(),{'require_day_up_for_buy':'false'})

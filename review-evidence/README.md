@@ -1,0 +1,1 @@
+Run `python scripts/methodology_review.py`. The same synthetic rows go through the pinned old/new enrichment and actual Markdown watch-table renderers. A flat BUY-watch day at RSI35 lacks up-close; SELL-watch at65 with up-close lacks down-close. Old tiny MACD distances no longer imply gate proximity. Production snapshots and classification are unchanged.

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import hashlib
+import html
 import sys
 import pathlib as pl
 import datetime as dt
@@ -21,8 +22,25 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.validate_snapshot import validate_snapshot
+from market_health import parse_metadata
+from setup_semantics import describe_gates, LABELS
+from liquidity import describe_liquidity
 
 OUT_DIR = pl.Path("summaries")
+
+
+def _excluded_table(excluded):
+    """Keep every unavailable stock visible without interpreting it as delisted."""
+    if not excluded:
+        return "Ingen aksjer er utelatt."
+    def cell(value):
+        return html.escape(str(value or "—"), quote=False).replace("|", "&#124;").replace("\n", " ").replace("\r", " ")
+    lines = ["| Aksje | Datastatus | Observasjonsdato | Årsak |",
+             "|---|---|---|---|"]
+    for item in excluded:
+        lines.append("| " + " | ".join(cell(item.get(key)) for key in
+                     ("ticker", "data_status", "market_data_as_of", "reason")) + " |")
+    return "\n".join(lines)
 
 
 # ---------- Data loading ----------
@@ -32,6 +50,7 @@ def load_csv(path: pl.Path) -> pd.DataFrame:
     df.columns = [c.strip().lower() for c in df.columns]
     if "ticker" not in df.columns:
         raise ValueError(f"'ticker' column missing in {path}")
+    df.attrs["source_metadata"]=parse_metadata(path.read_text())
     return df
 
 
@@ -94,7 +113,7 @@ def _safe_float(val) -> float:
 
 # ---------- Row enrichment ----------
 
-def _enrich(r: pd.Series) -> dict:
+def _enrich(r: pd.Series, metadata=None) -> dict:
     signal = str(r.get("signal", "NEUTRAL"))
     bucket = signal if signal in ("BUY", "SELL", "BUY-watch", "SELL-watch") else "NEUTRAL"
     bias = "BUY" if "BUY" in bucket else ("SELL" if "SELL" in bucket else "NEUTRAL")
@@ -121,33 +140,15 @@ def _enrich(r: pd.Series) -> dict:
         (1 if not np.isnan(adx) and adx >= 25 else 0)
     )
 
-    closest = "—"
-    closest_delta = np.nan
-    if bucket.endswith("watch"):
-        opts: list[tuple[str, float]] = []
-        if not np.isnan(r14):
-            opts.append(("RSI→35", abs(35 - r14)) if r14 <= 35 else ("RSI→65", abs(r14 - 65)))
-        if not np.isnan(macd):
-            opts.append(("MACD→0", abs(macd)))
-        if not np.isnan(pct):
-            # Directional distance: how far pct must move to cross the ±0.2% SMA support threshold.
-            # BUY needs pct ≥ +0.2; SELL needs pct ≤ −0.2.
-            if bias == "BUY":
-                opts.append(("SMA50", max(0.0, 0.2 - pct)))
-            elif bias == "SELL":
-                opts.append(("SMA50", max(0.0, pct + 0.2)))
-        if opts:
-            lab, dv = sorted(opts, key=lambda x: x[1])[0]
-            closest = f"{lab} (Δ={dv:.2f})"
-            closest_delta = dv
+    missing_gates = describe_gates(r,metadata)
 
     return dict(
-        bucket=bucket, rank=rank,
+        bucket=bucket, rank=rank, suitability_summary=describe_liquidity(r),
         ticker=str(r.get("ticker", "")), close=close,
         rsi14=r14, rdir=rdir, macd=macd, pct=pct,
         adx=adx, rsi6=r6, mfi=mfi,
         macd_ic=macd_ic, sma_ic=sma_ic, adx_ic=adx_ic,
-        mfi_ic=mfi_ic, rsi6_ic=rsi6_ic, closest=closest, closest_delta=closest_delta,
+        mfi_ic=mfi_ic, rsi6_ic=rsi6_ic, missing_gates=missing_gates, signal_label=LABELS.get(signal,signal),
     )
 
 
@@ -157,7 +158,7 @@ def _main_table(sub: pd.DataFrame) -> str:
     if sub.empty:
         return "_Ingen i dag._"
     lines = [
-        "| Rk | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |",
+        "| Context count (heuristic) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |",
         "|---:|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|",
     ]
     for _, r in sub.head(40).iterrows():
@@ -169,14 +170,14 @@ def _main_table(sub: pd.DataFrame) -> str:
             f"{delta} | {_fmt(r['macd'])} {r['macd_ic']} | {_fmt(r['pct'])} {r['sma_ic']} | "
             f"{adx_cel} | {sec} |"
         )
-    return "\n".join(lines)
+    return "\n".join(lines) + "\n\n" + "\n\n".join(f"**{r['ticker']}**: {r['suitability_summary']}" for _, r in sub.head(40).iterrows())
 
 
 def _watch_table(sub: pd.DataFrame) -> str:
     if sub.empty:
         return "_Ingen i dag._"
     lines = [
-        "| Closest | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |",
+        "| Missing setup conditions (not ranked) | Ticker | Close | RSI14 | ΔRSI | MACD | SMA% | ADX | Sec. |",
         "|:-------|:------|-----:|-----:|-----:|:----:|:----:|:---:|:----|",
     ]
     for _, r in sub.head(40).iterrows():
@@ -184,11 +185,11 @@ def _watch_table(sub: pd.DataFrame) -> str:
         sec     = f"RSI6 {_fmt(r['rsi6'],0)} {r['rsi6_ic']} · MFI {_fmt(r['mfi'],0)} {r['mfi_ic']}"
         adx_cel = f"{_fmt(r['adx'],0)} {r['adx_ic']}"
         lines.append(
-            f"| {r['closest']} | {r['ticker']} | {_fmt(r['close'])} | {_fmt(r['rsi14'])} | "
+            f"| {r['missing_gates']} | {r['ticker']} | {_fmt(r['close'])} | {_fmt(r['rsi14'])} | "
             f"{delta} | {_fmt(r['macd'])} {r['macd_ic']} | {_fmt(r['pct'])} {r['sma_ic']} | "
             f"{adx_cel} | {sec} |"
         )
-    return "\n".join(lines)
+    return "\n".join(lines) + "\n\n" + "\n\n".join(f"**{r['ticker']}**: {r['suitability_summary']}" for _, r in sub.head(40).iterrows())
 
 
 def _reason_top(sub: pd.DataFrame, side: str) -> str:
@@ -231,7 +232,7 @@ def main() -> int:
 
     # Enrich signal rows with display icons and ranking
     signal_rows = df[df["signal"].isin(["BUY", "SELL", "BUY-watch", "SELL-watch"])]
-    enriched = pd.DataFrame([_enrich(r) for _, r in signal_rows.iterrows()])
+    enriched = pd.DataFrame([_enrich(r,df.attrs.get("source_metadata")) for _, r in signal_rows.iterrows()])
 
     def bucket(name: str) -> pd.DataFrame:
         if enriched.empty:
@@ -241,7 +242,7 @@ def main() -> int:
             sub = sub.sort_values(["rank", "adx", "macd", "pct"],
                                   ascending=[False, False, False, False])
         elif name in ("BUY-watch", "SELL-watch") and not sub.empty:
-            sub = sub.sort_values("closest_delta", ascending=True, na_position="last")
+            sub = sub.sort_values("ticker")  # neutral alphabetical listing, no unvalidated proximity score
         return sub
 
     BUY       = bucket("BUY")
@@ -259,29 +260,35 @@ def main() -> int:
 
     md = [
         "# Oslo Børs – Teknisk dagsrapport\n",
+        "Research-only rebound setups. SELL denotes an existing-holder reduction/exit review, never a short instruction. Fixed stop distances and position percentages are legacy heuristics, not executable stops, recommended allocations or loss budgets. Separate KE activity/capacity evidence follows each list. Execution suitability remains unverified; no new liquidity cutoff is introduced.\n",
         f"<!-- snapshot_id={health['snapshot_id']} -->\n",
         f"**Forventet avsluttet handelssesjon:** {csv_last.strftime('%d.%m.%Y')}\n",
         f"**Datastatus:** {health['status'].upper()} · {coverage['current']}/{coverage['universe_count']} aktuelle rader\n",
         f"**Generert:** {health['generated_at']} · snapshot {health['snapshot_id']}\n",
-        "**Signaler holdes tilbake ved utilstrekkelig datadekning.**\n" if health['status'] == 'blocked' else "",
-        "**Utelatte rader:** " + (", ".join(f"{x['ticker']} ({x['reason']})" for x in health['excluded']) or "Ingen") + "\n",
+        "**Signaler holdes tilbake: snapshotet består ikke datakontrollen.**\n" if health['status'] == 'blocked' else "",
+        "**Samlet prosentkrav er midlertidig suspendert. Bare aksjer med aktuelle, gyldige data kan gi signaler.**\n"
+        if health.get('coverage_policy') == 'per_stock' else "",
+        f"**Utelatte aksjer:** {len(health['excluded'])}. Full liste med årsaker står nedenfor.\n",
         f"**Telling:** BUY {len(BUY)} | SELL {len(SELL)} "
         f"| BUY-watch {len(BUY_watch)} | SELL-watch {len(SELL_watch)}\n",
 
-        "\n## BUY (rangert)\n",
+        "\n## Rebound setups — review (legacy BUY codes)\n",
         _main_table(BUY),
-        f"\n\n**Hvorfor toppnavn kvalifiserte**\n\n{_reason_top(BUY, 'BUY')}\n",
+        f"\n\n**Example rule qualification (not a validated priority)**\n\n{_reason_top(BUY, 'BUY')}\n",
 
-        "\n## SELL (rangert)\n",
+        "\n## Reduction/exit review setups — not short (legacy SELL codes)\n",
         _main_table(SELL),
-        f"\n\n**Hvorfor toppnavn kvalifiserte**\n\n{_reason_top(SELL, 'SELL')}\n",
+        f"\n\n**Example rule qualification (not a validated priority)**\n\n{_reason_top(SELL, 'SELL')}\n",
 
-        "\n## BUY-watch (nærmest trigger)\n",
+        "\n## BUY-watch — rebound review (alphabetical, not proximity-ranked)\n",
         _watch_table(BUY_watch),
 
-        "\n\n## SELL-watch (nærmest trigger)\n",
+        "\n\n## SELL-watch — reduction/exit review, not short (alphabetical)\n",
         _watch_table(SELL_watch),
 
+        "\n\n## Aksjer uten nødvendige data\n",
+        "Disse aksjene er ikke med i signallistene. Manglende data betyr ikke at en aksje er avnotert.\n",
+        _excluded_table(health['excluded']),
         "\n\n---\n",
         f"**Kontroller:** {price_check}. Datastatus {health['status']}; begrensninger: {', '.join(health['reasons']) or 'ingen strukturelle avvik'}.\n",
         "_Event- og fundamentaldekning: ikke tilgjengelig i denne tekniske screeningen. BUY/SELL er tekniske oppsett, ikke verifiserte handelsanbefalinger._\n",

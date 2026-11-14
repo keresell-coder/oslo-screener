@@ -214,6 +214,9 @@ class YahooHistoryFetcher:
             factor = frame["Adj Close"] / frame["Close"]
             adjusted = frame[["Open", "High", "Low", "Close", "Volume"]].copy()
             adjusted[["Open", "High", "Low", "Close"]] = adjusted[["Open", "High", "Low", "Close"]].mul(factor, axis=0)
+            # Keep the vendor's unadjusted close for main's turnover proxy.
+            # Technical indicators continue to use the adjusted OHLC columns.
+            adjusted["RawClose"] = frame["Close"]
             if recovered_source is not None:
                 adjusted.attrs['source_note'] = 'Euronext daily recovery: ' + ','.join(record['euronext_recovered_sessions'])
                 # MFI needs a consistent volume definition throughout its window.

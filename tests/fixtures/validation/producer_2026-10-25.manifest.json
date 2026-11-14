@@ -1,0 +1,28 @@
+{
+  "schema": "oslo.validation.pilot.v1",
+  "kind": "daily",
+  "source_url": "https://keresell-coder.github.io/oslo-screener/latest.csv",
+  "artifact_sha256": "a0cad3f57918c23cdf61e6753faf18282376e267aac328ab097d26b47775cb2b",
+  "economic_method": "2026-10-24-methodology-v2",
+  "method_version": "2026-10-24-methodology-v2",
+  "schema_version": "oslo_screener.health.v1",
+  "source_session": "2026-10-23",
+  "observed_at": "2026-10-25T12:26:25Z",
+  "available_at": null,
+  "availability_evidence": null,
+  "source_published_at": null,
+  "source_cutoff": null,
+  "universe": {
+    "kind": "producer_row_set",
+    "artifact_sha256": "a0cad3f57918c23cdf61e6753faf18282376e267aac328ab097d26b47775cb2b",
+    "exchange_membership": "unverified"
+  },
+  "code_revision": null,
+  "identities": {},
+  "fixture_provenance": {
+    "repository": "keresell-coder/oslo-screener",
+    "git_commit": "9b3dc1a50b6fc17768b3e2ff04a9a214a0dc317e",
+    "path": "latest.csv",
+    "note": "local Git materialization; not observed public availability or authenticated generator revision"
+  }
+}

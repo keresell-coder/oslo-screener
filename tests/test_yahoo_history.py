@@ -44,6 +44,7 @@ def test_long_response_missing_two_closes_recovers_from_exact_sessions():
     assert [c['end'] for c in calls[1:]] == ['2026-09-18', '2026-09-19']
     assert actual.Close.tolist() == [51.] * 5
     assert actual.Open.tolist() == [50.] * 5
+    assert actual.RawClose.tolist() == [102.] * 5
     assert actual.Volume.tolist() == [1000.] * 5
     assert reader.diagnostics[0]['recovered_sessions'] == ['2026-09-17', '2026-09-18']
 

@@ -208,7 +208,7 @@ def write_instruments(rows, tickers, path):
             raise SyncError('Ambiguous exchange identity for ' + ticker)
         selected[ticker] = row
     with Path(path).open('w', encoding='utf-8', newline='') as out:
-        writer = csv.DictWriter(out, fieldnames=['ticker', 'isin', 'mic', 'name'])
+        writer = csv.DictWriter(out, fieldnames=['ticker', 'isin', 'mic', 'name'], lineterminator='\n')
         writer.writeheader()
         for ticker in sorted(selected):
             row = selected[ticker]

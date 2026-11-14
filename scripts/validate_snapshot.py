@@ -33,6 +33,10 @@ def validate_snapshot(directory=Path("."), *, require_report=False, require_land
                 "market_data_as_of", "expected_session", "coverage", "reasons", "eligible_tickers"):
         if checked[key] != health[key]:
             raise ValueError(f"health/{key} does not match verified CSV observations")
+    if checked.get("coverage_policy", "minimum") != health.get("coverage_policy", "minimum"):
+        raise ValueError("health/coverage_policy does not match verified CSV observations")
+    if "coverage_policy" in metadata and checked["excluded"] != health.get("excluded"):
+        raise ValueError("health/excluded does not match verified CSV observations")
     mandatory = {"latest.csv", *CATEGORIES}
     if require_report:
         mandatory.add("summaries/latest.md")
