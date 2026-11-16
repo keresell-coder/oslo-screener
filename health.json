@@ -1,8 +1,8 @@
 {
   "schema": "oslo_screener.health.v1",
-  "snapshot_id": "0aaaef86c8284c3dbe9f42ca46b6be47",
-  "generated_at": "2026-11-13T21:58:51Z",
-  "evaluated_at": "2026-11-13T21:58:51.507545+00:00",
+  "snapshot_id": "9ae66230237440809c85f69826e25e29",
+  "generated_at": "2026-11-16T15:36:42Z",
+  "evaluated_at": "2026-11-16T15:36:42.892003+00:00",
   "market_data_as_of": "2026-11-13",
   "expected_session": "2026-11-13",
   "valid_until": "2026-11-16T16:45:00+01:00",
@@ -11,15 +11,15 @@
   "reasons": [],
   "coverage_policy": "per_stock",
   "coverage": {
-    "universe_count": 200,
-    "received_count": 200,
-    "current": 192,
-    "stale": 7,
+    "universe_count": 198,
+    "received_count": 198,
+    "current": 196,
+    "stale": 1,
     "missing": 0,
     "invalid": 1,
-    "current_ratio": 0.96,
-    "min_current_ratio": 0.005,
-    "actionable_count": 192
+    "current_ratio": 0.98989898989899,
+    "min_current_ratio": 0.005050505050505051,
+    "actionable_count": 196
   },
   "eligible_tickers": [
     "PHO.OL",
@@ -80,6 +80,7 @@
     "NOM.OL",
     "BNOR.OL",
     "SWON.OL",
+    "INIFY.OL",
     "TRMED.OL",
     "ACR.OL",
     "SAGA.OL",
@@ -141,8 +142,8 @@
     "DNO.OL",
     "OTL.OL",
     "GOD.OL",
-    "ODL.OL",
     "YAR.OL",
+    "POL.OL",
     "HGSB.OL",
     "ABG.OL",
     "AGLX.OL",
@@ -159,6 +160,7 @@
     "EPR.OL",
     "NOD.OL",
     "BMA.OL",
+    "HSPG.OL",
     "MULTI.OL",
     "JAREN.OL",
     "JIN.OL",
@@ -176,6 +178,8 @@
     "COSH.OL",
     "AZT.OL",
     "KOG.OL",
+    "BIEN.OL",
+    "ODL.OL",
     "SALM.OL",
     "PYRUM.OL",
     "TGS.OL",
@@ -197,7 +201,6 @@
     "AUTO.OL",
     "KOA.OL",
     "MORG.OL",
-    "WWIB.OL",
     "LSG.OL",
     "B2I.OL",
     "PLSV.OL",
@@ -209,6 +212,7 @@
     "2020.OL",
     "MING.OL",
     "PUBLI.OL",
+    "WWIB.OL",
     "CLOUD.OL",
     "SATS.OL",
     "STRO.OL",
@@ -217,32 +221,8 @@
   ],
   "excluded": [
     {
-      "ticker": "BIEN.OL",
-      "market_data_as_of": "2026-11-12",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
       "ticker": "CADLR.OL",
       "market_data_as_of": "2026-11-05",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "ELMRA.OL",
-      "market_data_as_of": "2026-11-06",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "HSPG.OL",
-      "market_data_as_of": "2026-11-12",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "INIFY.OL",
-      "market_data_as_of": "2026-11-12",
       "data_status": "stale",
       "reason": "missing_expected_completed_session"
     },
@@ -251,39 +231,25 @@
       "market_data_as_of": "2026-11-13",
       "data_status": "invalid",
       "reason": "insufficient_indicator_warmup"
-    },
-    {
-      "ticker": "POL.OL",
-      "market_data_as_of": "2026-11-12",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
-    },
-    {
-      "ticker": "ZAL.OL",
-      "market_data_as_of": "2026-11-12",
-      "data_status": "stale",
-      "reason": "missing_expected_completed_session"
     }
   ],
   "observation_dates": {
-    "2026-11-13": 193,
-    "2026-11-12": 5,
-    "2026-11-05": 1,
-    "2026-11-06": 1
+    "2026-11-13": 197,
+    "2026-11-05": 1
   },
   "calendar_verified_through": 2026,
   "session_policy": "Completed Oslo cash session plus 15-minute feed buffer; never intraday.",
   "artifacts": {
-    "latest.csv": "7538ed51f876eca8f9fa1623930d2c67b39bbc6a7cec8d763264a6cd517ed378",
-    "report_2026-11-13T215851Z.csv": "edaaebb3d003c5997751c925023ece27d5b767edd99a22fa90f9e9ebd3036f80",
-    "buy.csv": "6f7b178db8fdc3b2998f3d2938d25da344cf7d227488c6403db1599845b4b900",
-    "sell.csv": "14a1941b9a7502dc6e0413b0e25ec2a756e1f14805afbda246cf6c92969684ca",
-    "watch_buy.csv": "59081f125bb3e3a2e69d7f9d3fa4de762509e3fe40b2e207d479cd85e09bdb05",
-    "watch_sell.csv": "b18292b047e0cbf06a3622a1b90cf12714dca884988263c18732ab65bdb77704",
-    "signals_only.csv": "545db83ea5dbb99c65d6782d63a8f8e5779a2125882d20460e1e6156dae0aeb7",
-    "summaries/daily_2026-11-13.md": "eb2eafe04d0157c59ecde37584b8f770ba86000f565bad422f6d022cab89b09e",
-    "summaries/latest.md": "eb2eafe04d0157c59ecde37584b8f770ba86000f565bad422f6d022cab89b09e",
-    "index.html": "6de2b2910f4bdb1ae32677c665c96ad02c6639b265822ebace25c7eb2232326c",
+    "latest.csv": "61d5b650055a694e89287a1a47a2319a5df670d61a2a956c360c0d6d47c565f1",
+    "report_2026-11-16T153642Z.csv": "63e308558fca974a6fb3799376462f13456aa75860d96f3abb5e7877f2e3ba42",
+    "buy.csv": "a37c1e8dc6dd0910cc62e9bd93016edd0091c8f554a5d6910eb16adc4990643e",
+    "sell.csv": "14bb6b12cf60485734792a420a91e501e4fdb33e90466a434ccc6ebdaa2b2224",
+    "watch_buy.csv": "bef07932113753b63e91064ffdef061f9779acf2100f254ad847545458fc8d26",
+    "watch_sell.csv": "55485da0a3bb74cf8f8697cb2c81b5718ac6aa1baed21cb183c503dda8a746b5",
+    "signals_only.csv": "51dc74c9400ade3dbab87fa498f29b498f58e7dc72b8bffc9794db38466d7106",
+    "summaries/daily_2026-11-13.md": "97a979782b88e56be1e001d9c3e7d4db3aeb11aaf58bd1f847209f956c1f56d5",
+    "summaries/latest.md": "97a979782b88e56be1e001d9c3e7d4db3aeb11aaf58bd1f847209f956c1f56d5",
+    "index.html": "c3318f66aa52f8d4045c25acd73a7b0827ff257d5e999015bd969dc32b9e86e2",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "signal_counts": {
@@ -291,8 +257,8 @@
     "SELL": 3,
     "BUY-watch": 11,
     "SELL-watch": 20,
-    "NEUTRAL": 153,
-    "WITHHELD": 8
+    "NEUTRAL": 157,
+    "WITHHELD": 2
   },
   "source": "Yahoo Finance adjusted daily OHLC via yfinance"
 }
