@@ -89,3 +89,33 @@ performance claim and preserves unknown availability and missing evidence.
 Technical BUY/SELL/watch classifications are unchanged. `liquidity.py` reports the last 60 expected completed Oslo open sessions, not the last 60 available bars. Explicit vendor zero volume means ineligible under the daily-trading requirement; absent, negative/nonfinite volume, duplicate dates or unverified calendars remain unknown. Positive volume on all sessions is vendor evidence, not independent exchange verification. The existing annual calendar validity boundary is preserved.
 
 Capacity is a separate descriptive comparison: NOK 100,000 and NOK 500,000 divided by the median of unadjusted close × volume on all 20 expected sessions. Confirmed NOK quote currency is required; otherwise no NOK ratio is emitted. This is a price-volume turnover proxy, not actual exchange turnover, order-book depth, execution cost or guaranteed fills. No safe participation threshold is invented, and passing activity never certifies executable capacity. Legacy snapshots show unknown evidence. No schedule, signal threshold or capture job changes.
+
+## Dashboard refresh reliability
+
+The producer's Pages deployment and the separate dashboard publication are two
+separate outcomes. The refresh step must not silently succeed when
+`DASHBOARD_WORKFLOW_TOKEN` is absent. It now dispatches the exact producer
+`snapshot_id`, then checks the public dashboard health and HTML for that snapshot
+for up to 15 minutes. An accepted dispatch (HTTP 204) alone is not completion.
+A missing/invalid token, stale page or timeout fails the refresh step visibly;
+the already-published producer bundle is retained. A published blocked snapshot
+still remains blocked, and the existing data-health failure is preserved.
+
+Rollout order (owner approval required):
+1. Merge the companion dashboard change accepting the optional `snapshot_id`
+   dispatch input and verifying its public deployment.
+2. Configure the existing `DASHBOARD_WORKFLOW_TOKEN` repository Actions secret
+   with a fine-grained token restricted to `oslo-screener-dashboard` and
+   **Actions: write**, or an equivalently scoped GitHub App token mechanism.
+   Do not grant unrelated-repository or account-admin access. Track expiration.
+3. Merge this producer change, run the producer workflow, and verify both public
+   snapshots agree. Then observe the next unattended producer run and matching
+   dashboard dispatch before declaring automatic refresh repaired.
+
+No credential was created or saved by this code change. A credential-free
+fallback is the dashboard's own scheduled pull/manual run with its repository's
+`GITHUB_TOKEN`; this cannot guarantee an immediate refresh after another
+repository publishes. GitHub cron events can be delayed or dropped. Moving to a
+single repository would avoid a cross-repository credential, but changes the
+publication architecture and is not part of this repair. Neither a new cron
+minute nor a successful manual run proves unattended reliability.
