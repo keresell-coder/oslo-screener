@@ -37,6 +37,36 @@ def valid_bars(frame: pd.DataFrame) -> pd.Series:
     return valid
 
 
+def validate_dividend_adjustments(frame: pd.DataFrame, events: pd.DataFrame):
+    """Reject inconsistent cash-dividend history without repairing vendor prices.
+
+    Across an ex-date, the ratio of adjacent Adj Close / Close factors must
+    equal 1 - dividend / previous close. A common later adjustment cancels.
+    This is an internal consistency check, not independent source acceptance.
+    """
+    actions = frame.reindex(columns=['Dividends', 'Stock Splits']).apply(pd.to_numeric, errors='coerce')
+    invalid = ~np.isfinite(actions).all(axis=1) | (actions < 0).any(axis=1)
+    if invalid.any():
+        raise HistoryUnavailable('invalid_corporate_action_data:' + ','.join(str(d.date()) for d in frame.index[invalid]))
+    off_session = events.loc[~events.index.isin(frame.index), 'Dividends']
+    if off_session.ne(0).any():
+        raise HistoryUnavailable('unverified_off_session_dividend:' + ','.join(str(d.date()) for d in off_session.index[off_session.ne(0)]))
+    previous = frame.Close.shift(1)
+    dividend = actions.Dividends
+    check = dividend.gt(0) & previous.notna()
+    concurrent_split = check & actions['Stock Splits'].ne(0)
+    if concurrent_split.any():
+        raise HistoryUnavailable('unverified_dividend_split_adjustment:' + ','.join(str(d.date()) for d in frame.index[concurrent_split]))
+    factor = frame['Adj Close'] / frame.Close
+    expected = 1 - dividend / previous
+    observed = factor.shift(1) / factor
+    # One basis point permits vendor floating-point/rounding noise, not a
+    # missing or currency-mismatched adjustment such as the observed EQNR case.
+    mismatch = check & (expected.le(0) | ~np.isclose(observed, expected, rtol=1e-4, atol=1e-8))
+    if mismatch.any():
+        raise HistoryUnavailable('inconsistent_dividend_adjustment:' + ','.join(str(d.date()) for d in frame.index[mismatch]))
+
+
 class YahooHistoryFetcher:
     def __init__(self, expected_session: dt.date, pause=0.6, tries=3,
                  max_session_retries=8, ticker_factory=None, sleep=None, daily_fallback=None, mfi_length=14):
@@ -211,6 +241,7 @@ class YahooHistoryFetcher:
             bad = frame.index[~valid_bars(frame)]
             if len(bad):
                 raise HistoryUnavailable("incomplete_historical_ohlc:" + ",".join(str(d.date()) for d in bad))
+            validate_dividend_adjustments(frame, events)
             factor = frame["Adj Close"] / frame["Close"]
             adjusted = frame[["Open", "High", "Low", "Close", "Volume"]].copy()
             adjusted[["Open", "High", "Low", "Close"]] = adjusted[["Open", "High", "Low", "Close"]].mul(factor, axis=0)

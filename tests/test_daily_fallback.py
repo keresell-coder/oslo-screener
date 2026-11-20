@@ -55,7 +55,7 @@ def test_dividend_after_missing_day_uses_the_pre_event_adjustment_factor():
 
 def test_ex_dividend_day_uses_the_following_post_event_factor():
     yahoo, source = frames()
-    yahoo.loc[yahoo.index[:-2], 'Adj Close'] *= .98
+    yahoo.loc[yahoo.index[:-2], 'Adj Close'] *= 115 / 117
     yahoo.loc['2026-09-17', 'Dividends'] = 2.
     remove_prices(yahoo, '2026-09-17')
     result = reader(yahoo, source).fetch('EQNR.OL')

@@ -3,6 +3,30 @@
 The code and report-builder fixes are tested. A reliable, unattended free-data
 replacement is **not yet accepted for production**.
 
+## Dividend consistency guard — 20 November 2026
+
+A private cross-check found that Yahoo's EQNR.OL cash-dividend amount and
+adjacent adjusted-close factors disagree for 13 November. The fetcher now
+excludes histories with inconsistent dividend adjustments, unknown action
+fields, off-session dividends or unresolved simultaneous dividend/split events,
+and records the affected dates. It does not rewrite prices or enable yfinance
+repair. The ordinary ex-dividend factor check permits one basis point of
+relative rounding error and runs after exact-session recovery. A dividend on
+the first observed session has no preceding in-window price to check.
+
+The independent 19 November audit corroborated the provisional last trade for
+227 eligible stocks across all three markets and all-trade volume for six
+sampled stocks. North Energy and Cambi dividend samples matched issuer records;
+Equinor's event date matched but its adjustment failed internal consistency.
+These checks do not certify official closing-price or volume definitions,
+every corporate action, or historical backfill. Source acceptance remains open.
+
+Primary references: [Equinor event](https://www.equinor.com/news/20261113-ex-dividend-second-quarter-2026),
+[North Energy dividends](https://northenergy.no/investor-relations/share-information/dividends/),
+[Cambi dividend history](https://www.investors.cambi.com/share), and
+[yfinance's documented dividend-adjustment errors](https://ranaroussi.github.io/yfinance/advanced/price_repair.html).
+Raw observations remain private; the historical website adapter remains disabled.
+
 ## Current acceptance policy — 14 November 2026
 
 PR #16 incorporates current main and the temporary `coverage_policy: per_stock`

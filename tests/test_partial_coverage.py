@@ -145,7 +145,8 @@ def test_recovered_history_and_rejected_stocks_build_valid_partial_bundle(tmp_pa
     dates = pd.to_datetime(session_window(NOW.date(), count=100))
     prices = pd.Series([100 + i * .1 for i in range(len(dates))], index=dates)
     good = pd.DataFrame(dict(Open=prices, High=prices + 1, Low=prices - 1,
-                             Close=prices, **{"Adj Close": prices / 2}, Volume=1000))
+                             Close=prices, **{"Adj Close": prices / 2, "Stock Splits": 0.},
+                             Volume=1000, Dividends=0.))
 
     class Client:
         def __init__(self, symbol):
@@ -159,6 +160,8 @@ def test_recovered_history_and_rejected_stocks_build_valid_partial_bundle(tmp_pa
                 result.loc[dates[-4], "High"] = prices.iloc[-4] - 5
             elif self.symbol == "IPO.OL":
                 result = result.tail(10)
+            elif self.symbol == "DIVIDEND.OL":
+                result.loc[dates[-2], 'Dividends'] = 2.  # Deliberately missing adjustment.
             return result
 
     reader = YahooHistoryFetcher(NOW.date(), ticker_factory=Client, pause=0)
@@ -167,7 +170,7 @@ def test_recovered_history_and_rejected_stocks_build_valid_partial_bundle(tmp_pa
     monkeypatch.setattr(screener, "datetime", Frozen)
     monkeypatch.setattr(screener, "_history_fetcher", None)
     monkeypatch.setattr(screener, "YahooHistoryFetcher", lambda *a, **k: reader)
-    monkeypatch.setattr(screener, "load_tickers", lambda: ["RECOVERED.OL", "BAD.OL", "IPO.OL"])
+    monkeypatch.setattr(screener, "load_tickers", lambda: ["RECOVERED.OL", "BAD.OL", "IPO.OL", "DIVIDEND.OL"])
     monkeypatch.setattr(screener, "fetch_quote_currency", lambda _: "NOK")
 
     health = screener.run()
@@ -176,6 +179,7 @@ def test_recovered_history_and_rejected_stocks_build_valid_partial_bundle(tmp_pa
     rejected = {r["ticker"]: r["reason"] for r in health["excluded"]}
     assert "incomplete_historical_ohlc" in rejected["BAD.OL"]
     assert rejected["IPO.OL"] == "insufficient_indicator_warmup"
+    assert "inconsistent_dividend_adjustment" in rejected["DIVIDEND.OL"]
     records = {r["ticker"]: r for r in read_csv("latest.csv")[0]}
     assert records["RECOVERED.OL"]["signal"] != "WITHHELD"
     assert float(records["RECOVERED.OL"]["close"]) == pytest.approx(prices.iloc[-1] / 2)

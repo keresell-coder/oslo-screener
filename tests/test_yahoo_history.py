@@ -12,7 +12,7 @@ DAY = dt.date(2026, 9, 18)
 
 def history():
     return pd.DataFrame({"Open": 100., "High": 105., "Low": 98., "Close": 102.,
-                         "Adj Close": 51., "Volume": 1000.},
+                         "Adj Close": 51., "Volume": 1000., "Dividends": 0., "Stock Splits": 0.},
                         index=pd.date_range("2026-09-14", "2026-09-18", tz="Europe/Oslo"))
 
 
@@ -60,7 +60,7 @@ def test_missing_entire_day_is_retried_and_missing_history_still_blocks():
 
 def test_complete_history_is_paced_and_excludes_provisional_bar():
     good = history()
-    good.loc[pd.Timestamp('2026-09-21', tz='Europe/Oslo')] = [900, 999, 899, 950, 950, 9999]
+    good.loc[pd.Timestamp('2026-09-21', tz='Europe/Oslo')] = [900, 999, 899, 950, 950, 9999, 0, 0]
     reader, calls, sleeps = fetcher(lambda _: good, pause=.75)
     actual = reader.fetch('A.OL')
     assert len(calls) == 1 and sleeps == [.75]
@@ -132,6 +132,77 @@ def test_no_history_before_first_listing_is_invented():
     reader, calls, _ = fetcher(lambda _: good)
     assert len(reader.fetch('IPO.OL')) == 2
     assert len(calls) == 1
+
+
+def dividend_history(adjustment_multiple=1):
+    good = history()
+    good.loc[good.index[-2], 'Dividends'] = 2.
+    good.loc[good.index[:-2], 'Adj Close'] *= 1 - adjustment_multiple * 2 / 102
+    return good
+
+
+def test_consistent_dividend_allows_later_common_adjustment_and_float_noise():
+    good = dividend_history()
+    good.loc[good.index[1], 'Adj Close'] *= 1 + 1e-7
+    reader, _, _ = fetcher(lambda _: good)
+    result = reader.fetch('A.OL')
+    assert result.Close.iloc[-1] == 51
+    assert result.Close.iloc[0] == pytest.approx(50.)
+
+
+@pytest.mark.parametrize('multiple', [0, .1, 2])
+def test_wrong_dividend_adjustment_is_excluded_without_rewriting_prices(multiple):
+    good = dividend_history(multiple)
+    original = good.copy(deep=True)
+    reader, calls, _ = fetcher(lambda _: good)
+    with pytest.raises(HistoryUnavailable, match='inconsistent_dividend_adjustment:2026-09-17'):
+        reader.fetch('A.OL')
+    pd.testing.assert_frame_equal(good, original)
+    assert len(calls) == 1 and reader.diagnostics[0]['status'] == 'unavailable'
+
+
+@pytest.mark.parametrize('column,value', [('Dividends', float('nan')), ('Stock Splits', float('nan')),
+                                         ('Dividends', -1), ('Dividends', float('inf'))])
+def test_unknown_action_data_is_not_assumed_to_mean_no_dividend(column, value):
+    good = history()
+    good.loc[good.index[-2], column] = value
+    reader, _, _ = fetcher(lambda _: good)
+    with pytest.raises(HistoryUnavailable, match='invalid_corporate_action_data:2026-09-17'):
+        reader.fetch('A.OL')
+
+
+def test_dividend_check_runs_after_exact_session_recovery():
+    good = dividend_history(.1)
+    broken = good.copy()
+    broken.loc[broken.index[-2], 'Close'] = float('nan')
+    reader, calls, _ = fetcher(lambda params: broken if params['start'] < '2026-09-14' else good)
+    with pytest.raises(HistoryUnavailable, match='inconsistent_dividend_adjustment:2026-09-17'):
+        reader.fetch('A.OL')
+    assert len(calls) == 2
+    assert reader.diagnostics[0]['recovered_sessions'] == ['2026-09-17']
+
+
+def test_simultaneous_dividend_and_split_is_not_guessed():
+    good = dividend_history()
+    good.loc[good.index[-2], 'Stock Splits'] = 2
+    reader, _, _ = fetcher(lambda _: good)
+    with pytest.raises(HistoryUnavailable, match='unverified_dividend_split_adjustment'):
+        reader.fetch('A.OL')
+
+
+def test_missing_action_columns_is_not_accepted_as_zero_actions():
+    good = history().drop(columns=['Dividends'])
+    reader, _, _ = fetcher(lambda _: good)
+    with pytest.raises(HistoryUnavailable, match='invalid_corporate_action_data'):
+        reader.fetch('A.OL')
+
+
+def test_dividend_outside_observed_sessions_is_not_silently_dropped():
+    good = history()
+    good.loc[pd.Timestamp('2026-09-13', tz='Europe/Oslo')] = [100, 105, 98, 102, 51, 0, 2, 0]
+    reader, _, _ = fetcher(lambda _: good)
+    with pytest.raises(HistoryUnavailable, match='unverified_off_session_dividend:2026-09-13'):
+        reader.fetch('A.OL')
 
 
 def test_parallel_fetch_preserves_universe_order_and_individual_failures(monkeypatch):

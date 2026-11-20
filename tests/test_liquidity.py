@@ -117,9 +117,10 @@ def test_download_preserves_original_adjusted_technicals_and_raw_capacity(monkey
     import screener
     from yahoo_history import YahooHistoryFetcher
     raw=pd.DataFrame({'Open':[100.,110.], 'High':[102.,112.], 'Low':[98.,108.],
-                      'Close':[100.,110.], 'Adj Close':[50.,110.], 'Volume':[1000.,2000.]},
+                      'Close':[100.,110.], 'Adj Close':[50.,110.], 'Volume':[1000.,2000.],
+                      'Dividends':[0.,50.], 'Stock Splits':[0.,0.]},
                      index=pd.to_datetime(['2026-10-22','2026-10-23']))
-    expected=screener.yf.utils.auto_adjust(raw)
+    expected=screener.yf.utils.auto_adjust(raw).drop(columns=['Dividends', 'Stock Splits'])
     class Client:
         def history(self, **kwargs):
             assert kwargs['auto_adjust'] is False
