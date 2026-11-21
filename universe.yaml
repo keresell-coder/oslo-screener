@@ -7,6 +7,8 @@
 #   MERK = Euronext Growth Oslo
 markets:
   - XOSL
+  - XOAS
+  - MERK
 
 # Tickere som alltid skal være med, selv om de ikke ligger i markedene over.
 # (Historiske valg fra den opprinnelige listen – Growth/Expand-navn vi følger likevel.)

@@ -16,9 +16,10 @@ def reload_screener():
     return importlib.reload(screener)
 
 
-def test_load_tickers_reads_valid_list(tmp_path, monkeypatch):
+def test_load_tickers_keeps_provider_failures_in_full_universe(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    (tmp_path / "valid_tickers.txt").write_text("AAA.OL\nBBB.OL\n")
+    (tmp_path / "tickers.txt").write_text("AAA.OL\nBBB.OL\n")
+    (tmp_path / "valid_tickers.txt").write_text("AAA.OL\n")
 
     screener = reload_screener()
 
@@ -36,7 +37,7 @@ def test_load_tickers_raises_when_missing(tmp_path, monkeypatch):
 
 def test_load_tickers_raises_when_empty(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    (tmp_path / "valid_tickers.txt").write_text("\n")
+    (tmp_path / "tickers.txt").write_text("\n")
 
     screener = reload_screener()
 

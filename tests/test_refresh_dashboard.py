@@ -1,7 +1,42 @@
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
 import pytest
 import requests
+import yaml
 
 from scripts.refresh_dashboard import refresh, PUBLIC_URL
+
+
+@pytest.mark.parametrize('status', ['current', 'degraded', 'blocked'])
+def test_workflow_passes_validated_snapshot_to_dashboard(tmp_path, status):
+    """A merge must preserve the producer output through the deploy job."""
+    workflow = yaml.safe_load((Path(__file__).resolve().parents[1] /
+                               '.github/workflows/daily.yml').read_text())
+    producer = workflow['jobs']['run']
+    deploy = workflow['jobs']['deploy']
+    health_step = next(step for step in producer['steps'] if step.get('id') == 'health')
+    script = health_step['run']
+    emitter = script.split("python - <<'PYCODE'\n", 1)[1].split('\nPYCODE', 1)[0]
+    (tmp_path / 'health.json').write_text(json.dumps({'status': status, 'snapshot_id': 'verified-123'}))
+    output = tmp_path / 'github-output'
+    subprocess.run([sys.executable, '-c', emitter], cwd=tmp_path, check=True,
+                   env={**os.environ, 'GITHUB_OUTPUT': str(output)})
+    values = dict(line.split('=', 1) for line in output.read_text().splitlines())
+    assert values == {'status': status, 'snapshot_id': 'verified-123'}
+    assert script.index('prepare_publication.py --verify') < script.index("python - <<'PYCODE'")
+    assert producer['outputs']['snapshot_id'] == '${{ steps.health.outputs.snapshot_id }}'
+    assert producer['outputs']['data_status'] == '${{ steps.health.outputs.status }}'
+    assert producer['timeout-minutes'] == 90
+    assert deploy['needs'] == 'run'
+    assert deploy['if'] == "github.ref == 'refs/heads/main'"
+    refresh_step = next(step for step in deploy['steps']
+                        if 'scripts/refresh_dashboard.py' in step.get('run', ''))
+    assert refresh_step['env']['PRODUCER_SNAPSHOT_ID'] == '${{ needs.run.outputs.snapshot_id }}'
+    assert '--snapshot-id "$PRODUCER_SNAPSHOT_ID"' in refresh_step['run']
 
 
 class Response:

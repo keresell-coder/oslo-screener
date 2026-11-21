@@ -1,0 +1,51 @@
+name: Live free-data acceptance
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'yahoo_history.py'
+      - 'euronext_daily.py'
+      - 'instruments.csv'
+      - 'sync_universe.py'
+      - 'screener.py'
+      - 'tickers.txt'
+      - 'universe.yaml'
+      - '.github/workflows/daily.yml'
+      - '.github/workflows/live-data.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: free-data-acceptance-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  live-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Fetch full Oslo universe and build a reviewable report
+        env:
+          YF_PAUSE: '0.60'
+        run: |
+          python screener.py
+          python scripts/build_report.py
+          python scripts/prepare_publication.py
+          python scripts/prepare_publication.py --verify
+          python scripts/validate_snapshot.py --require-report
+      - name: Retain report and diagnostics even if coverage is blocked
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: free-data-acceptance
+          include-hidden-files: true
+          path: |
+            site
+            fetch_diagnostics.json
