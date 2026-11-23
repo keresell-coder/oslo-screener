@@ -22,18 +22,18 @@
 <main>
   <h1>Oslo Screener</h1>
   <p>Daily technical research candidates from completed Oslo market sessions.</p>
-  <!-- snapshot_id=a9ab0f72df884dfe8077c183b9b31c65 -->
+  <!-- snapshot_id=3336e5b58fe849b5bd95c7dcf58ec184 -->
   <section id="health-panel" class="status" data-status="unavailable" aria-live="polite">
     <strong id="health-status">Not verified</strong>
     <p id="health-reason">Checking the published source health. Do not treat this snapshot as current until verification succeeds.</p>
   </section>
   <dl>
-    <dt>Latest usable market observation</dt><dd id="observation">2026-11-20</dd>
-    <dt>Expected completed session at generation</dt><dd id="expected-session">2026-11-20</dd>
-    <dt>Snapshot generated</dt><dd>2026-11-20T22:40:41Z</dd>
-    <dt>Coverage at publication</dt><dd id="coverage">194 / 198 current · 3 stale · 0 missing · 1 invalid</dd>
-    <dt>Validity deadline</dt><dd id="valid-until">2026-11-23T16:45:00+01:00</dd>
-    <dt>Snapshot ID</dt><dd>a9ab0f72df884dfe8077c183b9b31c65</dd>
+    <dt>Latest usable market observation</dt><dd id="observation">2026-11-23</dd>
+    <dt>Expected completed session at generation</dt><dd id="expected-session">2026-11-23</dd>
+    <dt>Snapshot generated</dt><dd>2026-11-23T17:58:39Z</dd>
+    <dt>Coverage at publication</dt><dd id="coverage">195 / 198 current · 2 stale · 0 missing · 1 invalid</dd>
+    <dt>Validity deadline</dt><dd id="valid-until">2026-11-24T16:45:00+01:00</dd>
+    <dt>Snapshot ID</dt><dd>3336e5b58fe849b5bd95c7dcf58ec184</dd>
   </dl>
   
   <p class="status" id="coverage-policy">The overall percentage requirement is temporarily suspended. Only stocks passing the individual data checks can produce signals.</p>
@@ -44,7 +44,7 @@
     <li><a href="health.json">Inspect observation dates, excluded rows and file checksums</a></li>
   </ul>
   <section aria-labelledby="excluded-heading">
-    <h2 id="excluded-heading">Stocks without required data (4)</h2>
+    <h2 id="excluded-heading">Stocks without required data (3)</h2>
     <p>These stocks are excluded from signal lists. Missing data does not establish delisting.</p>
     
     <div class="table-scroll"><table>
@@ -52,11 +52,9 @@
       <tbody>
       <tr><td>CADLR.OL</td><td>stale</td><td>2026-11-05</td><td>missing_expected_completed_session</td></tr>
       
-      <tr><td>GYL.OL</td><td>stale</td><td>2026-11-19</td><td>missing_expected_completed_session</td></tr>
+      <tr><td>OUTLT.OL</td><td>invalid</td><td>2026-11-23</td><td>insufficient_indicator_warmup</td></tr>
       
-      <tr><td>INIFY.OL</td><td>stale</td><td>2026-11-19</td><td>missing_expected_completed_session</td></tr>
-      
-      <tr><td>OUTLT.OL</td><td>invalid</td><td>2026-11-20</td><td>insufficient_indicator_warmup</td></tr>
+      <tr><td>PYRUM.OL</td><td>stale</td><td>2026-11-20</td><td>missing_expected_completed_session</td></tr>
       </tbody>
     </table></div>
     
@@ -67,7 +65,7 @@
 <script>
 (() => {
   "use strict";
-  const snapshotId = "a9ab0f72df884dfe8077c183b9b31c65";
+  const snapshotId = "3336e5b58fe849b5bd95c7dcf58ec184";
   const schema = "oslo_screener.health.v1";
   const byId = (id) => document.getElementById(id);
   const labels = {current: "Source checks passed", degraded: "Limited coverage", blocked: "Checks blocked", unavailable: "Not verified"};
